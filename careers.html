@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Careers — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* Careers page */
+/* Benefits grid — dark bg */
+.benefits-dark {
+  background: var(--ink-900);
+  padding: 96px 24px;
+}
+.benefits-dark-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.benefits-dark h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--paper);
+  margin: 12px 0 48px;
+  line-height: 1.1;
+}
+.benefit-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+@media (max-width: 600px) {
+  .benefit-tiles { grid-template-columns: 1fr; }
+}
+.benefit-tile {
+  background: rgba(250,246,237,.04);
+  border: 1px solid rgba(184,147,59,.12);
+  padding: 40px 36px;
+  transition: background 0.2s;
+}
+.benefit-tile:hover {
+  background: rgba(184,147,59,.07);
+}
+.benefit-tile-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--gold-500);
+  margin-bottom: 20px;
+}
+.benefit-tile h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--paper);
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+.benefit-tile p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(250,246,237,0.55);
+  margin: 0;
+}
+/* Open positions */
+.positions-section {
+  padding: 96px 24px;
+  background: var(--paper);
+}
+.positions-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.positions-inner h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--ink-900);
+  margin: 12px 0 48px;
+  line-height: 1.1;
+}
+.job-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(21,18,13,.08);
+}
+.job-row:first-of-type {
+  border-top: 1px solid rgba(21,18,13,.08);
+}
+@media (max-width: 640px) {
+  .job-row { grid-template-columns: 1fr; gap: 16px; }
+}
+.job-left {}
+.job-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+.job-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.job-chip {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+  background: var(--paper-2);
+  color: var(--ink-900);
+}
+.job-chip.type {
+  background: rgba(184,147,59,.1);
+  color: var(--gold-700);
+}
+.job-req {
+  font-size: 14px;
+  color: var(--ink-700, #3a3428);
+  line-height: 1.6;
+  margin: 0;
+}
+.job-apply-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  border: 1px solid rgba(184,147,59,.3);
+  padding: 12px 20px;
+  border-radius: 2px;
+  transition: background 0.15s, color 0.15s;
+}
+.job-apply-btn:hover {
+  background: var(--gold-500);
+  color: var(--paper);
+  border-color: var(--gold-500);
+}
+/* Culture section */
+.culture-section {
+  background: var(--paper-2);
+  padding: 96px 24px;
+}
+.culture-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .culture-inner { grid-template-columns: 1fr; gap: 36px; }
+}
+.culture-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+}
+.culture-copy h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 400;
+  color: var(--ink-900);
+  margin: 12px 0 20px;
+  line-height: 1.15;
+}
+.culture-copy p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-700, #3a3428);
+  margin-bottom: 16px;
+}
+/* Benefits list */
+.perks-section {
+  background: var(--paper);
+  padding: 96px 24px;
+}
+.perks-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.perks-inner h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 400;
+  color: var(--ink-900);
+  margin: 12px 0 48px;
+  line-height: 1.1;
+}
+.perks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 768px) {
+  .perks-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .perks-grid { grid-template-columns: 1fr; }
+}
+.perk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.perk-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--gold-500);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.perk-text h4 {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: 0 0 4px;
+}
+.perk-text p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-700, #3a3428);
+  margin: 0;
+}
+/* Application process */
+.process-section {
+  background: var(--ink-900);
+  padding: 96px 24px;
+}
+.process-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.process-inner h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 400;
+  color: var(--paper);
+  margin: 12px 0 56px;
+  line-height: 1.1;
+}
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  position: relative;
+}
+@media (max-width: 640px) {
+  .process-steps { grid-template-columns: 1fr; gap: 28px; }
+}
+.process-step-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--gold-500);
+  margin-bottom: 14px;
+  display: block;
+}
+.process-step h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--paper);
+  margin: 0 0 10px;
+}
+.process-step p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(250,246,237,0.55);
+  margin: 0;
+}
+</style>
+</head>
+<body>
+<script src="site.js"></script>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow">Join the team</p>
+    <h1>Build your career<br>somewhere that <em>notices</em>.</h1>
+    <p class="sec-intro" style="max-width: 560px; margin-top: 20px;">Rejuvalase is a small team with high standards. We invest in our people the way we invest in our patients — with patience, honesty, and a long view. No quotas, funded CE, and a culture where doing the right thing is the default.</p>
+  </div>
+</section>
+
+<!-- Why Rejuvalase — 2x2 benefit tiles (dark) -->
+<section class="benefits-dark">
+  <div class="benefits-dark-inner">
+    <p class="eyebrow" style="color: var(--gold-500);">Why join us</p>
+    <h2>What makes us<br>different to work for.</h2>
+    <div class="benefit-tiles">
+
+      <div class="benefit-tile">
+        <svg class="benefit-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <use href="#i-award"/>
+        </svg>
+        <h3>Competitive pay + tips</h3>
+        <p>Our providers are compensated above market rate, with a transparent tip structure that meaningfully increases take-home. We believe the best practitioners deserve to be paid like it.</p>
+      </div>
+
+      <div class="benefit-tile">
+        <svg class="benefit-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <use href="#i-book"/>
+        </svg>
+        <h3>Continuing education — paid</h3>
+        <p>All continuing education credits, certification renewals, and approved training programs are funded by Rejuvalase. We send our providers to Allergan training, national conferences, and advanced technique workshops.</p>
+      </div>
+
+      <div class="benefit-tile">
+        <svg class="benefit-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <use href="#i-shield"/>
+        </svg>
+        <h3>No quota pressure</h3>
+        <p>We don't track product placed, services sold, or upsell rates. Our providers do what's right for the patient, period. This is non-negotiable and it won't change.</p>
+      </div>
+
+      <div class="benefit-tile">
+        <svg class="benefit-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <use href="#i-calendar"/>
+        </svg>
+        <h3>Flexible scheduling</h3>
+        <p>We work with your life, not the other way around. Part-time, full-time, and modified schedules are available for most roles. We're a small team — we figure things out together.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Open Positions -->
+<section class="positions-section">
+  <div class="positions-inner">
+    <p class="eyebrow">Now hiring</p>
+    <h2>Open positions.</h2>
+
+    <div class="job-row">
+      <div class="job-left">
+        <h3 class="job-title">Licensed RN &middot; Injector Track</h3>
+        <div class="job-meta">
+          <span class="job-chip type">Part-time</span>
+          <span class="job-chip">Stafford, VA</span>
+          <span class="job-chip">Medical</span>
+        </div>
+        <p class="job-req">Allergan training provided for qualified candidates. Minimum 3 years clinical nursing experience required. Experience in aesthetics a plus but not required — we train the right people.</p>
+      </div>
+      <a href="career.html" class="job-apply-btn">
+        Apply
+        <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+    </div>
+
+    <div class="job-row">
+      <div class="job-left">
+        <h3 class="job-title">Lead Esthetician &middot; LE</h3>
+        <div class="job-meta">
+          <span class="job-chip type">Full-time</span>
+          <span class="job-chip">Stafford, VA</span>
+          <span class="job-chip">Aesthetics</span>
+        </div>
+        <p class="job-req">HydraFacial and Dermalogica experience strongly preferred. Virginia LE license required. Experience with BBL or laser a significant advantage. Leadership track available.</p>
+      </div>
+      <a href="career.html" class="job-apply-btn">
+        Apply
+        <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+    </div>
+
+    <div class="job-row">
+      <div class="job-left">
+        <h3 class="job-title">Patient Coordinator</h3>
+        <div class="job-meta">
+          <span class="job-chip type">Full-time</span>
+          <span class="job-chip">Stafford, VA</span>
+          <span class="job-chip">Front Office</span>
+        </div>
+        <p class="job-req">Responsible for scheduling, client communication, intake coordination, and front-desk operations. Medspa or medical office experience preferred. Exceptional warmth and organizational skills required.</p>
+      </div>
+      <a href="career.html" class="job-apply-btn">
+        Apply
+        <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+    </div>
+
+    <div class="job-row">
+      <div class="job-left">
+        <h3 class="job-title">Licensed Massage Therapist &middot; LMT</h3>
+        <div class="job-meta">
+          <span class="job-chip type">Part-time</span>
+          <span class="job-chip">Stafford, VA</span>
+          <span class="job-chip">Wellness</span>
+        </div>
+        <p class="job-req">Swedish and deep tissue required. Prenatal massage certification a significant plus. Virginia LMT license required. Flexible availability considered — weekends welcome.</p>
+      </div>
+      <a href="career.html" class="job-apply-btn">
+        Apply
+        <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Culture section — photo + copy -->
+<section class="culture-section">
+  <div class="culture-inner">
+    <img
+      src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=900&q=80&auto=format&fit=crop"
+      alt="Rejuvalase team in clinical environment"
+      class="culture-img"
+      loading="lazy"
+      width="480" height="360"
+    />
+    <div class="culture-copy">
+      <p class="eyebrow">Our culture</p>
+      <h2>Small team.<br>High standards.<br>Real support.</h2>
+      <p>We're not a franchise. We're not a volume-driven production floor. We're a small, intentional practice that believes the quality of care we give our patients is a direct reflection of how well we take care of our team.</p>
+      <p>At Rejuvalase, providers are trusted professionals, not managed metrics. Your clinical judgment matters. Your schedule matters. Your growth matters. We make decisions together, support each other openly, and hold ourselves to standards that don't bend to convenience.</p>
+      <p>If you're looking for a place where you can do your best work, be seen for doing it, and build something you're proud of — we'd like to meet you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Benefits list — 3 col -->
+<section class="perks-section">
+  <div class="perks-inner">
+    <p class="eyebrow">What's included</p>
+    <h2>What we offer.</h2>
+    <div class="perks-grid">
+
+      <div class="perk-item">
+        <svg class="perk-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <use href="#i-check"/>
+        </svg>
+        <div class="perk-text">
+          <h4>Health insurance</h4>
+          <p>Employer-contributed health coverage for eligible full-time team members.</p>
+        </div>
+      </div>
+
+      <div class="perk-item">
+        <svg class="perk-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <use href="#i-check"/>
+        </svg>
+        <div class="perk-text">
+          <h4>Paid time off</h4>
+          <p>Accrued PTO for all eligible team members, with flexibility around scheduling needs.</p>
+        </div>
+      </div>
+
+      <div class="perk-item">
+        <svg class="perk-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <use href="#i-check"/>
+        </svg>
+        <div class="perk-text">
+          <h4>CE budget</h4>
+          <p>Annual continuing education budget for courses, conferences, and certifications.</p>
+        </div>
+      </div>
+
+      <div class="perk-item">
+        <svg class="perk-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <use href="#i-check"/>
+        </svg>
+        <div class="perk-text">
+          <h4>Product allowance</h4>
+          <p>Complimentary and discounted treatments and skincare products for team members.</p>
+        </div>
+      </div>
+
+      <div class="perk-item">
+        <svg class="perk-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <use href="#i-check"/>
+        </svg>
+        <div class="perk-text">
+          <h4>Schedule flexibility</h4>
+          <p>We build schedules around your life, not the other way around. Part-time welcome.</p>
+        </div>
+      </div>
+
+      <div class="perk-item">
+        <svg class="perk-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+          <use href="#i-check"/>
+        </svg>
+        <div class="perk-text">
+          <h4>Team events</h4>
+          <p>Regular team dinners, quarterly learning days, and a culture that genuinely likes spending time together.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Application process -->
+<section class="process-section">
+  <div class="process-inner">
+    <p class="eyebrow" style="color: var(--gold-500);">Simple process</p>
+    <h2>How it works.</h2>
+    <div class="process-steps">
+
+      <div class="process-step">
+        <span class="process-step-num">01</span>
+        <h3>Apply online</h3>
+        <p>Submit your application, resume, and a brief note about why Rejuvalase feels like the right fit. We read every application personally.</p>
+      </div>
+
+      <div class="process-step">
+        <span class="process-step-num">02</span>
+        <h3>Phone screen</h3>
+        <p>A 20–30 minute call with our practice manager to talk through your background, answer your questions, and see if we're a mutual fit.</p>
+      </div>
+
+      <div class="process-step">
+        <span class="process-step-num">03</span>
+        <h3>In-person meet</h3>
+        <p>Come see the space, meet the team, and have a real conversation. No formal interview theater — just an honest, unhurried conversation about working together.</p>
+      </div>
+
+    </div>
+
+    <div style="margin-top: 56px; padding-top: 48px; border-top: 1px solid rgba(184,147,59,.15); text-align: center;">
+      <p style="font-family: var(--serif); font-size: 22px; color: var(--paper); margin-bottom: 28px; line-height: 1.4;">Ready to find out if we're the right fit?</p>
+      <a href="career.html" class="btn primary">
+        See open positions
+        <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

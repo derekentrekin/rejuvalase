@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Legal &amp; Policies — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* Legal page styles */
+.legal-hero {
+  background: var(--ink-900);
+  padding: 96px 24px 72px;
+  text-align: center;
+}
+.legal-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(44px, 6vw, 72px);
+  font-weight: 400;
+  color: var(--paper);
+  margin: 12px 0 16px;
+  line-height: 1.05;
+}
+.legal-hero h1 em {
+  font-style: italic;
+  color: var(--gold-500);
+}
+.legal-hero p {
+  font-size: 15px;
+  color: rgba(250,246,237,0.55);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+/* Tab nav */
+.legal-tab-nav {
+  background: var(--paper-2);
+  border-bottom: 1px solid rgba(184,147,59,.18);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.legal-tab-nav-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  gap: 0;
+}
+.legal-tab-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  text-decoration: none;
+  padding: 16px 24px 14px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  display: block;
+  opacity: 0.55;
+}
+.legal-tab-link:hover {
+  color: var(--gold-700);
+  opacity: 1;
+  border-bottom-color: var(--gold-500);
+}
+/* Sections */
+.legal-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+.legal-section + .legal-section {
+  border-top: 1px solid rgba(184,147,59,.15);
+}
+.legal-h2 {
+  font-family: var(--serif);
+  font-size: 36px;
+  margin: 60px 0 20px;
+  color: var(--ink-900);
+  font-weight: 400;
+  line-height: 1.2;
+}
+.legal-h2:first-child {
+  margin-top: 0;
+}
+.legal-h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-700);
+  margin: 36px 0 12px;
+}
+.legal-h3:first-child {
+  margin-top: 0;
+}
+.legal-p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-700, #3a3428);
+  margin-bottom: 16px;
+}
+.legal-p:last-child {
+  margin-bottom: 0;
+}
+.legal-p a {
+  color: var(--gold-700);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal-ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+.legal-ul li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-700, #3a3428);
+  margin-bottom: 6px;
+}
+.legal-updated {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--gold-700);
+  opacity: 0.7;
+  margin-bottom: 40px;
+  display: block;
+}
+.hipaa-notice {
+  background: rgba(184,147,59,.07);
+  border: 1px solid rgba(184,147,59,.22);
+  border-radius: 3px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.hipaa-notice p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-700, #3a3428);
+  margin: 0;
+}
+.hipaa-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-700);
+  display: block;
+  margin-bottom: 8px;
+}
+/* Accessibility alternate bg */
+#accessibility {
+  background: var(--paper-2);
+}
+@media (max-width: 600px) {
+  .legal-section { padding: 48px 20px; }
+  .legal-tab-nav-inner { padding: 0 12px; gap: 0; }
+  .legal-tab-link { padding: 14px 12px 12px; font-size: 10px; }
+}
+</style>
+</head>
+<body>
+<script src="site.js"></script>
+
+<!-- Minimal Dark Hero -->
+<section class="legal-hero">
+  <p class="eyebrow" style="color: var(--gold-500);">Last updated May 1, 2026</p>
+  <h1>Legal &amp;<br><em>Policies</em>.</h1>
+  <p>Transparent policies, plain language. We've done our best to write these like human beings rather than attorneys — though our attorney reviewed them too.</p>
+</section>
+
+<!-- Tab navigation (sticky) -->
+<nav class="legal-tab-nav" aria-label="Legal sections">
+  <div class="legal-tab-nav-inner">
+    <a href="#privacy" class="legal-tab-link">Privacy Policy</a>
+    <a href="#terms" class="legal-tab-link">Terms of Service</a>
+    <a href="#accessibility" class="legal-tab-link">Accessibility</a>
+  </div>
+</nav>
+
+<!-- PRIVACY POLICY -->
+<section id="privacy">
+  <div class="legal-section">
+    <span class="legal-updated">Effective: May 1, 2026</span>
+    <h2 class="legal-h2">Privacy Policy</h2>
+    <p class="legal-p">Rejuvalase LLC ("Rejuvalase," "we," "us," or "our") is committed to protecting your personal information. This Privacy Policy describes how we collect, use, and protect information you share with us when you visit our website, contact us, or receive services at our practice located at 123 Garrisonville Rd, Suite 204, Stafford, Virginia 22554.</p>
+
+    <h3 class="legal-h3">What we collect</h3>
+    <p class="legal-p">When you interact with Rejuvalase — by booking an appointment, completing a consultation intake form, purchasing products, subscribing to our newsletter, or contacting us — we may collect:</p>
+    <ul class="legal-ul">
+      <li>Contact information: name, email address, phone number, mailing address</li>
+      <li>Health and medical information necessary to provide aesthetic services (intake forms, treatment history, allergy information)</li>
+      <li>Payment information, processed securely through our third-party payment processor; we do not store credit card numbers</li>
+      <li>Communications you send to us, including emails, text messages, and contact form submissions</li>
+      <li>Website usage data collected automatically, including browser type, device type, pages visited, and referring URLs</li>
+    </ul>
+
+    <h3 class="legal-h3">How we use your information</h3>
+    <p class="legal-p">We use the information we collect to:</p>
+    <ul class="legal-ul">
+      <li>Schedule, confirm, and conduct appointments and treatments</li>
+      <li>Maintain accurate clinical records and ensure your safety during services</li>
+      <li>Process payments and send receipts</li>
+      <li>Send appointment reminders and follow-up communications</li>
+      <li>Provide our newsletter and promotional updates, if you have opted in</li>
+      <li>Improve our website and understand how visitors use it</li>
+      <li>Comply with applicable laws and regulations</li>
+    </ul>
+    <p class="legal-p">We do not sell your personal information to third parties. We do not use your health information for advertising without your explicit consent.</p>
+
+    <h3 class="legal-h3">HIPAA notice</h3>
+    <div class="hipaa-notice">
+      <span class="hipaa-label">Notice of Privacy Practices</span>
+      <p>As a medical practice, Rejuvalase is subject to the Health Insurance Portability and Accountability Act (HIPAA). Your protected health information (PHI) — including medical history, treatment records, and related communications — is handled in accordance with HIPAA's Privacy Rule. You have the right to access, amend, and request an accounting of disclosures of your PHI. To exercise these rights or to receive a full copy of our HIPAA Notice of Privacy Practices, contact us at <a href="mailto:privacy@rejuvalase.com">privacy@rejuvalase.com</a> or at our office address above.</p>
+    </div>
+
+    <h3 class="legal-h3">Cookies and tracking</h3>
+    <p class="legal-p">Our website uses cookies — small text files stored on your browser — to remember your preferences, analyze traffic patterns, and improve site functionality. We use Google Analytics (anonymized) to understand aggregate traffic patterns. We do not use cookies to build individual advertising profiles.</p>
+    <p class="legal-p">You may disable cookies through your browser settings. Some site functionality may be reduced if cookies are disabled. We honor "Do Not Track" signals where technically feasible.</p>
+
+    <h3 class="legal-h3">Third parties</h3>
+    <p class="legal-p">We work with a limited number of service providers who may have access to certain personal information in order to help us operate our practice. These include our booking platform (Jane App), email marketing service (Klaviyo), payment processor (Square), and website analytics (Google Analytics). Each is bound by confidentiality obligations and is prohibited from using your information for their own independent marketing purposes.</p>
+    <p class="legal-p">We do not share your health information with any third party for marketing purposes without your explicit written consent.</p>
+
+    <h3 class="legal-h3">Contact us about privacy</h3>
+    <p class="legal-p">If you have questions about this Privacy Policy, wish to access or correct your personal information, or would like to opt out of marketing communications, contact us at:</p>
+    <p class="legal-p">
+      Rejuvalase LLC<br>
+      123 Garrisonville Rd, Suite 204<br>
+      Stafford, VA 22554<br>
+      <a href="mailto:privacy@rejuvalase.com">privacy@rejuvalase.com</a><br>
+      (540) 555-0182
+    </p>
+  </div>
+</section>
+
+<!-- TERMS OF SERVICE -->
+<section id="terms" style="background: var(--paper);">
+  <div class="legal-section">
+    <span class="legal-updated">Effective: May 1, 2026</span>
+    <h2 class="legal-h2">Terms of Service</h2>
+    <p class="legal-p">By using the Rejuvalase website at rejuvalase.com, booking an appointment, or receiving services at our practice, you agree to these Terms of Service. Please read them carefully. If you do not agree, please do not use our services.</p>
+
+    <h3 class="legal-h3">Medical disclaimer</h3>
+    <p class="legal-p">The content on this website — including blog posts, educational articles, treatment descriptions, and service information — is provided for informational and educational purposes only. It does not constitute medical advice, diagnosis, or a recommendation of any specific treatment.</p>
+    <p class="legal-p">Results from aesthetic treatments vary significantly by individual. Before any treatment, you will receive a consultation with a licensed provider who will assess your specific situation, review your medical history, and discuss expected outcomes, risks, and alternatives. No guarantee of results is expressed or implied.</p>
+    <p class="legal-p">If you are experiencing a medical emergency, call 911 or go to the nearest emergency room. Our practice is not equipped for emergency medical care.</p>
+
+    <h3 class="legal-h3">Services</h3>
+    <p class="legal-p">All services at Rejuvalase are performed by or under the supervision of licensed professionals. Injectable treatments are performed by registered nurses or nurse practitioners. Laser and skin treatments are performed by licensed estheticians. Massage therapy is performed by licensed massage therapists.</p>
+    <p class="legal-p">Prices are subject to change without notice. Services are rendered on a cash-pay basis; we do not bill insurance. Payment is due at the time of service. We reserve the right to decline service to any individual for safety, clinical, or behavioral reasons.</p>
+    <p class="legal-p">Promotional pricing, discounts, and gift certificates cannot be combined with other offers unless explicitly stated. Gift certificates are non-refundable and do not expire.</p>
+
+    <h3 class="legal-h3">Cancellation &amp; no-show policy</h3>
+    <p class="legal-p">We require 24 hours' notice for cancellations or reschedules. Late cancellations (less than 24 hours' notice) and no-shows may be subject to a $50 fee, which will be charged to the card on file. This fee may be applied as a credit toward a future appointment if rescheduled within 30 days.</p>
+    <p class="legal-p">Patients who no-show without notice twice within a 12-month period may be required to prepay for future appointments. We understand that emergencies happen; please communicate with us and we will work with you in good faith.</p>
+
+    <h3 class="legal-h3">Limitation of liability</h3>
+    <p class="legal-p">To the fullest extent permitted by applicable law, Rejuvalase LLC, its owners, providers, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our website or services. Our total liability for any claim arising out of services rendered shall not exceed the amount you paid for the specific service giving rise to the claim.</p>
+    <p class="legal-p">Nothing in these Terms limits our liability for gross negligence, intentional misconduct, or any liability that cannot be excluded under Virginia law.</p>
+
+    <h3 class="legal-h3">Governing law</h3>
+    <p class="legal-p">These Terms of Service are governed by the laws of the Commonwealth of Virginia, without regard to its conflict-of-law provisions. Any dispute arising under these Terms shall be resolved in the state or federal courts located in Stafford County, Virginia, and you consent to the personal jurisdiction of those courts.</p>
+    <p class="legal-p">If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect. These Terms represent the entire agreement between you and Rejuvalase regarding the subject matter herein, superseding all prior agreements and understandings.</p>
+  </div>
+</section>
+
+<!-- ACCESSIBILITY -->
+<section id="accessibility">
+  <div class="legal-section">
+    <span class="legal-updated">Statement date: May 1, 2026</span>
+    <h2 class="legal-h2">Accessibility</h2>
+    <p class="legal-p">Rejuvalase is committed to ensuring that our website and physical location are accessible to everyone, including people with disabilities. We believe accessible healthcare and wellness services are not optional — they are a matter of dignity and inclusion.</p>
+
+    <h3 class="legal-h3">Our commitment</h3>
+    <p class="legal-p">We are actively working to make rejuvalase.com conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA. These guidelines describe how to make web content more accessible to people with disabilities, including those with visual, auditory, cognitive, and motor impairments.</p>
+    <p class="legal-p">Our ongoing accessibility efforts include:</p>
+    <ul class="legal-ul">
+      <li>Providing text alternatives for non-text content (images, icons, graphics)</li>
+      <li>Ensuring sufficient color contrast throughout the site</li>
+      <li>Supporting keyboard navigation and screen reader compatibility</li>
+      <li>Writing clear, descriptive link text and form labels</li>
+      <li>Avoiding content that flashes at rates known to trigger photosensitive conditions</li>
+      <li>Providing captions for video content where applicable</li>
+    </ul>
+
+    <h3 class="legal-h3">Physical accessibility</h3>
+    <p class="legal-p">Our Stafford office is located on the second floor of 123 Garrisonville Rd and is accessible by elevator. Accessible parking spaces are available in front of the building. If you have any access needs — mobility, hearing, vision, or otherwise — please let us know when booking and we will make every accommodation possible.</p>
+
+    <h3 class="legal-h3">Limitations and feedback</h3>
+    <p class="legal-p">Despite our efforts, some content on this site may not yet fully conform to WCAG 2.1 AA. We are continuously working to improve and welcome your feedback. If you encounter an accessibility barrier on our website or during a visit to our office, please contact us:</p>
+    <p class="legal-p">
+      <strong>Email:</strong> <a href="mailto:access@rejuvalase.com">access@rejuvalase.com</a><br>
+      <strong>Phone:</strong> <a href="tel:+15405550182">(540) 555-0182</a><br>
+      <strong>Mail:</strong> 123 Garrisonville Rd, Suite 204, Stafford, VA 22554
+    </p>
+    <p class="legal-p">We aim to respond to accessibility inquiries within 2 business days and to resolve issues as promptly as possible. If you are not satisfied with our response, you may contact the U.S. Department of Justice ADA Information Line at 1-800-514-0301.</p>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Medspa Services — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── Full-width photo ── */
+.full-photo {
+  height: 480px;
+  overflow: hidden;
+  position: relative;
+}
+.full-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.full-photo .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(21,18,13,0.55) 0%, rgba(21,18,13,0.1) 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem;
+}
+.full-photo .overlay-text {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--paper);
+  max-width: 36ch;
+  line-height: 1.5;
+}
+
+/* ── Service categories dark ── */
+.categories-dark {
+  background: var(--ink-900);
+  padding: 5rem 0;
+}
+.categories-dark .eyebrow { color: var(--gold-300); }
+.categories-dark h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--paper);
+  margin: 0.5rem 0 3rem;
+}
+.cat-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background: rgba(250,246,237,0.08);
+}
+@media (max-width: 680px) { .cat-blocks { grid-template-columns: 1fr; } }
+.cat-block {
+  background: var(--ink-900);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: background 0.25s;
+}
+.cat-block:hover { background: #1e1a14; }
+.cat-num {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--gold-500);
+  text-transform: uppercase;
+}
+.cat-block h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--paper);
+  margin: 0;
+}
+.cat-block p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: rgba(250,246,237,0.6);
+  line-height: 1.65;
+  margin: 0 0 0.75rem;
+}
+.cat-block a {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold-300);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap 0.2s;
+  margin-top: auto;
+}
+.cat-block a:hover { gap: 0.6rem; }
+.cat-block a svg { width: 0.85rem; height: 0.85rem; fill: var(--gold-300); }
+
+/* ── Why different ── */
+.why-diff {
+  background: var(--paper-2);
+  padding: 5rem 0;
+}
+.why-diff h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--ink-900);
+  margin: 0.5rem 0 3rem;
+}
+.benefits-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 760px) { .benefits-3col { grid-template-columns: 1fr; gap: 1.5rem; } }
+.diff-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.diff-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--ink-900);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.diff-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: var(--gold-300);
+}
+.diff-card h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: 0;
+}
+.diff-card p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: #5a5040;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Process steps ── */
+.process-section {
+  background: var(--paper);
+  padding: 5rem 0;
+}
+.process-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--ink-900);
+  margin: 0.5rem 0 3rem;
+}
+.process-body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+@media (max-width: 780px) { .process-body { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+@media (max-width: 480px) { .process-body { grid-template-columns: 1fr; } }
+.step {
+  padding: 2rem 2rem 2rem 0;
+  position: relative;
+}
+.step::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--paper-2);
+  margin-bottom: 1.5rem;
+}
+.step-num {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  margin-bottom: 0.5rem;
+}
+.step h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: 0 0 0.5rem;
+}
+.step p {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: #5a5040;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Credentials ── */
+.creds-section {
+  background: var(--ink-900);
+  padding: 4rem 0;
+}
+.creds-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+  justify-content: center;
+  align-items: center;
+}
+.cred-item {
+  text-align: center;
+  padding: 0 1rem;
+}
+.cred-number {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: var(--gold-300);
+  line-height: 1;
+  display: block;
+}
+.cred-label {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(250,246,237,0.55);
+  letter-spacing: 0.04em;
+  margin-top: 0.35rem;
+  display: block;
+}
+.creds-divider {
+  width: 1px;
+  height: 3rem;
+  background: rgba(250,246,237,0.12);
+}
+@media (max-width: 600px) { .creds-divider { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- Page hero -->
+<section class="page-hero bg" style="background-image:url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1200&q=80&auto=format&fit=crop');">
+  <div class="inner">
+    <p class="eyebrow">Medspa &middot; Stafford, VA</p>
+    <h1>Medical<br>meets <em>gentle</em>.</h1>
+    <p class="lede">Rejuvalase brings physician-led precision to every treatment — without sacrificing the comfort, calm, and care you deserve. Our medspa services are grounded in evidence, guided by experience, and delivered with a personal touch.</p>
+    <div class="btn-row" style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
+      <a href="contact.html" class="btn primary">Book Free Consult</a>
+      <a href="services.html" class="btn ghost">View All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- Full-width photo -->
+<div class="full-photo">
+  <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1400&q=80&auto=format&fit=crop" alt="Rejuvalase medspa interior, Stafford VA"/>
+  <div class="overlay">
+    <p class="overlay-text">"Clinical expertise shouldn't come with clinical coldness."</p>
+  </div>
+</div>
+
+<!-- Service categories dark -->
+<section class="categories-dark">
+  <div class="cap">
+    <p class="eyebrow">What we offer</p>
+    <h2>Four ways to transform.</h2>
+
+    <div class="cat-blocks">
+
+      <div class="cat-block">
+        <span class="cat-num">01</span>
+        <h3>Injectables</h3>
+        <p>Botox, Dysport, Juvederm, and PRP — neuromodulators and fillers dosed with precision to smooth lines, restore volume, and refresh your appearance without freezing your expression.</p>
+        <a href="service.html">Explore Injectables <svg><use href="#i-arrow-right"/></svg></a>
+      </div>
+
+      <div class="cat-block">
+        <span class="cat-num">02</span>
+        <h3>Laser &amp; Light</h3>
+        <p>BroadBand Light photofacials, IPL, and fractional laser resurfacing that target sun damage, redness, fine lines, and uneven tone — harnessing controlled energy to trigger your skin's natural renewal.</p>
+        <a href="service.html">Explore Laser &amp; Light <svg><use href="#i-arrow-right"/></svg></a>
+      </div>
+
+      <div class="cat-block">
+        <span class="cat-num">03</span>
+        <h3>Skin Rejuvenation</h3>
+        <p>Medical microneedling, chemical peels, and advanced exfoliation treatments that stimulate collagen and resurface at the cellular level — for smoother texture, brighter tone, and visible radiance.</p>
+        <a href="service.html">Explore Skin Rejuvenation <svg><use href="#i-arrow-right"/></svg></a>
+      </div>
+
+      <div class="cat-block">
+        <span class="cat-num">04</span>
+        <h3>Body &amp; Wellness</h3>
+        <p>IV nutrient infusions, vitamin injections, and medical-grade wellness protocols designed to support energy, immunity, hydration, and recovery from the inside out.</p>
+        <a href="service.html">Explore Body &amp; Wellness <svg><use href="#i-arrow-right"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Why different -->
+<section class="why-diff">
+  <div class="cap">
+    <p class="eyebrow">The Rejuvalase difference</p>
+    <h2>Why we're not like the others.</h2>
+    <div class="benefits-3col">
+
+      <div class="diff-card">
+        <div class="diff-icon">
+          <svg><use href="#i-shield"/></svg>
+        </div>
+        <h3>Board-Certified Injectors</h3>
+        <p>Every injectable treatment is performed by or directly under the supervision of our board-certified physician. We never delegate to aestheticians or unsupervised nurses for procedures requiring medical judgment.</p>
+      </div>
+
+      <div class="diff-card">
+        <div class="diff-icon">
+          <svg><use href="#i-scan"/></svg>
+        </div>
+        <h3>Medical-Grade Devices Only</h3>
+        <p>Our laser and light systems are FDA-cleared, clinical-grade equipment — the same used in academic medical centers. We don't cut corners with consumer-grade substitutes marketed as "professional."</p>
+      </div>
+
+      <div class="diff-card">
+        <div class="diff-icon">
+          <svg><use href="#i-leaf"/></svg>
+        </div>
+        <h3>Always Physician-Supervised</h3>
+        <p>From consultation through follow-up, a physician is present and accountable. When unexpected questions arise — and they do — you won't be waiting for a call back from someone who was never in the room.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Process steps -->
+<section class="process-section">
+  <div class="cap">
+    <p class="eyebrow">How it works</p>
+    <h2>Your path to results.</h2>
+    <div class="process-body">
+
+      <div class="step">
+        <div class="step-num">Step 01</div>
+        <h3>Consult</h3>
+        <p>Every medspa journey begins with a complimentary consultation. We review your medical history, assess your skin, discuss your goals, and answer every question — with no obligation to proceed.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">Step 02</div>
+        <h3>Plan</h3>
+        <p>We build a personalized treatment plan — whether that's a single session or a phased approach. Pricing is transparent, sequencing is intentional, and your timeline shapes the strategy.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">Step 03</div>
+        <h3>Treatment</h3>
+        <p>Treatments are performed in a private, clinical-grade suite. Our pace is unhurried. We check in frequently and adjust technique in real time based on your feedback and skin response.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">Step 04</div>
+        <h3>Follow-Up</h3>
+        <p>We schedule a complimentary follow-up for all injectable and laser clients. We review your results together, refine if needed, and plan your next step — because great outcomes are maintained, not just achieved.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Credentials -->
+<section class="creds-section">
+  <div class="cap">
+    <div class="creds-grid">
+
+      <div class="cred-item">
+        <span class="cred-number">2</span>
+        <span class="cred-label">Board-Certified MDs on staff</span>
+      </div>
+
+      <div class="creds-divider"></div>
+
+      <div class="cred-item">
+        <span class="cred-number">240+</span>
+        <span class="cred-label">Hours of injector education &amp; training</span>
+      </div>
+
+      <div class="creds-divider"></div>
+
+      <div class="cred-item">
+        <span class="cred-number">12 yr</span>
+        <span class="cred-label">Average clinical experience per provider</span>
+      </div>
+
+      <div class="creds-divider"></div>
+
+      <div class="cred-item">
+        <span class="cred-number">4.9&#9733;</span>
+        <span class="cred-label">Google rating across 300+ reviews</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA banner -->
+<section class="cta-banner">
+  <div class="cap">
+    <div class="cta-inner">
+      <p class="eyebrow">Start the conversation</p>
+      <h2>Let's find the right treatment for you.</h2>
+      <p>All medspa services begin with a complimentary, no-pressure consultation with our physician-led team. Walk in with questions. Leave with a plan.</p>
+      <div class="btn-row" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:2rem;">
+        <a href="contact.html" class="btn primary">Book Free Consult</a>
+        <a href="services.html" class="btn ghost">Explore All Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="site.js"></script>
+</body>
+</html>

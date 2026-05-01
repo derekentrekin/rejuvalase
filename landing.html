@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Spring Radiance Event — Limited Offer — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── Landing page — strip nav links, show only logo + phone ── */
+.landing-page nav.main .left ul { display: none; }
+.landing-page nav.main .right .btn { display: none; }
+
+/* ── Hero ── */
+.lp-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.lp-hero-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to top, rgba(21,18,13,0.95) 0%, rgba(21,18,13,0.55) 45%, rgba(21,18,13,0.2) 100%),
+    url('https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=1400&q=80&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 25%;
+}
+.lp-hero-inner {
+  position: relative; z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+  width: 100%;
+}
+.lp-eyebrow {
+  display: inline-block;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-300);
+  border: 1px solid rgba(212,184,114,0.4);
+  padding: 7px 14px;
+  margin-bottom: 28px;
+}
+.lp-hero-inner h1 {
+  font-family: var(--serif);
+  font-size: clamp(54px, 9vw, 100px);
+  font-weight: 500; color: var(--paper);
+  line-height: 0.95; margin: 0 0 28px;
+}
+.lp-hero-inner h1 em { font-style: italic; color: var(--gold-300); }
+.lp-meta-line {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(250,246,237,0.55);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.lp-meta-line svg { width: 13px; height: 13px; fill: var(--gold-300); }
+.lp-lede {
+  font-family: var(--sans); font-size: 17px;
+  font-weight: 300; color: rgba(250,246,237,0.75);
+  line-height: 1.65; max-width: 600px; margin-bottom: 24px;
+}
+.lp-urgency {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #e8a87c; margin-bottom: 32px;
+}
+.lp-urgency::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #e8a87c;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+.lp-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+}
+
+/* ── What's Included ── */
+.lp-included {
+  padding: 96px 0;
+  background: var(--paper);
+}
+.lp-included .wrap {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+}
+.lp-included h2 {
+  font-family: var(--serif); font-size: clamp(30px, 4vw, 48px);
+  font-weight: 500; color: var(--ink-900);
+  line-height: 1.15; margin: 12px 0 56px;
+}
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(184,147,59,0.15);
+}
+.inc-col {
+  background: var(--paper);
+  padding: 40px 32px;
+}
+.inc-icon {
+  width: 48px; height: 48px;
+  border: 1px solid rgba(184,147,59,0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.inc-icon svg { width: 20px; height: 20px; fill: var(--gold-500); }
+.inc-value {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(21,18,13,0.4); margin-bottom: 8px;
+}
+.inc-name {
+  font-family: var(--serif); font-size: 22px;
+  font-weight: 500; color: var(--ink-900);
+  margin-bottom: 12px; line-height: 1.2;
+}
+.inc-desc {
+  font-family: var(--sans); font-size: 13px;
+  font-weight: 300; color: rgba(21,18,13,0.65);
+  line-height: 1.65;
+}
+
+/* ── Value Breakdown ── */
+.lp-value {
+  padding: 96px 0;
+  background: var(--paper-2);
+}
+.lp-value .wrap {
+  max-width: 760px; margin: 0 auto; padding: 0 24px;
+}
+.lp-value h2 {
+  font-family: var(--serif); font-size: clamp(30px, 4vw, 48px);
+  font-weight: 500; color: var(--ink-900);
+  line-height: 1.15; margin: 12px 0 48px;
+}
+.value-table {
+  border: 1px solid rgba(184,147,59,0.2);
+  overflow: hidden;
+}
+.vt-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(184,147,59,0.12);
+  align-items: center;
+}
+.vt-row:last-child { border-bottom: none; }
+.vt-row.header {
+  background: rgba(184,147,59,0.08);
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(21,18,13,0.45);
+}
+.vt-item { font-family: var(--sans); font-size: 15px; color: var(--ink-900); }
+.vt-item small {
+  display: block;
+  font-size: 12px; font-weight: 300;
+  color: rgba(21,18,13,0.5); margin-top: 2px;
+}
+.vt-price {
+  font-family: var(--mono); font-size: 15px;
+  color: rgba(21,18,13,0.5); text-decoration: line-through;
+  white-space: nowrap;
+}
+.vt-row.bonus .vt-price {
+  color: #2d7a55; text-decoration: none;
+  font-size: 12px;
+}
+.vt-total {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 16px; padding: 28px 24px;
+  background: var(--ink-900);
+  align-items: center;
+  margin-top: 2px;
+}
+.vt-total-label {
+  font-family: var(--sans); font-size: 14px;
+  font-weight: 500; color: var(--paper);
+}
+.vt-total-was {
+  font-family: var(--mono); font-size: 14px;
+  color: rgba(250,246,237,0.35);
+  text-decoration: line-through;
+}
+.vt-total-price {
+  font-family: var(--serif); font-size: 36px;
+  font-weight: 500; color: var(--gold-300);
+}
+.value-note {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(21,18,13,0.35); margin-top: 16px; text-align: center;
+}
+
+/* ── Before & After ── */
+.lp-ba {
+  padding: 96px 0;
+  background: var(--ink-900);
+}
+.lp-ba .wrap {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+}
+.lp-ba .eyebrow { color: var(--gold-300); }
+.ba-img-container {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+}
+.ba-img-container img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.ba-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(21,18,13,0.8));
+  padding: 24px 20px 16px;
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(250,246,237,0.5);
+}
+.ba-content {}
+.ba-content h2 {
+  font-family: var(--serif); font-size: clamp(28px, 3vw, 42px);
+  font-weight: 500; color: var(--paper);
+  line-height: 1.2; margin: 12px 0 36px;
+}
+.ba-quote {
+  font-family: var(--serif); font-size: 19px;
+  font-style: italic; color: var(--paper);
+  line-height: 1.6;
+  border-left: 3px solid var(--gold-500);
+  padding-left: 24px;
+  margin-bottom: 20px;
+}
+.ba-attr {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(250,246,237,0.4);
+  margin-bottom: 32px;
+}
+.ba-stars { display: flex; gap: 4px; margin-bottom: 4px; }
+.ba-stars svg { width: 14px; height: 14px; fill: var(--gold-500); }
+
+/* ── Trust Section ── */
+.lp-trust {
+  padding: 80px 0;
+  background: var(--paper);
+}
+.lp-trust .wrap {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+}
+.lp-trust h2 {
+  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500; color: var(--ink-900);
+  line-height: 1.2; margin: 12px 0 48px;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.trust-item {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 28px;
+  border: 1px solid rgba(184,147,59,0.2);
+}
+.trust-icon {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(184,147,59,0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.trust-icon svg { width: 17px; height: 17px; fill: var(--gold-500); }
+.trust-label {
+  font-family: var(--serif); font-size: 17px;
+  font-weight: 500; color: var(--ink-900);
+  line-height: 1.3;
+}
+.trust-sub {
+  font-family: var(--sans); font-size: 13px;
+  font-weight: 300; color: rgba(21,18,13,0.6); line-height: 1.6;
+}
+.trust-rating {
+  margin-top: 48px;
+  display: flex; align-items: center; gap: 16px;
+  padding: 24px 32px;
+  background: var(--paper-2);
+  border: 1px solid rgba(184,147,59,0.2);
+}
+.rating-stars { display: flex; gap: 4px; }
+.rating-stars svg { width: 18px; height: 18px; fill: var(--gold-500); }
+.rating-text .rating-score {
+  font-family: var(--serif); font-size: 26px;
+  font-weight: 500; color: var(--ink-900);
+}
+.rating-text .rating-count {
+  font-family: var(--sans); font-size: 13px;
+  font-weight: 300; color: rgba(21,18,13,0.55);
+  margin-top: 2px;
+}
+
+/* ── FAQ ── */
+.lp-faq {
+  padding: 80px 0;
+  background: var(--paper-2);
+}
+.lp-faq .wrap {
+  max-width: 720px; margin: 0 auto; padding: 0 24px;
+}
+.lp-faq h2 {
+  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500; color: var(--ink-900); margin-bottom: 40px;
+}
+
+/* ── Final CTA ── */
+.lp-final-cta {
+  background: var(--gold-500);
+  padding: 96px 24px;
+  text-align: center;
+}
+.lp-final-cta h2 {
+  font-family: var(--serif); font-size: clamp(32px, 6vw, 64px);
+  font-weight: 500; color: #fff;
+  line-height: 1.05; margin-bottom: 12px;
+}
+.lp-final-cta p {
+  font-family: var(--sans); font-size: 15px;
+  font-weight: 300; color: rgba(255,255,255,0.75);
+  margin-bottom: 36px;
+}
+.lp-final-cta .cta-group {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+.lp-final-cta .btn.primary {
+  background: #fff; color: var(--gold-700);
+  font-size: 13px; padding: 18px 40px;
+}
+.lp-final-cta .btn.primary:hover { background: var(--paper-2); }
+.lp-call-link {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 200ms;
+}
+.lp-call-link:hover { color: #fff; }
+.lp-call-link strong { color: #fff; }
+
+/* Responsive */
+@media(max-width:900px) {
+  .included-grid { grid-template-columns: 1fr; }
+  .lp-ba .wrap { grid-template-columns: 1fr; gap: 40px; }
+  .ba-img-container { aspect-ratio: 16/9; }
+  .trust-grid { grid-template-columns: 1fr; }
+}
+@media(max-width:600px) {
+  .lp-ctas { flex-direction: column; }
+  .lp-ctas .btn { text-align: center; justify-content: center; }
+  .vt-total { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>
+</head>
+<body class="landing-page">
+<script src="site.js"></script>
+
+<!-- 1. Hero -->
+<section class="lp-hero">
+  <div class="lp-hero-bg" aria-hidden="true"></div>
+  <div class="lp-hero-inner">
+    <span class="lp-eyebrow">Limited · Spring 2026</span>
+    <h1>The Radiance<br><em>Event.</em></h1>
+    <p class="lp-meta-line">
+      <svg><use href="#i-calendar"/></svg>
+      April 15–30, 2026 &nbsp;·&nbsp;
+      <svg><use href="#i-map"/></svg>
+      Rejuvalase Medspa · Stafford, VA
+    </p>
+    <p class="lp-lede">BBL Photofacial + HydraFacial + personalized skincare consultation. Two powerhouse treatments curated into one appointment — at one event-only price. Available for 15 days only.</p>
+    <p class="lp-urgency">12 appointments remaining this spring</p>
+    <div class="lp-ctas">
+      <a href="contact.html" class="btn primary">
+        Reserve My Appointment
+        <svg><use href="#i-arrow-right"/></svg>
+      </a>
+      <a href="#included" class="btn ghost">See what's included ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. What's Included -->
+<section class="lp-included" id="included">
+  <div class="wrap">
+    <p class="eyebrow">Everything Included</p>
+    <h2>Three services.<br>One curated appointment.</h2>
+    <div class="included-grid">
+
+      <div class="inc-col">
+        <div class="inc-icon"><svg><use href="#i-sparkle"/></svg></div>
+        <p class="inc-value">Retail value $350</p>
+        <h3 class="inc-name">BBL Photofacial</h3>
+        <p class="inc-desc">BroadBand Light technology targets sun damage, hyperpigmentation, redness, and vascular irregularities with precise photothermal energy. Clinically proven to restore skin to a younger state at the gene expression level. Patients see measurable improvement in tone, texture, and clarity within 2–4 weeks.</p>
+      </div>
+
+      <div class="inc-col">
+        <div class="inc-icon"><svg><use href="#i-leaf"/></svg></div>
+        <p class="inc-value">Retail value $199</p>
+        <h3 class="inc-name">HydraFacial MD</h3>
+        <p class="inc-desc">The patented vortex-fusion system cleanses, exfoliates, extracts, and delivers antioxidants, peptides, and hyaluronic acid in a single session. Zero downtime, immediate glow. The ideal companion to BBL — prepping skin before light therapy and restoring barrier function after.</p>
+      </div>
+
+      <div class="inc-col">
+        <div class="inc-icon"><svg><use href="#i-users"/></svg></div>
+        <p class="inc-value">Included free</p>
+        <h3 class="inc-name">Skincare Consultation</h3>
+        <p class="inc-desc">A personalized one-on-one with a member of our clinical team — not a sales conversation. We review your skin history, evaluate current condition, and build a 90-day home protocol designed to extend and amplify your treatment results over time.</p>
+      </div>
+
+    </div>
+    <p style="font-family:var(--mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(21,18,13,0.35);margin-top:24px;text-align:center;">
+      Plus: 20% off all SkinCeuticals retail products purchased at your appointment
+    </p>
+  </div>
+</section>
+
+<!-- 3. Value Breakdown -->
+<section class="lp-value">
+  <div class="wrap">
+    <p class="eyebrow">Transparent Pricing</p>
+    <h2>What you get,<br>what you'd normally pay.</h2>
+    <div class="value-table">
+      <div class="vt-row header">
+        <span>Service</span>
+        <span>Standard rate</span>
+      </div>
+      <div class="vt-row">
+        <div class="vt-item">
+          BBL Photofacial
+          <small>Full face · single session</small>
+        </div>
+        <span class="vt-price">$350</span>
+      </div>
+      <div class="vt-row">
+        <div class="vt-item">
+          HydraFacial MD
+          <small>Signature 3-step treatment</small>
+        </div>
+        <span class="vt-price">$199</span>
+      </div>
+      <div class="vt-row">
+        <div class="vt-item">
+          Skincare Consultation
+          <small>Personalized 90-day protocol</small>
+        </div>
+        <span class="vt-price" style="text-decoration:none;color:#2d7a55;">Complimentary</span>
+      </div>
+      <div class="vt-row bonus">
+        <div class="vt-item">
+          20% off SkinCeuticals Retail
+          <small>Applied at checkout, day of visit only</small>
+        </div>
+        <span class="vt-price">Bonus</span>
+      </div>
+    </div>
+    <div class="vt-total">
+      <span class="vt-total-label">Your Spring Radiance Event price</span>
+      <span class="vt-total-was">$549+</span>
+      <span class="vt-total-price">$439</span>
+    </div>
+    <p class="value-note">$100 deposit required · Applied to total · Refundable with 48-hr notice</p>
+  </div>
+</section>
+
+<!-- 4. Before & After / Testimonial -->
+<section class="lp-ba">
+  <div class="wrap">
+
+    <div class="ba-img-container">
+      <img
+        src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&q=80&auto=format&fit=crop"
+        alt="Radiant skin results after treatment at Rejuvalase"
+        loading="lazy"/>
+      <p class="ba-label">Results · Rejuvalase client · Stafford, VA</p>
+    </div>
+
+    <div class="ba-content">
+      <p class="eyebrow">Real Results</p>
+      <h2>Skin that looks like<br>it turned back time.</h2>
+      <div class="ba-stars">
+        <svg><use href="#i-star"/></svg>
+        <svg><use href="#i-star"/></svg>
+        <svg><use href="#i-star"/></svg>
+        <svg><use href="#i-star"/></svg>
+        <svg><use href="#i-star"/></svg>
+      </div>
+      <blockquote class="ba-quote">"I'd tried countless things for my sun spots and uneven tone. One appointment at the Spring Radiance Event last year did more than two years of products. I look forward to it every spring now — it's genuinely the most effective thing I've ever done for my skin."</blockquote>
+      <p class="ba-attr">— Sarah K. · Spring Radiance Event 2025</p>
+      <a href="contact.html" class="btn primary">
+        Reserve My Appointment
+        <svg><use href="#i-arrow-right"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- 5. Trust Section -->
+<section class="lp-trust">
+  <div class="wrap">
+    <p class="eyebrow">Why Rejuvalase</p>
+    <h2>Medical expertise.<br>Medspa experience.</h2>
+    <div class="trust-grid">
+
+      <div class="trust-item">
+        <div class="trust-icon"><svg><use href="#i-check"/></svg></div>
+        <p class="trust-label">Board-Certified MD On-Site</p>
+        <p class="trust-sub">Every treatment protocol is supervised by our medical director. Not a franchise. Not a nurse-only practice. Real physician oversight at every appointment.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon"><svg><use href="#i-sparkle"/></svg></div>
+        <p class="trust-label">Medical-Grade Devices Only</p>
+        <p class="trust-sub">We use the same FDA-cleared devices found in leading dermatology practices — including the Sciton BBL Hero and HydraFacial MD systems. No spa-grade substitutes.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon"><svg><use href="#i-star"/></svg></div>
+        <p class="trust-label">Stafford's Highest-Rated Medspa</p>
+        <p class="trust-sub">4.9 stars across 284 verified reviews. We don't ask for reviews — our clients leave them because their results speak for themselves.</p>
+      </div>
+
+    </div>
+    <div class="trust-rating">
+      <div class="rating-stars">
+        <svg><use href="#i-star"/></svg>
+        <svg><use href="#i-star"/></svg>
+        <svg><use href="#i-star"/></svg>
+        <svg><use href="#i-star"/></svg>
+        <svg><use href="#i-star"/></svg>
+      </div>
+      <div class="rating-text">
+        <p class="rating-score">4.9 stars · 284 reviews</p>
+        <p class="rating-count">Verified Google reviews · Stafford, VA location</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. FAQ -->
+<section class="lp-faq">
+  <div class="wrap">
+    <p class="eyebrow">Common Questions</p>
+    <h2>Everything you need<br>to know before booking.</h2>
+
+    <div class="faq-item">
+      <button aria-expanded="false">Is this event right for my skin type?</button>
+      <div class="faq-answer">
+        <p>BBL Photofacial is most effective for Fitzpatrick skin types I–III (fair to medium skin tones) without active tan. If you have a darker complexion or recent sun exposure, we'll review your candidacy during booking and can substitute an equally valued treatment at the same event price. HydraFacial is appropriate for all skin types, including sensitive skin.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button aria-expanded="false">What should I do to prepare before my appointment?</button>
+      <div class="faq-answer">
+        <p>Avoid sun exposure for 2 weeks prior. Discontinue retinoids 5–7 days before your visit. Arrive with a clean face — no makeup or heavy products. Stay well hydrated. We'll send a complete pre-treatment guide when you book. If you have any active skin conditions, medications, or concerns, let us know and we'll advise accordingly.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button aria-expanded="false">Will there be any downtime after the treatments?</button>
+      <div class="faq-answer">
+        <p>HydraFacial has zero downtime. BBL may cause mild redness and warmth for a few hours post-treatment, similar to a light sunburn. Some clients experience darkening of pigmented spots over the following 7–10 days as the treated pigment rises and flakes naturally — this is the desired response, not a complication. Most clients return to normal activities the same day, with cosmetics worn starting the following morning.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button aria-expanded="false">What is the cancellation and refund policy?</button>
+      <div class="faq-answer">
+        <p>A $100 deposit is required to secure your appointment. This deposit is fully refundable with 48-hour notice prior to your appointment time. Cancellations within 48 hours forfeit the deposit, which may be applied toward a future booking. If we cancel or reschedule your appointment for any reason, you will receive a full refund. Please contact us at <a href="tel:+15405550134">540·555·0134</a> to modify your booking.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 7. Final CTA -->
+<section class="lp-final-cta">
+  <h2>Only 12 appointments<br>left this spring.</h2>
+  <p>The Spring Radiance Event runs April 15–30, 2026. Once slots are filled, the event price is gone until next season.</p>
+  <div class="cta-group">
+    <a href="contact.html" class="btn primary">
+      Reserve My Appointment
+      <svg><use href="#i-arrow-right"/></svg>
+    </a>
+    <a href="tel:+15405550134" class="lp-call-link">
+      Or call us directly — <strong>540·555·0134</strong>
+    </a>
+  </div>
+</section>
+
+</body>
+</html>

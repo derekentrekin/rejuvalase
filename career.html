@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Licensed RN · Injector Track — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* Career detail page */
+.career-page {
+  background: var(--paper);
+}
+/* Job header */
+.job-header {
+  padding: 56px 24px 64px;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+.job-header h1 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  color: var(--ink-900);
+  line-height: 1.05;
+  margin: 18px 0 28px;
+}
+.job-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.job-chip {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(184,147,59,.3);
+  color: var(--gold-700);
+  background: rgba(184,147,59,.07);
+}
+.job-chip.dark {
+  background: var(--paper-2);
+  color: var(--ink-900);
+  border-color: rgba(21,18,13,.1);
+}
+/* Overview — 2 col paper-2 bg */
+.overview-section {
+  background: var(--paper-2);
+  padding: 0 24px 80px;
+}
+.overview-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding-top: 64px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 56px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .overview-inner { grid-template-columns: 1fr; gap: 36px; }
+}
+.overview-copy h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: 0 0 20px;
+}
+.overview-copy p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-700, #3a3428);
+  margin-bottom: 18px;
+}
+.overview-copy p:last-child { margin-bottom: 0; }
+/* Quick facts card */
+.facts-card {
+  background: var(--paper);
+  border-radius: 4px;
+  padding: 28px 30px;
+  border: 1px solid rgba(184,147,59,.18);
+}
+.facts-card h3 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-700);
+  margin: 0 0 20px;
+}
+.fact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(21,18,13,.06);
+  gap: 12px;
+}
+.fact-row:last-child { border-bottom: none; padding-bottom: 0; }
+.fact-row:first-of-type { padding-top: 0; }
+.fact-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-900);
+  opacity: 0.45;
+}
+.fact-value {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-900);
+  text-align: right;
+}
+/* Responsibilities & Requirements */
+.req-section {
+  padding: 80px 24px;
+  background: var(--paper);
+}
+.req-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+@media (max-width: 768px) {
+  .req-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+.req-col h2 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: 0 0 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(184,147,59,.2);
+}
+.req-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.req-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-700, #3a3428);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(21,18,13,.05);
+}
+.req-list li:last-child { border-bottom: none; }
+.req-list li::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold-500);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+/* What we offer — 2-col grid */
+.offer-section {
+  background: var(--paper-2);
+  padding: 80px 24px;
+}
+.offer-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+.offer-inner h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 400;
+  color: var(--ink-900);
+  margin: 12px 0 40px;
+}
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+@media (max-width: 580px) {
+  .offer-grid { grid-template-columns: 1fr; }
+}
+.offer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--paper);
+  border-radius: 3px;
+  padding: 24px 24px;
+}
+.offer-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--gold-500);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.offer-text h4 {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: 0 0 5px;
+}
+.offer-text p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink-700, #3a3428);
+  margin: 0;
+}
+/* About Rejuvalase — dark */
+.about-dark {
+  background: var(--ink-900);
+  padding: 80px 24px;
+}
+.about-dark-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.about-dark h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 400;
+  color: var(--paper);
+  margin: 12px 0 20px;
+}
+.about-dark p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(250,246,237,0.6);
+  margin: 0 auto;
+  max-width: 580px;
+}
+/* Application form — dark */
+.apply-section {
+  background: var(--ink-900);
+  padding: 0 24px 96px;
+  border-top: 1px solid rgba(184,147,59,.12);
+}
+.apply-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.apply-inner h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 400;
+  color: var(--paper);
+  margin: 0 0 40px;
+  line-height: 1.15;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 520px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+.form-field {
+  margin-bottom: 20px;
+}
+.form-field label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250,246,237,0.5);
+  margin-bottom: 8px;
+}
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  background: rgba(250,246,237,.06);
+  border: 1px solid rgba(184,147,59,.2);
+  border-radius: 2px;
+  padding: 12px 16px;
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--paper);
+  box-sizing: border-box;
+  transition: border-color 0.15s, background 0.15s;
+  outline: none;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: rgba(250,246,237,0.25);
+}
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--gold-500);
+  background: rgba(184,147,59,.07);
+}
+.form-field textarea {
+  height: 140px;
+  resize: vertical;
+}
+.upload-field {
+  background: rgba(250,246,237,.04);
+  border: 1px dashed rgba(184,147,59,.3);
+  border-radius: 2px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.upload-field:hover {
+  background: rgba(184,147,59,.07);
+}
+.upload-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250,246,237,.4);
+  margin-bottom: 8px;
+}
+.upload-field p {
+  font-size: 14px;
+  color: rgba(250,246,237,0.35);
+  margin: 0;
+}
+.upload-field input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.form-submit {
+  margin-top: 32px;
+  text-align: center;
+}
+.form-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(250,246,237,0.3);
+  margin-top: 14px;
+  display: block;
+}
+</style>
+</head>
+<body>
+<script src="site.js"></script>
+
+<div class="career-page">
+
+  <!-- Breadcrumb -->
+  <div style="max-width: 1060px; margin: 0 auto; padding: 28px 24px 0;">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="careers.html">Careers</a>
+      <span>/</span>
+      <span>Licensed RN &mdash; Injector Track</span>
+    </nav>
+  </div>
+
+  <!-- Job Header -->
+  <header class="job-header">
+    <p class="eyebrow">Now hiring</p>
+    <h1>Licensed RN<br><em>Injector Track</em></h1>
+    <div class="job-chips">
+      <span class="job-chip">Part-time</span>
+      <span class="job-chip">Stafford, VA</span>
+      <span class="job-chip dark">Medical Department</span>
+      <span class="job-chip dark">Immediate Start</span>
+    </div>
+    <a href="#apply" class="btn primary">
+      Apply for this role
+      <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+    </a>
+  </header>
+
+  <!-- Overview — 2 col -->
+  <section class="overview-section">
+    <div class="overview-inner">
+
+      <div class="overview-copy">
+        <h2>About the role</h2>
+        <p>We're looking for a licensed registered nurse who brings clinical precision, genuine patient empathy, and the kind of curiosity that makes a great aesthetic injector — whether you're brand new to aesthetics or transitioning from another clinical specialty. This is a growth-track position: we invest in training, mentorship, and Allergan certification for the right candidate.</p>
+        <p>At Rejuvalase, our injectors don't work from a script. They work from a deep understanding of facial anatomy, patient goals, and the judgment to know when less is more. Our philosophy is conservative by design — we believe the most impressive results are the ones that don't announce themselves. You'll be expected to hold that standard, push back when a patient wants more than they need, and take the time to educate rather than just execute.</p>
+        <p>Part-time hours with genuine flexibility. We're a small team, which means your voice matters from day one. If you're interested in growing into a full-time or lead role over time, there's a clear path — and we'll build it with you, not for you.</p>
+      </div>
+
+      <div>
+        <div class="facts-card">
+          <h3>Quick facts</h3>
+          <div class="fact-row">
+            <span class="fact-label">Type</span>
+            <span class="fact-value">Part-time</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Department</span>
+            <span class="fact-value">Medical</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Location</span>
+            <span class="fact-value">Stafford, VA</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Pay</span>
+            <span class="fact-value">Competitive + tips</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Start</span>
+            <span class="fact-value">Immediate</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-label">Training</span>
+            <span class="fact-value">Allergan provided</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Responsibilities & Requirements -->
+  <section class="req-section">
+    <div class="req-inner">
+
+      <div class="req-col">
+        <h2>Responsibilities</h2>
+        <ul class="req-list">
+          <li>Perform neuromodulator (Botox, Dysport) and hyaluronic acid filler treatments under medical director supervision</li>
+          <li>Conduct thorough patient consultations, including intake assessment, treatment history review, and goal-setting conversations</li>
+          <li>Assess for retained filler using clinical palpation and visual analysis; recommend hyaluronidase dissolution when appropriate</li>
+          <li>Maintain accurate, HIPAA-compliant patient records in our EMR system (Jane App)</li>
+          <li>Provide pre- and post-treatment education to patients, including aftercare instructions and realistic outcome expectations</li>
+          <li>Participate in clinical team meetings and contribute to protocol development</li>
+          <li>Maintain a clean, safe, and organized treatment environment per OSHA and clinical standards</li>
+          <li>Respond to patient questions and concerns in a timely, compassionate, and clinically sound manner</li>
+        </ul>
+      </div>
+
+      <div class="req-col">
+        <h2>Requirements</h2>
+        <ul class="req-list">
+          <li>Active Registered Nurse (RN) license in the Commonwealth of Virginia — no exceptions</li>
+          <li>Minimum 3 years of clinical nursing experience (acute care, surgical, or aesthetic)</li>
+          <li>Strong foundation in facial anatomy; aesthetic experience preferred but not required for the right candidate</li>
+          <li>Demonstrated ability to have difficult conversations — including telling a patient no</li>
+          <li>Excellent documentation habits and attention to detail in clinical record-keeping</li>
+          <li>Commitment to ongoing education and willingness to complete Allergan certification training</li>
+          <li>Warm, professional, and patient-centered communication style — no hard-sell instincts</li>
+          <li>Availability for a minimum of 2–3 shifts per week, including at least one weekend shift</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- What we offer — 2-col grid -->
+  <section class="offer-section">
+    <div class="offer-inner">
+      <p class="eyebrow">The package</p>
+      <h2>What we offer.</h2>
+      <div class="offer-grid">
+
+        <div class="offer-item">
+          <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <use href="#i-award"/>
+          </svg>
+          <div class="offer-text">
+            <h4>Allergan training — paid</h4>
+            <p>Full Allergan certification program funded by Rejuvalase for qualified candidates. You grow, we invest.</p>
+          </div>
+        </div>
+
+        <div class="offer-item">
+          <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <use href="#i-briefcase"/>
+          </svg>
+          <div class="offer-text">
+            <h4>Competitive pay + tips</h4>
+            <p>Above-market hourly rate with a transparent gratuity structure that meaningfully increases take-home.</p>
+          </div>
+        </div>
+
+        <div class="offer-item">
+          <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <use href="#i-calendar"/>
+          </svg>
+          <div class="offer-text">
+            <h4>Flexible scheduling</h4>
+            <p>Part-time with genuine flexibility. We build schedules around your life, not a rigid booking calendar.</p>
+          </div>
+        </div>
+
+        <div class="offer-item">
+          <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <use href="#i-shield"/>
+          </svg>
+          <div class="offer-text">
+            <h4>No quota pressure</h4>
+            <p>We do not track units placed, services sold, or upsell rates. Do what's right for the patient. Period.</p>
+          </div>
+        </div>
+
+        <div class="offer-item">
+          <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <use href="#i-check"/>
+          </svg>
+          <div class="offer-text">
+            <h4>Product allowance</h4>
+            <p>Complimentary and discounted treatments for team members. You'll know what you're recommending.</p>
+          </div>
+        </div>
+
+        <div class="offer-item">
+          <svg class="offer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <use href="#i-book"/>
+          </svg>
+          <div class="offer-text">
+            <h4>CE budget + mentorship</h4>
+            <p>Annual CE budget and structured mentorship from our lead injector — a 11-year Allergan Master Injector.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Rejuvalase — dark -->
+  <section class="about-dark">
+    <div class="about-dark-inner">
+      <p class="eyebrow" style="color: var(--gold-500);">About us</p>
+      <h2>About Rejuvalase</h2>
+      <p>Rejuvalase is a boutique medical spa in Stafford, Virginia, offering injectables, laser treatments, advanced facials, and wellness services in a calm, unhurried environment. We are a small, close-knit team built around one principle: do what's genuinely best for the patient, every time. We've never operated on volume quotas, we've never oversold, and we never will. Our reputation is built on trust — and we protect it by hiring people who share that standard.</p>
+    </div>
+  </section>
+
+  <!-- Application Form — dark -->
+  <section class="apply-section" id="apply">
+    <div class="apply-inner">
+      <h2 style="padding-top: 64px;">Apply for this<br>position.</h2>
+      <form action="#" method="post" enctype="multipart/form-data" novalidate>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="apply-first">First name <span aria-hidden="true">*</span></label>
+            <input type="text" id="apply-first" name="first_name" autocomplete="given-name" placeholder="Jane" required/>
+          </div>
+          <div class="form-field">
+            <label for="apply-last">Last name <span aria-hidden="true">*</span></label>
+            <input type="text" id="apply-last" name="last_name" autocomplete="family-name" placeholder="Smith" required/>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="apply-email">Email <span aria-hidden="true">*</span></label>
+            <input type="email" id="apply-email" name="email" autocomplete="email" placeholder="jane@example.com" required/>
+          </div>
+          <div class="form-field">
+            <label for="apply-phone">Phone</label>
+            <input type="tel" id="apply-phone" name="phone" autocomplete="tel" placeholder="(540) 000-0000"/>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="apply-linkedin">LinkedIn or portfolio URL</label>
+          <input type="url" id="apply-linkedin" name="portfolio_url" placeholder="https://linkedin.com/in/yourname"/>
+        </div>
+
+        <div class="form-field">
+          <label for="apply-note">Cover note <span aria-hidden="true">*</span></label>
+          <textarea id="apply-note" name="cover_note" placeholder="Tell us why Rejuvalase feels like the right fit. What draws you to aesthetics? What would make this role feel meaningful to you?" required></textarea>
+        </div>
+
+        <div class="form-field">
+          <label class="upload-label">Resume / CV <span aria-hidden="true">*</span></label>
+          <div class="upload-field" role="group" aria-labelledby="resume-label">
+            <input type="file" id="apply-resume" name="resume" accept=".pdf,.doc,.docx" aria-label="Upload resume"/>
+            <label id="resume-label" for="apply-resume" style="cursor:pointer;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(250,246,237,0.35)" stroke-width="1.5" style="margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;" aria-hidden="true">
+                <use href="#i-pen"/>
+              </svg>
+              <p>Click to upload your resume &mdash; PDF, DOC, or DOCX</p>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn primary" style="width: 100%; justify-content: center; padding: 16px 32px;">
+            Submit application
+            <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </button>
+          <span class="form-note">We read every application personally and respond within 5 business days.</span>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+</div><!-- /.career-page -->
+
+</body>
+</html>

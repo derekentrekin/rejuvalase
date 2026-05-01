@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Spring Radiance Event — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── Event Detail page ── */
+
+/* Hero */
+.event-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.event-hero-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to top, rgba(21,18,13,0.92) 0%, rgba(21,18,13,0.45) 50%, rgba(21,18,13,0.2) 100%),
+    url('https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=1400&q=80&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 35%;
+}
+.event-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 24px 72px;
+  width: 100%;
+}
+.event-badge {
+  display: inline-block;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-300);
+  border: 1px solid rgba(212,184,114,0.45);
+  padding: 7px 14px;
+  margin-bottom: 24px;
+}
+.event-hero-date {
+  font-family: var(--mono); font-size: 13px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(250,246,237,0.6);
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.event-hero-date svg { width: 14px; height: 14px; fill: var(--gold-300); }
+.event-hero-inner h1 {
+  font-family: var(--serif);
+  font-size: clamp(44px, 7vw, 80px);
+  font-weight: 500; color: var(--paper);
+  line-height: 1.05; margin: 0;
+}
+.event-hero-inner h1 em {
+  font-style: italic; color: var(--gold-300);
+}
+
+/* Details section */
+.event-details {
+  padding: 80px 0;
+  background: var(--paper-2);
+}
+.event-details .wrap {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+  display: grid; grid-template-columns: 1fr 380px; gap: 60px;
+}
+.details-left h2 {
+  font-family: var(--serif); font-size: clamp(26px, 3vw, 34px);
+  font-weight: 500; color: var(--ink-900);
+  line-height: 1.25; margin-bottom: 28px;
+}
+.includes-list {
+  list-style: none; padding: 0; margin: 0 0 36px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.includes-list li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 14px;
+}
+.includes-list li svg {
+  width: 18px; height: 18px;
+  fill: var(--gold-500); margin-top: 3px; flex-shrink: 0;
+}
+.includes-list .inc-title {
+  font-family: var(--serif); font-size: 17px;
+  font-weight: 500; color: var(--ink-900); margin-bottom: 4px;
+}
+.includes-list .inc-desc {
+  font-family: var(--sans); font-size: 13px;
+  font-weight: 300; color: rgba(21,18,13,0.65); line-height: 1.6;
+}
+
+/* Booking card */
+.booking-card {
+  background: var(--paper);
+  border: 1px solid rgba(184,147,59,0.3);
+  padding: 36px 32px;
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+.booking-card-header {
+  border-bottom: 1px solid rgba(184,147,59,0.2);
+  padding-bottom: 20px; margin-bottom: 24px;
+}
+.booking-card-label {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(21,18,13,0.45); margin-bottom: 10px;
+}
+.booking-price-main {
+  font-family: var(--serif); font-size: 52px;
+  font-weight: 500; color: var(--ink-900); line-height: 1;
+}
+.booking-price-was {
+  font-family: var(--sans); font-size: 14px;
+  color: rgba(21,18,13,0.4); text-decoration: line-through;
+  margin-top: 4px;
+}
+.booking-savings {
+  display: inline-block;
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  background: rgba(45,122,85,0.12);
+  color: #2d7a55;
+  border: 1px solid rgba(45,122,85,0.3);
+  padding: 4px 10px; margin-top: 8px;
+}
+.booking-meta {
+  display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 24px;
+}
+.booking-meta-row {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--sans); font-size: 13px;
+}
+.bm-label {
+  color: rgba(21,18,13,0.5); font-weight: 300;
+}
+.bm-value {
+  color: var(--ink-900); font-weight: 500;
+  text-align: right;
+}
+.bm-value.urgent { color: #c0392b; }
+.booking-card .btn.primary { width: 100%; justify-content: center; }
+.booking-card-note {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(21,18,13,0.35); text-align: center; margin-top: 14px;
+}
+
+/* Schedule */
+.event-schedule {
+  padding: 80px 0;
+  background: var(--ink-900);
+}
+.event-schedule .wrap {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+}
+.event-schedule .eyebrow { color: var(--gold-300); }
+.event-schedule h2 {
+  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500; color: var(--paper);
+  line-height: 1.2; margin: 12px 0 48px;
+}
+.schedule-steps {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  position: relative;
+}
+.schedule-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 28px; right: 28px;
+  height: 1px;
+  background: rgba(212,184,114,0.25);
+}
+.sched-step {
+  display: flex; flex-direction: column;
+  align-items: flex-start;
+  padding: 0 16px 0 0;
+}
+.sched-dot {
+  width: 56px; height: 56px;
+  border: 1px solid rgba(212,184,114,0.35);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  background: var(--ink-900);
+  position: relative; z-index: 1;
+  flex-shrink: 0;
+}
+.sched-dot svg { width: 20px; height: 20px; fill: var(--gold-300); }
+.sched-num {
+  font-family: var(--mono); font-size: 9px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold-300); margin-bottom: 6px;
+}
+.sched-label {
+  font-family: var(--serif); font-size: 15px;
+  font-weight: 500; color: var(--paper); line-height: 1.3; margin-bottom: 6px;
+}
+.sched-sub {
+  font-family: var(--sans); font-size: 12px;
+  font-weight: 300; color: rgba(250,246,237,0.45); line-height: 1.5;
+}
+
+/* What to expect */
+.event-expect {
+  padding: 80px 0;
+  background: var(--paper);
+}
+.event-expect .wrap {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+}
+.event-expect h2 {
+  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500; color: var(--ink-900);
+  line-height: 1.2; margin: 12px 0 48px;
+}
+.expect-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.expect-step {}
+.expect-num {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-500); margin-bottom: 12px;
+}
+.expect-title {
+  font-family: var(--serif); font-size: 22px;
+  font-weight: 500; color: var(--ink-900);
+  margin-bottom: 14px; line-height: 1.2;
+}
+.expect-body {
+  font-family: var(--sans); font-size: 14px;
+  font-weight: 300; color: rgba(21,18,13,0.7);
+  line-height: 1.7;
+}
+.expect-list {
+  list-style: none; padding: 0; margin: 12px 0 0;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.expect-list li {
+  display: flex; align-items: baseline; gap: 8px;
+  font-family: var(--sans); font-size: 13px;
+  font-weight: 300; color: rgba(21,18,13,0.65);
+}
+.expect-list li::before {
+  content: '';
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--gold-500);
+  flex-shrink: 0; margin-top: 7px;
+}
+
+/* Testimonials */
+.event-testimonials {
+  padding: 80px 0;
+  background: var(--paper-2);
+}
+.event-testimonials .wrap {
+  max-width: 1120px; margin: 0 auto; padding: 0 24px;
+}
+.event-testimonials h2 {
+  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500; color: var(--ink-900);
+  line-height: 1.2; margin: 12px 0 48px;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.t-card {
+  background: var(--paper);
+  padding: 36px;
+  border-left: 3px solid var(--gold-500);
+}
+.t-stars {
+  display: flex; gap: 4px; margin-bottom: 16px;
+}
+.t-stars svg { width: 14px; height: 14px; fill: var(--gold-500); }
+.t-quote {
+  font-family: var(--serif); font-size: 18px;
+  font-style: italic; color: var(--ink-900);
+  line-height: 1.6; margin-bottom: 20px;
+}
+.t-attr {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(21,18,13,0.45);
+}
+
+/* FAQ */
+.event-faq {
+  padding: 80px 0;
+  background: var(--paper);
+}
+.event-faq .wrap {
+  max-width: 720px; margin: 0 auto; padding: 0 24px;
+}
+.event-faq h2 {
+  font-family: var(--serif); font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500; color: var(--ink-900); margin-bottom: 40px;
+}
+
+/* CTA Banner */
+.event-cta-banner {
+  background: var(--gold-500);
+  padding: 72px 24px;
+  text-align: center;
+}
+.event-cta-banner h2 {
+  font-family: var(--serif); font-size: clamp(30px, 5vw, 54px);
+  font-weight: 500; color: #fff;
+  line-height: 1.1; margin-bottom: 32px;
+}
+.event-cta-banner .cta-btns {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+}
+.event-cta-banner .btn.ghost {
+  border-color: rgba(255,255,255,0.6); color: #fff;
+}
+.event-cta-banner .btn.ghost:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Responsive */
+@media(max-width:900px) {
+  .event-details .wrap { grid-template-columns: 1fr; }
+  .booking-card { position: static; }
+  .schedule-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .schedule-steps::before { display: none; }
+  .expect-steps { grid-template-columns: 1fr; gap: 32px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+@media(max-width:600px) {
+  .schedule-steps { grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+</style>
+</head>
+<body>
+<script src="site.js"></script>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;">
+    <a href="events.html">Events</a>
+    <span aria-hidden="true">/</span>
+    <span>Spring Radiance Event</span>
+  </div>
+</div>
+
+<!-- 2. Event Hero -->
+<section class="event-hero">
+  <div class="event-hero-bg" aria-hidden="true"></div>
+  <div class="event-hero-inner">
+    <span class="event-badge">Spring 2026 · Limited Availability</span>
+    <p class="event-hero-date">
+      <svg><use href="#i-calendar"/></svg>
+      April 15–30, 2026
+    </p>
+    <h1>The Spring<br><em>Radiance</em> Event.</h1>
+  </div>
+</section>
+
+<!-- 3. Event Details -->
+<section class="event-details">
+  <div class="wrap">
+
+    <!-- Left: What's included -->
+    <div class="details-left">
+      <h2>Everything included<br>in your visit.</h2>
+      <ul class="includes-list">
+        <li>
+          <svg><use href="#i-sparkle"/></svg>
+          <div>
+            <p class="inc-title">BBL Photofacial Session</p>
+            <p class="inc-desc">BroadBand Light targets pigmentation, redness, sun damage, and uneven tone using advanced photothermal energy. Our most requested corrective treatment — clinically proven to reverse visible signs of aging at the cellular level. Session duration approximately 30–45 minutes.</p>
+          </div>
+        </li>
+        <li>
+          <svg><use href="#i-leaf"/></svg>
+          <div>
+            <p class="inc-title">HydraFacial MD</p>
+            <p class="inc-desc">A medical-grade 3-step treatment that cleanses, extracts, and infuses the skin with antioxidants, peptides, and hyaluronic acid. Pairs perfectly with BBL by prepping skin pre-treatment and soothing it post-light therapy. No discomfort, immediate glow.</p>
+          </div>
+        </li>
+        <li>
+          <svg><use href="#i-users"/></svg>
+          <div>
+            <p class="inc-title">Personalized Skincare Consultation</p>
+            <p class="inc-desc">A one-on-one consultation with a member of our clinical team. We review your skin history, assess your current condition, and create a 90-day home protocol tailored to extend and maximize your treatment results.</p>
+          </div>
+        </li>
+        <li>
+          <svg><use href="#i-check"/></svg>
+          <div>
+            <p class="inc-title">20% Off SkinCeuticals Retail</p>
+            <p class="inc-desc">Valid on all SkinCeuticals products purchased during your appointment. Our clinical team will recommend exactly which products to pair with your post-treatment skin for optimal results.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right: Booking card -->
+    <aside class="booking-card" aria-label="Booking details">
+      <div class="booking-card-header">
+        <p class="booking-card-label">Spring Radiance Event Price</p>
+        <p class="booking-price-main">$439</p>
+        <p class="booking-price-was">Regular value $549+</p>
+        <span class="booking-savings">You save $110</span>
+      </div>
+      <div class="booking-meta">
+        <div class="booking-meta-row">
+          <span class="bm-label">Valid dates</span>
+          <span class="bm-value">Apr 15–30, 2026</span>
+        </div>
+        <div class="booking-meta-row">
+          <span class="bm-label">Duration</span>
+          <span class="bm-value">Approx. 90 minutes</span>
+        </div>
+        <div class="booking-meta-row">
+          <span class="bm-label">Appointments left</span>
+          <span class="bm-value urgent">12 remaining</span>
+        </div>
+        <div class="booking-meta-row">
+          <span class="bm-label">Deposit required</span>
+          <span class="bm-value">$100 (applied to total)</span>
+        </div>
+      </div>
+      <a href="contact.html" class="btn primary">
+        Book My Appointment
+        <svg><use href="#i-arrow-right"/></svg>
+      </a>
+      <p class="booking-card-note">Secure checkout · Full refund if cancelled 48 hrs prior</p>
+    </aside>
+
+  </div>
+</section>
+
+<!-- 4. Schedule -->
+<section class="event-schedule">
+  <div class="wrap">
+    <p class="eyebrow">Day-of Schedule</p>
+    <h2>What your appointment<br>looks like.</h2>
+    <div class="schedule-steps">
+
+      <div class="sched-step">
+        <div class="sched-dot"><svg><use href="#i-clock"/></svg></div>
+        <p class="sched-num">Step 01</p>
+        <p class="sched-label">Arrive Early</p>
+        <p class="sched-sub">Check in 15 min before your appointment time</p>
+      </div>
+
+      <div class="sched-step">
+        <div class="sched-dot"><svg><use href="#i-leaf"/></svg></div>
+        <p class="sched-num">Step 02</p>
+        <p class="sched-label">Welcome Tea</p>
+        <p class="sched-sub">Settle in, complete intake forms, enjoy a warm beverage</p>
+      </div>
+
+      <div class="sched-step">
+        <div class="sched-dot"><svg><use href="#i-users"/></svg></div>
+        <p class="sched-num">Step 03</p>
+        <p class="sched-label">Consultation</p>
+        <p class="sched-sub">One-on-one with a clinician — skin review and goals</p>
+      </div>
+
+      <div class="sched-step">
+        <div class="sched-dot"><svg><use href="#i-sparkle"/></svg></div>
+        <p class="sched-num">Step 04</p>
+        <p class="sched-label">Treatments</p>
+        <p class="sched-sub">HydraFacial followed by BBL — approx. 60–75 minutes total</p>
+      </div>
+
+      <div class="sched-step">
+        <div class="sched-dot"><svg><use href="#i-star"/></svg></div>
+        <p class="sched-num">Step 05</p>
+        <p class="sched-label">Recovery Lounge</p>
+        <p class="sched-sub">Relax post-treatment, skin settles within minutes</p>
+      </div>
+
+      <div class="sched-step">
+        <div class="sched-dot"><svg><use href="#i-check"/></svg></div>
+        <p class="sched-num">Step 06</p>
+        <p class="sched-label">Product Consult</p>
+        <p class="sched-sub">Personalized take-home protocol + exclusive retail discount</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 5. What to Expect -->
+<section class="event-expect">
+  <div class="wrap">
+    <p class="eyebrow">Preparation &amp; Aftercare</p>
+    <h2>Before, during,<br>and after your visit.</h2>
+    <div class="expect-steps">
+
+      <div class="expect-step">
+        <p class="expect-num">01 — Before</p>
+        <h3 class="expect-title">How to prepare for your appointment</h3>
+        <p class="expect-body">A little preparation ensures you get the most from both treatments and that your skin responds optimally to BBL light energy.</p>
+        <ul class="expect-list">
+          <li>Avoid sun exposure and tanning for 2 weeks prior</li>
+          <li>Discontinue retinoids 5–7 days before your appointment</li>
+          <li>Arrive with a clean face — no makeup or heavy moisturizer</li>
+          <li>Stay well-hydrated the day before and day of</li>
+          <li>Let us know about any current medications or skin conditions</li>
+        </ul>
+      </div>
+
+      <div class="expect-step">
+        <p class="expect-num">02 — During</p>
+        <h3 class="expect-title">What your treatment session feels like</h3>
+        <p class="expect-body">Both treatments are well-tolerated. Most clients read, listen to music, or simply relax during the session.</p>
+        <ul class="expect-list">
+          <li>HydraFacial: gentle suction sensation, no discomfort</li>
+          <li>BBL: brief warmth with each light pulse, similar to a snap of a rubber band</li>
+          <li>Protective goggles worn throughout BBL treatment</li>
+          <li>Our team checks in with you throughout — comfort is the priority</li>
+          <li>Redness or warmth is normal and resolves quickly</li>
+        </ul>
+      </div>
+
+      <div class="expect-step">
+        <p class="expect-num">03 — After</p>
+        <h3 class="expect-title">Caring for your skin post-treatment</h3>
+        <p class="expect-body">Your skin has done something significant. A few simple steps in the days following protect your investment and enhance results.</p>
+        <ul class="expect-list">
+          <li>Apply broad-spectrum SPF 30+ every morning for 2 weeks</li>
+          <li>Avoid direct sun, heat, and exercise for 24–48 hours</li>
+          <li>Use only gentle, fragrance-free cleansers for 3 days</li>
+          <li>Expect pigmented spots to darken then flake away over 7–10 days</li>
+          <li>Optimal results develop over 4–6 weeks as collagen rebuilds</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 6. Testimonials -->
+<section class="event-testimonials">
+  <div class="wrap">
+    <p class="eyebrow">From Past Events</p>
+    <h2>What clients say<br>about their experience.</h2>
+    <div class="testimonials-grid">
+
+      <div class="t-card">
+        <div class="t-stars">
+          <svg><use href="#i-star"/></svg>
+          <svg><use href="#i-star"/></svg>
+          <svg><use href="#i-star"/></svg>
+          <svg><use href="#i-star"/></svg>
+          <svg><use href="#i-star"/></svg>
+        </div>
+        <p class="t-quote">"I came in skeptical — I'd done HydraFacials elsewhere but had never tried BBL. The combination was genuinely transformative. My skin looked like it did five years ago. The team made the whole thing feel like an experience, not just an appointment."</p>
+        <p class="t-attr">Jennifer M. · Fall Radiance Event 2025</p>
+      </div>
+
+      <div class="t-card">
+        <div class="t-stars">
+          <svg><use href="#i-star"/></svg>
+          <svg><use href="#i-star"/></svg>
+          <svg><use href="#i-star"/></svg>
+          <svg><use href="#i-star"/></svg>
+          <svg><use href="#i-star"/></svg>
+        </div>
+        <p class="t-quote">"The consultation alone was worth showing up for. She looked at my skin, explained exactly what was happening and why, and gave me a plan that made sense. Then the treatments exceeded what I expected. I'm already booked for the spring event."</p>
+        <p class="t-attr">Rachel T. · Client Appreciation Day 2025</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 7. FAQ -->
+<section class="event-faq">
+  <div class="wrap">
+    <p class="eyebrow">Event FAQs</p>
+    <h2>Your questions,<br>answered.</h2>
+
+    <div class="faq-item">
+      <button aria-expanded="false">Is the Spring Radiance Event suitable for all skin types?</button>
+      <div class="faq-answer">
+        <p>BBL Photofacial is most effective on lighter skin tones (Fitzpatrick I–III) and may not be appropriate for darker complexions or active tans. During your booking, we'll confirm candidacy. If BBL isn't right for you, we can substitute an equivalent treatment at the same event pricing. HydraFacial is suitable for virtually all skin types, including sensitive skin.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button aria-expanded="false">Can I book multiple appointments within the event window?</button>
+      <div class="faq-answer">
+        <p>The event pricing applies to one appointment per person during the April 15–30 window. If you'd like to book a separate treatment at another time, we're happy to schedule that at standard rates. Many clients book their follow-up BBL session 4–6 weeks after their initial treatment.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button aria-expanded="false">What is the cancellation policy for event appointments?</button>
+      <div class="faq-answer">
+        <p>We require 48-hour notice for cancellations to receive a full refund of your deposit. Cancellations within 48 hours of your appointment will forfeit the $100 deposit, which may be applied toward a future appointment. We understand life happens — please contact us as soon as possible if you need to reschedule.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button aria-expanded="false">Do I need to have had previous treatments to attend?</button>
+      <div class="faq-answer">
+        <p>Not at all. The Spring Radiance Event is designed to be accessible whether you're a longtime Rejuvalase client or visiting for the very first time. Our consultation at the start of your appointment ensures we tailor the treatment to your skin's current state and history. First-time clients consistently tell us this is an ideal introduction to both treatments.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 8. CTA Banner -->
+<section class="event-cta-banner">
+  <h2>Appointments filling fast.</h2>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn primary" style="background:#fff;color:var(--gold-700);">
+      Reserve Now
+      <svg><use href="#i-arrow-right"/></svg>
+    </a>
+    <a href="tel:+15405550134" class="btn ghost">Call 540·555·0134</a>
+  </div>
+</section>
+
+</body>
+</html>

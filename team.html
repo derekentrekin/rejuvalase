@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Our Team — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── Team page styles ── */
+
+/* Hero */
+.team-hero {
+  background: var(--ink-900);
+  padding: 9rem 0 6rem;
+  border-bottom: 1px solid rgba(184,147,59,.18);
+}
+.team-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+}
+.team-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(3.25rem, 7vw, 6rem);
+  font-weight: 500;
+  color: var(--paper);
+  line-height: 1.05;
+  margin: .75rem 0 0;
+}
+.team-hero h1 em { color: var(--gold-500); font-style: italic; }
+.team-hero-copy {
+  padding-bottom: .35rem;
+}
+.team-hero-copy p {
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--paper);
+  opacity: .72;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.team-hero-copy p:last-child { margin-bottom: 0; }
+
+/* Team Grid */
+.team-grid-section {
+  padding: 7rem 0;
+  background: var(--paper);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.team-card {
+  background: var(--paper-2);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(184,147,59,.12);
+  transition: box-shadow .25s, transform .25s;
+}
+.team-card:hover {
+  box-shadow: 0 8px 32px rgba(21,18,13,.1);
+  transform: translateY(-3px);
+}
+.team-card img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.team-card-body {
+  padding: 1.4rem 1.5rem 1.6rem;
+}
+.team-card-role {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.team-card-role svg {
+  width: 12px; height: 12px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.team-card-name {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin-bottom: .7rem;
+  line-height: 1.25;
+}
+.team-card-creds {
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--ink-900);
+  opacity: .6;
+  font-weight: 300;
+  line-height: 1.6;
+}
+.team-card-creds span {
+  display: block;
+}
+
+/* Medical Director Spotlight */
+.director-section {
+  padding: 7rem 0;
+  background: var(--paper-2);
+}
+.director-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.director-img-wrap {
+  position: relative;
+}
+.director-img-wrap img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: 3px;
+}
+.director-img-accent {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  width: 60%;
+  height: 60%;
+  border: 2px solid var(--gold-500);
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: -1;
+}
+.director-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 500;
+  color: var(--ink-900);
+  line-height: 1.18;
+  margin: .6rem 0 1.5rem;
+}
+.director-content h2 em {
+  font-style: italic;
+  color: var(--gold-500);
+}
+.director-content p {
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-900);
+  opacity: .8;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.director-content p:last-of-type { margin-bottom: 2rem; }
+.director-creds {
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+}
+.director-cred-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  font-family: var(--sans);
+  font-size: .875rem;
+  color: var(--ink-900);
+  opacity: .8;
+}
+.director-cred-item svg {
+  width: 16px; height: 16px;
+  stroke: var(--gold-500); fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* Staff Testimonials */
+.staff-testimonials {
+  padding: 7rem 0;
+  background: var(--ink-900);
+}
+.staff-testimonials h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  color: var(--paper);
+  line-height: 1.2;
+  margin: .5rem 0 3rem;
+}
+.staff-testimonials h2 em {
+  font-style: italic;
+  color: var(--gold-500);
+}
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.testimonial-card {
+  background: rgba(250,246,237,.06);
+  border: 1px solid rgba(184,147,59,.2);
+  border-radius: 3px;
+  padding: 2rem;
+}
+.testimonial-card-stars {
+  display: flex;
+  gap: .25rem;
+  margin-bottom: 1.25rem;
+}
+.testimonial-card-stars svg {
+  width: 14px; height: 14px;
+  fill: var(--gold-500); stroke: none;
+}
+.testimonial-card blockquote {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--paper);
+  opacity: .88;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.testimonial-card-attr {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  opacity: .85;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 7rem 0;
+  background: var(--paper);
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5rem;
+  align-items: start;
+}
+.faq-heading {
+  position: sticky;
+  top: 6rem;
+}
+.faq-heading-display {
+  font-family: var(--serif);
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 500;
+  color: var(--ink-900);
+  line-height: .95;
+  opacity: .08;
+  margin: 0;
+  user-select: none;
+}
+.faq-heading h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: var(--ink-900);
+  line-height: 1.25;
+  margin-top: -1.5rem;
+}
+.faq-heading h2 em { color: var(--gold-500); font-style: italic; }
+.faq-heading p {
+  font-family: var(--sans);
+  font-size: .9375rem;
+  color: var(--ink-900);
+  opacity: .65;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-top: 1rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.faq-item {
+  border-top: 1px solid rgba(21,18,13,.12);
+  padding: 1.75rem 0;
+}
+.faq-item:last-child { border-bottom: 1px solid rgba(21,18,13,.12); }
+.faq-question {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin-bottom: .75rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.faq-q-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  background: var(--gold-500);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: .1rem;
+}
+.faq-q-icon svg {
+  width: 10px; height: 10px;
+  stroke: var(--paper); fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.faq-answer {
+  font-family: var(--sans);
+  font-size: .9375rem;
+  color: var(--ink-900);
+  opacity: .7;
+  line-height: 1.75;
+  font-weight: 300;
+  max-width: 58ch;
+}
+
+/* CTA Banner */
+.cta-banner {
+  background: var(--gold-500);
+  padding: 5.5rem 0;
+  text-align: center;
+}
+.cta-banner h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.9rem);
+  font-weight: 400;
+  color: var(--ink-900);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.cta-banner h2 em { font-style: italic; }
+.cta-banner p {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--ink-900);
+  opacity: .75;
+  max-width: 500px;
+  margin: 0 auto 2.25rem;
+  line-height: 1.65;
+  font-weight: 300;
+}
+.btn.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--ink-900);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.95rem 2rem;
+  border-radius: 3px;
+  transition: opacity .2s;
+}
+.btn.primary:hover { opacity: .82; }
+.btn.primary svg {
+  width: 14px; height: 14px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 1100px) {
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  .team-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .director-grid { grid-template-columns: 1fr; }
+  .director-img-accent { display: none; }
+  .faq-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .faq-heading { position: static; }
+  .faq-heading-display { display: none; }
+  .testimonial-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- site.js injects: SVG sprite, announce bar, nav, newsletter section, footer -->
+
+<!-- ══════════════════════════════════════════
+     SECTION 1 · HERO
+════════════════════════════════════════════ -->
+<section class="team-hero page-hero">
+  <div class="cap">
+    <div class="team-hero-inner">
+      <div>
+        <p class="eyebrow">Our team</p>
+        <h1>Meet our <em>experts</em>.</h1>
+      </div>
+      <div class="team-hero-copy">
+        <p>Every result at Rejuvalase begins with the person delivering it. Our team of six clinicians and coordinators was assembled with a single standard in mind: the same expertise you'd find at a top academic medical center, delivered with genuine warmth and without the white-coat distance.</p>
+        <p>We hire slowly and train continuously. Every injector, laser specialist, and esthetician on our team holds active licensure in their specialty and completes ongoing education in the modalities they practice. No one here is a generalist doing a bit of everything — each provider has a focused clinical lane and years of volume within it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 2 · TEAM GRID
+════════════════════════════════════════════ -->
+<section class="team-grid-section">
+  <div class="cap">
+    <p class="eyebrow" style="margin-bottom:2.5rem;">The full team</p>
+    <div class="team-grid">
+
+      <!-- Dr. Maya Chen -->
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=900&q=80&auto=format&fit=crop"
+             alt="Dr. Maya Chen, MD — Medical Director" loading="lazy"/>
+        <div class="team-card-body">
+          <div class="team-card-role">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            Medical Director
+          </div>
+          <div class="team-card-name">Dr. Maya Chen, MD</div>
+          <div class="team-card-creds">
+            <span>Johns Hopkins trained</span>
+            <span>Board-certified physician</span>
+            <span>Founding partner, 2019</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nadia Okafor -->
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=900&q=80&auto=format&fit=crop"
+             alt="Nadia Okafor, RN — Lead Injector" loading="lazy"/>
+        <div class="team-card-body">
+          <div class="team-card-role">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            Lead Injector
+          </div>
+          <div class="team-card-name">Nadia Okafor, RN</div>
+          <div class="team-card-creds">
+            <span>Allergan Master Injector</span>
+            <span>11 years experience</span>
+            <span>6,000+ procedures</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sara Whitfield -->
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80&auto=format&fit=crop"
+             alt="Sara Whitfield, RN — Laser Specialist" loading="lazy"/>
+        <div class="team-card-body">
+          <div class="team-card-role">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            Laser Specialist
+          </div>
+          <div class="team-card-name">Sara Whitfield, RN</div>
+          <div class="team-card-creds">
+            <span>Certified Sciton BBL</span>
+            <span>CoolPeel certified</span>
+            <span>8 years clinical</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ines Morales -->
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=900&q=80&auto=format&fit=crop"
+             alt="Ines Morales, LE — Lead Esthetician" loading="lazy"/>
+        <div class="team-card-body">
+          <div class="team-card-role">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            Lead Esthetician
+          </div>
+          <div class="team-card-name">Ines Morales, LE</div>
+          <div class="team-card-creds">
+            <span>Dermalogica Expert</span>
+            <span>HydraFacial certified</span>
+            <span>9 years experience</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marcus Webb -->
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=900&q=80&auto=format&fit=crop"
+             alt="Marcus Webb, LMT — Massage Therapist" loading="lazy"/>
+        <div class="team-card-body">
+          <div class="team-card-role">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/></svg>
+            Massage Therapist
+          </div>
+          <div class="team-card-name">Marcus Webb, LMT</div>
+          <div class="team-card-creds">
+            <span>Licensed since 2016</span>
+            <span>Prenatal certified</span>
+            <span>Deep tissue &amp; lymphatic</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Priya Nair -->
+      <div class="team-card">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=900&q=80&auto=format&fit=crop"
+             alt="Priya Nair — Patient Coordinator" loading="lazy"/>
+        <div class="team-card-body">
+          <div class="team-card-role">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            Patient Coordinator
+          </div>
+          <div class="team-card-name">Priya Nair</div>
+          <div class="team-card-creds">
+            <span>Scheduling &amp; care coordination</span>
+            <span>HIPAA certified</span>
+            <span>The first face you see</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 3 · MEDICAL DIRECTOR SPOTLIGHT
+════════════════════════════════════════════ -->
+<section class="director-section">
+  <div class="cap">
+    <div class="director-grid">
+      <div class="director-img-wrap">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=900&q=80&auto=format&fit=crop"
+             alt="Dr. Maya Chen, MD — Medical Director of Rejuvalase" loading="lazy"/>
+        <div class="director-img-accent" aria-hidden="true"></div>
+      </div>
+      <div class="director-content">
+        <p class="eyebrow">Medical Director</p>
+        <h2>Dr. Maya Chen, <em>MD</em>.</h2>
+        <p>Dr. Chen completed her medical training at Johns Hopkins and spent seven years in academic aesthetic practice before founding Rejuvalase in 2019. Her clinical focus is facial anatomy and the structural changes underlying visible aging — an approach that favors precision over volume and subtraction over addition.</p>
+        <p>She sits on the Virginia Society of Plastic Surgeons' aesthetic advisory panel, publishes clinical case studies on injectable outcomes, and conducts quarterly training reviews with every injector on staff. Patients consistently note that her consultations feel less like a sales appointment and more like a conversation with a trusted physician — which is exactly what they are.</p>
+        <div class="director-creds">
+          <div class="director-cred-item">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-width="2"/></svg>
+            Board Certified, American Board of Dermatology
+          </div>
+          <div class="director-cred-item">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            MD, Johns Hopkins University School of Medicine
+          </div>
+          <div class="director-cred-item">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+            AMA Member · CME 240+ continuing hours
+          </div>
+          <div class="director-cred-item">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Founding Medical Director, Rejuvalase — Stafford, VA
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 4 · STAFF TESTIMONIALS
+════════════════════════════════════════════ -->
+<section class="staff-testimonials">
+  <div class="cap">
+    <p class="eyebrow">What patients say</p>
+    <h2>Real results, <em>real voices</em>.</h2>
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-card-stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote>Nadia is the only injector I trust with my face. After six years and other practices in DC and Tysons, I finally found someone who listens first and injects second. The results speak for themselves — but so does the approach.</blockquote>
+        <p class="testimonial-card-attr">— Rachel T. · Stafford, VA</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card-stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote>Sara's knowledge of laser technology is extraordinary. She explained every step of my BBL series, adjusted the protocol based on how my skin was responding, and the final result exceeded what I hoped for. Sun damage I'd had for twenty years is simply gone.</blockquote>
+        <p class="testimonial-card-attr">— Dana K. · Fredericksburg, VA</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-card-stars" aria-label="5 stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <blockquote>From my very first call with Priya, I felt like a person, not an appointment slot. The team here communicates clearly, follows up thoughtfully, and every visit starts on time. The clinical care is exceptional, but the experience around it matters too — and Rejuvalase gets both right.</blockquote>
+        <p class="testimonial-card-attr">— Monique L. · Woodbridge, VA</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 5 · FAQ
+════════════════════════════════════════════ -->
+<section class="faq-section">
+  <div class="cap">
+    <div class="faq-grid">
+      <div class="faq-heading">
+        <p class="faq-heading-display" aria-hidden="true">FAQ</p>
+        <h2>Your questions, <em>answered</em>.</h2>
+        <p>Still have a question that isn't here? Call us at 540·555·0134 or send a note to hello@rejuvalase.com — a member of our clinical team responds within one business day.</p>
+      </div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-question">
+            How do I know which provider is right for my treatment?
+            <span class="faq-q-icon" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <p class="faq-answer">During your initial consultation, Dr. Chen or a senior clinician will review your goals and recommend the most appropriate provider based on the treatment indicated. Every plan is physician-supervised regardless of who performs it.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Do all of your injectors have physician oversight?
+            <span class="faq-q-icon" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <p class="faq-answer">Yes. Virginia law and our internal protocols require that all injectable procedures performed by RNs operate under a supervising physician's standing orders. Dr. Chen reviews all treatment plans and is available for consultation on every appointment day.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            How often does the team receive additional training?
+            <span class="faq-q-icon" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <p class="faq-answer">We hold quarterly internal training reviews led by Dr. Chen. Additionally, all clinical staff attend at least one accredited aesthetic medicine conference per year and complete manufacturer-led certification updates whenever new devices or formulations are introduced.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Can I request a specific provider for my appointment?
+            <span class="faq-q-icon" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <p class="faq-answer">Absolutely. Once you've established care with a specific provider, we'll always schedule you with them when available. We'll also let you know in advance if scheduling requires an adjustment, so you can decide how to proceed.</p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            What's the difference between a nurse injector and a physician injector?
+            <span class="faq-q-icon" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><path d="M6 2v8M2 6h8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <p class="faq-answer">Our RN injectors are specialty-trained aesthetic nurses with thousands of procedures under their belts — Nadia alone has over 6,000 injectable treatments. The key distinction at Rejuvalase is that both operate under the same clinical protocols and physician oversight, ensuring consistent safety and outcomes regardless of provider.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 6 · CTA BANNER
+════════════════════════════════════════════ -->
+<section class="cta-banner">
+  <div class="cap">
+    <p class="eyebrow" style="color:var(--ink-900);opacity:.55;margin-bottom:.75rem;">Ready to get started?</p>
+    <h2>Meet the team <em>in person</em>.</h2>
+    <p>Book a complimentary consultation and connect with the provider best suited to your goals. No pressure. No obligation. Just an honest conversation.</p>
+    <a href="contact.html" class="btn primary">
+      Schedule a consultation
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<script src="site.js"></script>
+</body>
+</html>

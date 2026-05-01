@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>All Services — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── Trust bar ── */
+.trust-bar {
+  background: var(--ink-900);
+  padding: 1.25rem 0;
+}
+.trust-bar .cap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 3rem;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.trust-item svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: var(--gold-300);
+  flex-shrink: 0;
+}
+
+/* ── Category cards grid ── */
+.category-section {
+  padding: 5rem 0;
+  background: var(--paper);
+}
+.category-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--ink-900);
+  margin: 0 0 0.5rem;
+}
+.category-section .sec-intro {
+  margin-bottom: 3rem;
+}
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 900px) { .category-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 580px) { .category-grid { grid-template-columns: 1fr; } }
+
+.cat-card {
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 12px rgba(21,18,13,0.07);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.cat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(21,18,13,0.12); }
+.cat-card .img {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+.cat-card .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.cat-card:hover .img img { transform: scale(1.04); }
+.cat-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+  background: var(--ink-900);
+  color: var(--gold-300);
+}
+.cat-badge.dayspa { background: var(--gold-500); color: #fff; }
+.cat-body {
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.cat-body h3 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: 0 0 0.4rem;
+}
+.cat-body p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: #5a5040;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+  flex: 1;
+}
+.cat-link {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold-700);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap 0.2s;
+}
+.cat-link:hover { gap: 0.6rem; }
+.cat-link svg { width: 0.9rem; height: 0.9rem; fill: var(--gold-700); }
+
+/* ── Treatment list ── */
+.treatment-list-section {
+  background: var(--paper-2);
+  padding: 5rem 0;
+}
+.treatment-list-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  color: var(--ink-900);
+  margin: 0 0 0.5rem;
+}
+.treatment-list-section .lede {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: #5a5040;
+  margin: 0 0 2.5rem;
+  max-width: 48ch;
+}
+
+/* ── Quiz CTA ── */
+.quiz-cta {
+  background: var(--ink-900);
+  padding: 5rem 0;
+  text-align: center;
+}
+.quiz-cta .eyebrow { color: var(--gold-300); }
+.quiz-cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--paper);
+  margin: 0.5rem 0 1rem;
+}
+.quiz-cta p {
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: rgba(250,246,237,0.7);
+  max-width: 44ch;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.quiz-cta .btn-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── FAQ ── */
+.faq-section {
+  background: var(--paper);
+  padding: 5rem 0;
+}
+.faq-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 400;
+  color: var(--ink-900);
+  margin: 0 0 3rem;
+}
+</style>
+</head>
+<body>
+
+<!-- Page hero -->
+<section class="page-hero bg" style="background-image:url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1200&q=80&auto=format&fit=crop');">
+  <div class="inner">
+    <p class="eyebrow">All Services</p>
+    <h1>Every treatment,<br>in one <em>place</em>.</h1>
+    <p class="lede">From physician-led injectables and advanced laser therapy to restorative facials and full-body massage, Rejuvalase offers a curated range of medical and luxury treatments — all under one roof in Stafford, VA.</p>
+    <div class="btn-row" style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
+      <a href="contact.html" class="btn primary">Book a Free Consult</a>
+      <a href="quiz.html" class="btn ghost">Find My Treatment</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trust bar -->
+<div class="trust-bar">
+  <div class="cap">
+    <div class="trust-item">
+      <svg><use href="#i-shield"/></svg>
+      Board Certified MD &amp; RN
+    </div>
+    <div class="trust-item">
+      <svg><use href="#i-star"/></svg>
+      1,200+ Clients Served
+    </div>
+    <div class="trust-item">
+      <svg><use href="#i-star"/></svg>
+      4.9&#9733; Google Rating
+    </div>
+    <div class="trust-item">
+      <svg><use href="#i-calendar"/></svg>
+      Always Complimentary Consults
+    </div>
+  </div>
+</div>
+
+<!-- Category cards -->
+<section class="category-section">
+  <div class="cap">
+    <div class="sec-intro">
+      <p class="eyebrow">Explore by category</p>
+      <h2>What brings you in today?</h2>
+      <p style="font-family:var(--sans);font-size:1rem;color:#5a5040;max-width:52ch;line-height:1.7;margin:0.75rem 0 0;">Whether you're seeking a subtle refresh or deep relaxation, every service at Rejuvalase is delivered with clinical precision and genuine care.</p>
+    </div>
+
+    <div class="category-grid">
+
+      <article class="cat-card">
+        <div class="img">
+          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80&auto=format&fit=crop" alt="Injectables treatment" loading="lazy"/>
+          <span class="cat-badge">Medspa</span>
+        </div>
+        <div class="cat-body">
+          <h3>Injectables</h3>
+          <p>Botox, Dysport, dermal fillers, and PRP — precision treatments that restore volume and smooth expression lines naturally.</p>
+          <a href="medspa.html" class="cat-link">Explore <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </article>
+
+      <article class="cat-card">
+        <div class="img">
+          <img src="https://images.unsplash.com/photo-1629209648144-c27558e67a72?w=800&q=80&auto=format&fit=crop" alt="Laser and light therapy" loading="lazy"/>
+          <span class="cat-badge">Medspa</span>
+        </div>
+        <div class="cat-body">
+          <h3>Laser &amp; Light</h3>
+          <p>BBL photofacials, laser resurfacing, and IPL therapy to target pigmentation, redness, and aging at the cellular level.</p>
+          <a href="medspa.html" class="cat-link">Explore <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </article>
+
+      <article class="cat-card">
+        <div class="img">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80&auto=format&fit=crop" alt="Microneedling skin rejuvenation" loading="lazy"/>
+          <span class="cat-badge">Medspa</span>
+        </div>
+        <div class="cat-body">
+          <h3>Skin Rejuvenation</h3>
+          <p>Medical-grade microneedling, chemical peels, and collagen induction therapy to reveal visibly smoother, brighter skin.</p>
+          <a href="medspa.html" class="cat-link">Explore <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </article>
+
+      <article class="cat-card">
+        <div class="img">
+          <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&q=80&auto=format&fit=crop" alt="Massage therapy" loading="lazy"/>
+          <span class="cat-badge dayspa">Day Spa</span>
+        </div>
+        <div class="cat-body">
+          <h3>Massage &amp; Body</h3>
+          <p>Swedish, deep tissue, hot stone, and prenatal massage — therapeutic bodywork customized to your tension and goals.</p>
+          <a href="dayspa.html" class="cat-link">Explore <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </article>
+
+      <article class="cat-card">
+        <div class="img">
+          <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&q=80&auto=format&fit=crop" alt="HydraFacial luxury facial" loading="lazy"/>
+          <span class="cat-badge dayspa">Day Spa</span>
+        </div>
+        <div class="cat-body">
+          <h3>Day Spa Facials</h3>
+          <p>HydraFacial, signature facials, and express treatments that restore luminosity and deep hydration in a single session.</p>
+          <a href="dayspa.html" class="cat-link">Explore <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </article>
+
+      <article class="cat-card">
+        <div class="img">
+          <img src="https://images.unsplash.com/photo-1571646034647-52e6ea84b28c?w=800&q=80&auto=format&fit=crop" alt="Wellness and IV therapy" loading="lazy"/>
+          <span class="cat-badge">Medspa</span>
+        </div>
+        <div class="cat-body">
+          <h3>Wellness &amp; IV</h3>
+          <p>IV nutrient infusions, vitamin injections, and wellness consultations designed to support energy, immunity, and recovery.</p>
+          <a href="service.html" class="cat-link">Explore <svg><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Treatment list with filter + price table -->
+<section class="treatment-list-section">
+  <div class="cap">
+    <p class="eyebrow">Full Treatment Menu</p>
+    <h2>All treatments &amp; pricing</h2>
+    <p class="lede">Transparent pricing. No hidden fees. Complimentary consultations always included before any medspa service.</p>
+
+    <div class="filter-bar" style="margin-bottom:2rem;">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="injectables">Injectables</button>
+      <button class="filter-pill" data-filter="laser">Laser</button>
+      <button class="filter-pill" data-filter="skin">Skin</button>
+      <button class="filter-pill" data-filter="body">Body</button>
+      <button class="filter-pill" data-filter="wellness">Wellness</button>
+    </div>
+
+    <div class="price-table">
+
+      <div class="price-row" data-category="injectables">
+        <span class="svc-name">Botox Cosmetic</span>
+        <span class="svc-note">Per unit · physician-dosed</span>
+        <span class="svc-price">From $12/unit</span>
+      </div>
+
+      <div class="price-row" data-category="injectables">
+        <span class="svc-name">Dysport</span>
+        <span class="svc-note">Per unit · natural diffusion</span>
+        <span class="svc-price">From $4.50/unit</span>
+      </div>
+
+      <div class="price-row" data-category="injectables">
+        <span class="svc-name">Dermal Filler (Juvederm)</span>
+        <span class="svc-note">Lips, cheeks, nasolabial · per syringe</span>
+        <span class="svc-price">From $650/syringe</span>
+      </div>
+
+      <div class="price-row" data-category="injectables">
+        <span class="svc-name">PRP Facial (Vampire Facial)</span>
+        <span class="svc-note">Platelet-rich plasma · collagen induction</span>
+        <span class="svc-price">$450</span>
+      </div>
+
+      <div class="price-row" data-category="laser">
+        <span class="svc-name">BBL Photofacial</span>
+        <span class="svc-note">BroadBand Light · full face</span>
+        <span class="svc-price">From $350</span>
+      </div>
+
+      <div class="price-row" data-category="laser">
+        <span class="svc-name">IPL Spot Treatment</span>
+        <span class="svc-note">Targeted pigment &amp; vessel correction</span>
+        <span class="svc-price">From $150</span>
+      </div>
+
+      <div class="price-row" data-category="laser">
+        <span class="svc-name">Laser Skin Resurfacing</span>
+        <span class="svc-note">Fractional · fine lines &amp; texture</span>
+        <span class="svc-price">From $550</span>
+      </div>
+
+      <div class="price-row" data-category="skin">
+        <span class="svc-name">Medical Microneedling</span>
+        <span class="svc-note">SkinPen · collagen induction therapy</span>
+        <span class="svc-price">From $325</span>
+      </div>
+
+      <div class="price-row" data-category="skin">
+        <span class="svc-name">Chemical Peel</span>
+        <span class="svc-note">Light, medium, or deep · customized</span>
+        <span class="svc-price">From $125</span>
+      </div>
+
+      <div class="price-row" data-category="body">
+        <span class="svc-name">HydraFacial</span>
+        <span class="svc-note">Cleanse, exfoliate, hydrate · 60 min</span>
+        <span class="svc-price">From $195</span>
+      </div>
+
+      <div class="price-row" data-category="body">
+        <span class="svc-name">Therapeutic Massage</span>
+        <span class="svc-note">Swedish or deep tissue · 60 or 90 min</span>
+        <span class="svc-price">From $95</span>
+      </div>
+
+      <div class="price-row" data-category="wellness">
+        <span class="svc-name">IV Nutrient Infusion</span>
+        <span class="svc-note">Myers' Cocktail, Hydration, Immunity</span>
+        <span class="svc-price">From $175</span>
+      </div>
+
+      <div class="price-row" data-category="wellness">
+        <span class="svc-name">Vitamin B12 Injection</span>
+        <span class="svc-note">Energy &amp; metabolism support</span>
+        <span class="svc-price">$35</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Quiz CTA -->
+<section class="quiz-cta">
+  <div class="cap">
+    <p class="eyebrow">Personalized guidance</p>
+    <h2>Not sure which one?</h2>
+    <p>Our 2-minute quiz matches your skin goals with the treatments most likely to deliver results — or skip straight to a free consultation with our team.</p>
+    <div class="btn-row">
+      <a href="quiz.html" class="btn primary">Take the Quiz</a>
+      <a href="contact.html" class="btn ghost">Book Free Consult</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="cap" style="max-width:760px;">
+    <p class="eyebrow">Common questions</p>
+    <h2>Before you decide</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">How do I choose the right treatment for my goals?</button>
+      <div class="faq-answer">
+        <p>The best treatment depends on your skin type, concerns, lifestyle, and timeline. At Rejuvalase, every medspa service begins with a complimentary one-on-one consultation with our physician or lead RN. We assess your skin, discuss your goals honestly, and recommend a plan — never upsell. You're welcome to start with our online quiz for a quick starting point, but nothing replaces a personal conversation.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">Can I combine medspa and day spa treatments in the same visit?</button>
+      <div class="faq-answer">
+        <p>Absolutely. Many clients pair a medical treatment (like Botox or a chemical peel) with a relaxing massage or facial on the same visit. Our team coordinates your appointment so that treatments are sequenced safely and comfortably — for example, we'd schedule the massage after injectables to avoid disrupting fresh product. Just let us know your goals when you book and we'll build the day around you.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" aria-expanded="false">Do I really get a free consultation, or is there a catch?</button>
+      <div class="faq-answer">
+        <p>Truly complimentary — no purchase required, no pressure to book. We offer free consultations because we believe informed clients make better decisions and have better outcomes. Our physician-led team will give you an honest assessment, answer every question, and let you decide on your own timeline. If we don't think a treatment is right for you, we'll tell you that too.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="site.js"></script>
+</body>
+</html>

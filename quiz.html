@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Where to Start Quiz — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── Quiz page ── */
+.quiz-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+.quiz-left-panel {
+  background: var(--paper);
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  position: sticky;
+  top: 72px;
+  height: calc(100vh - 72px);
+  overflow: hidden;
+}
+.quiz-right-panel {
+  background: var(--ink-900);
+  color: var(--paper);
+  padding: 80px 60px;
+}
+.q-panel { display: none; }
+.q-panel.active { display: block; }
+.q-opt {
+  padding: 18px 22px;
+  border: 1px solid rgba(250,246,237,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: all 240ms;
+  user-select: none;
+}
+.q-opt:hover {
+  border-color: var(--gold-300);
+  background: rgba(212,184,114,0.08);
+}
+.q-opt.sel {
+  border-color: var(--gold-500);
+  background: rgba(184,147,59,0.15);
+}
+.q-opt .o-t {
+  font-family: var(--serif);
+  font-size: 20px;
+}
+.q-opt .o-k {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250,246,237,0.5);
+}
+.q-opt.sel .o-k { color: var(--gold-300); }
+.q-progress {
+  height: 2px;
+  background: rgba(250,246,237,0.1);
+  margin-bottom: 32px;
+}
+.q-progress-fill {
+  height: 100%;
+  background: var(--gold-300);
+  transition: width 400ms ease;
+}
+.q-next-btn {
+  background: var(--gold-500);
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background 200ms;
+  opacity: 0.4;
+  pointer-events: none;
+}
+.q-next-btn.ready {
+  opacity: 1;
+  pointer-events: auto;
+}
+.q-next-btn.ready:hover { background: var(--gold-700); }
+.q-step-indicator {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250,246,237,0.4);
+  margin-bottom: 8px;
+}
+.q-question-text {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 500;
+  color: var(--paper);
+  line-height: 1.3;
+  margin: 0 0 28px;
+}
+
+/* Results */
+.result-panel {
+  display: none;
+  color: var(--paper);
+}
+.result-panel.show { display: block; }
+.result-headline {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 500;
+  color: var(--paper);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+.result-sub {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(250,246,237,0.55);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+.result-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.result-card {
+  border: 1px solid rgba(212,184,114,0.3);
+  padding: 24px;
+  background: rgba(212,184,114,0.05);
+}
+.rc-num {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+  margin-bottom: 6px;
+}
+.rc-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--paper);
+  margin-bottom: 8px;
+}
+.rc-why {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(250,246,237,0.6);
+  line-height: 1.6;
+}
+.result-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.result-restart {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250,246,237,0.4);
+  background: none;
+  border: 1px solid rgba(250,246,237,0.15);
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+.result-restart:hover {
+  color: rgba(250,246,237,0.8);
+  border-color: rgba(250,246,237,0.35);
+}
+
+/* Left panel content */
+.qlp-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+}
+.qlp-heading {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  color: var(--ink-900);
+  line-height: 1.15;
+  margin: 0;
+}
+.qlp-heading em { font-style: italic; color: var(--gold-700); }
+.qlp-desc {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(21,18,13,0.65);
+  line-height: 1.7;
+}
+.qlp-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.qlp-stat {
+  border: 1px solid rgba(184,147,59,0.2);
+  padding: 16px;
+}
+.qlp-stat-val {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--ink-900);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.qlp-stat-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(21,18,13,0.45);
+}
+.qlp-photo {
+  border-radius: 0;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  flex-shrink: 0;
+}
+.qlp-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Responsive */
+@media(max-width:900px) {
+  .quiz-page { grid-template-columns: 1fr; }
+  .quiz-left-panel {
+    position: relative;
+    height: auto;
+    padding: 48px 24px;
+    top: 0;
+  }
+  .qlp-photo { display: none; }
+  .quiz-right-panel { padding: 48px 24px; }
+}
+@media(max-width:480px) {
+  .q-opt .o-t { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+<script src="site.js"></script>
+
+<!-- Quiz Layout -->
+<div class="quiz-page" id="quizPage">
+
+  <!-- Left Panel -->
+  <aside class="quiz-left-panel" aria-label="Quiz information">
+    <p class="qlp-eyebrow">Personalized Guidance</p>
+    <h1 class="qlp-heading">Not sure where<br><em>to start?</em></h1>
+    <p class="qlp-desc">Six questions. No email required. Our quiz uses your answers to match you with the treatments best suited to your skin's actual needs — not what's trending.</p>
+    <div class="qlp-stats">
+      <div class="qlp-stat">
+        <p class="qlp-stat-val">3 min</p>
+        <p class="qlp-stat-label">Average time</p>
+      </div>
+      <div class="qlp-stat">
+        <p class="qlp-stat-val">6</p>
+        <p class="qlp-stat-label">Questions total</p>
+      </div>
+      <div class="qlp-stat">
+        <p class="qlp-stat-val">1,400+</p>
+        <p class="qlp-stat-label">Completed</p>
+      </div>
+      <div class="qlp-stat">
+        <p class="qlp-stat-val">0</p>
+        <p class="qlp-stat-label">Email required</p>
+      </div>
+    </div>
+    <div class="qlp-photo">
+      <img
+        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=900&q=80&auto=format&fit=crop"
+        alt="Person thoughtfully considering skincare options"
+        loading="lazy"/>
+    </div>
+  </aside>
+
+  <!-- Right Panel: Quiz -->
+  <main class="quiz-right-panel" aria-label="Skin quiz">
+
+    <!-- Progress bar -->
+    <div class="q-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar">
+      <div class="q-progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="q-panel active" id="q1" data-question="1">
+      <p class="q-step-indicator">Question 1 of 6</p>
+      <h2 class="q-question-text">What bothers you most when you look in the mirror?</h2>
+      <div class="q-opts" role="group" aria-label="Select one">
+        <div class="q-opt" data-key="A" data-val="fine-lines" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Fine lines &amp; wrinkles</span>
+          <span class="o-k">A</span>
+        </div>
+        <div class="q-opt" data-key="B" data-val="tone" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Uneven skin tone</span>
+          <span class="o-k">B</span>
+        </div>
+        <div class="q-opt" data-key="C" data-val="volume" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Lost volume &amp; contour</span>
+          <span class="o-k">C</span>
+        </div>
+        <div class="q-opt" data-key="D" data-val="sun" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Sun damage &amp; spots</span>
+          <span class="o-k">D</span>
+        </div>
+        <div class="q-opt" data-key="E" data-val="dull" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Dullness &amp; lack of glow</span>
+          <span class="o-k">E</span>
+        </div>
+      </div>
+      <button class="q-next-btn" id="btn1">Next Question →</button>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-panel" id="q2" data-question="2">
+      <p class="q-step-indicator">Question 2 of 6</p>
+      <h2 class="q-question-text">How would you describe your schedule?</h2>
+      <div class="q-opts" role="group" aria-label="Select one">
+        <div class="q-opt" data-key="A" data-val="busy" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Very busy — I need quick options</span>
+          <span class="o-k">A</span>
+        </div>
+        <div class="q-opt" data-key="B" data-val="moderate" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Moderate — I can do 1–2 hour visits</span>
+          <span class="o-k">B</span>
+        </div>
+        <div class="q-opt" data-key="C" data-val="flexible" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Flexible — open to a full experience</span>
+          <span class="o-k">C</span>
+        </div>
+      </div>
+      <button class="q-next-btn" id="btn2">Next Question →</button>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-panel" id="q3" data-question="3">
+      <p class="q-step-indicator">Question 3 of 6</p>
+      <h2 class="q-question-text">What's your comfort level with medical treatments?</h2>
+      <div class="q-opts" role="group" aria-label="Select one">
+        <div class="q-opt" data-key="A" data-val="spa-only" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Prefer spa-style only</span>
+          <span class="o-k">A</span>
+        </div>
+        <div class="q-opt" data-key="B" data-val="light-med" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Open to light medical treatments</span>
+          <span class="o-k">B</span>
+        </div>
+        <div class="q-opt" data-key="C" data-val="advanced" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Ready for advanced clinical results</span>
+          <span class="o-k">C</span>
+        </div>
+      </div>
+      <button class="q-next-btn" id="btn3">Next Question →</button>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-panel" id="q4" data-question="4">
+      <p class="q-step-indicator">Question 4 of 6</p>
+      <h2 class="q-question-text">What's your skin's biggest challenge right now?</h2>
+      <div class="q-opts" role="group" aria-label="Select one">
+        <div class="q-opt" data-key="A" data-val="breakouts" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Breakouts &amp; congestion</span>
+          <span class="o-k">A</span>
+        </div>
+        <div class="q-opt" data-key="B" data-val="lines-lax" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Fine lines &amp; laxity</span>
+          <span class="o-k">B</span>
+        </div>
+        <div class="q-opt" data-key="C" data-val="red-pig" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Redness &amp; pigmentation</span>
+          <span class="o-k">C</span>
+        </div>
+        <div class="q-opt" data-key="D" data-val="dehydration" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Dehydration &amp; dullness</span>
+          <span class="o-k">D</span>
+        </div>
+      </div>
+      <button class="q-next-btn" id="btn4">Next Question →</button>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-panel" id="q5" data-question="5">
+      <p class="q-step-indicator">Question 5 of 6</p>
+      <h2 class="q-question-text">What's your recovery preference?</h2>
+      <div class="q-opts" role="group" aria-label="Select one">
+        <div class="q-opt" data-key="A" data-val="no-down" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">No downtime at all</span>
+          <span class="o-k">A</span>
+        </div>
+        <div class="q-opt" data-key="B" data-val="1-2-days" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">1–2 days is fine</span>
+          <span class="o-k">B</span>
+        </div>
+        <div class="q-opt" data-key="C" data-val="week" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Up to a week for better results</span>
+          <span class="o-k">C</span>
+        </div>
+      </div>
+      <button class="q-next-btn" id="btn5">Next Question →</button>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-panel" id="q6" data-question="6">
+      <p class="q-step-indicator">Question 6 of 6</p>
+      <h2 class="q-question-text">What matters most to you?</h2>
+      <div class="q-opts" role="group" aria-label="Select one">
+        <div class="q-opt" data-key="A" data-val="fastest" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Fastest visible results</span>
+          <span class="o-k">A</span>
+        </div>
+        <div class="q-opt" data-key="B" data-val="lasting" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Longest-lasting outcomes</span>
+          <span class="o-k">B</span>
+        </div>
+        <div class="q-opt" data-key="C" data-val="natural" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Most natural-looking results</span>
+          <span class="o-k">C</span>
+        </div>
+        <div class="q-opt" data-key="D" data-val="low-maint" tabindex="0" role="button" aria-pressed="false">
+          <span class="o-t">Lowest maintenance required</span>
+          <span class="o-k">D</span>
+        </div>
+      </div>
+      <button class="q-next-btn" id="btn6">See My Results →</button>
+    </div>
+
+    <!-- Results Panel -->
+    <div class="result-panel" id="resultPanel" role="region" aria-label="Your personalized recommendations">
+      <p class="q-step-indicator" style="color:var(--gold-300);">Your Results</p>
+      <h2 class="result-headline" id="resultHeadline">Based on your answers,<br>here's where to start.</h2>
+      <p class="result-sub" id="resultSub">Every skin is different. These recommendations are a starting point — a complimentary consultation with our team will refine the plan for you specifically.</p>
+      <div class="result-cards" id="resultCards"></div>
+      <div class="result-cta-row">
+        <a href="contact.html" class="btn primary">
+          Book a Free Consultation
+          <svg><use href="#i-arrow-right"/></svg>
+        </a>
+        <button class="result-restart" id="restartBtn" type="button">
+          Retake quiz
+        </button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+(function() {
+  // ── State ──
+  const TOTAL_QUESTIONS = 6;
+  var answers = {};
+  var currentQ = 1;
+
+  // ── Elements ──
+  var progressFill = document.getElementById('progressFill');
+  var progressBar  = document.getElementById('progressBar');
+  var resultPanel  = document.getElementById('resultPanel');
+  var restartBtn   = document.getElementById('restartBtn');
+
+  // ── Recommendation engine ──
+  var SERVICES = [
+    {
+      id: 'bbl',
+      name: 'BBL Photofacial',
+      why: 'BBL (BroadBand Light) is the gold standard for correcting sun damage, uneven tone, redness, and pigmentation. Clinical studies show it also reverses aging at the gene expression level — making it one of the most evidence-backed treatments we offer.',
+      keys: ['sun', 'tone', 'red-pig', 'lasting', 'advanced', '1-2-days', 'week']
+    },
+    {
+      id: 'hydrafacial',
+      name: 'HydraFacial MD',
+      why: 'HydraFacial delivers instant, visible brightness with zero downtime. The patented vortex technology cleanses, extracts, and floods skin with antioxidants and hyaluronic acid in a single session. Perfect for all skin types and any schedule.',
+      keys: ['dull', 'dehydration', 'no-down', 'busy', 'spa-only', 'fastest', 'breakouts']
+    },
+    {
+      id: 'neuromod',
+      name: 'Neuromodulators (Botox / Dysport)',
+      why: 'For dynamic fine lines and wrinkles caused by repeated muscle movement, neuromodulators are the most clinically proven intervention. Results are predictable, natural-looking, and last 3–4 months on average. Quick appointment, no downtime.',
+      keys: ['fine-lines', 'no-down', 'natural', 'busy', 'light-med', 'fastest']
+    },
+    {
+      id: 'filler',
+      name: 'Dermal Filler',
+      why: 'Hyaluronic acid fillers restore lost volume and contour that skincare products simply cannot address. Our board-certified injectors use a conservative approach for results that enhance your features without looking done.',
+      keys: ['volume', 'natural', 'lasting', 'advanced', 'moderate', 'flexible']
+    },
+    {
+      id: 'chemical-peel',
+      name: 'Medical-Grade Chemical Peel',
+      why: 'A physician-formulated peel resurfaces the outer skin layers to accelerate cell turnover, fade pigment, refine texture, and reveal clearer, more even skin. Ideal for breakout-prone or congested skin as well as fine lines.',
+      keys: ['breakouts', 'tone', 'dull', 'week', '1-2-days', 'light-med', 'low-maint']
+    },
+    {
+      id: 'morpheus',
+      name: 'Morpheus8 (RF Microneedling)',
+      why: 'Morpheus8 combines microneedling with radiofrequency energy to remodel collagen deep within the skin. It addresses laxity, texture, fine lines, and acne scars simultaneously — with results that build over 3–6 months.',
+      keys: ['lines-lax', 'volume', 'lasting', 'advanced', 'week', 'flexible']
+    }
+  ];
+
+  function scoreServices() {
+    var vals = Object.values(answers);
+    var scores = {};
+    SERVICES.forEach(function(svc) {
+      scores[svc.id] = 0;
+      svc.keys.forEach(function(k) {
+        if (vals.indexOf(k) > -1) scores[svc.id]++;
+      });
+    });
+    // Sort by score descending
+    return SERVICES
+      .slice()
+      .sort(function(a, b) { return scores[b.id] - scores[a.id]; })
+      .slice(0, 3);
+  }
+
+  function showResults() {
+    // Hide all question panels
+    for (var i = 1; i <= TOTAL_QUESTIONS; i++) {
+      var panel = document.getElementById('q' + i);
+      if (panel) panel.classList.remove('active');
+    }
+
+    var top3 = scoreServices();
+    var cardsEl = document.getElementById('resultCards');
+    cardsEl.innerHTML = '';
+
+    top3.forEach(function(svc, idx) {
+      var card = document.createElement('div');
+      card.className = 'result-card';
+      card.innerHTML =
+        '<p class="rc-num">Recommendation ' + (idx + 1) + '</p>' +
+        '<h3 class="rc-name">' + svc.name + '</h3>' +
+        '<p class="rc-why">' + svc.why + '</p>';
+      cardsEl.appendChild(card);
+    });
+
+    resultPanel.classList.add('show');
+    progressFill.style.width = '100%';
+    progressBar.setAttribute('aria-valuenow', '100');
+  }
+
+  function updateProgress(questionNum) {
+    var pct = Math.round(((questionNum - 1) / TOTAL_QUESTIONS) * 100);
+    progressFill.style.width = pct + '%';
+    progressBar.setAttribute('aria-valuenow', pct);
+  }
+
+  function goToQuestion(n) {
+    // Hide current
+    var cur = document.getElementById('q' + currentQ);
+    if (cur) cur.classList.remove('active');
+
+    if (n > TOTAL_QUESTIONS) {
+      showResults();
+      return;
+    }
+
+    currentQ = n;
+    var next = document.getElementById('q' + currentQ);
+    if (next) {
+      next.classList.add('active');
+      // Restore selected state if revisiting
+      var savedVal = answers[currentQ];
+      var opts = next.querySelectorAll('.q-opt');
+      opts.forEach(function(opt) {
+        opt.classList.toggle('sel', opt.dataset.val === savedVal);
+        opt.setAttribute('aria-pressed', opt.dataset.val === savedVal ? 'true' : 'false');
+      });
+      var btn = next.querySelector('.q-next-btn');
+      if (btn) {
+        btn.classList.toggle('ready', !!savedVal);
+      }
+    }
+    updateProgress(currentQ);
+  }
+
+  function initQuestion(panelEl) {
+    var qNum = parseInt(panelEl.dataset.question, 10);
+    var opts = panelEl.querySelectorAll('.q-opt');
+    var btn  = panelEl.querySelector('.q-next-btn');
+
+    function selectOpt(opt) {
+      opts.forEach(function(o) {
+        o.classList.remove('sel');
+        o.setAttribute('aria-pressed', 'false');
+      });
+      opt.classList.add('sel');
+      opt.setAttribute('aria-pressed', 'true');
+      answers[qNum] = opt.dataset.val;
+      btn.classList.add('ready');
+    }
+
+    opts.forEach(function(opt) {
+      opt.addEventListener('click', function() {
+        selectOpt(opt);
+      });
+      opt.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectOpt(opt);
+        }
+      });
+    });
+
+    btn.addEventListener('click', function() {
+      if (!answers[qNum]) return;
+      goToQuestion(qNum + 1);
+    });
+  }
+
+  // Init all question panels
+  for (var i = 1; i <= TOTAL_QUESTIONS; i++) {
+    var panel = document.getElementById('q' + i);
+    if (panel) initQuestion(panel);
+  }
+
+  // Keyboard shortcuts (A–E)
+  document.addEventListener('keydown', function(e) {
+    var key = e.key.toUpperCase();
+    if (!['A','B','C','D','E'].includes(key)) return;
+    var activePanel = document.querySelector('.q-panel.active');
+    if (!activePanel) return;
+    var opt = activePanel.querySelector('[data-key="' + key + '"]');
+    if (opt) opt.click();
+  });
+
+  // Restart
+  restartBtn.addEventListener('click', function() {
+    answers = {};
+    resultPanel.classList.remove('show');
+    currentQ = 1;
+    // Reset all selections
+    document.querySelectorAll('.q-opt').forEach(function(o) {
+      o.classList.remove('sel');
+      o.setAttribute('aria-pressed', 'false');
+    });
+    document.querySelectorAll('.q-next-btn').forEach(function(b) {
+      b.classList.remove('ready');
+    });
+    var first = document.getElementById('q1');
+    if (first) first.classList.add('active');
+    updateProgress(1);
+  });
+
+  // Init progress
+  updateProgress(1);
+})();
+</script>
+
+</body>
+</html>

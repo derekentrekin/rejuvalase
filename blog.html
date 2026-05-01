@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Journal — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── Blog / Journal page ─────────────────────── */
+
+/* 2. Featured post */
+.feat-post {
+  background: var(--paper);
+  padding: 5rem 0;
+}
+.feat-post__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid rgba(0,0,0,.08);
+  overflow: hidden;
+  min-height: 500px;
+}
+.feat-post__img {
+  overflow: hidden;
+}
+.feat-post__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.feat-post:hover .feat-post__img img {
+  transform: scale(1.03);
+}
+.feat-post__body {
+  padding: 3.5rem;
+  background: var(--paper-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.1rem;
+}
+.post-cat {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.feat-post__body h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 2.8vw, 2.2rem);
+  font-weight: 500;
+  color: var(--ink-900);
+  line-height: 1.25;
+  margin: 0;
+}
+.feat-post__body h2 em { font-style: italic; }
+.feat-post__body p {
+  font-family: var(--sans);
+  font-size: .94rem;
+  color: rgba(0,0,0,.58);
+  line-height: 1.72;
+  margin: 0;
+}
+.post-byline {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .06em;
+  color: rgba(0,0,0,.42);
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+
+/* 3. Filter bar */
+.filter-section {
+  background: var(--paper-2);
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0,0,0,.06);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+.filter-pill {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  padding: .45rem .95rem;
+  border: 1px solid rgba(0,0,0,.18);
+  color: rgba(0,0,0,.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all .15s ease;
+  text-decoration: none;
+}
+.filter-pill:hover,
+.filter-pill.active {
+  background: var(--gold-500);
+  border-color: var(--gold-500);
+  color: #fff;
+}
+
+/* 4. Posts grid */
+.posts-section {
+  background: var(--paper);
+  padding: 5rem 0;
+}
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.post-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,.07);
+  background: var(--paper-2);
+  overflow: hidden;
+  transition: box-shadow .2s ease;
+}
+.post-card:hover {
+  box-shadow: 0 8px 28px rgba(0,0,0,.08);
+}
+.post-card__img {
+  aspect-ratio: 3/2;
+  overflow: hidden;
+}
+.post-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.post-card:hover .post-card__img img {
+  transform: scale(1.04);
+}
+.post-card__body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  flex: 1;
+}
+.post-card__cat {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+}
+.post-card__title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  line-height: 1.35;
+  margin: 0;
+}
+.post-card__title em { font-style: italic; }
+.post-card__excerpt {
+  font-family: var(--sans);
+  font-size: .85rem;
+  color: rgba(0,0,0,.55);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+.post-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: .85rem;
+  border-top: 1px solid rgba(0,0,0,.07);
+  margin-top: .35rem;
+}
+.post-card__author {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .06em;
+  color: rgba(0,0,0,.4);
+}
+.post-card__read {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.35);
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+/* 5. Letter signup (inline) */
+.letter-section {
+  background: var(--paper-2);
+  border-top: 1px solid rgba(184,147,59,.2);
+  border-bottom: 1px solid rgba(184,147,59,.2);
+  padding: 3.5rem 0;
+}
+.letter-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.letter-text h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: 0 0 .35rem;
+}
+.letter-text h3 em { font-style: italic; color: var(--gold-500); }
+.letter-text p {
+  font-family: var(--sans);
+  font-size: .88rem;
+  color: rgba(0,0,0,.55);
+  margin: 0;
+  line-height: 1.6;
+}
+.letter-form {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.letter-form input[type="email"] {
+  font-family: var(--mono);
+  font-size: .82rem;
+  padding: .7rem 1.1rem;
+  border: 1px solid rgba(0,0,0,.2);
+  background: var(--paper);
+  color: var(--ink-900);
+  width: 260px;
+  outline: none;
+}
+.letter-form input[type="email"]:focus {
+  border-color: var(--gold-500);
+}
+.letter-form input[type="email"]::placeholder {
+  color: rgba(0,0,0,.35);
+}
+
+/* 6. Category chips */
+.categories-section {
+  background: var(--paper);
+  padding: 5rem 0;
+}
+.categories-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: .5rem 0 2.5rem;
+}
+.category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.category-chip {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(0,0,0,.1);
+  background: var(--paper-2);
+  text-decoration: none;
+  transition: all .2s ease;
+}
+.category-chip:hover {
+  border-color: var(--gold-500);
+  background: rgba(184,147,59,.06);
+}
+.category-chip__name {
+  font-family: var(--sans);
+  font-size: .93rem;
+  font-weight: 500;
+  color: var(--ink-900);
+}
+.category-chip__count {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .08em;
+  color: rgba(0,0,0,.35);
+  background: rgba(0,0,0,.06);
+  padding: .2rem .55rem;
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 960px) {
+  .feat-post__inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .feat-post__img { aspect-ratio: 16/9; }
+  .posts-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .posts-grid { grid-template-columns: 1fr; }
+  .letter-inner { flex-direction: column; align-items: flex-start; }
+  .letter-form { flex-direction: column; width: 100%; }
+  .letter-form input[type="email"] { width: 100%; }
+  .feat-post__body { padding: 2rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+<script src="site.js"></script>
+
+<!-- ── 1. Page Hero ──────────────────────────────────────────────────── -->
+<section class="page-hero dark-sec">
+  <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1200&q=80&auto=format&fit=crop'); opacity:.15;"></div>
+  <div class="inner">
+    <p class="eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-pen"/></svg>
+      Writing &amp; notes
+    </p>
+    <h1>What we're<br><em>reading, trying</em>,<br>and retiring.</h1>
+    <p class="lede">The Rejuvalase journal is where our clinical team writes for the public — honest notes on what's working in aesthetics, what the research actually says, and what we've changed our minds about.</p>
+  </div>
+</section>
+
+<!-- ── 2. Featured Post ──────────────────────────────────────────────── -->
+<section class="feat-post">
+  <div class="container">
+    <p class="eyebrow" style="margin-bottom:1.5rem;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-star"/></svg>
+      Featured
+    </p>
+    <a href="post.html" style="text-decoration:none;display:block;" aria-label="Read: Filler fatigue is real — here's how we prevent it in our own clients.">
+      <div class="feat-post__inner">
+        <div class="feat-post__img">
+          <img
+            src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80&auto=format&fit=crop"
+            alt="Close-up of facial skin — injectable treatment"
+            width="700" height="500"
+            loading="eager"
+          />
+        </div>
+        <div class="feat-post__body">
+          <span class="post-cat">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-book"/></svg>
+            Education · Injectables
+          </span>
+          <h2>Filler fatigue is real — here's how we prevent it in our own clients.</h2>
+          <p>Over-treatment with dermal filler is one of the most common problems we see when new clients come to us from other practices. It's not that filler is bad — it's that the incentive structure in aesthetics too often rewards more, not better. We've structured our approach around preventing it.</p>
+          <div class="post-byline">— Nadia Okafor, RN · March 14, 2026 · 9 min read</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ── 3. Filter Bar ─────────────────────────────────────────────────── -->
+<div class="filter-section">
+  <div class="container">
+    <div class="filter-bar">
+      <a href="#" class="filter-pill active">All</a>
+      <a href="#" class="filter-pill">Injectables</a>
+      <a href="#" class="filter-pill">Skincare</a>
+      <a href="#" class="filter-pill">Laser &amp; Light</a>
+      <a href="#" class="filter-pill">Practice Notes</a>
+      <a href="#" class="filter-pill">Wellness</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── 4. Posts Grid ─────────────────────────────────────────────────── -->
+<section class="posts-section">
+  <div class="container">
+    <div class="posts-grid">
+
+      <!-- Post 1 -->
+      <article class="post-card">
+        <div class="post-card__img">
+          <img
+            src="https://images.unsplash.com/photo-1571646034647-52e6ea84b28c?w=1200&q=80&auto=format&fit=crop"
+            alt="Sunscreen and skincare products"
+            width="400" height="267"
+            loading="lazy"
+          />
+        </div>
+        <div class="post-card__body">
+          <span class="post-card__cat">Education · Skincare</span>
+          <h3 class="post-card__title">SPF, translated: what the numbers <em>actually mean</em> in Virginia spring.</h3>
+          <p class="post-card__excerpt">SPF 100 doesn't block twice as much UV as SPF 50. SPF 50 doesn't block twice as much as SPF 25. The math is counterintuitive — here's what it actually means for your daily decisions in March through June.</p>
+          <div class="post-card__meta">
+            <span class="post-card__author">Dr. Maya Chen</span>
+            <span class="post-card__read">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-clock"/></svg>
+              5 min
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="post-card">
+        <div class="post-card__img">
+          <img
+            src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1200&q=80&auto=format&fit=crop"
+            alt="Practice notes — Rejuvalase journal"
+            width="400" height="267"
+            loading="lazy"
+          />
+        </div>
+        <div class="post-card__body">
+          <span class="post-card__cat">Practice · Notes</span>
+          <h3 class="post-card__title">Why our first consult is free — and will stay that way.</h3>
+          <p class="post-card__excerpt">Some practices charge for consultations to filter out non-buyers. We don't filter clients — we work with them. Here's the reasoning behind a policy that costs us real money and why we consider it non-negotiable.</p>
+          <div class="post-card__meta">
+            <span class="post-card__author">Rejuvalase Team</span>
+            <span class="post-card__read">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-clock"/></svg>
+              3 min
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="post-card">
+        <div class="post-card__img">
+          <img
+            src="https://images.unsplash.com/photo-1620302751831-6a95fd1f3d0a?w=900&q=80&auto=format&fit=crop"
+            alt="Laser treatment at Rejuvalase"
+            width="400" height="267"
+            loading="lazy"
+          />
+        </div>
+        <div class="post-card__body">
+          <span class="post-card__cat">Education · Laser</span>
+          <h3 class="post-card__title">Microneedling: what to expect before, during, and six weeks after.</h3>
+          <p class="post-card__excerpt">Microneedling has an unusual healing arc — the peak discomfort and peak results don't coincide. Most clients who stop early do so in the first two weeks, before the collagen remodeling phase has had time to show up.</p>
+          <div class="post-card__meta">
+            <span class="post-card__author">Nadia Okafor, RN</span>
+            <span class="post-card__read">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-clock"/></svg>
+              7 min
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 4 -->
+      <article class="post-card">
+        <div class="post-card__img">
+          <img
+            src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80&auto=format&fit=crop"
+            alt="Skincare close-up — retinol and retinoid"
+            width="400" height="267"
+            loading="lazy"
+          />
+        </div>
+        <div class="post-card__body">
+          <span class="post-card__cat">Education · Skincare</span>
+          <h3 class="post-card__title">Retinol vs. retinoid: the difference your prescriber forgot to mention.</h3>
+          <p class="post-card__excerpt">They're related compounds that do similar things through different biochemical pathways, at different speeds, with different side-effect profiles. Most people using retinol are using the wrong concentration for the wrong reason.</p>
+          <div class="post-card__meta">
+            <span class="post-card__author">Dr. Maya Chen</span>
+            <span class="post-card__read">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-clock"/></svg>
+              6 min
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 5 -->
+      <article class="post-card">
+        <div class="post-card__img">
+          <img
+            src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1000&q=80&auto=format&fit=crop"
+            alt="Wellness and IV therapy"
+            width="400" height="267"
+            loading="lazy"
+          />
+        </div>
+        <div class="post-card__body">
+          <span class="post-card__cat">Education · Wellness</span>
+          <h3 class="post-card__title">What IV therapy <em>actually does</em> (and what it doesn't).</h3>
+          <p class="post-card__excerpt">The evidence for IV nutrient therapy is narrower than the marketing suggests. Here's an honest accounting of what's supported by clinical data, what's plausible but unproven, and what we'd push back on if a vendor pitched it to us.</p>
+          <div class="post-card__meta">
+            <span class="post-card__author">Rejuvalase Team</span>
+            <span class="post-card__read">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-clock"/></svg>
+              4 min
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Post 6 -->
+      <article class="post-card">
+        <div class="post-card__img">
+          <img
+            src="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=1400&q=80&auto=format&fit=crop"
+            alt="Sciton BBL laser treatment"
+            width="400" height="267"
+            loading="lazy"
+          />
+        </div>
+        <div class="post-card__body">
+          <span class="post-card__cat">Education · Laser</span>
+          <h3 class="post-card__title">The Sciton BBL: why it's the laser dermatologists <em>quietly recommend.</em></h3>
+          <p class="post-card__excerpt">Sciton BBL has a Stanford University study showing it reverses gene expression markers for photoaging — not just cosmetically, but measurably at the genetic level. It's one of the few devices where we'd say the marketing undersells the science.</p>
+          <div class="post-card__meta">
+            <span class="post-card__author">Dr. Maya Chen</span>
+            <span class="post-card__read">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-clock"/></svg>
+              8 min
+            </span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 5. The Letter — inline subscription mention ─────────────────── -->
+<section class="letter-section">
+  <div class="container">
+    <div class="letter-inner">
+      <div class="letter-text">
+        <h3>The Letter —<br><em>six emails a year.</em></h3>
+        <p>Longer reads, clinical updates, and the occasional opinion on where aesthetics is going.<br>No promotions. No weekly roundups. Just substance, when we have something worth saying.</p>
+      </div>
+      <form class="letter-form" action="#" method="post">
+        <input
+          type="email"
+          name="email"
+          placeholder="your@email.com"
+          aria-label="Email address for The Letter"
+          required
+        />
+        <button type="submit" class="btn primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. Category Chips ──────────────────────────────────────────────── -->
+<section class="categories-section">
+  <div class="container">
+    <p class="eyebrow">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-tag"/></svg>
+      Browse by topic
+    </p>
+    <h2>All categories</h2>
+    <div class="category-chips">
+      <a href="#" class="category-chip">
+        <span class="category-chip__name">Injectables</span>
+        <span class="category-chip__count">14</span>
+      </a>
+      <a href="#" class="category-chip">
+        <span class="category-chip__name">Skincare</span>
+        <span class="category-chip__count">22</span>
+      </a>
+      <a href="#" class="category-chip">
+        <span class="category-chip__name">Laser &amp; Light</span>
+        <span class="category-chip__count">9</span>
+      </a>
+      <a href="#" class="category-chip">
+        <span class="category-chip__name">Practice Notes</span>
+        <span class="category-chip__count">7</span>
+      </a>
+      <a href="#" class="category-chip">
+        <span class="category-chip__name">Wellness</span>
+        <span class="category-chip__count">11</span>
+      </a>
+      <a href="#" class="category-chip">
+        <span class="category-chip__name">Education</span>
+        <span class="category-chip__count">38</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

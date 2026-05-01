@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Products — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── Products page ───────────────────────────── */
+
+/* 2. Philosophy section */
+.philosophy-section {
+  background: var(--paper-2);
+  padding: 5.5rem 0;
+}
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.philosophy-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-weight: 500;
+  color: var(--ink-900);
+  line-height: 1.15;
+  margin: .5rem 0 1.25rem;
+}
+.philosophy-text h2 em { font-style: italic; color: var(--gold-500); }
+.philosophy-text p {
+  font-family: var(--sans);
+  font-size: .97rem;
+  color: rgba(0,0,0,.62);
+  line-height: 1.78;
+  margin: 0 0 1rem;
+}
+.philosophy-img { overflow: hidden; }
+.philosophy-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+
+/* 3. Brand sections */
+.brand-section {
+  padding: 5rem 0;
+}
+.brand-section:nth-child(even) { background: var(--paper-2); }
+.brand-section:nth-child(odd) { background: var(--paper); }
+.brand-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.brand-header__left {}
+.brand-header__left h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: .25rem 0 .5rem;
+  line-height: 1.15;
+}
+.brand-header__left p {
+  font-family: var(--sans);
+  font-size: .93rem;
+  color: rgba(0,0,0,.55);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0;
+}
+.brand-header__badge {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink-900);
+  padding: .4rem 1rem;
+  flex-shrink: 0;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+.product-tile {
+  background: var(--paper);
+  border: 1px solid rgba(0,0,0,.07);
+  display: flex;
+  flex-direction: column;
+}
+.brand-section:nth-child(odd) .product-tile { background: var(--paper-2); }
+.product-tile__body { padding: 1.5rem; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+.product-tile__name {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  line-height: 1.25;
+  margin: 0;
+}
+.product-tile__purpose {
+  font-family: var(--sans);
+  font-size: .83rem;
+  color: rgba(0,0,0,.55);
+  line-height: 1.55;
+  flex: 1;
+}
+.product-tile__price {
+  font-family: var(--mono);
+  font-size: .75rem;
+  letter-spacing: .05em;
+  color: var(--gold-500);
+  padding-top: .75rem;
+  border-top: 1px solid rgba(0,0,0,.07);
+  margin-top: .5rem;
+}
+
+/* 4. How to choose */
+.choose-section {
+  background: var(--ink-900);
+  padding: 5.5rem 0;
+}
+.choose-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  margin: .5rem 0 3rem;
+}
+.choose-section h2 em { font-style: italic; color: var(--gold-500); }
+.choose-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.choose-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(184,147,59,.2);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.choose-card__icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gold-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-500);
+}
+.choose-card h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  line-height: 1.25;
+}
+.choose-card p {
+  font-family: var(--sans);
+  font-size: .88rem;
+  color: rgba(255,255,255,.62);
+  line-height: 1.68;
+  margin: 0;
+}
+
+/* 5. FAQs */
+.faq-section {
+  background: var(--paper-2);
+  padding: 5.5rem 0;
+}
+.faq-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: .5rem 0 3rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 780px;
+}
+.faq-item {
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.faq-item:first-child { border-top: 1px solid rgba(0,0,0,.08); }
+.faq-q {
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q h3 {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: 0;
+  line-height: 1.4;
+}
+.faq-q svg {
+  flex-shrink: 0;
+  color: var(--gold-500);
+  transition: transform .2s ease;
+}
+details[open] .faq-q svg { transform: rotate(45deg); }
+.faq-answer {
+  padding: 0 0 1.5rem;
+  font-family: var(--sans);
+  font-size: .92rem;
+  color: rgba(0,0,0,.6);
+  line-height: 1.75;
+}
+
+/* 6. CTA bottom */
+.products-cta {
+  background: var(--paper);
+  padding: 5rem 0;
+  text-align: center;
+}
+.products-cta h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-weight: 500;
+  color: var(--ink-900);
+  margin: .5rem 0 1rem;
+}
+.products-cta h2 em { font-style: italic; color: var(--gold-500); }
+.products-cta p {
+  font-family: var(--sans);
+  font-size: .97rem;
+  color: rgba(0,0,0,.6);
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 1000px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .choose-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .philosophy-grid { grid-template-columns: 1fr; }
+  .brand-header { flex-direction: column; align-items: flex-start; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .choose-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 500px) {
+  .products-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<script src="site.js"></script>
+
+<!-- ── 1. Page Hero ──────────────────────────────────────────────────── -->
+<section class="page-hero dark-sec">
+  <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1571646034647-52e6ea84b28c?w=1200&q=80&auto=format&fit=crop'); opacity:.2;"></div>
+  <div class="inner">
+    <p class="eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-tag"/></svg>
+      Curated retail
+    </p>
+    <h1>Products we<br><em>actually use.</em></h1>
+    <p class="lede">If we don't recommend it in the treatment room, we don't sell it. Our retail wall carries six lines — chosen for clinical evidence, not margin.</p>
+  </div>
+</section>
+
+<!-- ── 2. Philosophy ─────────────────────────────────────────────────── -->
+<section class="philosophy-section">
+  <div class="container">
+    <div class="philosophy-grid">
+      <div class="philosophy-text">
+        <p class="eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-book"/></svg>
+          Our curation standard
+        </p>
+        <h2>We know the reps.<br>We've read the <em>studies.</em></h2>
+        <p>Most medspas carry whatever the distributor pushes that quarter. We don't operate that way. Before any product reaches our retail wall, at least two clinicians on our team have used it personally and recommended it to patients — and seen results.</p>
+        <p>We also keep our category coverage intentional. We don't stock ten vitamin C serums. We stock the one we believe is best for the majority of our clients' skin types, and we'll tell you if you need something we don't carry.</p>
+        <p>All six lines we carry are backed by peer-reviewed clinical data. We've met the researchers. We've heard the trial results. That's not common in retail aesthetics — it's the floor for us.</p>
+      </div>
+      <div class="philosophy-img">
+        <img
+          src="https://images.unsplash.com/photo-1571646034647-52e6ea84b28c?w=1200&q=80&auto=format&fit=crop"
+          alt="Rejuvalase product wall — curated skincare retail"
+          width="600" height="750"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 3. Brand Sections ──────────────────────────────────────────────── -->
+
+<!-- SkinCeuticals -->
+<section class="brand-section">
+  <div class="container">
+    <div class="brand-header">
+      <div class="brand-header__left">
+        <p class="eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+          Brand
+        </p>
+        <h2>SkinCeuticals</h2>
+        <p>The gold standard in vitamin C and antioxidant skincare. SkinCeuticals was founded by a Duke University researcher and holds more dermatology journal citations than any brand we carry. Their formulations are narrow — but what they do, they do better than anyone.</p>
+      </div>
+      <span class="brand-header__badge">Most recommended</span>
+    </div>
+    <div class="products-grid">
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">C E Ferulic</h3>
+          <p class="product-tile__purpose">15% L-ascorbic acid serum with vitamin E and ferulic acid. The clinical standard for daytime antioxidant protection. Eight published studies on photoprotection and collagen synthesis.</p>
+          <div class="product-tile__price">$182 · 30mL</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Triple Lipid Restore</h3>
+          <p class="product-tile__purpose">Lipid-correction cream restoring the skin barrier. Ceramides, cholesterol, and fatty acids in clinically tested ratios. Particularly effective post-laser or post-retinoid sensitization.</p>
+          <div class="product-tile__price">$128 · 48mL</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">AGE Interrupter Advanced</h3>
+          <p class="product-tile__purpose">Anti-aging moisturizer targeting deep wrinkles and loss of facial volume. Phytosphingosine and proxylane work together — one study showed 22% improvement in wrinkle depth at 12 weeks.</p>
+          <div class="product-tile__price">$168 · 48mL</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Physical Fusion UV Defense</h3>
+          <p class="product-tile__purpose">SPF 50 mineral sunscreen that works well under makeup and over serums. The tinted version is our most-recommended daily SPF for clients who resist sunscreen — it's simply better than most.</p>
+          <div class="product-tile__price">$46 · 50mL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZO Skin Health -->
+<section class="brand-section">
+  <div class="container">
+    <div class="brand-header">
+      <div class="brand-header__left">
+        <p class="eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+          Brand
+        </p>
+        <h2>ZO Skin Health</h2>
+        <p>Created by Dr. Zein Obagi — the original Obagi founder — ZO targets skin conditions with a physician-grade intensity that's suited to our treatment-room clients. Strong actives, real results, and protocols designed to work alongside medical procedures.</p>
+      </div>
+      <span class="brand-header__badge">Post-procedure focus</span>
+    </div>
+    <div class="products-grid">
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Exfoliation Accelerator</h3>
+          <p class="product-tile__purpose">10% glycolic acid toning solution that speeds cellular turnover and preps the skin for actives. A first step in most ZO protocols. Pairs well with the BBL recovery period.</p>
+          <div class="product-tile__price">$78 · 240mL</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">0.5% Retinol Skin Brightener</h3>
+          <p class="product-tile__purpose">Stabilized retinol at a concentration that delivers meaningful results without the extended adjustment period of prescription retinoids. A clinical entry point for retinol beginners.</p>
+          <div class="product-tile__price">$110 · 50mL</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Daily Power Defense</h3>
+          <p class="product-tile__purpose">Antioxidant and retinol blend designed for daily use. Addresses fine lines, texture, and environmental damage simultaneously. Works with sensitized or post-procedure skin.</p>
+          <div class="product-tile__price">$145 · 50mL</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Complexion Clearing Masque</h3>
+          <p class="product-tile__purpose">Sulfur-based clarifying masque for acne-prone and congested skin. Used 2x/week, it clears pores and reduces inflammation without stripping the skin barrier. Popular with our HydraFacial clients.</p>
+          <div class="product-tile__price">$68 · 85mL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- iS Clinical -->
+<section class="brand-section">
+  <div class="container">
+    <div class="brand-header">
+      <div class="brand-header__left">
+        <p class="eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+          Brand
+        </p>
+        <h2>iS Clinical</h2>
+        <p>iS Clinical occupies a specific niche for us: excellent for sensitive skin types and those recovering from aggressive treatments. Their botanically-derived actives are gentler than synthetic counterparts without sacrificing clinical outcomes — and their data is transparent.</p>
+      </div>
+      <span class="brand-header__badge">Sensitive skin</span>
+    </div>
+    <div class="products-grid">
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Active Serum</h3>
+          <p class="product-tile__purpose">Multi-action serum with glycolic acid, kojic acid, and arbutin for brightening, smoothing, and evening skin tone. Clinically effective for hyperpigmentation and mild acne simultaneously.</p>
+          <div class="product-tile__price">$130 · 30mL</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Pro-Heal Serum Advance+</h3>
+          <p class="product-tile__purpose">Vitamin C, retinol, and olive-derived squalane formula. Excellent for post-procedure skin — reduces redness and accelerates the healing phase after BBL and microneedling.</p>
+          <div class="product-tile__price">$145 · 30mL</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Reparative Moisture Emulsion</h3>
+          <p class="product-tile__purpose">Lightweight barrier-restoring moisturizer. Fragrance-free, with a short ingredient list. We recommend this specifically for clients post-laser who need calming hydration without risk of irritation.</p>
+          <div class="product-tile__price">$92 · 60mL</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Eclipse SPF 50+</h3>
+          <p class="product-tile__purpose">Broad-spectrum mineral sunscreen formulated for sensitive and post-procedure skin. No chemical filters, no fragrance. Our go-to recommendation after any laser or light-based treatment.</p>
+          <div class="product-tile__price">$55 · 100g</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Obagi -->
+<section class="brand-section">
+  <div class="container">
+    <div class="brand-header">
+      <div class="brand-header__left">
+        <p class="eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+          Brand
+        </p>
+        <h2>Obagi Medical</h2>
+        <p>The original medical-grade skincare line, used in dermatology practices since 1988. Obagi's strength is prescription-adjacent formulations — particularly the Nu-Derm System, which has more long-term photoaging data behind it than nearly any comparable product line.</p>
+      </div>
+      <span class="brand-header__badge">Clinician heritage</span>
+    </div>
+    <div class="products-grid">
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Nu-Derm Transformation System</h3>
+          <p class="product-tile__purpose">The six-step protocol for reversing moderate to severe photoaging. Results are measurable at 12 weeks. We supervise clients through the full system — this is not a product you start unsupervised.</p>
+          <div class="product-tile__price">$298 · Full system</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Vitamin C 15% Serum</h3>
+          <p class="product-tile__purpose">Highly stable L-ascorbic acid formulation. An accessible alternative to SkinCeuticals C E Ferulic for clients who are price-sensitive but committed to morning antioxidant protection.</p>
+          <div class="product-tile__price">$98 · 30mL</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">Hydrate Facial Moisturizer</h3>
+          <p class="product-tile__purpose">Hyaluronic acid moisturizer with seven types of HA molecules at different molecular weights — each penetrates a different depth of the dermis. Elegant science, practical results.</p>
+          <div class="product-tile__price">$64 · 48g</div>
+        </div>
+      </div>
+      <div class="product-tile">
+        <div class="product-tile__body">
+          <h3 class="product-tile__name">ELASTIderm Eye Serum</h3>
+          <p class="product-tile__purpose">Bi-mineral complex eye treatment for fine lines and laxity around the orbital area. Third-party clinical studies showed 42% improvement in elasticity at 8 weeks in compliant subjects.</p>
+          <div class="product-tile__price">$112 · 15mL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 4. How to Choose ───────────────────────────────────────────────── -->
+<section class="choose-section">
+  <div class="container">
+    <p class="eyebrow" style="text-align:center;color:rgba(255,255,255,.4);">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-star"/></svg>
+      Our curation promise
+    </p>
+    <h2>How we choose<br>what <em>you</em> need.</h2>
+    <div class="choose-grid">
+      <div class="choose-card">
+        <div class="choose-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><use href="#i-flower"/></svg>
+        </div>
+        <h3>Skin-type matched</h3>
+        <p>We don't recommend by brand loyalty. We recommend by your Fitzpatrick type, your active concerns, and what's happening in the treatment room. If something doesn't fit your profile, we'll tell you.</p>
+      </div>
+      <div class="choose-card">
+        <div class="choose-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><use href="#i-pen"/></svg>
+        </div>
+        <h3>Clinician-recommended</h3>
+        <p>Every product on our retail wall has been used by at least two members of our clinical team and recommended to patients. We've seen what happens when people actually use these things consistently.</p>
+      </div>
+      <div class="choose-card">
+        <div class="choose-card__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><use href="#i-sparkle"/></svg>
+        </div>
+        <h3>Works with your in-office treatments</h3>
+        <p>At-home products and in-office procedures interact — sometimes beneficially, sometimes not. Our retail recommendations account for your treatment history and upcoming appointments, not just your skin type.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 5. Product FAQs ────────────────────────────────────────────────── -->
+<section class="faq-section">
+  <div class="container">
+    <p class="eyebrow">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-book"/></svg>
+      Common questions
+    </p>
+    <h2>Product FAQs</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          <h3>Can I purchase products without being a client?</h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-arrow-right"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Yes — with one condition. For prescription-adjacent products (notably the Obagi Nu-Derm System), we require a brief consultation before purchase. Not because of policy, but because misusing those products can cause real skin damage. The consultation is complimentary and takes about 15 minutes. For everything else, you're welcome to come in and shop without a prior appointment.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          <h3>Do you offer samples?</h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-arrow-right"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>For most products, yes — we keep small samples of several serums and moisturizers available for clients who want to patch test before committing to a full-size purchase. Availability varies. We don't sample every product in our line, particularly those with strong actives, because a true efficacy assessment requires at least 4–6 weeks of consistent use — not a 3-day trial.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          <h3>How do I know which products are right for my skin?</h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-arrow-right"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>We offer complimentary product consultations with any in-office service — and standalone product consultations for $45 (applied as a retail credit if you purchase that day). Our aestheticians will assess your skin, ask about your current routine, and give you a short, honest list of what would actually help. We don't do upselling. If your current routine is working, we'll tell you that too.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">
+          <h3>Do you ship products?</h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-arrow-right"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Not currently. All retail purchases happen in-office at our Stafford, VA location. This is partly practical — shipping medical-grade skincare, particularly vitamin C serums, requires specific temperature and light controls that we can't guarantee in transit. It's also partly intentional: we prefer that retail purchases happen in conversation, not in a shopping cart. We're working on a limited local delivery option — ask us when you're in.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. Products CTA ─────────────────────────────────────────────────── -->
+<section class="products-cta">
+  <div class="container">
+    <p class="eyebrow">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-calendar"/></svg>
+      Complimentary
+    </p>
+    <h2>Book a product consultation —<br><em>complimentary with any service.</em></h2>
+    <p>A 15-minute conversation about what your skin actually needs is more useful than three months of trial-and-error. We're happy to do it. No obligation, no hard sell.</p>
+    <a href="contact.html" class="btn primary">Schedule a consultation</a>
+  </div>
+</section>
+
+</body>
+</html>

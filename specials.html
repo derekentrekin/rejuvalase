@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Specials & Offers — Rejuvalase · Stafford, VA</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── Featured special ─────────────────────────── */
+.featured-special {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  border: 1px solid var(--gold-500);
+}
+.featured-special__img {
+  overflow: hidden;
+}
+.featured-special__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.featured-special__body {
+  background: var(--paper-2);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+.featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gold-500);
+  border: 1px solid var(--gold-500);
+  padding: .3rem .75rem;
+  width: fit-content;
+}
+.featured-special__title {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink-900);
+}
+.featured-special__title em {
+  font-style: italic;
+  color: var(--gold-500);
+}
+.featured-special__desc {
+  font-family: var(--sans);
+  font-size: .95rem;
+  line-height: 1.7;
+  color: #555;
+}
+.featured-special__desc ul {
+  margin: .5rem 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+.price-stack {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.price-stack__orig {
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: #aaa;
+  text-decoration: line-through;
+}
+.price-stack__new {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gold-500);
+}
+.price-stack__save {
+  font-family: var(--mono);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: var(--gold-500);
+  color: #fff;
+  padding: .2rem .6rem;
+}
+
+/* ── Specials grid ────────────────────────────── */
+.specials-section { padding: 5rem 0; background: var(--paper); }
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.special-card {
+  border: 1px solid rgba(184,147,59,.25);
+  background: var(--paper-2);
+  display: flex;
+  flex-direction: column;
+}
+.special-card__img { overflow: hidden; aspect-ratio: 16/9; }
+.special-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+.special-card:hover .special-card__img img { transform: scale(1.03); }
+.special-card__body { padding: 1.75rem; display: flex; flex-direction: column; gap: .75rem; flex: 1; }
+.special-card__tag {
+  font-family: var(--mono);
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--gold-500);
+}
+.special-card__name {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink-900);
+  line-height: 1.25;
+}
+.special-card__desc {
+  font-family: var(--sans);
+  font-size: .88rem;
+  line-height: 1.65;
+  color: #666;
+  flex: 1;
+}
+.special-card__price {
+  font-family: var(--mono);
+  font-size: .85rem;
+  color: var(--ink-900);
+  border-top: 1px solid rgba(0,0,0,.08);
+  padding-top: .75rem;
+  margin-top: .5rem;
+}
+.special-card__price strong { color: var(--gold-500); }
+.special-card__expiry {
+  font-family: var(--mono);
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #999;
+}
+.coming-soon-note {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: var(--mono);
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(0,0,0,.4);
+  border: 1px solid rgba(0,0,0,.18);
+  padding: .35rem .75rem;
+  margin-top: .75rem;
+  width: fit-content;
+}
+
+/* ── Membership dark section ──────────────────── */
+.membership-section {
+  background: var(--ink-900);
+  padding: 5.5rem 0;
+  color: #fff;
+}
+.membership-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.membership-img { overflow: hidden; aspect-ratio: 4/5; }
+.membership-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.membership-content { display: flex; flex-direction: column; gap: 1.5rem; }
+.membership-price {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  margin: .5rem 0;
+}
+.membership-price__amount {
+  font-family: var(--serif);
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--gold-500);
+}
+.membership-price__period {
+  font-family: var(--mono);
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.5);
+}
+.membership-includes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+}
+.membership-includes li {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  font-family: var(--sans);
+  font-size: .9rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,.8);
+}
+.membership-includes li svg {
+  flex-shrink: 0;
+  margin-top: .15rem;
+  stroke: var(--gold-500);
+}
+.testimonial-pull {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-left: 2px solid var(--gold-500);
+  background: rgba(255,255,255,.04);
+}
+.testimonial-pull p {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(255,255,255,.85);
+  line-height: 1.6;
+  margin: 0 0 .6rem;
+}
+.testimonial-pull cite {
+  font-family: var(--mono);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--gold-500);
+  font-style: normal;
+}
+
+/* ── Gift cards ───────────────────────────────── */
+.gift-section {
+  background: var(--paper-2);
+  padding: 5rem 0;
+}
+.gift-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.gift-img { overflow: hidden; }
+.gift-img img { width: 100%; aspect-ratio: 5/4; object-fit: cover; display: block; }
+.gift-content { display: flex; flex-direction: column; gap: 1.25rem; }
+.gift-content h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink-900);
+}
+.gift-content h2 em { font-style: italic; color: var(--gold-500); }
+.gift-content p {
+  font-family: var(--sans);
+  font-size: .95rem;
+  line-height: 1.7;
+  color: #666;
+}
+.gift-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.gift-bullets li {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  font-family: var(--sans);
+  font-size: .9rem;
+  color: #555;
+}
+.gift-bullets li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--gold-500);
+  flex-shrink: 0;
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 900px) {
+  .featured-special { grid-template-columns: 1fr; }
+  .featured-special__img { aspect-ratio: 16/9; }
+  .specials-grid { grid-template-columns: 1fr; }
+  .membership-inner { grid-template-columns: 1fr; }
+  .membership-img { aspect-ratio: 16/9; }
+  .gift-inner { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<script src="site.js"></script>
+
+<!-- ── 1. Page Hero ──────────────────────────────────────────────────── -->
+<section class="page-hero dark-sec">
+  <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=1400&q=80&auto=format&fit=crop'); opacity:.18;"></div>
+  <div class="inner">
+    <p class="eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-tag"/></svg>
+      Seasonal &amp; limited
+    </p>
+    <h1>Offers worth<br><em>planning around.</em></h1>
+    <p class="lede">Our specials rotate with the calendar — and always reflect what's actually working in the treatment room. Every offer is evidence-based and honestly priced, never marked up to be marked down.</p>
+  </div>
+</section>
+
+<!-- ── 2. Featured Special ──────────────────────────────────────────── -->
+<section style="padding: 5rem 0; background: var(--paper);">
+  <div class="container">
+    <p class="eyebrow" style="margin-bottom:1.5rem;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+      Right now
+    </p>
+    <div class="featured-special">
+      <div class="featured-special__img">
+        <img
+          src="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=1400&q=80&auto=format&fit=crop"
+          alt="The Radiance Event — spring treatment experience at Rejuvalase"
+          width="700" height="520"
+          loading="eager"
+        />
+      </div>
+      <div class="featured-special__body">
+        <span class="featured-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+          Featured · Spring 2026
+        </span>
+        <h2 class="featured-special__title">The Radiance Event<br><em>— April 15–30</em></h2>
+        <div class="featured-special__desc">
+          <p>Two of our highest-demand treatments paired in a single appointment — then extended retail savings to keep results going at home.</p>
+          <ul>
+            <li>One full BBL Broadband Light session</li>
+            <li>One HydraFacial MD (signature protocol)</li>
+            <li>Complimentary skincare consultation with your provider</li>
+            <li>20% off all SkinCeuticals retail — same visit</li>
+          </ul>
+        </div>
+        <div class="price-stack">
+          <span class="price-stack__orig">$549</span>
+          <span class="price-stack__new">$439</span>
+          <span class="price-stack__save">Save $110</span>
+        </div>
+        <div style="margin-top:.5rem;">
+          <a href="special.html" class="btn primary">Reserve this offer</a>
+          <p style="font-family:var(--mono);font-size:.7rem;color:#aaa;margin-top:.75rem;letter-spacing:.05em;">Expires April 30, 2026 · Appointments required</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 3. All Specials Grid ─────────────────────────────────────────── -->
+<section class="specials-section">
+  <div class="container">
+    <p class="eyebrow">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-clock"/></svg>
+      Current offers
+    </p>
+    <h2 class="sec-intro" style="font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:500;color:var(--ink-900);line-height:1.2;margin:.5rem 0 .5rem;">Active now &amp; coming soon</h2>
+    <div class="specials-grid">
+
+      <!-- Card 1: First-time Botox -->
+      <article class="special-card">
+        <div class="special-card__img">
+          <img
+            src="https://images.unsplash.com/photo-1614179689702-355944cd0918?w=1000&q=80&auto=format&fit=crop"
+            alt="Botox injectable treatment"
+            width="500" height="280"
+            loading="lazy"
+          />
+        </div>
+        <div class="special-card__body">
+          <span class="special-card__tag">New clients · Injectables</span>
+          <h3 class="special-card__name">First-Time Botox Offer</h3>
+          <p class="special-card__desc">If you've been thinking about Botox, this is a low-risk moment to try it. Your provider will do a thorough consultation first — no pressure, genuine recommendations, and honest numbers.</p>
+          <div class="special-card__price">
+            <strong>$10/unit</strong> · up to 40 units<br>
+            <span class="special-card__expiry">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-clock"/></svg>
+              Expires May 31, 2026
+            </span>
+          </div>
+          <a href="special.html" class="btn ghost" style="margin-top:.75rem;width:100%;text-align:center;">Learn more</a>
+        </div>
+      </article>
+
+      <!-- Card 2: Rejuvalase Circle -->
+      <article class="special-card">
+        <div class="special-card__img">
+          <img
+            src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1000&q=80&auto=format&fit=crop"
+            alt="Rejuvalase Circle membership luxury spa experience"
+            width="500" height="280"
+            loading="lazy"
+          />
+        </div>
+        <div class="special-card__body">
+          <span class="special-card__tag">Membership · Ongoing</span>
+          <h3 class="special-card__name">The Rejuvalase Circle</h3>
+          <p class="special-card__desc">Monthly membership designed for clients who treat skincare as maintenance, not a special occasion. One HydraFacial per month plus meaningful injectable savings — no commitment trap.</p>
+          <div class="special-card__price">
+            <strong>$149/mo</strong> · cancel anytime<br>
+            <span class="special-card__expiry">Includes 20% off all injectables</span>
+          </div>
+          <a href="special.html" class="btn ghost" style="margin-top:.75rem;width:100%;text-align:center;">Learn more</a>
+        </div>
+      </article>
+
+      <!-- Card 3: Mother's Day (coming soon) -->
+      <article class="special-card">
+        <div class="special-card__img">
+          <img
+            src="https://images.unsplash.com/photo-1620302751831-6a95fd1f3d0a?w=900&q=80&auto=format&fit=crop"
+            alt="Mother's Day spa package"
+            width="500" height="280"
+            loading="lazy"
+          />
+        </div>
+        <div class="special-card__body">
+          <span class="special-card__tag">Mother's Day · May 2026</span>
+          <h3 class="special-card__name">Mother's Day Package</h3>
+          <p class="special-card__desc">A curated pairing — signature facial plus a 60-minute massage — packaged to make gifting simple. Delivered as a printed or digital gift card. ($310 value, $265 event price.)</p>
+          <div class="special-card__price">
+            <strong>$265</strong> · ($310 value)<br>
+            <span class="special-card__expiry">Available May 1–11, 2026</span>
+          </div>
+          <span class="coming-soon-note">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-clock"/></svg>
+            Coming soon
+          </span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 4. Membership Section (dark) ─────────────────────────────────── -->
+<section class="membership-section">
+  <div class="container">
+    <div class="membership-inner">
+      <div class="membership-img">
+        <img
+          src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1000&q=80&auto=format&fit=crop"
+          alt="Rejuvalase Circle membership — relaxed luxury skincare"
+          width="600" height="750"
+          loading="lazy"
+        />
+      </div>
+      <div class="membership-content">
+        <p class="eyebrow" style="color:var(--gold-500);">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-star"/></svg>
+          Ongoing membership
+        </p>
+        <h2 style="font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:500;line-height:1.15;color:#fff;margin:0;">The Rejuvalase<br><em style="color:var(--gold-500);">Circle.</em></h2>
+        <p style="font-family:var(--sans);font-size:.95rem;line-height:1.7;color:rgba(255,255,255,.7);">Skin that stays consistent needs consistent care. The Circle is built around that reality — a monthly cadence instead of a once-a-year event, and real savings on the treatments that compound over time.</p>
+
+        <div class="membership-price">
+          <span class="membership-price__amount">$149</span>
+          <span class="membership-price__period">/ month · cancel anytime</span>
+        </div>
+
+        <ul class="membership-includes">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+            One HydraFacial MD per month (signature protocol, $185 value)
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+            20% off all injectable treatments — Botox, Dysport, and filler
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+            Priority booking — access to the schedule before it opens
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+            Member pricing on all laser and light treatments
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sparkle"/></svg>
+            Early access to seasonal specials before public announcement
+          </li>
+        </ul>
+
+        <div class="testimonial-pull">
+          <p>"I've been a Circle member for eight months. My skin is the most consistent it's been in my forties — and the injectable savings alone covered the membership fee by month three."</p>
+          <cite>— Diane K., Stafford · Member since 2025</cite>
+        </div>
+
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.5rem;">
+          <a href="special.html" class="btn primary">Join the Circle</a>
+          <a href="contact.html" class="btn ghost" style="border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8);">Ask a question</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 5. Gift Cards ──────────────────────────────────────────────────── -->
+<section class="gift-section">
+  <div class="container">
+    <div class="gift-inner">
+      <div class="gift-img">
+        <img
+          src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=900&q=80&auto=format&fit=crop"
+          alt="Rejuvalase gift cards — digital and printed options"
+          width="600" height="480"
+          loading="lazy"
+        />
+      </div>
+      <div class="gift-content">
+        <p class="eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-flower"/></svg>
+          Gift cards
+        </p>
+        <h2>The gift of<br><em>actual results.</em></h2>
+        <p>Some gifts get used once. A Rejuvalase gift card turns into a habit — the best kind. Load any amount, choose digital or printed delivery, and let them pick the treatment that's right for them.</p>
+        <ul class="gift-bullets">
+          <li>Any dollar amount — no minimums, no expiry pressure</li>
+          <li>Digital delivery via email within minutes</li>
+          <li>Printed cards available for in-person pickup or mail</li>
+          <li>Redeemable for any service or retail product</li>
+          <li>Balance never expires — no redemption deadline</li>
+        </ul>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:.5rem;">
+          <a href="contact.html" class="btn primary">Purchase a gift card</a>
+          <a href="contact.html" class="btn ghost">Call to order</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. CTA Banner ──────────────────────────────────────────────────── -->
+<section class="cta-banner">
+  <div class="container">
+    <p class="eyebrow">Limited windows</p>
+    <h2>Book before it expires.</h2>
+    <p>Offers are time-gated for a reason — our providers need room in the schedule to do the work properly. Reserve early, or it's gone.</p>
+    <a href="contact.html" class="btn primary">Book an appointment</a>
+  </div>
+</section>
+
+</body>
+</html>
