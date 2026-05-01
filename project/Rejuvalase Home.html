@@ -1,0 +1,1631 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Rejuvalase — Medspa &amp; Dayspa · Stafford, VA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold-900:#5a4014; --gold-700:#8a6e2a; --gold-500:#b8933b; --gold-300:#d4b872; --gold-100:#e8d9a8; --gold-50:#f3ecd6;
+    --ink-900:#15120d; --ink-700:#2b251d; --ink-500:#5a5246; --ink-300:#8e8574; --ink-200:#c4bdae; --ink-100:#e5dfd2;
+    --paper:#faf6ed; --paper-2:#f2ecdc; --white:#ffffff;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Inter',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --ease-std: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-in:  cubic-bezier(0.16, 1, 0.3, 1);
+    --cap: 1320px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--paper); color: var(--ink-900); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  svg.ico { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.4; flex-shrink: 0; }
+  svg.ico.sm { width: 14px; height: 14px; stroke-width: 1.5; }
+  svg.ico.lg { width: 28px; height: 28px; stroke-width: 1.2; }
+
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-500); display: inline-flex; align-items: center; gap: 10px;}
+  .eyebrow::before { content:''; display:inline-block; width: 22px; height: 1px; background: var(--gold-500); }
+  .kicker  { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-500); }
+  em.gold  { font-style: italic; color: var(--gold-700); }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; padding: 15px 22px; background: var(--ink-900); color: var(--paper); border: 1px solid var(--ink-900); transition: all 220ms var(--ease-std); }
+  .btn:hover { background: var(--gold-700); border-color: var(--gold-700); color: var(--white); }
+  .btn.primary { background: var(--gold-500); border-color: var(--gold-500); color: var(--white); }
+  .btn.primary:hover { background: var(--gold-700); border-color: var(--gold-700); }
+  .btn.ghost { background: transparent; color: inherit; }
+  .btn.light { background: var(--white); color: var(--ink-900); border-color: var(--white); }
+  .btn.light:hover { background: var(--gold-100); color: var(--gold-900); border-color: var(--gold-100); }
+  .btn.outline-light { background: transparent; color: var(--paper); border-color: var(--paper); }
+  .btn.outline-light:hover { background: var(--paper); color: var(--ink-900); }
+  .btn .arr { transition: transform 220ms var(--ease-std); }
+  .btn:hover .arr { transform: translateX(4px); }
+
+  /* Announcement */
+  .announce { background: var(--ink-900); color: var(--paper); padding: 10px 40px; text-align: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 22px;}
+  .announce .dot { width: 4px; height: 4px; background: var(--gold-500); }
+  .announce a { color: var(--gold-300); border-bottom: 1px solid var(--gold-700); padding-bottom: 1px;}
+
+  /* Nav */
+  nav.main { position: sticky; top: 0; z-index: 40; background: rgba(250,246,237,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--ink-100); padding: 18px 40px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;}
+  nav.main .left, nav.main .right { display: flex; gap: 32px; align-items: center;}
+  nav.main .right { justify-content: flex-end;}
+  nav.main ul { display: flex; gap: 28px; list-style: none;}
+  nav.main ul a { font-size: 13px; font-weight: 500; color: var(--ink-700); position: relative; padding: 6px 0;}
+  nav.main ul a:hover { color: var(--gold-700);}
+  nav.main ul a::after { content:''; position: absolute; left: 0; bottom: -1px; width: 0; height: 1px; background: var(--gold-500); transition: width 240ms var(--ease-std);}
+  nav.main ul a:hover::after { width: 100%;}
+  nav.main .wm { font-family: var(--serif); font-size: 28px; letter-spacing: 0.5px; font-weight: 400;}
+  nav.main .phone { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; color: var(--ink-500); display: inline-flex; align-items: center; gap: 8px;}
+  nav.main .btn { padding: 12px 18px; font-size: 10px;}
+  nav.main ul a svg.chev { width: 8px; height: 8px; transform: rotate(90deg); margin-left: 4px; transition: transform 200ms;}
+  nav.main .has-mega.open > a svg.chev { transform: rotate(270deg);}
+  nav.main .has-mega.open > a { color: var(--gold-700);}
+
+  /* MEGA MENU */
+  .mega-layer {
+    grid-column: 1 / -1;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    pointer-events: none;
+  }
+  .mega {
+    display: none;
+    background: var(--paper);
+    border-top: 1px solid var(--ink-100);
+    border-bottom: 1px solid var(--ink-100);
+    padding: 44px 40px 52px;
+    pointer-events: auto;
+    animation: megaIn 220ms var(--ease-std);
+    box-shadow: 0 24px 60px rgba(21,18,13,0.08);
+  }
+  .mega.open { display: block;}
+  @keyframes megaIn {
+    from { opacity: 0; transform: translateY(-6px);}
+    to   { opacity: 1; transform: translateY(0);}
+  }
+  .mega-cap { max-width: var(--cap); margin: 0 auto; display: grid; grid-template-columns: 3fr 1.2fr; gap: 48px; align-items: stretch;}
+  .mega-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px;}
+  .mega-cols.two { grid-template-columns: repeat(3, 1fr); gap: 16px;}
+  .mega-col h6 {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--gold-700);
+    padding-bottom: 10px; border-bottom: 1px solid var(--ink-200); margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .mega-col a {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: 9px 0;
+    font-family: var(--sans);
+    transition: color 180ms, transform 200ms var(--ease-std);
+  }
+  .mega-col a:hover { color: var(--gold-700); transform: translateX(3px);}
+  .mega-col a::after { display: none;}
+  .mega-col a span {
+    font-family: var(--serif); font-size: 20px; font-weight: 400;
+    color: var(--ink-900); line-height: 1.15;
+  }
+  .mega-col a:hover span { color: var(--gold-700);}
+  .mega-col a em {
+    font-style: normal; font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.1em; color: var(--ink-500); text-transform: uppercase;
+  }
+  .mega-feature {
+    position: relative; min-height: 100%;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 28px; gap: 6px; color: var(--paper);
+    background-size: cover; background-position: center;
+    transition: transform 300ms var(--ease-std);
+  }
+  .mega-feature:hover { transform: scale(1.015);}
+  .mega-feature::after { display: none;}
+  .mega-feature .kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;}
+  .mega-feature .t { font-family: var(--serif); font-size: 28px; line-height: 1.1; color: var(--paper);}
+  .mega-feature .s { font-family: var(--serif); font-style: italic; font-size: 14px; color: rgba(250,246,237,0.85);}
+  .mega-feature .arr {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold-300); display: inline-flex; align-items: center; gap: 6px; margin-top: 10px;
+  }
+  .mega-thumb {
+    position: relative; min-height: 240px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 22px; gap: 4px; color: var(--paper);
+    background-size: cover; background-position: center;
+    transition: transform 300ms var(--ease-std);
+  }
+  .mega-thumb:hover { transform: scale(1.015);}
+  .mega-thumb::after { display: none;}
+  .mega-thumb .kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;}
+  .mega-thumb .t { font-family: var(--serif); font-size: 22px; line-height: 1.1; color: var(--paper);}
+  .mega-thumb .s { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; color: rgba(250,246,237,0.75); text-transform: uppercase;}
+
+  /* Mega backdrop */
+  .mega-backdrop {
+    position: fixed; inset: 0; top: 0; background: rgba(21,18,13,0.35);
+    opacity: 0; pointer-events: none; transition: opacity 220ms;
+    z-index: 35;
+  }
+  .mega-backdrop.on { opacity: 1; pointer-events: auto;}
+
+  /* HERO */
+  .hero { position: relative; min-height: calc(100vh - 106px); background: var(--ink-900); color: var(--paper); overflow: hidden; display: flex; flex-direction: column;}
+  .hero-slides { position: absolute; inset: 0;}
+  .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1200ms var(--ease-std);}
+  .hero-slide.active { opacity: 1;}
+  .hero-slide::after { content:''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(21,18,13,0.82) 0%, rgba(21,18,13,0.45) 45%, rgba(21,18,13,0.25) 100%);}
+  .hero-slide .kenburns { position: absolute; inset: 0; background-size: cover; background-position: center; animation: kenburns 18s var(--ease-std) infinite alternate;}
+  @keyframes kenburns { from { transform: scale(1.02);} to { transform: scale(1.09);}}
+
+  .hero-chrome { position: relative; z-index: 2; padding: 32px 40px; display: flex; justify-content: space-between; align-items: flex-start; font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(250,246,237,0.55);}
+  .hero-chrome .id { display: flex; gap: 22px;}
+  .hero-chrome .id span b { color: var(--gold-300); display: block; font-weight: 400; letter-spacing: 0.2em; margin-top: 3px;}
+  .hero-content { position: relative; z-index: 2; flex: 1; padding: 100px 40px 100px; display: flex; align-items: flex-end;}
+  .hero-content .inner { width: 100%; max-width: var(--cap); margin: 0 auto;}
+  .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(68px, 9vw, 152px); line-height: 0.92; letter-spacing: -0.01em; color: var(--paper);}
+  .hero h1 em { font-style: italic; color: var(--gold-300);}
+  .hero .eyebrow { color: var(--gold-300); margin-bottom: 24px;}
+  .hero .eyebrow::before { background: var(--gold-300);}
+  .hero .lede { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 22px; line-height: 1.5; color: rgba(250,246,237,0.85); margin-top: 24px; max-width: 560px;}
+  .hero-cta { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap;}
+  .hero-side { display: flex; flex-direction: column; gap: 16px; border-left: 1px solid rgba(250,246,237,0.2); padding-left: 28px;}
+  .hero-side .meta-row { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 14px; border-bottom: 1px solid rgba(250,246,237,0.15);}
+  .hero-side .meta-row:last-child { border-bottom: none;}
+  .hero-side .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(250,246,237,0.5); display: inline-flex; align-items: center; gap: 6px;}
+  .hero-side .v { font-family: var(--serif); font-size: 22px; color: var(--paper);}
+  .hero-indicators { position: absolute; z-index: 3; bottom: 40px; right: 40px; display: flex; gap: 10px; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(250,246,237,0.5);}
+  .hero-indicators button { width: 32px; height: 1px; background: rgba(250,246,237,0.3); transition: all 220ms;}
+  .hero-indicators button.active { background: var(--gold-300); height: 2px;}
+  .scrollcue { position: absolute; z-index: 3; bottom: 40px; left: 40px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(250,246,237,0.5); display: flex; align-items: center; gap: 10px;}
+  .scrollcue::before { content:''; display: block; width: 40px; height: 1px; background: var(--gold-300);}
+
+  /* Trust */
+  .trust { background: var(--paper-2); padding: 28px 40px; display: flex; justify-content: space-around; align-items: center; gap: 40px; flex-wrap: wrap; border-bottom: 1px solid var(--ink-100);}
+  .trust .item { display: flex; flex-direction: column; gap: 6px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-500); text-align: center; align-items: center;}
+  .trust .item .ico-wrap { color: var(--gold-700); margin-bottom: 2px;}
+  .trust .item b { font-family: var(--serif); font-size: 24px; color: var(--ink-900); font-weight: 400; letter-spacing: 0; text-transform: none; line-height: 1;}
+  .trust .sep { width: 1px; height: 40px; background: var(--ink-200);}
+
+  /* Sections */
+  section { padding: 120px 40px;}
+  .cap { max-width: var(--cap); margin: 0 auto;}
+
+  .sec-intro { margin-bottom: 60px; max-width: 1000px;}
+  .sec-intro h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 5.5vw, 80px); line-height: 1.0; letter-spacing: -0.01em;}
+  .sec-intro h2 em { font-style: italic; color: var(--gold-700);}
+  .sec-intro .lede { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--ink-500); margin-top: 18px; max-width: 640px; line-height: 1.45;}
+  .sec-intro .eyebrow { margin-bottom: 20px;}
+
+  /* Philosophy */
+  .philosophy { background: var(--paper);}
+  .philosophy-body { display: grid; grid-template-columns: 1fr 1fr 0.9fr; gap: 60px; align-items: stretch;}
+  .philosophy-body .big { font-family: var(--serif); font-weight: 400; font-size: 40px; line-height: 1.2;}
+  .philosophy-body .big em { font-style: italic; color: var(--gold-700);}
+  .philosophy-body .body p { font-size: 15px; line-height: 1.75; color: var(--ink-700); margin-bottom: 18px;}
+  .philosophy-body .body p + p { border-top: 1px dashed var(--ink-200); padding-top: 18px;}
+  .philosophy-body .sig { margin-top: 20px; font-family: var(--serif); font-style: italic; color: var(--gold-700); font-size: 20px;}
+  .philosophy-body .sig b { display: block; font-family: var(--mono); font-style: normal; font-size: 10px; letter-spacing: 0.2em; color: var(--ink-500); margin-top: 4px; text-transform: uppercase; font-weight: 400;}
+  .philosophy-img { background-size: cover; background-position: center; min-height: 440px; position: relative;}
+  .philosophy-img::after { content: 'Dr. Chen · treatment room 02'; position: absolute; bottom: 16px; left: 16px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--white); background: rgba(21,18,13,0.55); padding: 5px 10px;}
+
+  /* Gallery — full-width auto */
+  .gallery-full { padding: 0; background: var(--ink-900); position: relative; overflow: hidden;}
+  .gallery-track { display: flex; height: 640px; animation: gallery-scroll 60s linear infinite; width: max-content;}
+  .gallery-track.pf2 { animation-duration: 90s; animation-direction: reverse;}
+  .gallery-track:hover { animation-play-state: paused;}
+  .gallery-tile { flex-shrink: 0; width: 520px; height: 640px; position: relative; background-size: cover; background-position: center;}
+  .gallery-tile::after { content:''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(21,18,13,0.65));}
+  .gallery-tile .cap {
+    position: absolute; z-index: 2; left: 28px; bottom: 28px; right: 28px; margin: 0; max-width: 100%;
+    color: var(--paper); font-family: var(--serif); font-size: 26px; line-height: 1.2;
+  }
+  .gallery-tile .cap span { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-300); margin-bottom: 6px;}
+  @keyframes gallery-scroll { 0% { transform: translateX(0);} 100% { transform: translateX(-50%);} }
+  .gallery-head {
+    position: absolute; z-index: 3; top: 0; left: 0; bottom: 0;
+    color: var(--paper); padding: 56px 140px 56px 48px;
+    display: flex; flex-direction: column; justify-content: center;
+    max-width: 640px;
+    background: linear-gradient(90deg, rgba(21,18,13,0.94) 0%, rgba(21,18,13,0.9) 55%, rgba(21,18,13,0) 100%);
+    pointer-events: none;
+  }
+  .gallery-head .eyebrow { color: var(--gold-300); pointer-events: auto;}
+  .gallery-head .eyebrow::before { background: var(--gold-300);}
+  .gallery-head h3 { font-family: var(--serif); font-weight: 400; font-size: 56px; line-height: 1.0; margin-top: 18px; color: var(--paper); text-shadow: 0 2px 40px rgba(21,18,13,0.6);}
+  .gallery-head h3 em { font-style: italic; color: var(--gold-300);}
+  .gallery-head .sub { font-family: var(--serif); font-style: italic; font-size: 18px; color: rgba(250,246,237,0.78); margin-top: 18px; max-width: 42ch; line-height: 1.5;}
+  .gallery-pause {
+    position: absolute; z-index: 3; top: 40px; right: 40px;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(250,246,237,0.6);
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border: 1px solid rgba(250,246,237,0.3);
+  }
+
+  /* Services */
+  .services { background: var(--ink-900); color: var(--paper);}
+  .services .sec-intro h2 { color: var(--paper);}
+  .services .sec-intro h2 em { color: var(--gold-300);}
+  .services .sec-intro .lede { color: rgba(250,246,237,0.7);}
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(250,246,237,0.15); border: 1px solid rgba(250,246,237,0.15);}
+  .svc-tile { background: var(--ink-900); padding: 0 0 36px; display: flex; flex-direction: column; min-height: 500px; transition: background 320ms var(--ease-std); cursor: pointer; position: relative;}
+  .svc-tile:hover { background: #1e1a12;}
+  .svc-tile .ph { height: 220px; background-size: cover; background-position: center; position: relative;}
+  .svc-tile .ph::after { content:''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(21,18,13,0) 55%, rgba(21,18,13,0.5));}
+  .svc-tile .ph .cat { position: absolute; z-index: 2; top: 20px; left: 20px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--gold-300); text-transform: uppercase; background: rgba(21,18,13,0.55); padding: 4px 10px;}
+  .svc-tile .ph .ico-circle { position: absolute; z-index: 2; right: 20px; bottom: 20px; width: 44px; height: 44px; background: var(--gold-500); color: var(--white); display: flex; align-items: center; justify-content: center;}
+  .svc-tile .body { padding: 28px 32px 0; display: flex; flex-direction: column; gap: 12px; flex: 1;}
+  .svc-tile h3 { font-family: var(--serif); font-weight: 400; font-size: 36px; line-height: 1.05;}
+  .svc-tile p { font-size: 14px; color: rgba(250,246,237,0.72); line-height: 1.65; flex: 1;}
+  .svc-tile .foot { display: flex; justify-content: space-between; align-items: center; padding: 20px 32px 0; margin: 0 32px; border-top: 1px solid rgba(250,246,237,0.15); margin-top: auto;}
+  .svc-tile .foot { padding-left: 0; padding-right: 0;}
+  .svc-tile .price { font-family: var(--serif); font-size: 22px; color: var(--gold-300);}
+  .svc-tile .go { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: transform 280ms var(--ease-std); display: inline-flex; align-items: center; gap: 6px;}
+  .svc-tile:hover .go { transform: translateX(6px);}
+
+  .svc-grid.alt { background: transparent; border: none; gap: 14px; margin-top: 40px; grid-template-columns: repeat(4, 1fr);}
+  .svc-chip { background: transparent; border: 1px solid rgba(250,246,237,0.2); padding: 22px 20px; display: flex; flex-direction: column; gap: 10px; min-height: 200px; transition: border-color 240ms, background 240ms; cursor: pointer;}
+  .svc-chip:hover { border-color: var(--gold-500); background: rgba(184,147,59,0.06);}
+  .svc-chip .ico-wrap { color: var(--gold-300);}
+  .svc-chip .t { font-family: var(--serif); font-size: 22px;}
+  .svc-chip .c { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; color: rgba(250,246,237,0.5); text-transform: uppercase;}
+  .svc-chip .d { font-size: 13px; color: rgba(250,246,237,0.7); line-height: 1.5; margin-top: 2px;}
+
+  /* Credentials */
+  .creds { background: var(--paper-2); padding: 90px 40px; border-top: 1px solid var(--ink-100); border-bottom: 1px solid var(--ink-100);}
+  .creds-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 50px; align-items: stretch; max-width: var(--cap); margin: 0 auto;}
+  .creds-lead h3 { font-family: var(--serif); font-weight: 400; font-size: 42px; line-height: 1.05;}
+  .creds-lead h3 em { font-style: italic; color: var(--gold-700);}
+  .creds-lead p { font-size: 14px; color: var(--ink-500); margin-top: 16px; line-height: 1.6; max-width: 38ch;}
+  .cred { border-top: 1px solid var(--ink-200); padding-top: 20px; display: flex; flex-direction: column; gap: 6px;}
+  .cred .ico-wrap { color: var(--gold-700); margin-bottom: 4px;}
+  .cred .n { font-family: var(--serif); font-size: 56px; line-height: 0.9; color: var(--gold-700); font-weight: 400;}
+  .cred .n sub { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; color: var(--ink-500); vertical-align: top; margin-left: 4px; text-transform: uppercase;}
+  .cred .lbl { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-500); margin-top: 6px;}
+  .cred p { font-size: 13px; color: var(--ink-700); line-height: 1.55; margin-top: 4px;}
+
+  /* Quiz */
+  .quiz { background: var(--paper);}
+  .quiz-body { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--ink-900);}
+  .quiz-left { padding: 80px 60px; background: var(--paper); display: flex; flex-direction: column; gap: 28px;}
+  .quiz-left .quiz-img { width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; background-image: url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&q=80&auto=format&fit=crop');}
+  .quiz-left h3 { font-family: var(--serif); font-weight: 400; font-size: 60px; line-height: 0.96; letter-spacing: -0.01em;}
+  .quiz-left h3 em { font-style: italic; color: var(--gold-700);}
+  .quiz-left p { font-size: 16px; color: var(--ink-700); line-height: 1.65; max-width: 44ch;}
+  .quiz-stats { display: flex; gap: 40px; padding: 20px 0; border-top: 1px solid var(--ink-200); border-bottom: 1px solid var(--ink-200);}
+  .quiz-stats div { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-500);}
+  .quiz-stats b { font-family: var(--serif); font-size: 32px; color: var(--gold-700); font-weight: 400; letter-spacing: 0; text-transform: none; display: block; line-height: 1; margin-bottom: 4px;}
+  .quiz-right { background: var(--ink-900); color: var(--paper); padding: 60px 52px; display: flex; flex-direction: column; gap: 24px;}
+  .quiz-right .step { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-300); display: flex; justify-content: space-between;}
+  .quiz-right h4 { font-family: var(--serif); font-weight: 400; font-size: 34px; line-height: 1.1;}
+  .quiz-opts { display: flex; flex-direction: column; gap: 10px;}
+  .quiz-opt { padding: 16px 20px; border: 1px solid rgba(250,246,237,0.2); display: flex; justify-content: space-between; align-items: center; transition: all 240ms var(--ease-std);}
+  .quiz-opt:hover { border-color: var(--gold-300); background: rgba(212,184,114,0.08);}
+  .quiz-opt .o-t { font-family: var(--serif); font-size: 20px;}
+  .quiz-opt .o-m { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,246,237,0.5);}
+  .quiz-opt.sel { border-color: var(--gold-500); background: rgba(184,147,59,0.15);}
+  .quiz-progress { height: 2px; background: rgba(250,246,237,0.1); margin-top: 10px;}
+  .quiz-progress div { height: 100%; width: 28%; background: var(--gold-300);}
+
+  /* Before/after */
+  .ba { background: var(--ink-900); color: var(--paper);}
+  .ba .sec-intro h2 { color: var(--paper);} .ba .sec-intro h2 em { color: var(--gold-300);} .ba .sec-intro .lede { color: rgba(250,246,237,0.7);}
+  .ba-split { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: stretch; min-width: 0;}
+  .ba-split > * { min-width: 0;}
+  .ba-photo { position: relative; aspect-ratio: 4/3; overflow: hidden; background-size: cover; background-position: center; width: 100%; max-width: 100%;}
+  .ba-photo .after-layer { position: absolute; inset: 0 46% 0 0; background-size: cover; background-position: center;}
+  .ba-photo .side-label { position: absolute; top: 20px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.92); padding: 5px 10px; background: rgba(21,18,13,0.55); backdrop-filter: blur(4px);}
+  .ba-photo .side-label.l { left: 20px;}
+  .ba-photo .side-label.r { right: 20px;}
+  .ba-photo .slider-handle { position: absolute; top: 0; bottom: 0; left: 54%; width: 2px; background: var(--gold-300);}
+  .ba-photo .slider-handle::after { content:''; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; background: var(--gold-500); border: 2px solid var(--paper);}
+  .ba-meta h4 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.1; margin-bottom: 14px;}
+  .ba-meta .row { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid rgba(250,246,237,0.15); font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(250,246,237,0.6);}
+  .ba-meta .row b { color: var(--gold-300); font-weight: 400; letter-spacing: 0.1em;}
+  .ba-meta .row:last-child { border-bottom: 1px solid rgba(250,246,237,0.15);}
+  .ba-meta blockquote { margin-top: 24px; padding: 20px 24px; border-left: 2px solid var(--gold-500); background: rgba(250,246,237,0.04);}
+  .ba-meta blockquote p { font-family: var(--serif); font-style: italic; font-size: 17px; color: rgba(250,246,237,0.92); line-height: 1.5;}
+  .ba-meta blockquote footer { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(250,246,237,0.5); margin-top: 12px;}
+
+  /* Specials */
+  .specials { background: var(--paper);}
+  .specials-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 20px;}
+  .special-card { background: var(--white); border: 1px solid var(--ink-100); display: flex; flex-direction: column; transition: border-color 280ms, transform 280ms; cursor: pointer;}
+  .special-card:hover { border-color: var(--ink-900); transform: translateY(-3px);}
+  .special-card .img { height: 320px; background-size: cover; background-position: center; position: relative;}
+  .special-card.feature .img { height: 380px;}
+  .special-card .img::after { content:''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(21,18,13,0.35));}
+  .special-card .img .tag { position: absolute; top: 20px; left: 20px; background: var(--paper); color: var(--ink-900); font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; padding: 6px 10px;}
+  .special-card .img .tag.gold { background: var(--gold-500); color: var(--white);}
+  .special-card .body { padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 10px; flex: 1;}
+  .special-card .body .cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-500); display: inline-flex; align-items: center; gap: 8px;}
+  .special-card .body h4 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.1;}
+  .special-card.feature .body h4 { font-size: 36px;}
+  .special-card .body p { font-size: 14px; color: var(--ink-500); line-height: 1.6;}
+  .special-card .foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: auto; padding-top: 18px; border-top: 1px solid var(--ink-100);}
+  .special-card .price { font-family: var(--serif); font-size: 22px;}
+  .special-card .price s { color: var(--ink-300); font-size: 16px; margin-right: 6px;}
+  .special-card .price b { color: var(--gold-700); font-weight: 400;}
+  .special-card .arr { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 4px;}
+
+  /* Process */
+  .process { background: var(--paper-2);}
+  .process-body { display: grid; grid-template-columns: repeat(4, 1fr);}
+  .step { padding: 32px 32px 40px 0; position: relative; border-top: 1px solid var(--ink-900);}
+  .step + .step { padding-left: 40px;}
+  .step .ico-wrap { color: var(--gold-500); margin-bottom: 18px;}
+  .step .n { font-family: var(--mono); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-500);}
+  .step h4 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.1; margin-top: 10px;}
+  .step p { font-size: 14px; color: var(--ink-700); line-height: 1.6; margin-top: 14px;}
+  .step .time { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-500); margin-top: 16px; display: inline-flex; align-items: center; gap: 6px;}
+
+  /* Space slider */
+  .space { padding: 0; background: var(--ink-900);}
+  .space-slider { position: relative; width: 100%; height: 78vh; min-height: 620px; overflow: hidden; background: var(--ink-900);}
+  .space-slides { position: absolute; inset: 0;}
+  .space-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 900ms var(--ease-std); transform: scale(1.02);}
+  .space-slide.active { opacity: 1;}
+  .space-slide::after { content:''; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(21,18,13,0.88) 0%, rgba(21,18,13,0.55) 45%, rgba(21,18,13,0.15) 100%);}
+  .space-panel { position: absolute; z-index: 3; top: 0; bottom: 0; left: 0; width: 44%; padding: 64px 56px; color: var(--paper); display: flex; flex-direction: column; justify-content: center; gap: 18px;}
+  .space-panel .eyebrow { color: var(--gold-300);}
+  .space-panel .eyebrow::before { background: var(--gold-300);}
+  .space-count { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(250,246,237,0.5); margin-bottom: 6px;}
+  .space-panel h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(40px, 4.5vw, 64px); line-height: 1.0; letter-spacing: -0.01em;}
+  .space-panel h3 em { font-style: italic; color: var(--gold-300);}
+  .space-panel p { font-family: var(--serif); font-style: italic; font-size: 18px; color: rgba(250,246,237,0.85); line-height: 1.5; max-width: 42ch;}
+  .space-meta { display: flex; gap: 32px; padding: 16px 0; border-top: 1px solid rgba(250,246,237,0.2); border-bottom: 1px solid rgba(250,246,237,0.2); font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(250,246,237,0.5); margin-top: 8px;}
+  .space-meta div b { font-family: var(--serif); font-style: normal; font-size: 18px; color: var(--paper); font-weight: 400; letter-spacing: 0; text-transform: none; display: block; margin-top: 4px;}
+  .space-controls { display: flex; gap: 12px; margin-top: 8px;}
+  .space-btn { width: 52px; height: 52px; border: 1px solid rgba(250,246,237,0.4); color: var(--paper); display: flex; align-items: center; justify-content: center; transition: all 220ms var(--ease-std);}
+  .space-btn:hover { background: var(--gold-500); border-color: var(--gold-500);}
+  .space-dots { position: absolute; left: 56px; bottom: 48px; display: flex; gap: 8px; z-index: 4;}
+  .space-dots button { width: 40px; height: 2px; background: rgba(250,246,237,0.3); transition: all 220ms;}
+  .space-dots button.active { background: var(--gold-300); height: 3px;}
+  @media (max-width: 900px) {
+    .space-panel { position: relative; width: 100%; padding: 48px 24px; background: var(--ink-900); text-align: center; align-items: center;}
+    .space-panel p, .space-panel h3, .space-panel .eyebrow { text-align: center;}
+    .space-panel .eyebrow { justify-content: center;}
+    .space-slider { height: auto; min-height: 0;}
+    .space-slides { position: relative; height: 50vh; min-height: 320px;}
+    .space-dots { position: relative; right: auto; bottom: auto; justify-content: center; margin-top: 6px;}
+    .space-meta { justify-content: center;}
+  }
+  .team { background: var(--paper);}
+  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;}
+  .team-card { display: flex; flex-direction: column; gap: 14px; cursor: pointer;}
+  .team-card .ph { aspect-ratio: 4/5; background-size: cover; background-position: center; transition: filter 300ms; overflow: hidden;}
+  .team-card:hover .ph { filter: brightness(0.92);}
+  .team-card .n { font-family: var(--serif); font-size: 24px; font-weight: 400; line-height: 1.1;}
+  .team-card .r { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--gold-500); text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px;}
+  .team-card .cr { font-size: 13px; color: var(--ink-500); line-height: 1.5;}
+
+  /* Journal */
+  .journal { background: var(--paper-2);}
+  .journal-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px;}
+  .post { display: flex; flex-direction: column; gap: 16px; cursor: pointer;}
+  .post .hero-img { aspect-ratio: 4/3; background-size: cover; background-position: center; transition: filter 300ms;}
+  .post.feat .hero-img { aspect-ratio: 5/4;}
+  .post:hover .hero-img { filter: brightness(0.94);}
+  .post .meta { display: flex; gap: 16px; align-items: center;}
+  .post .meta .cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--gold-500); text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px;}
+  .post .meta .rt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--ink-300); text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px;}
+  .post h4 { font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.2; letter-spacing: -0.005em;}
+  .post.feat h4 { font-size: 36px;}
+  .post p { font-size: 14px; color: var(--ink-500); line-height: 1.55;}
+  .post .author { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--ink-700); text-transform: uppercase; margin-top: 6px;}
+
+  /* Newsletter */
+  .news { background: var(--ink-900); color: var(--paper); padding: 100px 40px;}
+  .news-cap { max-width: var(--cap); margin: 0 auto;}
+  .news-body { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;}
+  .news-body h3 { font-family: var(--serif); font-weight: 400; font-size: 54px; line-height: 1.0;}
+  .news-body h3 em { font-style: italic; color: var(--gold-300);}
+  .news-body p { font-family: var(--serif); font-style: italic; font-size: 19px; color: rgba(250,246,237,0.75); margin-top: 18px; line-height: 1.5;}
+  .news-form { display: flex; border: 1px solid rgba(250,246,237,0.3);}
+  .news-form input { flex: 1; background: transparent; border: none; padding: 18px 20px; color: var(--paper); font-family: var(--sans); font-size: 14px; outline: none;}
+  .news-form input::placeholder { color: rgba(250,246,237,0.4);}
+  .news-form button { background: var(--gold-500); color: var(--white); padding: 0 28px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: background 220ms;}
+  .news-form button:hover { background: var(--gold-700);}
+  .news .small { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: rgba(250,246,237,0.4); margin-top: 14px; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px;}
+
+  /* Locate */
+  .locate { background: var(--paper); padding: 120px 40px; border-top: 1px solid var(--ink-100);}
+  .locate-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: stretch; max-width: var(--cap); margin: 0 auto;}
+  .locate-map { background: linear-gradient(0deg, rgba(21,18,13,0.06), rgba(21,18,13,0.06)), repeating-linear-gradient(0deg, transparent 0 39px, rgba(21,18,13,0.08) 39px 40px), repeating-linear-gradient(90deg, transparent 0 39px, rgba(21,18,13,0.08) 39px 40px), var(--paper-2); min-height: 480px; position: relative; border: 1px solid var(--ink-100);}
+  .locate-map .pin { position: absolute; top: 44%; left: 52%; width: 16px; height: 16px; background: var(--gold-500); border: 2px solid var(--paper); box-shadow: 0 0 0 6px rgba(184,147,59,0.25);}
+  .locate-map .pin::after { content: 'Rejuvalase'; position: absolute; top: 24px; left: -32px; width: 120px; text-align: center; font-family: var(--serif); font-size: 16px; color: var(--ink-900);}
+  .locate-map .compass { position: absolute; bottom: 16px; left: 16px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.25em; color: var(--ink-500); text-transform: uppercase; background: var(--paper); padding: 6px 10px; border: 1px solid var(--ink-100);}
+  .locate-info h3 { font-family: var(--serif); font-weight: 400; font-size: 52px; line-height: 1.0;}
+  .locate-info h3 em { font-style: italic; color: var(--gold-700);}
+  .locate-info .addr { font-family: var(--serif); font-size: 22px; color: var(--ink-700); margin-top: 20px; line-height: 1.4;}
+  .hrs { margin-top: 32px; border-top: 1px solid var(--ink-200);}
+  .hrs .row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--ink-200);}
+  .hrs .row span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-500);}
+  .hrs .row b { font-family: var(--sans); font-weight: 500; font-size: 13px; color: var(--ink-900);}
+  .hrs .row.closed b { color: var(--ink-300); font-weight: 400;}
+  .locate-info .cta-row { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap;}
+
+  /* Footer */
+  footer { background: var(--ink-900); color: var(--paper); padding: 80px 40px 32px;}
+  .foot { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; max-width: var(--cap); margin: 0 auto;}
+  .foot .brand .wm { font-family: var(--serif); font-size: 40px; letter-spacing: 0.4px;}
+  .foot .brand p { font-family: var(--serif); font-style: italic; font-size: 17px; color: rgba(250,246,237,0.6); margin-top: 12px; max-width: 34ch; line-height: 1.4;}
+  .foot h5 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-300); margin-bottom: 16px;}
+  .foot ul { list-style: none; display: flex; flex-direction: column; gap: 10px;}
+  .foot ul a { font-size: 13px; color: rgba(250,246,237,0.75); transition: color 200ms;}
+  .foot ul a:hover { color: var(--gold-300);}
+  .foot-bottom { max-width: var(--cap); margin: 60px auto 0; padding-top: 24px; border-top: 1px solid rgba(250,246,237,0.15); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,246,237,0.45); flex-wrap: wrap; gap: 12px;}
+
+  /* Tweaks panel */
+  #tweaks { position: fixed; right: 20px; bottom: 20px; z-index: 999; background: var(--white); border: 1px solid var(--ink-900); width: 320px; font-family: var(--sans); color: var(--ink-900); display: none; box-shadow: 0 10px 40px rgba(21,18,13,0.18);}
+  #tweaks.on { display: block;}
+  #tweaks header { padding: 14px 18px; background: var(--ink-900); color: var(--paper); display: flex; justify-content: space-between; align-items: center;}
+  #tweaks header h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500;}
+  #tweaks header button { color: var(--paper); font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;}
+  #tweaks .body { padding: 16px 18px; display: flex; flex-direction: column; gap: 14px; max-height: 70vh; overflow-y: auto;}
+  #tweaks label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-500); margin-bottom: 6px;}
+  #tweaks .ctrl input[type="color"] { width: 100%; height: 34px; border: 1px solid var(--ink-200); cursor: pointer; background: none;}
+  #tweaks .ctrl input[type="range"] { width: 100%;}
+  #tweaks .ctrl select, #tweaks .ctrl input[type="text"] { width: 100%; border: 1px solid var(--ink-200); padding: 8px 10px; font-family: var(--sans); font-size: 13px; background: var(--white);}
+  #tweaks .swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;}
+  #tweaks .swatches button { height: 28px; border: 2px solid transparent; cursor: pointer; padding: 0;}
+  #tweaks .swatches button.on { border-color: var(--ink-900);}
+  #tweaks .seg { display: flex; border: 1px solid var(--ink-200);}
+  #tweaks .seg button { flex: 1; padding: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; background: var(--white); color: var(--ink-500); cursor: pointer; border-right: 1px solid var(--ink-200);}
+  #tweaks .seg button:last-child { border-right: none;}
+  #tweaks .seg button.on { background: var(--ink-900); color: var(--paper);}
+  #tweaks .meta { font-size: 11px; color: var(--ink-500); line-height: 1.4;}
+
+  /* Desktop left / mobile center rule */
+  @media (max-width: 900px) {
+    .sec-intro, .sec-intro h2, .sec-intro .lede, .sec-intro .eyebrow,
+    .creds-lead, .creds-lead h3, .creds-lead p,
+    .locate-info, .locate-info h3, .locate-info .addr, .locate-info .cta-row,
+    .quiz-left, .quiz-left h3, .quiz-left p,
+    .gallery-head, .gallery-head h3,
+    .news-body, .news-body h3, .news-body p, .news-form, .news .small {
+      text-align: center;
+      align-items: center;
+    }
+    .sec-intro { margin-left: auto; margin-right: auto;}
+    .sec-intro .eyebrow { justify-content: center;}
+    .quiz-left .btn { align-self: center;}
+    .locate-info .cta-row { justify-content: center;}
+    .news .small { justify-content: center;}
+  }
+
+  /* Responsive */
+  @media (max-width: 1100px) {
+    .svc-grid { grid-template-columns: repeat(2, 1fr);}
+    .svc-grid.alt { grid-template-columns: repeat(2, 1fr);}
+    .creds-grid { grid-template-columns: 1fr 1fr; gap: 32px;}
+    .philosophy-body { grid-template-columns: 1fr; gap: 32px;}
+    .philosophy-img { min-height: 320px; order: -1;}
+    .quiz-body { grid-template-columns: 1fr;}
+    .specials-grid { grid-template-columns: 1fr 1fr;}
+    .process-body { grid-template-columns: 1fr 1fr;}
+    .team-grid { grid-template-columns: 1fr 1fr;}
+    .journal-grid { grid-template-columns: 1fr;}
+    .news-body { grid-template-columns: 1fr; gap: 32px;}
+    .locate-body { grid-template-columns: 1fr;}
+    .ba-split { grid-template-columns: 1fr;}
+    .foot { grid-template-columns: 1fr 1fr;}
+    .gallery-tile { width: 360px; height: 480px;}
+    .gallery-track { height: 480px;}
+    .gallery-head { position: relative; top: 0; left: 0; width: 100%; padding: 48px 24px; background: var(--ink-900);}
+    .gallery-pause { display: none;}
+  }
+  @media (max-width: 700px) {
+    section { padding: 80px 20px;}
+    nav.main { grid-template-columns: 1fr auto; padding: 14px 20px;}
+    nav.main .left ul, nav.main .phone { display: none;}
+    .mega-layer { display: none;}
+    .announce { padding: 10px 20px; gap: 14px; font-size: 9px;}
+    .announce .hide-sm { display: none;}
+    .hero-chrome, .hero-content { padding: 24px;}
+    .hero-indicators, .scrollcue { display: none;}
+    .trust { padding: 20px; gap: 24px;}
+    .trust .sep { display: none;}
+    .svc-grid { grid-template-columns: 1fr;}
+    .svc-grid.alt { grid-template-columns: 1fr 1fr;}
+    .specials-grid { grid-template-columns: 1fr;}
+    .process-body { grid-template-columns: 1fr;}
+    .step + .step { padding-left: 0;}
+    .team-grid { grid-template-columns: 1fr 1fr; gap: 14px;}
+    .creds-grid { grid-template-columns: 1fr;}
+    .foot { grid-template-columns: 1fr;}
+    #tweaks { width: calc(100% - 40px); right: 20px; left: 20px;}
+    .gallery-tile { width: 280px; height: 360px;}
+    .gallery-track { height: 360px;}
+    .quiz-left, .quiz-right { padding: 40px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,10 17,15 18,22 12,18.5 6,22 7,15 2,10 9,9"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1c0-3 3-5 6-5s6 2 6 5v1"/><circle cx="17" cy="7" r="2.5"/><path d="M15 14c3 0 6 1.5 6 4v1"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 3c-9 0-15 6-15 15 0 1 0 2 0 3 8 0 15-6 15-15 0-1 0-2 0-3z"/><path d="M5 21L15 11"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/><path d="M6 6l3 3M15 15l3 3M6 18l3-3M15 9l3-3"/></symbol>
+    <symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 3c-4 5-7 8-7 12a7 7 0 0014 0c0-4-3-7-7-12z"/></symbol>
+    <symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 9V4M12 15v5M15 12h5M9 12H4M14 10l3-3M7 17l3-3M14 14l3 3M7 7l3 3"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 11V5a2 2 0 114 0v6M12 11V3a2 2 0 114 0v8M16 11V6a2 2 0 114 0v10a6 6 0 01-6 6h-3l-4-4-3-5 2-2 3 2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014 2h3a2 2 0 012 1.7 13 13 0 00.7 2.8 2 2 0 01-.5 2L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012-.5 13 13 0 002.9.7 2 2 0 011.7 2.1z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 6 9-6"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 13l4 4 10-10"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M17 3l4 4-11 11H6v-4z"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20 12l-8 8-8-8V4h8z"/><circle cx="8.5" cy="8.5" r="1.5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4h7a4 4 0 014 4v12a3 3 0 00-3-3H4z"/><path d="M20 4h-7a4 4 0 00-4 4v12a3 3 0 013-3h8z"/></symbol>
+  </defs>
+</svg>
+
+<!-- Announcement -->
+<div class="announce">
+  <span class="dot"></span>
+  <span>Complimentary consultations · Every weekday</span>
+  <span class="hide-sm">·</span>
+  <span class="hide-sm">Spring Radiance Event · April 15–30 · <a href="#">Reserve →</a></span>
+</div>
+
+<!-- Nav -->
+<nav class="main" aria-label="Primary">
+  <div class="left">
+    <ul>
+      <li class="has-mega" data-mega="services"><a href="#services">Services <svg class="ico sm chev"><use href="#i-arrow-right"/></svg></a></li>
+      <li class="has-mega" data-mega="medspa"><a href="#services">Medspa <svg class="ico sm chev"><use href="#i-arrow-right"/></svg></a></li>
+      <li class="has-mega" data-mega="dayspa"><a href="#services">Dayspa <svg class="ico sm chev"><use href="#i-arrow-right"/></svg></a></li>
+      <li class="has-mega" data-mega="specials"><a href="#specials">Specials <svg class="ico sm chev"><use href="#i-arrow-right"/></svg></a></li>
+      <li class="has-mega" data-mega="journal"><a href="#journal">Journal <svg class="ico sm chev"><use href="#i-arrow-right"/></svg></a></li>
+    </ul>
+  </div>
+  <a href="#" class="wm">Rejuvalase</a>
+  <div class="right">
+    <span class="phone"><svg class="ico sm"><use href="#i-phone"/></svg>540 · 555 · 0134</span>
+    <a href="#" class="btn primary">Book Consultation <svg class="ico sm"><use href="#i-arrow-right"/></svg></a>
+  </div>
+
+  <div class="mega-layer" id="megaLayer">
+
+    <div class="mega" data-mega="services">
+      <div class="mega-cap">
+        <div class="mega-cols">
+          <div class="mega-col">
+            <h6>Medspa</h6>
+            <a href="#"><span>Botox &amp; Filler</span><em>Fine lines · volume</em></a>
+            <a href="#"><span>Sciton BBL</span><em>Pigment · redness</em></a>
+            <a href="#"><span>Microneedling</span><em>Texture · pores</em></a>
+            <a href="#"><span>Chemical Peels</span><em>Resurfacing</em></a>
+            <a href="#"><span>PRP &amp; PRF</span><em>Hair · skin renewal</em></a>
+          </div>
+          <div class="mega-col">
+            <h6>Dayspa</h6>
+            <a href="#"><span>HydraFacial</span><em>Glow · zero downtime</em></a>
+            <a href="#"><span>Signature Facials</span><em>Custom 60 &amp; 90 min</em></a>
+            <a href="#"><span>Massage Therapy</span><em>Swedish · deep tissue</em></a>
+            <a href="#"><span>Body Treatments</span><em>Scrubs · wraps</em></a>
+          </div>
+          <div class="mega-col">
+            <h6>Wellness</h6>
+            <a href="#"><span>IV Therapy</span><em>Hydration · immunity</em></a>
+            <a href="#"><span>Laser Hair Removal</span><em>All skin types</em></a>
+            <a href="#"><span>Memberships</span><em>The Circle · $149/mo</em></a>
+            <a href="#"><span>Gift Cards</span><em>Any amount</em></a>
+          </div>
+        </div>
+        <a href="#" class="mega-feature" style="background-image: linear-gradient(180deg, rgba(21,18,13,0.1), rgba(21,18,13,0.75)), url('https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=900&q=80&auto=format&fit=crop');">
+          <span class="kicker" style="color: var(--gold-300);">Featured · Spring event</span>
+          <span class="t">The Radiance Event</span>
+          <span class="s">BBL + HydraFacial · April 15–30</span>
+          <span class="arr">Reserve <svg class="ico sm"><use href="#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mega" data-mega="medspa">
+      <div class="mega-cap">
+        <div class="mega-cols">
+          <div class="mega-col">
+            <h6>Injectables</h6>
+            <a href="#"><span>Botox &amp; Dysport</span><em>From $12 / unit</em></a>
+            <a href="#"><span>Dermal Filler</span><em>Restylane · Juvéderm</em></a>
+            <a href="#"><span>Lip Refinement</span><em>Balanced · natural</em></a>
+            <a href="#"><span>Sculptra</span><em>Collagen stimulator</em></a>
+          </div>
+          <div class="mega-col">
+            <h6>Laser &amp; Light</h6>
+            <a href="#"><span>Sciton BBL</span><em>Pigment · redness</em></a>
+            <a href="#"><span>CoolPeel Laser</span><em>Resurfacing</em></a>
+            <a href="#"><span>Laser Hair Removal</span><em>Permanent reduction</em></a>
+            <a href="#"><span>Vein Therapy</span><em>Sclerotherapy</em></a>
+          </div>
+          <div class="mega-col">
+            <h6>Skin &amp; Cellular</h6>
+            <a href="#"><span>Microneedling</span><em>SkinPen · PRP</em></a>
+            <a href="#"><span>Chemical Peels</span><em>Light · medium · deep</em></a>
+            <a href="#"><span>PRP &amp; PRF</span><em>Regenerative</em></a>
+            <a href="#"><span>Medical Extractions</span><em>Acne protocol</em></a>
+          </div>
+        </div>
+        <a href="#" class="mega-feature" style="background-image: linear-gradient(180deg, rgba(21,18,13,0.1), rgba(21,18,13,0.75)), url('https://images.unsplash.com/photo-1629209648144-c27558e67a72?w=900&q=80&auto=format&fit=crop');">
+          <span class="kicker" style="color: var(--gold-300);">New client</span>
+          <span class="t">Botox at $10/unit</span>
+          <span class="s">Up to 40 units · through May 31</span>
+          <span class="arr">Book <svg class="ico sm"><use href="#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mega" data-mega="dayspa">
+      <div class="mega-cap">
+        <div class="mega-cols">
+          <div class="mega-col">
+            <h6>Facials</h6>
+            <a href="#"><span>HydraFacial</span><em>30 min · $199</em></a>
+            <a href="#"><span>Signature Facial</span><em>60 min · $165</em></a>
+            <a href="#"><span>Deep Cleanse</span><em>90 min · $225</em></a>
+            <a href="#"><span>Back Facial</span><em>Underserved skin</em></a>
+          </div>
+          <div class="mega-col">
+            <h6>Body</h6>
+            <a href="#"><span>Swedish Massage</span><em>60 · 90 min</em></a>
+            <a href="#"><span>Deep Tissue</span><em>Focused relief</em></a>
+            <a href="#"><span>Prenatal Massage</span><em>Certified therapists</em></a>
+            <a href="#"><span>Body Scrub &amp; Wrap</span><em>Hydrating ritual</em></a>
+          </div>
+          <div class="mega-col">
+            <h6>Rituals</h6>
+            <a href="#"><span>Half-Day Retreat</span><em>Facial · massage · lunch</em></a>
+            <a href="#"><span>Couples Suite</span><em>Side-by-side tables</em></a>
+            <a href="#"><span>Bridal Packages</span><em>Wedding-morning prep</em></a>
+            <a href="#"><span>Gift Cards</span><em>Any occasion</em></a>
+          </div>
+        </div>
+        <a href="#" class="mega-feature" style="background-image: linear-gradient(180deg, rgba(21,18,13,0.1), rgba(21,18,13,0.75)), url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=900&q=80&auto=format&fit=crop');">
+          <span class="kicker" style="color: var(--gold-300);">Member</span>
+          <span class="t">The Rejuvalase Circle</span>
+          <span class="s">Monthly HydraFacial · $149/mo</span>
+          <span class="arr">Learn <svg class="ico sm"><use href="#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mega" data-mega="specials">
+      <div class="mega-cap">
+        <div class="mega-cols two">
+          <a class="mega-thumb" href="#" style="background-image: linear-gradient(180deg, rgba(21,18,13,0.1), rgba(21,18,13,0.7)), url('https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=700&q=80&auto=format&fit=crop');">
+            <span class="kicker" style="color: var(--gold-300);">Spring · Limited</span>
+            <span class="t">The Radiance Event</span>
+            <span class="s">BBL + HydraFacial · Apr 15–30</span>
+          </a>
+          <a class="mega-thumb" href="#" style="background-image: linear-gradient(180deg, rgba(21,18,13,0.1), rgba(21,18,13,0.7)), url('https://images.unsplash.com/photo-1614179689702-355944cd0918?w=700&q=80&auto=format&fit=crop');">
+            <span class="kicker" style="color: var(--gold-300);">New client</span>
+            <span class="t">First-time Botox</span>
+            <span class="s">$10 / unit · up to 40 units</span>
+          </a>
+          <a class="mega-thumb" href="#" style="background-image: linear-gradient(180deg, rgba(21,18,13,0.1), rgba(21,18,13,0.7)), url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=700&q=80&auto=format&fit=crop');">
+            <span class="kicker" style="color: var(--gold-300);">Member</span>
+            <span class="t">The Rejuvalase Circle</span>
+            <span class="s">$149/mo · cancel anytime</span>
+          </a>
+        </div>
+        <a href="#" class="mega-feature" style="background-image: linear-gradient(180deg, rgba(21,18,13,0.1), rgba(21,18,13,0.75)), url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=900&q=80&auto=format&fit=crop');">
+          <span class="kicker" style="color: var(--gold-300);">Gift certificate</span>
+          <span class="t">Give the Rejuvalase ritual</span>
+          <span class="s">Digital or printed · any amount</span>
+          <span class="arr">Purchase <svg class="ico sm"><use href="#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="mega" data-mega="journal">
+      <div class="mega-cap">
+        <div class="mega-cols">
+          <div class="mega-col">
+            <h6>Categories</h6>
+            <a href="#"><span>Injectables</span><em>Technical &amp; clinical notes</em></a>
+            <a href="#"><span>Skincare</span><em>Ingredients · routines</em></a>
+            <a href="#"><span>Laser &amp; Light</span><em>Devices · protocols</em></a>
+            <a href="#"><span>Practice Notes</span><em>How we operate</em></a>
+          </div>
+          <div class="mega-col">
+            <h6>Recent</h6>
+            <a href="#"><span>Filler fatigue is real</span><em>Mar 14 · 8 min read</em></a>
+            <a href="#"><span>SPF, translated</span><em>Mar 2 · 5 min read</em></a>
+            <a href="#"><span>Why our consult is free</span><em>Feb 22 · 3 min read</em></a>
+          </div>
+          <div class="mega-col">
+            <h6>The Letter</h6>
+            <a href="#"><span>Monthly newsletter</span><em>6 letters/yr · zero spam</em></a>
+            <a href="#"><span>Client stories</span><em>In their words</em></a>
+            <a href="#"><span>Archive</span><em>Every post since 2019</em></a>
+          </div>
+        </div>
+        <a href="#" class="mega-feature" style="background-image: linear-gradient(180deg, rgba(21,18,13,0.1), rgba(21,18,13,0.75)), url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=900&q=80&auto=format&fit=crop');">
+          <span class="kicker" style="color: var(--gold-300);">Featured</span>
+          <span class="t">Filler fatigue is real</span>
+          <span class="s">Nadia Okafor, RN · Mar 14</span>
+          <span class="arr">Read <svg class="ico sm"><use href="#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" data-screen-label="01 Hero">
+  <div class="hero-slides" id="heroSlides"></div>
+
+  <div class="hero-content">
+    <div class="inner">
+      <div>
+        <div class="eyebrow">Medspa &amp; Dayspa · Stafford, Virginia</div>
+        <h1>Quiet <em>luxury</em>.<br>Loud results.</h1>
+        <p class="lede">A medspa built on the radical idea that your face already works. We refine — we don't replace.</p>
+        <div class="hero-cta">
+          <a href="#" class="btn primary">Book Consultation <svg class="ico sm"><use href="#i-arrow-right"/></svg></a>
+          <a href="#" class="btn outline-light">Take the Service Quiz</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrollcue">Scroll to explore</div>
+  <div class="hero-indicators" id="heroInd">
+    <button data-i="0" class="active" aria-label="Slide 1"></button>
+    <button data-i="1" aria-label="Slide 2"></button>
+    <button data-i="2" aria-label="Slide 3"></button>
+    <span style="margin-left: 12px;" id="heroCount">01 / 03</span>
+  </div>
+</header>
+
+<!-- Trust -->
+<div class="trust">
+  <div class="item"><span class="ico-wrap"><svg class="ico"><use href="#i-calendar"/></svg></span>Est. 2019<b>7 years of care</b></div>
+  <span class="sep"></span>
+  <div class="item"><span class="ico-wrap"><svg class="ico"><use href="#i-users"/></svg></span>Clients served<b>1,200+ &amp; counting</b></div>
+  <span class="sep"></span>
+  <div class="item"><span class="ico-wrap"><svg class="ico"><use href="#i-star"/></svg></span>Google rating<b>4.9 ★ · 284 reviews</b></div>
+  <span class="sep"></span>
+  <div class="item"><span class="ico-wrap"><svg class="ico"><use href="#i-shield"/></svg></span>Injectors<b>Board-certified MD &amp; RN</b></div>
+  <span class="sep"></span>
+  <div class="item"><span class="ico-wrap"><svg class="ico"><use href="#i-check"/></svg></span>Consultations<b>Always complimentary</b></div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="about" data-screen-label="02 Philosophy">
+  <div class="cap">
+    <div class="sec-intro">
+      <div class="eyebrow">The Rejuvalase approach</div>
+      <h2>A clearer picture of the <em>beauty you already have</em>.</h2>
+    </div>
+    <div class="philosophy-body">
+      <div>
+        <p class="big">We opened in 2019 because the women in our lives kept driving to DC, Richmond, or Northern Virginia to find the medspa care they trusted. <em>They shouldn't have to.</em></p>
+        <div class="sig">— Dr. Maya Chen, MD<b>Founder &amp; Medical Director</b></div>
+      </div>
+      <div class="body">
+        <p>Rejuvalase is an independent, physician-led medspa and dayspa serving Stafford and the surrounding counties. Every injectable is performed by a licensed RN or MD. Every laser is a medical-grade device. Every consultation is unhurried, honest, and free.</p>
+        <p>We're the practice that will tell you an expensive treatment isn't right for your skin. We publish our injector training hours annually, and we'll always send you home with less filler than you thought you needed — because the best compliment is <em>you look well-rested</em>, not <em>you look done</em>.</p>
+        <a href="#" class="btn ghost" style="margin-top: 4px; align-self: flex-start;">Read our story <svg class="ico sm"><use href="#i-arrow-right"/></svg></a>
+      </div>
+      <div class="philosophy-img" id="philImg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL-WIDTH GALLERY -->
+<section class="gallery-full" data-screen-label="03 Gallery" id="galleryFull">
+  <div class="gallery-head">
+    <div class="eyebrow">A look inside</div>
+    <h3>The <em>practice</em>,<br>quietly documented.</h3>
+    <p class="sub">Treatment rooms, the product wall, the quietest corner of the lobby. A standing invitation to visit before you book.</p>
+  </div>
+  <!-- gallery pause button removed -->
+  <div class="gallery-track" id="galleryTrack"></div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services" data-screen-label="04 Services">
+  <div class="cap">
+    <div class="sec-intro">
+      <div class="eyebrow" style="color: var(--gold-300);">What we do</div>
+      <h2>Medical-grade aesthetics.<br><em>Day-spa ease.</em></h2>
+      <p class="lede">Three flagship disciplines and a broader menu of complementary treatments. Every service is evidence-based and performed by licensed professionals — we don't outsource to estheticians what requires a nurse.</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc-tile">
+        <div class="ph" id="svcPh1"><span class="cat">Injectables · most popular</span><span class="ico-circle"><svg class="ico"><use href="#i-droplet"/></svg></span></div>
+        <div class="body">
+          <h3>Botox &amp; Filler</h3>
+          <p>Relax fine lines, restore lost volume, refine contour. Every syringe placed by a nurse injector trained in advanced facial anatomy.</p>
+        </div>
+        <div class="foot">
+          <span class="price">from $12/u</span>
+          <span class="go">Explore <svg class="ico sm"><use href="#i-arrow-right"/></svg></span>
+        </div>
+      </div>
+      <div class="svc-tile">
+        <div class="ph" id="svcPh2"><span class="cat">Laser · medical-grade</span><span class="ico-circle"><svg class="ico"><use href="#i-scan"/></svg></span></div>
+        <div class="body">
+          <h3>Sciton BBL</h3>
+          <p>Broadband light therapy for sun damage, redness, and pigmentation. The laser DC dermatologists quietly recommend.</p>
+        </div>
+        <div class="foot">
+          <span class="price">from $350</span>
+          <span class="go">Explore <svg class="ico sm"><use href="#i-arrow-right"/></svg></span>
+        </div>
+      </div>
+      <div class="svc-tile">
+        <div class="ph" id="svcPh3"><span class="cat">Skin rejuvenation</span><span class="ico-circle"><svg class="ico"><use href="#i-sparkle"/></svg></span></div>
+        <div class="body">
+          <h3>HydraFacial</h3>
+          <p>Thirty minutes of cleanse, exfoliate, extract, hydrate. The treatment that converts skeptics — visible glow, zero downtime.</p>
+        </div>
+        <div class="foot">
+          <span class="price">from $199</span>
+          <span class="go">Explore <svg class="ico sm"><use href="#i-arrow-right"/></svg></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-grid alt">
+      <div class="svc-chip"><span class="ico-wrap"><svg class="ico"><use href="#i-pen"/></svg></span><span class="c">Medspa</span><span class="t">Microneedling</span><span class="d">Controlled micro-injury with SkinPen to restore texture, minimize pores, soften scarring.</span></div>
+      <div class="svc-chip"><span class="ico-wrap"><svg class="ico"><use href="#i-scan"/></svg></span><span class="c">Medspa</span><span class="t">Laser Hair Removal</span><span class="d">Permanent reduction on all skin types with our diode &amp; Nd:YAG system.</span></div>
+      <div class="svc-chip"><span class="ico-wrap"><svg class="ico"><use href="#i-droplet"/></svg></span><span class="c">Medspa</span><span class="t">Chemical Peels</span><span class="d">Physician-grade resurfacing to address pigment, acne, and sun damage.</span></div>
+      <div class="svc-chip"><span class="ico-wrap"><svg class="ico"><use href="#i-flower"/></svg></span><span class="c">Medspa</span><span class="t">PRP &amp; PRF</span><span class="d">Your own platelet-rich plasma, harnessed for hair restoration and skin renewal.</span></div>
+      <div class="svc-chip"><span class="ico-wrap"><svg class="ico"><use href="#i-sparkle"/></svg></span><span class="c">Dayspa</span><span class="t">Signature Facials</span><span class="d">Custom 60- and 90-minute treatments built around your skin's current state.</span></div>
+      <div class="svc-chip"><span class="ico-wrap"><svg class="ico"><use href="#i-hand"/></svg></span><span class="c">Dayspa</span><span class="t">Massage Therapy</span><span class="d">Swedish, deep tissue, and prenatal work from three in-house licensed LMTs.</span></div>
+      <div class="svc-chip"><span class="ico-wrap"><svg class="ico"><use href="#i-leaf"/></svg></span><span class="c">Dayspa</span><span class="t">Body Treatments</span><span class="d">Scrubs, wraps, and hydrating rituals for full-body maintenance and renewal.</span></div>
+      <div class="svc-chip"><span class="ico-wrap"><svg class="ico"><use href="#i-droplet"/></svg></span><span class="c">Wellness</span><span class="t">IV Therapy</span><span class="d">Physician-designed drip menus for hydration, immunity, and recovery support.</span></div>
+    </div>
+
+    <div style="margin-top: 48px;">
+      <a href="#" class="btn light">View full service menu <svg class="ico sm"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<div class="creds">
+  <div class="creds-grid">
+    <div class="creds-lead">
+      <div class="eyebrow">Medical authority</div>
+      <h3 style="margin-top: 16px;">Credentials <em>we publish</em>,<br>not just carry.</h3>
+      <p>Because your face is not the place to trust an unverified practice. Every number below is documented and updated annually.</p>
+    </div>
+    <div class="cred">
+      <span class="ico-wrap"><svg class="ico"><use href="#i-shield"/></svg></span>
+      <div class="n">2<sub>MD</sub></div>
+      <div class="lbl">Board-certified physicians</div>
+      <p>On-site medical directors supervising every procedure.</p>
+    </div>
+    <div class="cred">
+      <span class="ico-wrap"><svg class="ico"><use href="#i-book"/></svg></span>
+      <div class="n">240<sub>hrs</sub></div>
+      <div class="lbl">Injector education · 2025</div>
+      <p>Logged by our team last year — triple the state minimum.</p>
+    </div>
+    <div class="cred">
+      <span class="ico-wrap"><svg class="ico"><use href="#i-clock"/></svg></span>
+      <div class="n">12<sub>yr</sub></div>
+      <div class="lbl">Avg. clinical experience</div>
+      <p>Our most junior injector has been practicing since 2019.</p>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<section class="quiz" id="quiz" data-screen-label="05 Quiz">
+  <div class="cap">
+    <div class="sec-intro">
+      <div class="eyebrow">Service-matching quiz</div>
+      <h2>Three minutes.<br>A <em>personalized</em> plan.</h2>
+    </div>
+
+    <div class="quiz-body">
+      <div class="quiz-left">
+        <div class="quiz-img" id="quizImg"></div>
+        <h3>Not sure where <em>to start?</em></h3>
+        <p>Answer six questions about your goals, skin, and schedule. We'll match you to the two or three services most likely to work for you — with honest notes on what might not.</p>
+        <div class="quiz-stats">
+          <div><b>3 min</b>Average time</div>
+          <div><b>6 Qs</b>No email required</div>
+          <div><b>1,400+</b>Completed to date</div>
+        </div>
+        <a href="#" class="btn primary" style="align-self: flex-start;">Start the quiz <svg class="ico sm"><use href="#i-arrow-right"/></svg></a>
+      </div>
+      <div class="quiz-right">
+        <div class="step"><span>Question 02 / 06</span><span>Preview</span></div>
+        <h4>What bothers you <em style="color: var(--gold-300);">most</em> when you look in the mirror?</h4>
+        <div class="quiz-opts">
+          <div class="quiz-opt"><span class="o-t">Fine lines around my eyes</span><span class="o-m">A</span></div>
+          <div class="quiz-opt sel"><span class="o-t">Dull, uneven skin tone</span><span class="o-m"><svg class="ico sm"><use href="#i-check"/></svg></span></div>
+          <div class="quiz-opt"><span class="o-t">Loss of volume in my cheeks</span><span class="o-m">C</span></div>
+          <div class="quiz-opt"><span class="o-t">Sun damage and dark spots</span><span class="o-m">D</span></div>
+        </div>
+        <div class="quiz-progress"><div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba" id="results" data-screen-label="06 Results">
+  <div class="cap">
+    <div class="sec-intro">
+      <div class="eyebrow" style="color: var(--gold-300);">Documented results</div>
+      <h2>Before &amp; after.<br>Same client. Same <em>light</em>.</h2>
+    </div>
+
+    <div class="ba-split">
+      <div class="ba-photo" id="baBefore">
+        <div class="after-layer" id="baAfter"></div>
+        <span class="side-label l">After · 8 weeks</span>
+        <span class="side-label r">Before</span>
+        <div class="slider-handle"></div>
+      </div>
+      <div class="ba-meta">
+        <div class="kicker" style="color: var(--gold-300); margin-bottom: 8px;">Case Study · HF-284</div>
+        <h4>HydraFacial + three BBL sessions</h4>
+        <div class="row"><span>Client</span><b>Age 42 · Female</b></div>
+        <div class="row"><span>Concerns</span><b>Sun damage · texture</b></div>
+        <div class="row"><span>Protocol</span><b>3 BBL + 2 HF · 8 wks</b></div>
+        <div class="row"><span>Downtime</span><b>None</b></div>
+        <div class="row"><span>Performed by</span><b>Dr. Chen, MD</b></div>
+        <blockquote>
+          <p>I was skeptical — I'd been burned by a spa in Tysons that pushed me into a $2,400 package I didn't need. Maya showed me the before photos after one session. The math was different after that.</p>
+          <footer>— Maria R. · Stafford · Client since 2024</footer>
+        </blockquote>
+        <a href="#" class="btn outline-light" style="margin-top: 24px;">Browse more results <svg class="ico sm"><use href="#i-arrow-right"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALS -->
+<section class="specials" id="specials" data-screen-label="07 Specials">
+  <div class="cap">
+    <div class="sec-intro">
+      <div class="eyebrow">Seasonal &amp; limited</div>
+      <h2>Offers worth <em>planning around</em>.</h2>
+    </div>
+
+    <div class="specials-grid">
+      <div class="special-card feature">
+        <div class="img" id="spc1"><span class="tag gold">Spring · Limited</span></div>
+        <div class="body">
+          <span class="cat"><svg class="ico sm"><use href="#i-tag"/></svg>Featured event</span>
+          <h4>The Radiance Event — April 15–30</h4>
+          <p>Two weeks only. Book a BBL + HydraFacial combination and receive a complimentary custom skincare consultation and 20% off retail SkinCeuticals.</p>
+          <div class="foot"><span class="price"><s>$549</s> <b>$439</b></span><span class="arr">Reserve <svg class="ico sm"><use href="#i-arrow-right"/></svg></span></div>
+        </div>
+      </div>
+      <div class="special-card">
+        <div class="img" id="spc2"><span class="tag">New client</span></div>
+        <div class="body">
+          <span class="cat"><svg class="ico sm"><use href="#i-sparkle"/></svg>First visit</span>
+          <h4>First-time Botox — $10/unit</h4>
+          <p>Up to 40 units at an introductory rate. Valid with any Rejuvalase injector through May 31.</p>
+          <div class="foot"><span class="price"><b>$10</b>/unit</span><span class="arr">Book <svg class="ico sm"><use href="#i-arrow-right"/></svg></span></div>
+        </div>
+      </div>
+      <div class="special-card">
+        <div class="img" id="spc3"><span class="tag">Member</span></div>
+        <div class="body">
+          <span class="cat"><svg class="ico sm"><use href="#i-flower"/></svg>Monthly Circle</span>
+          <h4>The Rejuvalase Circle</h4>
+          <p>Monthly HydraFacial, 20% off injectables, and free product refills. $149/month, cancel anytime.</p>
+          <div class="foot"><span class="price"><b>$149</b>/mo</span><span class="arr">Learn <svg class="ico sm"><use href="#i-arrow-right"/></svg></span></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 48px;">
+      <a href="#" class="btn">View all specials <svg class="ico sm"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" data-screen-label="08 Process">
+  <div class="cap">
+    <div class="sec-intro">
+      <div class="eyebrow">Your first visit</div>
+      <h2>A process <em>designed</em><br>around honesty.</h2>
+    </div>
+    <div class="process-body">
+      <div class="step">
+        <span class="ico-wrap"><svg class="ico lg"><use href="#i-calendar"/></svg></span>
+        <span class="n">Step 01</span>
+        <h4>Complimentary consult</h4>
+        <p>A 30-minute unhurried conversation with a nurse injector. No pressure, no upsell. We examine your skin, discuss goals, and often recommend less than you expected.</p>
+        <span class="time"><svg class="ico sm"><use href="#i-clock"/></svg>30 min · no charge</span>
+      </div>
+      <div class="step">
+        <span class="ico-wrap"><svg class="ico lg"><use href="#i-pen"/></svg></span>
+        <span class="n">Step 02</span>
+        <h4>Customized plan</h4>
+        <p>A written plan with transparent pricing. You'll know every product, unit, and outcome window before you book a single treatment.</p>
+        <span class="time"><svg class="ico sm"><use href="#i-mail"/></svg>Same day · emailed</span>
+      </div>
+      <div class="step">
+        <span class="ico-wrap"><svg class="ico lg"><use href="#i-sparkle"/></svg></span>
+        <span class="n">Step 03</span>
+        <h4>Treatment</h4>
+        <p>Every procedure performed by a licensed RN or MD. Never by a technician. Never rushed. We photograph before and after under identical light.</p>
+        <span class="time"><svg class="ico sm"><use href="#i-clock"/></svg>15 min – 2 hrs</span>
+      </div>
+      <div class="step">
+        <span class="ico-wrap"><svg class="ico lg"><use href="#i-check"/></svg></span>
+        <span class="n">Step 04</span>
+        <h4>Follow-up included</h4>
+        <p>Two-week check-in, texted. Any touch-up within the first month on the house. Results photography — your decision whether to share.</p>
+        <span class="time"><svg class="ico sm"><use href="#i-clock"/></svg>2 wks · free</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPACE SLIDER -->
+<section class="space" id="space" data-screen-label="08b Space">
+  <div class="space-slider" id="spaceSlider">
+    <div class="space-slides" id="spaceSlides"></div>
+    <div class="space-panel">
+      <div class="space-count" id="spaceCount">01 / 06</div>
+      <div class="eyebrow">Inside the practice</div>
+      <h3 id="spaceTitle">—</h3>
+      <p id="spaceBody">—</p>
+      <div class="space-meta" id="spaceMeta"></div>
+      <div class="space-controls">
+        <button class="space-btn" id="spacePrev" aria-label="Previous"><svg class="ico"><use href="#i-arrow-right" style="transform: rotate(180deg); transform-origin: center;"/></svg></button>
+        <button class="space-btn" id="spaceNext" aria-label="Next"><svg class="ico"><use href="#i-arrow-right"/></svg></button>
+      </div>
+      <div class="space-dots" id="spaceDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team" data-screen-label="09 Team">
+  <div class="cap">
+    <div class="sec-intro">
+      <div class="eyebrow">The people behind the work</div>
+      <h2>Trained where the <em>rigor is</em>.</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="ph" id="tm1"></div>
+        <div class="n">Dr. Maya Chen</div>
+        <div class="r"><svg class="ico sm"><use href="#i-shield"/></svg>MD · Medical Director</div>
+        <div class="cr">Johns Hopkins · Board-certified · Founding partner, 2019.</div>
+      </div>
+      <div class="team-card">
+        <div class="ph" id="tm2"></div>
+        <div class="n">Nadia Okafor</div>
+        <div class="r"><svg class="ico sm"><use href="#i-droplet"/></svg>RN · Lead Injector</div>
+        <div class="cr">Allergan Master Injector · 11 years · 6,000+ procedures.</div>
+      </div>
+      <div class="team-card">
+        <div class="ph" id="tm3"></div>
+        <div class="n">Sara Whitfield</div>
+        <div class="r"><svg class="ico sm"><use href="#i-scan"/></svg>RN · Laser Specialist</div>
+        <div class="cr">Certified Sciton BBL &amp; CoolPeel · 8 years clinical.</div>
+      </div>
+      <div class="team-card">
+        <div class="ph" id="tm4"></div>
+        <div class="n">Ines Morales</div>
+        <div class="r"><svg class="ico sm"><use href="#i-flower"/></svg>LE · Lead Esthetician</div>
+        <div class="cr">Dermalogica Expert · HydraFacial certified · 9 years.</div>
+      </div>
+    </div>
+    <div style="margin-top: 48px;">
+      <a href="#" class="btn ghost">Meet the full team <svg class="ico sm"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNAL -->
+<section class="journal" id="journal" data-screen-label="10 Journal">
+  <div class="cap">
+    <div class="sec-intro">
+      <div class="eyebrow">Writing &amp; notes</div>
+      <h2>What we're <em>reading, trying</em>,<br>and quietly retiring.</h2>
+    </div>
+    <div class="journal-grid">
+      <article class="post feat">
+        <div class="hero-img" id="pst1"></div>
+        <div class="meta">
+          <span class="cat"><svg class="ico sm"><use href="#i-book"/></svg>Education · Injectables</span>
+          <span class="rt"><svg class="ico sm"><use href="#i-clock"/></svg>8 min read</span>
+        </div>
+        <h4>Filler fatigue is real — here's how we prevent it in our own clients.</h4>
+        <p>A technical post on hyaluronic acid placement, integration time, and why we're dissolving more product than we're placing this year.</p>
+        <span class="author">— Nadia Okafor, RN · March 14</span>
+      </article>
+      <article class="post">
+        <div class="hero-img" id="pst2"></div>
+        <div class="meta">
+          <span class="cat"><svg class="ico sm"><use href="#i-sparkle"/></svg>Education · Skincare</span>
+          <span class="rt"><svg class="ico sm"><use href="#i-clock"/></svg>5 min read</span>
+        </div>
+        <h4>SPF, translated: what the numbers actually mean in Virginia spring.</h4>
+        <p>A short, evidence-backed primer on UVA vs. UVB protection for our region's humidity and light.</p>
+        <span class="author">— Dr. Maya Chen, MD · March 2</span>
+      </article>
+      <article class="post">
+        <div class="hero-img" id="pst3"></div>
+        <div class="meta">
+          <span class="cat"><svg class="ico sm"><use href="#i-pen"/></svg>Practice · Notes</span>
+          <span class="rt"><svg class="ico sm"><use href="#i-clock"/></svg>3 min read</span>
+        </div>
+        <h4>Why our first consult is free — and will stay that way.</h4>
+        <p>A brief note on the economics of giving away our most valuable commodity — time with a trained clinician.</p>
+        <span class="author">— The Rejuvalase Team · Feb 22</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="news">
+  <div class="news-cap">
+    <div class="news-body">
+      <div>
+        <div class="eyebrow" style="color: var(--gold-300);">The Monthly Letter</div>
+        <h3 style="margin-top: 14px;">Six <em>thoughtful</em><br>emails a year.</h3>
+        <p>Treatment notes, before-and-after case studies, and early access to specials. Zero promotional noise, ever.</p>
+      </div>
+      <div>
+        <form class="news-form" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="eleanor@example.com" aria-label="Email"/>
+          <button type="submit">Subscribe <svg class="ico sm"><use href="#i-arrow-right"/></svg></button>
+        </form>
+        <div class="small"><svg class="ico sm"><use href="#i-mail"/></svg>Unsubscribe anytime · 2,100 subscribers · No spam</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATE -->
+<section class="locate" id="contact" data-screen-label="11 Locate">
+  <div class="locate-body">
+    <div class="locate-map">
+      <div class="pin"></div>
+      <span class="compass"><svg class="ico sm" style="display:inline-block; vertical-align:middle; margin-right:4px;"><use href="#i-map"/></svg>Garrisonville Rd · Stafford · VA</span>
+    </div>
+    <div class="locate-info">
+      <div class="eyebrow">Visit us</div>
+      <h3 style="margin-top: 14px;">Come <em>see</em> us.</h3>
+      <div class="addr">1347 Garrisonville Road<br>Suite 204 · Stafford, VA 22554</div>
+      <div class="hrs">
+        <div class="row"><span>Mon – Thu</span><b>9:00 — 7:00</b></div>
+        <div class="row"><span>Friday</span><b>9:00 — 5:00</b></div>
+        <div class="row"><span>Saturday</span><b>10:00 — 4:00</b></div>
+        <div class="row closed"><span>Sunday</span><b>Closed</b></div>
+      </div>
+      <div class="cta-row">
+        <a href="#" class="btn primary">Book Consultation <svg class="ico sm"><use href="#i-arrow-right"/></svg></a>
+        <a href="tel:5405550134" class="btn ghost"><svg class="ico sm"><use href="#i-phone"/></svg>540 · 555 · 0134</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div class="brand">
+      <div class="wm">Rejuvalase</div>
+      <p>Medical-grade aesthetics and dayspa care, built for the clients of Stafford and surrounding counties.</p>
+    </div>
+    <div><h5>Medspa</h5><ul><li><a href="#">Botox &amp; Filler</a></li><li><a href="#">Laser Hair Removal</a></li><li><a href="#">Sciton BBL</a></li><li><a href="#">Microneedling</a></li><li><a href="#">Chemical Peels</a></li></ul></div>
+    <div><h5>Dayspa</h5><ul><li><a href="#">Facials</a></li><li><a href="#">Massage</a></li><li><a href="#">Body Treatments</a></li><li><a href="#">Memberships</a></li></ul></div>
+    <div><h5>Practice</h5><ul><li><a href="#">About</a></li><li><a href="#">Team</a></li><li><a href="#">Journal</a></li><li><a href="#">Careers</a></li><li><a href="#">FAQ</a></li></ul></div>
+    <div><h5>Contact</h5><ul><li>1347 Garrisonville Rd<br>Stafford, VA 22554</li><li><a href="tel:5405550134">540 · 555 · 0134</a></li><li><a href="mailto:hello@rejuvalase.com">hello@rejuvalase.com</a></li></ul></div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Rejuvalase Medspa</span>
+    <span>Licensed by VA Board of Medicine</span>
+    <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Accessibility</a></span>
+  </div>
+</footer>
+
+<!-- TWEAKS -->
+<aside id="tweaks" aria-label="Tweaks panel">
+  <header><h4>Tweaks</h4><button id="tweaksClose">Close ×</button></header>
+  <div class="body">
+    <div class="ctrl">
+      <label>Primary gold</label>
+      <div class="swatches" id="goldSwatches">
+        <button data-g="#b8933b" style="background:#b8933b;" title="Rejuvalase (default)"></button>
+        <button data-g="#c79a4d" style="background:#c79a4d;" title="Warmer"></button>
+        <button data-g="#a3862f" style="background:#a3862f;" title="Deeper"></button>
+        <button data-g="#8d6e3a" style="background:#8d6e3a;" title="Bronze"></button>
+        <button data-g="#d4a857" style="background:#d4a857;" title="Champagne"></button>
+      </div>
+    </div>
+    <div class="ctrl">
+      <label>Hero slide speed</label>
+      <div class="seg" id="heroSpeed">
+        <button data-v="3000">Fast</button>
+        <button data-v="6000" class="on">Default</button>
+        <button data-v="10000">Slow</button>
+      </div>
+    </div>
+    <div class="ctrl">
+      <label>Gallery auto-scroll</label>
+      <div class="seg" id="gallerySpeed">
+        <button data-v="30s">Fast</button>
+        <button data-v="60s" class="on">Default</button>
+        <button data-v="120s">Slow</button>
+        <button data-v="paused">Pause</button>
+      </div>
+    </div>
+    <div class="ctrl">
+      <label>Photo treatment</label>
+      <div class="seg" id="photoMood">
+        <button data-v="natural" class="on">Natural</button>
+        <button data-v="warm">Warm</button>
+        <button data-v="muted">Muted</button>
+      </div>
+    </div>
+    <div class="ctrl">
+      <label>Hero headline</label>
+      <input type="text" id="heroH" />
+    </div>
+    <div class="ctrl">
+      <label>Hero accent word</label>
+      <input type="text" id="heroEm" />
+    </div>
+    <div class="ctrl">
+      <label>Section numbering</label>
+      <div class="seg" id="secNum">
+        <button data-v="off" class="on">Off</button>
+        <button data-v="on">On</button>
+      </div>
+    </div>
+    <p class="meta">Changes persist. Toggle the Tweaks switch in the toolbar to hide this panel.</p>
+  </div>
+</aside>
+
+<script>
+  // ==========================================
+  // Default tweaks — persisted by the host.
+  // Keep the JSON between the markers valid.
+  // ==========================================
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "goldPrimary": "#b8933b",
+    "heroSpeed": 6000,
+    "gallerySpeed": "60s",
+    "photoMood": "natural",
+    "heroHeadline": "Quiet {em}.\nLoud results.",
+    "heroAccent": "luxury",
+    "sectionNumbers": "off"
+  }/*EDITMODE-END*/;
+
+  // ==========================================
+  // Image manifest — all photos used in the page.
+  // ==========================================
+  const IMG = {
+    hero: [
+      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1800&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1800&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1800&q=80&auto=format&fit=crop'
+    ],
+    phil: 'https://images.unsplash.com/photo-1552693673-1bf958298935?w=1200&q=80&auto=format&fit=crop',
+    svc: [
+      'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1000&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1629209648144-c27558e67a72?w=1000&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=1000&q=80&auto=format&fit=crop'
+    ],
+    team: [
+      'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=900&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=900&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=900&q=80&auto=format&fit=crop'
+    ],
+    ba: {
+      before: 'https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=1400&q=80&auto=format&fit=crop',
+      after: 'https://images.unsplash.com/photo-1526045478516-99145907023c?w=1400&q=80&auto=format&fit=crop'
+    },
+    spc: [
+      'https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=1400&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1614179689702-355944cd0918?w=1000&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1000&q=80&auto=format&fit=crop'
+    ],
+    pst: [
+      'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1200&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900&q=80&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1620302751831-6a95fd1f3d0a?w=900&q=80&auto=format&fit=crop'
+    ],
+    gallery: [
+      ['https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=80&auto=format&fit=crop', 'Treatment Room 01', 'The quietest part of the building'],
+      ['https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=900&q=80&auto=format&fit=crop', 'HydraFacial', 'Cleanse · extract · hydrate'],
+      ['https://images.unsplash.com/photo-1552693673-1bf958298935?w=900&q=80&auto=format&fit=crop', 'Dr. Chen', 'Founding medical director'],
+      ['https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=900&q=80&auto=format&fit=crop', 'Consult Room', 'Always complimentary'],
+      ['https://images.unsplash.com/photo-1629209648144-c27558e67a72?w=900&q=80&auto=format&fit=crop', 'Sciton BBL', 'Broadband light therapy'],
+      ['https://images.unsplash.com/photo-1571646034647-52e6ea84b28c?w=900&q=80&auto=format&fit=crop', 'Skincare Wall', 'SkinCeuticals · ZO · Obagi'],
+      ['https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&q=80&auto=format&fit=crop', 'The Lobby', 'Open since 2019'],
+      ['https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=900&q=80&auto=format&fit=crop', 'Injector Prep', 'Every dose, double-checked']
+    ],
+    space: [
+      { img: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1800&q=80&auto=format&fit=crop', name: 'Treatment Room One', body: 'Two identical suites, each outfitted with medical-grade lighting and a heated zero-gravity chair. Used for injectables, microneedling, and PRP.', meta: [['Room', 'Suite A'], ['Used for', 'Injectables'], ['Sq. ft.', '180']] },
+      { img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1800&q=80&auto=format&fit=crop', name: 'The Laser Suite', body: 'Purpose-built for our Sciton BBL and CoolPeel systems. Light-isolated, acoustically dampened, and kept at a steady 68°F — the temperature BBL was clinically validated at.', meta: [['Device', 'Sciton BBL'], ['Climate', '68°F'], ['Sessions/yr', '1,400+']] },
+      { img: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1800&q=80&auto=format&fit=crop', name: 'Consultation Room', body: 'Where every first visit begins. A private room with clinical photography lighting, built for unhurried, pressure-free conversation. Always complimentary — always 30 minutes.', meta: [['Duration', '30 min'], ['Fee', 'Complimentary'], ['Rooms', '2']] },
+      { img: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1800&q=80&auto=format&fit=crop', name: 'The Massage Studio', body: 'A softer corner of the practice. Heated tables, locally-sourced oils, and the only room in the building wired for silence — no overhead music unless you request it.', meta: [['Therapists', '3 LMT'], ['Tables', 'Heated'], ['Sound', 'Client choice']] },
+      { img: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1800&q=80&auto=format&fit=crop', name: 'Reception &amp; Lobby', body: 'Open since 2019. Tea service, fresh flowers every Monday morning, and a small library of the journals and books that inform our practice.', meta: [['Seating', '8 guests'], ['Tea', 'House blend'], ['Wi-Fi', 'Complimentary']] },
+      { img: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=1800&q=80&auto=format&fit=crop', name: 'The Product Wall', body: 'Curated retail for clients. SkinCeuticals, ZO, Obagi, iS Clinical — only lines our clinicians actively use in-chair. If we don\'t recommend it, we don\'t sell it.', meta: [['Brands', '6 lines'], ['SKUs', '80+'], ['Tested by', 'Our team']] }
+    ]
+  };
+
+  // ---------- Apply photos ----------
+  function bg(el, url) { if (el) el.style.backgroundImage = `url("${url}")`; }
+
+  // Hero slides
+  (function(){
+    const slidesEl = document.getElementById('heroSlides');
+    slidesEl.innerHTML = IMG.hero.map((u, i) =>
+      `<div class="hero-slide${i===0?' active':''}"><div class="kenburns" style="background-image:url('${u}');"></div></div>`
+    ).join('');
+  })();
+
+  bg(document.getElementById('philImg'), IMG.phil);
+  bg(document.getElementById('svcPh1'), IMG.svc[0]);
+  bg(document.getElementById('svcPh2'), IMG.svc[1]);
+  bg(document.getElementById('svcPh3'), IMG.svc[2]);
+  bg(document.getElementById('tm1'), IMG.team[0]);
+  bg(document.getElementById('tm2'), IMG.team[1]);
+  bg(document.getElementById('tm3'), IMG.team[2]);
+  bg(document.getElementById('tm4'), IMG.team[3]);
+  bg(document.getElementById('baBefore'), IMG.ba.before);
+  bg(document.getElementById('baAfter'), IMG.ba.after);
+  bg(document.getElementById('spc1'), IMG.spc[0]);
+  bg(document.getElementById('spc2'), IMG.spc[1]);
+  bg(document.getElementById('spc3'), IMG.spc[2]);
+  bg(document.getElementById('pst1'), IMG.pst[0]);
+  bg(document.getElementById('pst2'), IMG.pst[1]);
+  bg(document.getElementById('pst3'), IMG.pst[2]);
+
+  // Gallery — duplicate for seamless loop
+  (function(){
+    const track = document.getElementById('galleryTrack');
+    const items = IMG.gallery.concat(IMG.gallery);
+    track.innerHTML = items.map(([u, t, s]) =>
+      `<div class="gallery-tile" style="background-image:url('${u}');"><div class="cap"><span>${s}</span>${t}</div></div>`
+    ).join('');
+  })();
+
+  // Space slider
+  (function(){
+    const slidesEl = document.getElementById('spaceSlides');
+    const dotsEl = document.getElementById('spaceDots');
+    const titleEl = document.getElementById('spaceTitle');
+    const bodyEl = document.getElementById('spaceBody');
+    const metaEl = document.getElementById('spaceMeta');
+    const countEl = document.getElementById('spaceCount');
+    const data = IMG.space;
+    slidesEl.innerHTML = data.map((s, i) =>
+      `<div class="space-slide${i===0?' active':''}" style="background-image:url('${s.img}');"></div>`
+    ).join('');
+    dotsEl.innerHTML = data.map((_, i) =>
+      `<button data-i="${i}" class="${i===0?'active':''}" aria-label="Slide ${i+1}"></button>`
+    ).join('');
+    let cur = 0;
+    function render(n){
+      const slides = slidesEl.children, dots = dotsEl.children;
+      slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
+      cur = (n + data.length) % data.length;
+      slides[cur].classList.add('active'); dots[cur].classList.add('active');
+      const d = data[cur];
+      titleEl.innerHTML = d.name;
+      bodyEl.innerHTML = d.body;
+      metaEl.innerHTML = d.meta.map(([k, v]) => `<div>${k}<b>${v}</b></div>`).join('');
+      countEl.textContent = String(cur+1).padStart(2,'0') + ' / ' + String(data.length).padStart(2,'0');
+    }
+    render(0);
+    document.getElementById('spacePrev').addEventListener('click', () => render(cur-1));
+    document.getElementById('spaceNext').addEventListener('click', () => render(cur+1));
+    [...dotsEl.children].forEach(b => b.addEventListener('click', () => render(parseInt(b.dataset.i))));
+  })();
+  let heroI = 0, heroTimer = null;
+  function heroGo(n){
+    const slides = document.querySelectorAll('.hero-slide');
+    const inds = document.querySelectorAll('#heroInd button');
+    slides[heroI].classList.remove('active');
+    inds[heroI].classList.remove('active');
+    heroI = (n + slides.length) % slides.length;
+    slides[heroI].classList.add('active');
+    inds[heroI].classList.add('active');
+    document.getElementById('heroCount').textContent =
+      String(heroI+1).padStart(2,'0') + ' / ' + String(slides.length).padStart(2,'0');
+  }
+  document.querySelectorAll('#heroInd button').forEach(b =>
+    b.addEventListener('click', () => heroGo(parseInt(b.dataset.i)))
+  );
+  function heroStart(ms){
+    if (heroTimer) clearInterval(heroTimer);
+    heroTimer = setInterval(() => heroGo(heroI + 1), ms);
+  }
+
+  // Mega menu
+  (function(){
+    const items = document.querySelectorAll('nav.main .has-mega');
+    const panels = document.querySelectorAll('.mega');
+    const backdrop = document.createElement('div');
+    backdrop.className = 'mega-backdrop';
+    document.body.appendChild(backdrop);
+
+    let closeTimer = null;
+    function openMega(key) {
+      clearTimeout(closeTimer);
+      items.forEach(it => it.classList.toggle('open', it.dataset.mega === key));
+      panels.forEach(p => p.classList.toggle('open', p.dataset.mega === key));
+      backdrop.classList.add('on');
+    }
+    function scheduleClose() {
+      closeTimer = setTimeout(closeMega, 140);
+    }
+    function closeMega() {
+      items.forEach(it => it.classList.remove('open'));
+      panels.forEach(p => p.classList.remove('open'));
+      backdrop.classList.remove('on');
+    }
+
+    items.forEach(it => {
+      it.addEventListener('mouseenter', () => openMega(it.dataset.mega));
+      it.addEventListener('mouseleave', scheduleClose);
+      it.querySelector('a').addEventListener('focus', () => openMega(it.dataset.mega));
+    });
+    panels.forEach(p => {
+      p.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+      p.addEventListener('mouseleave', scheduleClose);
+    });
+    backdrop.addEventListener('click', closeMega);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMega(); });
+  })();
+
+  // ==========================================
+  // TWEAKS — register listener, then announce
+  // ==========================================
+  const tweaks = Object.assign({}, TWEAK_DEFAULTS);
+
+  function apply(k, v) {
+    tweaks[k] = v;
+    if (k === 'goldPrimary') {
+      // adjust derived ramps
+      document.documentElement.style.setProperty('--gold-500', v);
+      document.documentElement.style.setProperty('--gold-700', shade(v, -0.22));
+      document.documentElement.style.setProperty('--gold-300', shade(v, 0.22));
+      document.documentElement.style.setProperty('--gold-100', shade(v, 0.55));
+      document.documentElement.style.setProperty('--gold-900', shade(v, -0.5));
+      // paint swatch selection
+      document.querySelectorAll('#goldSwatches button').forEach(b =>
+        b.classList.toggle('on', b.dataset.g.toLowerCase() === v.toLowerCase()));
+    }
+    if (k === 'heroSpeed') {
+      heroStart(parseInt(v));
+      document.querySelectorAll('#heroSpeed button').forEach(b =>
+        b.classList.toggle('on', parseInt(b.dataset.v) === parseInt(v)));
+    }
+    if (k === 'gallerySpeed') {
+      const track = document.getElementById('galleryTrack');
+      if (v === 'paused') track.style.animationPlayState = 'paused';
+      else { track.style.animationPlayState = 'running'; track.style.animationDuration = v; }
+      document.querySelectorAll('#gallerySpeed button').forEach(b =>
+        b.classList.toggle('on', b.dataset.v === v));
+    }
+    if (k === 'photoMood') {
+      const filter = v === 'warm' ? 'sepia(0.2) saturate(1.1)' :
+                     v === 'muted' ? 'saturate(0.7) contrast(0.95)' : 'none';
+      document.querySelectorAll(
+        '.kenburns, .philosophy-img, .svc-tile .ph, .team-card .ph, .ba-photo, .special-card .img, .post .hero-img, .gallery-tile'
+      ).forEach(el => el.style.filter = filter);
+      document.querySelectorAll('#photoMood button').forEach(b =>
+        b.classList.toggle('on', b.dataset.v === v));
+    }
+    if (k === 'heroHeadline' || k === 'heroAccent') {
+      const h1 = document.querySelector('.hero h1');
+      const txt = tweaks.heroHeadline.replace('{em}', `<em>${tweaks.heroAccent}</em>`);
+      h1.innerHTML = txt.split('\n').join('<br>');
+      document.getElementById('heroH').value = tweaks.heroHeadline;
+      document.getElementById('heroEm').value = tweaks.heroAccent;
+    }
+    if (k === 'sectionNumbers') {
+      document.body.classList.toggle('show-sec-num', v === 'on');
+      document.querySelectorAll('#secNum button').forEach(b =>
+        b.classList.toggle('on', b.dataset.v === v));
+    }
+  }
+
+  // section numbers overlay when turned on
+  (function(){
+    const css = document.createElement('style');
+    css.textContent = `
+      body.show-sec-num section { position: relative; }
+      body.show-sec-num section::before {
+        content: attr(data-screen-label);
+        position: absolute; top: 32px; right: 40px;
+        font-family: var(--mono); font-size: 10px; letter-spacing: 0.3em;
+        text-transform: uppercase; color: var(--ink-300); z-index: 5;
+      }
+      body.show-sec-num .services::before,
+      body.show-sec-num .ba::before,
+      body.show-sec-num .news::before { color: rgba(250,246,237,0.5); }
+    `;
+    document.head.appendChild(css);
+  })();
+
+  function shade(hex, amt) {
+    const c = hex.replace('#','');
+    const r = parseInt(c.substr(0,2),16), g = parseInt(c.substr(2,2),16), b = parseInt(c.substr(4,2),16);
+    const adj = (x) => {
+      const t = amt < 0 ? 0 : 255;
+      return Math.round((t - x) * Math.abs(amt) + x);
+    };
+    return '#' + [adj(r), adj(g), adj(b)].map(v => v.toString(16).padStart(2,'0')).join('');
+  }
+
+  function persist(edits) {
+    try {
+      window.parent.postMessage({type: '__edit_mode_set_keys', edits}, '*');
+    } catch(e) {}
+  }
+
+  // Register listener FIRST
+  window.addEventListener('message', (ev) => {
+    const d = ev.data || {};
+    if (d.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('on');
+    if (d.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('on');
+  });
+  // Then announce
+  try { window.parent.postMessage({type: '__edit_mode_available'}, '*'); } catch(e) {}
+
+  // Wire up controls
+  document.querySelectorAll('#goldSwatches button').forEach(b =>
+    b.addEventListener('click', () => { apply('goldPrimary', b.dataset.g); persist({goldPrimary: b.dataset.g}); })
+  );
+  document.querySelectorAll('#heroSpeed button').forEach(b =>
+    b.addEventListener('click', () => { const v = parseInt(b.dataset.v); apply('heroSpeed', v); persist({heroSpeed: v}); })
+  );
+  document.querySelectorAll('#gallerySpeed button').forEach(b =>
+    b.addEventListener('click', () => { apply('gallerySpeed', b.dataset.v); persist({gallerySpeed: b.dataset.v}); })
+  );
+  document.querySelectorAll('#photoMood button').forEach(b =>
+    b.addEventListener('click', () => { apply('photoMood', b.dataset.v); persist({photoMood: b.dataset.v}); })
+  );
+  document.querySelectorAll('#secNum button').forEach(b =>
+    b.addEventListener('click', () => { apply('sectionNumbers', b.dataset.v); persist({sectionNumbers: b.dataset.v}); })
+  );
+  document.getElementById('heroH').addEventListener('input', e => {
+    apply('heroHeadline', e.target.value); persist({heroHeadline: e.target.value});
+  });
+  document.getElementById('heroEm').addEventListener('input', e => {
+    apply('heroAccent', e.target.value); persist({heroAccent: e.target.value});
+  });
+  document.getElementById('tweaksClose').addEventListener('click', () => {
+    document.getElementById('tweaks').classList.remove('on');
+  });
+
+  // Initial apply
+  Object.keys(tweaks).forEach(k => apply(k, tweaks[k]));
+  heroStart(tweaks.heroSpeed);
+</script>
+
+</body>
+</html>

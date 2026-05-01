@@ -1,0 +1,1183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Rejuvalase · Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Color — primary gold */
+    --gold-900: #5a4014;
+    --gold-700: #8a6e2a;
+    --gold-500: #b8933b;  /* primary */
+    --gold-300: #d4b872;
+    --gold-100: #e8d9a8;
+    --gold-50:  #f3ecd6;
+
+    /* Neutrals */
+    --ink-900: #15120d;
+    --ink-700: #2b251d;
+    --ink-500: #5a5246;
+    --ink-300: #8e8574;
+    --ink-200: #c4bdae;
+    --ink-100: #e5dfd2;
+    --paper:    #faf6ed;
+    --paper-2:  #f2ecdc;
+    --white:    #ffffff;
+
+    /* Functional */
+    --success: #4a6b4a;
+    --warning: #b8813b;
+    --error:   #a33c2c;
+    --info:    #3b5b78;
+
+    /* Spacing scale */
+    --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px;
+    --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-12: 48px; --s-16: 64px;
+    --s-20: 80px; --s-24: 96px; --s-32: 128px;
+
+    /* Type */
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'Inter', system-ui, sans-serif;
+    --mono:  'IBM Plex Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink-900); font-family: var(--sans); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+
+  /* ---------- Layout ---------- */
+  .top-bar {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--white);
+    border-bottom: 1px solid var(--ink-100);
+    padding: 16px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .top-bar .wordmark { font-family: var(--serif); font-size: 28px; letter-spacing: 0.5px; }
+  .top-bar .doctag {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--ink-500);
+    padding: 6px 10px; border: 1px solid var(--ink-100);
+  }
+  .doc { max-width: 1200px; margin: 0 auto; padding: 0 40px 120px; }
+
+  /* ---------- Header ---------- */
+  .doc-hero {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--ink-100);
+    margin-bottom: 80px;
+  }
+  .doc-hero .eyebrow, .sec-head .eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold-500);
+    margin-bottom: 18px;
+  }
+  .doc-hero h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(56px, 8vw, 112px); line-height: 0.95;
+    letter-spacing: -0.01em; margin: 0;
+  }
+  .doc-hero h1 em { font-style: italic; color: var(--gold-700); }
+  .doc-hero p {
+    font-family: var(--serif); font-weight: 400; font-style: italic;
+    font-size: 22px; line-height: 1.5; color: var(--ink-500);
+    max-width: 620px; margin: 28px 0 0;
+  }
+  .meta-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 20px; margin-top: 48px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-500);
+  }
+  .meta-grid b { display: block; color: var(--ink-900); margin-top: 4px; font-weight: 500; letter-spacing: 0.05em;}
+
+  /* ---------- Section ---------- */
+  .sec {
+    padding: 60px 0;
+    border-top: 1px solid var(--ink-100);
+    position: relative;
+  }
+  .sec:first-of-type { border-top: none; padding-top: 0; }
+  .sec-head {
+    display: grid; grid-template-columns: 200px 1fr; gap: 48px;
+    margin-bottom: 48px; align-items: baseline;
+  }
+  .sec-head .num {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--ink-300);
+  }
+  .sec-head h2 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: 56px; line-height: 1; margin: 0;
+  }
+  .sec-head h2 em { font-style: italic; color: var(--gold-700); }
+  .sec-head .intro { font-size: 16px; color: var(--ink-500); max-width: 540px; margin: 14px 0 0; line-height: 1.6; }
+
+  h3.sub { font-family: var(--serif); font-weight: 400; font-size: 32px; margin: 40px 0 18px; }
+  h4.sub { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-500); margin: 28px 0 12px; }
+
+  /* ---------- Tokens / utilities ---------- */
+  .token-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 140px 140px;
+    gap: 16px; padding: 14px 0;
+    border-top: 1px solid var(--ink-100);
+    font-family: var(--mono); font-size: 12px;
+    align-items: center;
+  }
+  .token-row:last-child { border-bottom: 1px solid var(--ink-100); }
+  .token-row code { font-family: var(--mono); color: var(--ink-700); }
+  .sw {
+    width: 22px; height: 22px; border: 1px solid var(--ink-100); display: inline-block; vertical-align: middle; margin-right: 10px;
+  }
+
+  /* ---------- Colors ---------- */
+  .color-hero {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+    height: 260px; margin-bottom: 32px;
+  }
+  .color-hero .chip { padding: 16px; display: flex; flex-direction: column; justify-content: space-between; font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
+  .color-hero .chip b { font-family: var(--serif); font-size: 20px; letter-spacing: 0; text-transform: none; font-weight: 400; display: block; line-height: 1;}
+  .color-hero .chip code { font-size: 10px; opacity: 0.8; }
+
+  .palette {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px;
+  }
+  .ramp { }
+  .ramp-row {
+    display: grid; grid-template-columns: 60px 1fr 110px 90px;
+    gap: 14px; align-items: center;
+    font-family: var(--mono); font-size: 11px;
+    padding: 10px 0;
+    border-top: 1px solid var(--ink-100);
+  }
+  .ramp-row:last-child { border-bottom: 1px solid var(--ink-100); }
+  .ramp-row .swatch { width: 60px; height: 40px; }
+  .ramp-row .name { font-family: var(--sans); font-size: 13px; color: var(--ink-900); }
+  .ramp-row .hex { color: var(--ink-500); }
+  .ramp-row .use { color: var(--ink-300); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; text-align: right; }
+
+  .color-usage {
+    margin-top: 40px;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px;
+  }
+  .color-usage .card {
+    border: 1px solid var(--ink-100); padding: 24px;
+    background: var(--white);
+  }
+  .color-usage .card h4 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-500); margin: 0 0 12px; }
+  .color-usage .card p { font-size: 13px; color: var(--ink-700); margin: 0; line-height: 1.6; }
+  .color-usage .card .bar { height: 80px; margin: -24px -24px 20px; border-bottom: 1px solid var(--ink-100); }
+
+  /* ---------- Typography ---------- */
+  .type-scale {}
+  .type-row {
+    display: grid; grid-template-columns: 200px 1fr 200px;
+    gap: 24px; padding: 20px 0;
+    border-top: 1px solid var(--ink-100);
+    align-items: baseline;
+  }
+  .type-row:last-child { border-bottom: 1px solid var(--ink-100); }
+  .type-row .tag {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-500);
+  }
+  .type-row .sample { color: var(--ink-900); }
+  .type-row .meta {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-300);
+    text-align: right;
+  }
+  .t-display     { font-family: var(--serif); font-weight: 400; font-size: 96px; line-height: 0.95; letter-spacing: -0.01em; }
+  .t-h1          { font-family: var(--serif); font-weight: 400; font-size: 64px; line-height: 1; }
+  .t-h2          { font-family: var(--serif); font-weight: 400; font-size: 48px; line-height: 1.05; }
+  .t-h3          { font-family: var(--serif); font-weight: 400; font-size: 32px; line-height: 1.15; }
+  .t-h4          { font-family: var(--serif); font-weight: 500; font-size: 22px; line-height: 1.25; }
+  .t-lede        { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 22px; line-height: 1.45; color: var(--ink-500); }
+  .t-body        { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 1.65; }
+  .t-body-sm     { font-family: var(--sans); font-weight: 400; font-size: 14px; line-height: 1.55; }
+  .t-eyebrow     { font-family: var(--mono); font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-500); }
+  .t-label       { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-500); }
+  .t-caption     { font-family: var(--sans); font-size: 12px; color: var(--ink-500); }
+
+  .t-specimen {
+    padding: 48px;
+    background: var(--ink-900); color: var(--paper);
+    margin: 32px 0 40px;
+  }
+  .t-specimen .big { font-family: var(--serif); font-weight: 400; font-size: 120px; line-height: 0.9; letter-spacing: -0.01em; }
+  .t-specimen .big em { font-style: italic; color: var(--gold-300); }
+  .t-specimen .kick { font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.7; }
+
+  /* ---------- Spacing / Radius / Shadow ---------- */
+  .spacing-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+  .spacing-grid .item { text-align: center; }
+  .spacing-grid .swatch {
+    background: var(--gold-100);
+    margin: 0 auto 10px;
+    height: 48px;
+    border: 1px solid var(--gold-500);
+  }
+  .spacing-grid .lbl { font-family: var(--mono); font-size: 11px; color: var(--ink-700); }
+  .spacing-grid .px  { font-family: var(--mono); font-size: 10px; color: var(--ink-300); }
+
+  /* Square corners only — demo */
+  .corners-note {
+    border: 1px solid var(--ink-900);
+    padding: 20px 24px;
+    background: var(--paper-2);
+    display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center;
+  }
+  .corners-note .big-x { font-family: var(--serif); font-size: 44px; color: var(--gold-700); line-height: 0.8; }
+  .corners-note p { margin: 0; font-size: 14px; color: var(--ink-700); }
+  .corners-note b { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-900); display: block; margin-bottom: 4px;}
+
+  /* Shadow samples */
+  .shadow-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 24px; }
+  .shadow-box {
+    background: var(--white); padding: 28px; min-height: 120px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink-500);
+  }
+  .sh-1 { box-shadow: 0 1px 2px rgba(21,18,13,0.04), 0 1px 4px rgba(21,18,13,0.06); }
+  .sh-2 { box-shadow: 0 2px 4px rgba(21,18,13,0.04), 0 8px 20px rgba(21,18,13,0.08); }
+  .sh-3 { box-shadow: 0 8px 18px rgba(21,18,13,0.06), 0 24px 48px rgba(21,18,13,0.12); }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; padding: 14px 22px;
+    background: var(--ink-900); color: var(--paper); border: 1px solid var(--ink-900); cursor: pointer;
+    transition: all 180ms ease;
+    text-decoration: none;
+  }
+  .btn:hover { background: var(--gold-700); border-color: var(--gold-700); color: var(--white); }
+  .btn.ghost { background: transparent; color: var(--ink-900); }
+  .btn.ghost:hover { background: var(--ink-900); color: var(--paper); border-color: var(--ink-900);}
+  .btn.primary { background: var(--gold-500); border-color: var(--gold-500); color: var(--white); }
+  .btn.primary:hover { background: var(--gold-700); border-color: var(--gold-700); }
+  .btn.light { background: var(--white); color: var(--ink-900); border-color: var(--white); }
+  .btn.light:hover { background: var(--gold-100); color: var(--gold-900); border-color: var(--gold-100);}
+  .btn.sm { padding: 10px 16px; font-size: 10px; }
+  .btn.lg { padding: 18px 28px; font-size: 12px; }
+  .btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+  .btn.loading::after { content: '◐'; animation: spin 1s linear infinite; display: inline-block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .btn-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 20px; margin-top: 24px;
+    padding: 40px; background: var(--paper-2);
+  }
+  .btn-grid .cell {
+    display: flex; flex-direction: column; gap: 10px; align-items: flex-start;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-500);
+  }
+
+  /* ---------- Form components ---------- */
+  .field { display: block; margin-bottom: 20px; }
+  .field > label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-500); margin-bottom: 6px; }
+  .input, .select, .textarea {
+    width: 100%; border: 1px solid var(--ink-200);
+    background: var(--white); padding: 12px 14px;
+    font-family: var(--sans); font-size: 15px;
+    color: var(--ink-900);
+    transition: border-color 160ms ease;
+    outline: none;
+  }
+  .input:focus, .select:focus, .textarea:focus { border-color: var(--gold-500); box-shadow: 0 0 0 2px var(--gold-100);}
+  .textarea { min-height: 110px; resize: vertical; }
+  .hint { font-size: 12px; color: var(--ink-500); margin-top: 4px; }
+
+  /* ---------- Component specimens ---------- */
+  .comp-card {
+    border: 1px solid var(--ink-100);
+    background: var(--white);
+    padding: 32px;
+    margin-bottom: 28px;
+  }
+  .comp-card .comp-meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 1px dashed var(--ink-100); padding-bottom: 12px; margin-bottom: 24px;
+  }
+  .comp-card .comp-meta h4 { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; margin: 0; }
+  .comp-card .comp-meta .ver { font-family: var(--mono); font-size: 10px; color: var(--ink-300); letter-spacing: 0.15em; text-transform: uppercase; }
+  .comp-card .notes { font-size: 13px; color: var(--ink-500); margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--ink-100); }
+
+  /* Service card component */
+  .svc-card {
+    border: 1px solid var(--ink-100); background: var(--white);
+    display: flex; flex-direction: column;
+    transition: transform 320ms ease, border-color 320ms ease;
+    cursor: pointer;
+  }
+  .svc-card:hover { border-color: var(--ink-900); transform: translateY(-4px); }
+  .svc-card .img {
+    height: 220px;
+    background:
+      linear-gradient(135deg, var(--gold-300), var(--gold-700));
+    position: relative;
+  }
+  .svc-card .img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(21,18,13,0.3));
+  }
+  .svc-card .body { padding: 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .svc-card .kick { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-500); }
+  .svc-card h5 { font-family: var(--serif); font-weight: 400; font-size: 28px; margin: 0; line-height: 1.1; }
+  .svc-card p { margin: 0; font-size: 14px; color: var(--ink-500); line-height: 1.5; }
+  .svc-card .foot { margin-top: auto; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--ink-100); }
+  .svc-card .price { font-family: var(--serif); font-size: 22px; color: var(--gold-700); }
+  .arrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-900); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+  /* Testimonial */
+  .testi {
+    border: 1px solid var(--ink-100); background: var(--white);
+    padding: 32px;
+  }
+  .testi .mark { font-family: var(--serif); font-size: 64px; line-height: 0.5; color: var(--gold-500); }
+  .testi .q { font-family: var(--serif); font-size: 22px; line-height: 1.4; color: var(--ink-900); margin: 14px 0 0; font-style: italic; }
+  .testi .c { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-500); margin-top: 20px; }
+
+  /* Badge */
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; font-family: var(--mono); font-size: 9px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .badge.gold { background: var(--gold-100); color: var(--gold-900); border: 1px solid var(--gold-500); }
+  .badge.ink { background: var(--ink-900); color: var(--paper); border: 1px solid var(--ink-900); }
+  .badge.outline { background: transparent; color: var(--ink-900); border: 1px solid var(--ink-900); }
+
+  /* Image ratio demo */
+  .ratio {
+    background:
+      linear-gradient(135deg, var(--gold-100), var(--gold-300));
+    position: relative;
+  }
+  .ratio::after {
+    content: attr(data-ratio);
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    background: var(--white); padding: 6px 12px;
+    color: var(--ink-900);
+  }
+  .r-16x9 { aspect-ratio: 16/9; }
+  .r-4x5  { aspect-ratio: 4/5; }
+  .r-1x1  { aspect-ratio: 1/1; }
+  .r-3x4  { aspect-ratio: 3/4; }
+
+  /* Voice matrix */
+  .voice-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    border: 1px solid var(--ink-100); background: var(--white);
+  }
+  .voice-cell { padding: 28px; border-right: 1px solid var(--ink-100); }
+  .voice-cell:last-child { border-right: none; }
+  .voice-cell h5 { font-family: var(--serif); font-weight: 400; font-size: 26px; margin: 0 0 6px; color: var(--gold-700); }
+  .voice-cell .pct { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-300); margin-bottom: 14px; }
+  .voice-cell p { font-size: 14px; color: var(--ink-700); margin: 0 0 16px; line-height: 1.6;}
+  .voice-cell .ex {
+    background: var(--paper-2); padding: 14px 16px;
+    font-family: var(--serif); font-style: italic; font-size: 15px;
+    color: var(--ink-900); line-height: 1.45;
+    border-left: 2px solid var(--gold-500);
+  }
+  .voice-cell .ex + .ex { margin-top: 10px; }
+
+  /* Do / Don't */
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+  .do-dont > div { border: 1px solid var(--ink-100); padding: 24px; background: var(--white); }
+  .do-dont .mark {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 4px 10px; display: inline-block; margin-bottom: 16px;
+  }
+  .do-dont .do .mark   { background: var(--success); color: var(--paper); }
+  .do-dont .dont .mark { background: var(--error); color: var(--paper); }
+  .do-dont ul { margin: 0; padding: 0 0 0 18px; font-size: 14px; color: var(--ink-700); line-height: 1.7; }
+
+  /* Motion specimen */
+  .motion-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .motion-tile {
+    border: 1px solid var(--ink-100); background: var(--white);
+    padding: 24px; font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-500);
+  }
+  .motion-tile .val { font-family: var(--serif); font-size: 36px; color: var(--ink-900); text-transform: none; letter-spacing: 0; margin-bottom: 8px; }
+  .motion-tile .note { font-family: var(--sans); font-size: 12px; color: var(--ink-500); text-transform: none; letter-spacing: 0; line-height: 1.5; margin-top: 10px; }
+
+  /* Logo lockups */
+  .lockup-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; }
+  .lockup {
+    border: 1px solid var(--ink-100); padding: 48px;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 160px;
+    background: var(--white);
+    position: relative;
+  }
+  .lockup .lbl { position: absolute; top: 12px; left: 14px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-300);}
+  .lockup.dark { background: var(--ink-900); color: var(--paper); }
+  .lockup.gold { background: var(--gold-500); color: var(--white); }
+  .wordmark-big { font-family: var(--serif); font-size: 56px; letter-spacing: 0.5px; font-weight: 400; }
+  .wordmark-small { font-family: var(--serif); font-size: 28px; letter-spacing: 0.3px; }
+  .monogram {
+    font-family: var(--serif); font-size: 64px; line-height: 1;
+    border: 2px solid currentColor; padding: 8px 20px;
+  }
+
+  /* Imagery direction */
+  .mood {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 220px 220px; gap: 12px;
+  }
+  .mood .img { background-size: cover; background-position: center; position: relative; }
+  .mood .img::after {
+    content: attr(data-tag);
+    position: absolute; bottom: 12px; left: 12px;
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--white);
+    background: rgba(21,18,13,0.6); padding: 4px 8px;
+  }
+  .mood .m1 { grid-column: 1; grid-row: 1 / 3; background: linear-gradient(135deg, #8a7550, #2b251d);}
+  .mood .m2 { background: linear-gradient(160deg, #d4b872, #8a6e2a);}
+  .mood .m3 { background: linear-gradient(200deg, #e5dfd2, #8e8574);}
+  .mood .m4 { background: linear-gradient(140deg, #15120d, #5a5246);}
+  .mood .m5 { background: linear-gradient(180deg, #faf6ed, #d4b872);}
+
+  .principles {
+    display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px;
+  }
+  .principle {
+    border: 1px solid var(--ink-100); background: var(--white);
+    padding: 24px; display: flex; flex-direction: column; gap: 10px;
+    min-height: 180px;
+  }
+  .principle .n {
+    font-family: var(--serif); font-size: 44px; color: var(--gold-500); line-height: 0.8;
+  }
+  .principle h5 { font-family: var(--serif); font-weight: 400; font-size: 22px; margin: 0; }
+  .principle p { font-size: 13px; color: var(--ink-500); margin: 0; line-height: 1.5; }
+
+  /* Footer */
+  .doc-foot {
+    margin-top: 100px; padding: 40px;
+    border-top: 1px solid var(--ink-900);
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--ink-500);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .doc { padding: 0 20px 60px; }
+    .sec-head { grid-template-columns: 1fr; gap: 12px; }
+    .sec-head h2 { font-size: 40px; }
+    .doc-hero h1 { font-size: 56px; }
+    .meta-grid { grid-template-columns: 1fr 1fr; }
+    .color-hero { grid-template-columns: 1fr; height: auto; }
+    .color-hero .chip { padding: 24px; height: 80px; }
+    .palette, .grid-2, .grid-3, .grid-4, .color-usage, .do-dont,
+    .motion-grid, .spacing-grid, .lockup-grid, .principles, .voice-grid,
+    .btn-grid, .shadow-row { grid-template-columns: 1fr; }
+    .token-row { grid-template-columns: 1fr; gap: 4px; }
+    .type-row { grid-template-columns: 1fr; gap: 6px; }
+    .t-display { font-size: 48px; }
+    .t-h1 { font-size: 40px; }
+    .t-h2 { font-size: 32px; }
+    .mood { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 160px);}
+    .mood .m1 { grid-column: 1 / 3; grid-row: 1; }
+    .voice-cell { border-right: none; border-bottom: 1px solid var(--ink-100); }
+    .top-bar { padding: 12px 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <div class="wordmark">Rejuvalase</div>
+  <div class="doctag">Design System · v1.0 · Apr 2026</div>
+</div>
+
+<main class="doc">
+
+  <!-- HERO -->
+  <section class="doc-hero">
+    <div class="eyebrow">The Rejuvalase Design System</div>
+    <h1>Quiet <em>luxury</em>,<br>loud results.</h1>
+    <p>A system built for a medspa that takes its medicine seriously — and its beauty seriously, too. Everything here exists to make Rejuvalase feel simultaneously clinical, editorial, and warm.</p>
+
+    <div class="meta-grid">
+      <div>Client<b>Rejuvalase Medspa</b></div>
+      <div>Location<b>Stafford, Virginia</b></div>
+      <div>System version<b>1.0 · April 2026</b></div>
+      <div>Applies to<b>Web · print · social</b></div>
+    </div>
+  </section>
+
+  <!-- 01 BRAND FOUNDATION -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">01 · Foundation</div>
+      <div>
+        <div class="eyebrow">Brand essence</div>
+        <h2>Three <em>words</em>.</h2>
+        <p class="intro">Everything — copy, color, layout, photography — should be measurable against these three words. If it fails any of them, it's not Rejuvalase.</p>
+      </div>
+    </div>
+
+    <div class="principles">
+      <div class="principle">
+        <div class="n">01</div>
+        <h5>Clinical</h5>
+        <p>Medical authority, by design. Precise grids, high contrast, data where it matters. Never soft-pedal the expertise.</p>
+      </div>
+      <div class="principle">
+        <div class="n">02</div>
+        <h5>Editorial</h5>
+        <p>Long serif headlines, generous whitespace, photography that could live in a magazine. Restrained, considered, never shouty.</p>
+      </div>
+      <div class="principle">
+        <div class="n">03</div>
+        <h5>Warm</h5>
+        <p>Off-white paper tones, gold accent, first-name copy. Stafford's medspa, not a big-city franchise. People are the point.</p>
+      </div>
+      <div class="principle">
+        <div class="n">04</div>
+        <h5>Square</h5>
+        <p>Per brand direction: every corner is 0px. No rounded buttons, no pilled tags, no fillet radii. The geometry is the identity.</p>
+      </div>
+    </div>
+
+    <div class="corners-note" style="margin-top: 32px;">
+      <div class="big-x">×</div>
+      <div>
+        <b>Hard rule · zero radii</b>
+        <p>Buttons, cards, inputs, images, modals, badges — everything uses <code>border-radius: 0</code>. The only curved thing on the site is the serif's ball terminals. This is non-negotiable and applies everywhere.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 COLOR -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">02 · Color</div>
+      <div>
+        <div class="eyebrow">Palette</div>
+        <h2>Gold &amp; <em>ink</em>.</h2>
+        <p class="intro">A primary gold (#b8933b) against a warm off-white paper and deep-ink black. Functional colors stay muted so the gold never fights for attention.</p>
+      </div>
+    </div>
+
+    <div class="color-hero">
+      <div class="chip" style="background: var(--gold-500); color: var(--white);">
+        <span>Primary · Gold 500</span>
+        <div><b>Rejuvalase Gold</b><code>#B8933B</code></div>
+      </div>
+      <div class="chip" style="background: var(--ink-900); color: var(--paper);">
+        <span>Ink 900</span>
+        <code>#15120D</code>
+      </div>
+      <div class="chip" style="background: var(--paper); color: var(--ink-900); border-right: 1px solid var(--ink-100);">
+        <span>Paper</span>
+        <code>#FAF6ED</code>
+      </div>
+      <div class="chip" style="background: var(--gold-100); color: var(--gold-900);">
+        <span>Gold 100</span>
+        <code>#E8D9A8</code>
+      </div>
+      <div class="chip" style="background: var(--ink-500); color: var(--paper);">
+        <span>Ink 500</span>
+        <code>#5A5246</code>
+      </div>
+      <div class="chip" style="background: var(--white); color: var(--ink-900); border-right: 1px solid var(--ink-100);">
+        <span>White</span>
+        <code>#FFFFFF</code>
+      </div>
+    </div>
+
+    <div class="palette">
+      <div class="ramp">
+        <h4 class="sub">Gold ramp</h4>
+        <div class="ramp-row"><div class="swatch" style="background: var(--gold-50)"></div><div class="name">Gold 50</div><div class="hex">#F3ECD6</div><div class="use">Backgrounds</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--gold-100)"></div><div class="name">Gold 100</div><div class="hex">#E8D9A8</div><div class="use">Accents · tints</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--gold-300)"></div><div class="name">Gold 300</div><div class="hex">#D4B872</div><div class="use">Hover · highlights</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--gold-500)"></div><div class="name"><b>Gold 500 · primary</b></div><div class="hex">#B8933B</div><div class="use">CTAs · links</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--gold-700)"></div><div class="name">Gold 700</div><div class="hex">#8A6E2A</div><div class="use">Active · italic text</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--gold-900)"></div><div class="name">Gold 900</div><div class="hex">#5A4014</div><div class="use">Dark on gold</div></div>
+      </div>
+
+      <div class="ramp">
+        <h4 class="sub">Neutrals</h4>
+        <div class="ramp-row"><div class="swatch" style="background: var(--white); border: 1px solid var(--ink-100);"></div><div class="name">White</div><div class="hex">#FFFFFF</div><div class="use">Cards · inputs</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--paper)"></div><div class="name">Paper</div><div class="hex">#FAF6ED</div><div class="use">Page background</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--paper-2)"></div><div class="name">Paper 2</div><div class="hex">#F2ECDC</div><div class="use">Alt section</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--ink-100)"></div><div class="name">Ink 100</div><div class="hex">#E5DFD2</div><div class="use">Dividers · borders</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--ink-200)"></div><div class="name">Ink 200</div><div class="hex">#C4BDAE</div><div class="use">Input borders</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--ink-300)"></div><div class="name">Ink 300</div><div class="hex">#8E8574</div><div class="use">Placeholder · meta</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--ink-500)"></div><div class="name">Ink 500</div><div class="hex">#5A5246</div><div class="use">Secondary text</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--ink-700)"></div><div class="name">Ink 700</div><div class="hex">#2B251D</div><div class="use">Body text</div></div>
+        <div class="ramp-row"><div class="swatch" style="background: var(--ink-900)"></div><div class="name"><b>Ink 900</b></div><div class="hex">#15120D</div><div class="use">Headlines · buttons</div></div>
+      </div>
+    </div>
+
+    <h4 class="sub" style="margin-top: 48px;">Functional colors</h4>
+    <div class="grid-4">
+      <div class="shadow-box sh-1" style="background: var(--success); color: var(--paper);"><div style="color: var(--paper);">Success<br><code style="opacity:0.8;">#4A6B4A</code></div></div>
+      <div class="shadow-box sh-1" style="background: var(--warning); color: var(--paper);"><div style="color: var(--paper);">Warning<br><code style="opacity:0.8;">#B8813B</code></div></div>
+      <div class="shadow-box sh-1" style="background: var(--error); color: var(--paper);"><div style="color: var(--paper);">Error<br><code style="opacity:0.8;">#A33C2C</code></div></div>
+      <div class="shadow-box sh-1" style="background: var(--info); color: var(--paper);"><div style="color: var(--paper);">Info<br><code style="opacity:0.8;">#3B5B78</code></div></div>
+    </div>
+
+    <h4 class="sub" style="margin-top: 48px;">Color usage rules</h4>
+    <div class="color-usage">
+      <div class="card"><div class="bar" style="background: var(--gold-500)"></div><h4>Gold — 10% of the page</h4><p>Reserve gold for CTAs, italic accent words in headlines, prices, and the single most important micro-interaction. Never fill large blocks.</p></div>
+      <div class="card"><div class="bar" style="background: var(--ink-900)"></div><h4>Ink 900 — structure</h4><p>Ink carries typography, borders on interactive elements, and dark hero/CTA blocks. It should feel deliberate — not filler.</p></div>
+      <div class="card"><div class="bar" style="background: var(--paper)"></div><h4>Paper — the stage</h4><p>Paper is the default canvas. Leave most of it empty. Whitespace is the medspa's calmest and most luxurious material.</p></div>
+    </div>
+
+    <div class="do-dont" style="margin-top: 32px;">
+      <div class="do">
+        <span class="mark">✓ Do</span>
+        <ul>
+          <li>Use gold on CTAs, italic headline words, price, and the brand mark</li>
+          <li>Let paper (and whitespace) do most of the work</li>
+          <li>Pair gold with deep ink for maximum contrast</li>
+          <li>Limit functional colors to form validation states</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <span class="mark">× Don't</span>
+        <ul>
+          <li>Use gold as a full-bleed background (it cheapens instantly)</li>
+          <li>Introduce new hues outside this palette — even "close" golds</li>
+          <li>Use the error red as a decorative color</li>
+          <li>Combine gold with rose-gold, copper, or any warm tone that confuses the primary</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TYPOGRAPHY -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">03 · Type</div>
+      <div>
+        <div class="eyebrow">Typography</div>
+        <h2>Serif for <em>feeling</em>,<br>sans for function.</h2>
+        <p class="intro">Cormorant Garamond handles everything emotional — headlines, quotes, prices. Inter handles everything operational — body, nav, forms. IBM Plex Mono accents with a clinical, technical feel.</p>
+      </div>
+    </div>
+
+    <div class="t-specimen">
+      <div class="kick">Display specimen · Cormorant Garamond</div>
+      <div class="big" style="margin-top: 20px;">Rediscover<br>your <em>radiance</em>.</div>
+    </div>
+
+    <div class="grid-3" style="gap: 24px;">
+      <div class="comp-card" style="margin: 0;">
+        <div class="comp-meta"><h4>Cormorant Garamond</h4><span class="ver">Serif · Display</span></div>
+        <div style="font-family: var(--serif); font-size: 64px; line-height: 1; font-weight: 400;">Aa</div>
+        <p style="font-size: 13px; color: var(--ink-500); margin-top: 12px;">Headlines, hero type, testimonial pull-quotes, prices, section titles. Italic variant carries emotional weight on key words.</p>
+      </div>
+      <div class="comp-card" style="margin: 0;">
+        <div class="comp-meta"><h4>Inter</h4><span class="ver">Sans · UI + Body</span></div>
+        <div style="font-family: var(--sans); font-size: 64px; line-height: 1; font-weight: 400;">Aa</div>
+        <p style="font-size: 13px; color: var(--ink-500); margin-top: 12px;">Body copy, navigation, buttons (uppercase), forms, captions. Weights 300–600. Preserves legibility at every size.</p>
+      </div>
+      <div class="comp-card" style="margin: 0;">
+        <div class="comp-meta"><h4>IBM Plex Mono</h4><span class="ver">Mono · Meta</span></div>
+        <div style="font-family: var(--mono); font-size: 64px; line-height: 1; font-weight: 400;">Aa</div>
+        <p style="font-size: 13px; color: var(--ink-500); margin-top: 12px;">Eyebrows, labels, numbers, metadata. All caps, wide letter-spacing. Adds clinical precision to the editorial serif.</p>
+      </div>
+    </div>
+
+    <h3 class="sub" style="margin-top: 60px;">Type scale</h3>
+    <div class="type-scale">
+      <div class="type-row">
+        <div class="tag">Display</div>
+        <div class="sample t-display">Radiant.</div>
+        <div class="meta">96 / 0.95 · Cormorant 400</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">H1</div>
+        <div class="sample t-h1">Rediscover your radiance.</div>
+        <div class="meta">64 / 1.0 · Cormorant 400</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">H2</div>
+        <div class="sample t-h2">Medical-grade, by design.</div>
+        <div class="meta">48 / 1.05 · Cormorant 400</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">H3</div>
+        <div class="sample t-h3">Soften lines, restore volume.</div>
+        <div class="meta">32 / 1.15 · Cormorant 400</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">H4</div>
+        <div class="sample t-h4">How a HydraFacial works</div>
+        <div class="meta">22 / 1.25 · Cormorant 500</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Lede</div>
+        <div class="sample t-lede">A medspa built on the radical idea that your face already works.</div>
+        <div class="meta">22 / 1.45 · Cormorant 400 italic</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Body</div>
+        <div class="sample t-body">The science of aesthetic medicine has matured — treatments that once demanded weeks of downtime now take thirty minutes. At Rejuvalase, our philosophy is medical rigor applied lightly, in service of results that feel like you, only rested.</div>
+        <div class="meta">16 / 1.65 · Inter 400</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Body SM</div>
+        <div class="sample t-body-sm">Consultations are always complimentary. Plan on 20–30 minutes.</div>
+        <div class="meta">14 / 1.55 · Inter 400</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Eyebrow</div>
+        <div class="sample t-eyebrow">Est. Stafford, Virginia</div>
+        <div class="meta">11 / 0.25em · Plex Mono 400</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Label</div>
+        <div class="sample t-label">Service category</div>
+        <div class="meta">10 / 0.2em · Plex Mono 400</div>
+      </div>
+      <div class="type-row">
+        <div class="tag">Caption</div>
+        <div class="sample t-caption">Results may vary. Consult required.</div>
+        <div class="meta">12 / 1.4 · Inter 400</div>
+      </div>
+    </div>
+
+    <h4 class="sub" style="margin-top: 48px;">Typography rules</h4>
+    <div class="do-dont">
+      <div class="do">
+        <span class="mark">✓ Do</span>
+        <ul>
+          <li>Italicize one or two words per headline in gold to add emphasis</li>
+          <li>Pair mono eyebrow above every serif headline — it's a signature</li>
+          <li>Keep line-height tight on display (0.95), generous on body (1.65)</li>
+          <li>Use hard line breaks in headlines to sculpt the ragged right edge</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <span class="mark">× Don't</span>
+        <ul>
+          <li>Mix serifs — only Cormorant. No drop-in alternatives</li>
+          <li>Center long paragraphs of body copy</li>
+          <li>Use all-caps serif — mono handles all-caps duty</li>
+          <li>Exceed 72ch measure on body text</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 SPACING -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">04 · Spacing</div>
+      <div>
+        <div class="eyebrow">Rhythm</div>
+        <h2>A 4-point <em>scale</em>.</h2>
+        <p class="intro">All spacing uses multiples of 4. Sections are airy (80–120px vertical). Cards are tight (20–32px). Paragraphs breathe (16–24px).</p>
+      </div>
+    </div>
+
+    <div class="spacing-grid">
+      <div class="item"><div class="swatch" style="height: 4px;"></div><div class="lbl">s-1</div><div class="px">4px</div></div>
+      <div class="item"><div class="swatch" style="height: 8px;"></div><div class="lbl">s-2</div><div class="px">8px</div></div>
+      <div class="item"><div class="swatch" style="height: 12px;"></div><div class="lbl">s-3</div><div class="px">12px</div></div>
+      <div class="item"><div class="swatch" style="height: 16px;"></div><div class="lbl">s-4</div><div class="px">16px</div></div>
+      <div class="item"><div class="swatch" style="height: 20px;"></div><div class="lbl">s-5</div><div class="px">20px</div></div>
+      <div class="item"><div class="swatch" style="height: 24px;"></div><div class="lbl">s-6</div><div class="px">24px</div></div>
+      <div class="item"><div class="swatch" style="height: 32px;"></div><div class="lbl">s-8</div><div class="px">32px</div></div>
+      <div class="item"><div class="swatch" style="height: 40px;"></div><div class="lbl">s-10</div><div class="px">40px</div></div>
+      <div class="item"><div class="swatch" style="height: 48px;"></div><div class="lbl">s-12</div><div class="px">48px</div></div>
+      <div class="item"><div class="swatch" style="height: 64px;"></div><div class="lbl">s-16</div><div class="px">64px</div></div>
+    </div>
+
+    <h4 class="sub" style="margin-top: 40px;">Layout recipes</h4>
+    <div class="token-row"><code>Section padding</code><div>Vertical rhythm between major page blocks</div><div>80 / 120px</div><div>s-20 / s-32</div></div>
+    <div class="token-row"><code>Card padding</code><div>Inside service cards, testimonials, etc</div><div>24–32px</div><div>s-6–s-8</div></div>
+    <div class="token-row"><code>Grid gutter</code><div>Between cards in a grid</div><div>14–20px</div><div>s-4–s-5</div></div>
+    <div class="token-row"><code>Paragraph spacing</code><div>Between stacked body blocks</div><div>16–24px</div><div>s-4–s-6</div></div>
+    <div class="token-row"><code>Max content width</code><div>Homepage frame, narrative sections</div><div>1200–1320px</div><div>—</div></div>
+
+    <h3 class="sub" style="margin-top: 48px;">Shadow &amp; elevation</h3>
+    <p class="t-body-sm" style="color: var(--ink-500); margin-bottom: 0;">Shadows are used sparingly — never on buttons, never on typography. Three levels cover every need. On dark sections, elevation is expressed through inset borders instead.</p>
+    <div class="shadow-row">
+      <div class="shadow-box sh-1">Elevation 1 — inputs, hovered tiles</div>
+      <div class="shadow-box sh-2">Elevation 2 — mega menu, modals</div>
+      <div class="shadow-box sh-3">Elevation 3 — lightbox, dialog</div>
+    </div>
+  </section>
+
+  <!-- 05 BUTTONS -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">05 · Buttons</div>
+      <div>
+        <div class="eyebrow">Action</div>
+        <h2>Four <em>intents</em>.</h2>
+        <p class="intro">Primary = gold. Ink = neutral primary. Ghost = low-emphasis. Light = on dark backgrounds. All buttons are uppercase mono, square, with a 180ms color transition on hover.</p>
+      </div>
+    </div>
+
+    <div class="btn-grid">
+      <div class="cell"><span>Primary · gold</span><button class="btn primary">Book Now →</button><button class="btn primary sm">Small</button><button class="btn primary lg">Large</button></div>
+      <div class="cell"><span>Ink · default</span><button class="btn">Book Consultation →</button><button class="btn sm">Small</button><button class="btn lg">Large</button></div>
+      <div class="cell"><span>Ghost</span><button class="btn ghost">Learn more →</button><button class="btn ghost sm">Small</button><button class="btn ghost lg">Large</button></div>
+      <div class="cell" style="background: var(--ink-900); padding: 24px; margin: -24px; color: var(--paper);"><span style="color: rgba(250,246,237,0.6);">Light · on dark</span><button class="btn light">Book Now →</button><button class="btn light sm">Small</button><button class="btn light lg">Large</button></div>
+    </div>
+
+    <h4 class="sub" style="margin-top: 32px;">States</h4>
+    <div class="grid-4" style="background: var(--paper-2); padding: 32px;">
+      <div style="display:flex; flex-direction:column; gap:8px; align-items: flex-start;"><span class="t-label">Default</span><button class="btn primary">Book Now</button></div>
+      <div style="display:flex; flex-direction:column; gap:8px; align-items: flex-start;"><span class="t-label">Hover</span><button class="btn primary" style="background: var(--gold-700); border-color: var(--gold-700);">Book Now</button></div>
+      <div style="display:flex; flex-direction:column; gap:8px; align-items: flex-start;"><span class="t-label">Disabled</span><button class="btn primary" disabled>Book Now</button></div>
+      <div style="display:flex; flex-direction:column; gap:8px; align-items: flex-start;"><span class="t-label">Loading</span><button class="btn primary loading">Booking</button></div>
+    </div>
+  </section>
+
+  <!-- 06 FORMS -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">06 · Forms</div>
+      <div>
+        <div class="eyebrow">Inputs</div>
+        <h2>Quiet <em>controls</em>.</h2>
+        <p class="intro">Inputs are minimal — 1px ink-200 border, white fill, gold focus ring. Labels are mono-uppercase above. No rounded corners, no heavy shadows, no icons inside fields by default.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="comp-card">
+        <div class="comp-meta"><h4>Text Input</h4><span class="ver">01</span></div>
+        <div class="field">
+          <label>First name *</label>
+          <input class="input" type="text" value="Eleanor" />
+        </div>
+        <div class="field">
+          <label>Email *</label>
+          <input class="input" type="email" placeholder="you@domain.com" />
+          <div class="hint">We reply within one business day.</div>
+        </div>
+        <div class="field">
+          <label>Service interest</label>
+          <select class="select"><option>Select a service</option></select>
+        </div>
+        <div class="field">
+          <label>Message</label>
+          <textarea class="textarea" placeholder="Tell us a little about your goals..."></textarea>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-meta"><h4>Field states</h4><span class="ver">02</span></div>
+        <div class="field"><label>Default</label><input class="input" type="text" placeholder="Placeholder text" /></div>
+        <div class="field"><label>Focused (use Tab)</label><input class="input" type="text" value="In focus" autofocus /></div>
+        <div class="field"><label>Error</label><input class="input" type="text" value="not-an-email" style="border-color: var(--error);" /><div class="hint" style="color: var(--error);">Please enter a valid email address.</div></div>
+        <div class="field"><label>Disabled</label><input class="input" type="text" value="Can't edit" disabled style="background: var(--paper-2); color: var(--ink-300);" /></div>
+        <div class="field"><label style="color: var(--success);">Success</label><input class="input" type="text" value="eleanor@example.com" style="border-color: var(--success);" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 COMPONENTS -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">07 · Components</div>
+      <div>
+        <div class="eyebrow">Building blocks</div>
+        <h2>Pieces that <em>repeat</em>.</h2>
+        <p class="intro">The small set of components that compose every page. Each lives with its states, usage rules, and responsive behavior.</p>
+      </div>
+    </div>
+
+    <!-- Service card -->
+    <div class="comp-card">
+      <div class="comp-meta"><h4>Service Card</h4><span class="ver">01 · Most-used</span></div>
+      <div class="grid-3">
+        <div class="svc-card"><div class="img"></div><div class="body"><span class="kick">Injectables</span><h5>Botox Cosmetic</h5><p>Softens fine lines with precision dosing — no frozen look, ever.</p><div class="foot"><span class="price">from $12/u</span><span class="arrow">Learn more →</span></div></div></div>
+        <div class="svc-card"><div class="img" style="background: linear-gradient(135deg, #c4bdae, #2b251d);"></div><div class="body"><span class="kick">Laser</span><h5>Hair Removal</h5><p>Fewer sessions, better results with medical-grade Sciton technology.</p><div class="foot"><span class="price">from $80</span><span class="arrow">Learn more →</span></div></div></div>
+        <div class="svc-card"><div class="img" style="background: linear-gradient(135deg, #e8d9a8, #8a6e2a);"></div><div class="body"><span class="kick">Skin Rejuv</span><h5>HydraFacial</h5><p>Thirty minutes. Visible glow. The treatment that converts skeptics.</p><div class="foot"><span class="price">from $199</span><span class="arrow">Learn more →</span></div></div></div>
+      </div>
+      <div class="notes"><b>Usage:</b> 3-up grid on desktop, 1-up on mobile. Lifts 4px on hover with border darkening. Price is optional; when omitted, right slot is empty.</div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="comp-card">
+      <div class="comp-meta"><h4>Testimonial</h4><span class="ver">02</span></div>
+      <div class="grid-2">
+        <div class="testi"><div class="mark">"</div><p class="q">Walked in nervous about my first filler appointment. Walked out looking like myself, just well-rested. They explained every step and didn't push anything extra.</p><div class="c">— Jamie S. · Stafford · Client since 2023</div></div>
+        <div class="testi" style="background: var(--ink-900); border-color: var(--ink-900);"><div class="mark" style="color: var(--gold-300);">"</div><p class="q" style="color: var(--paper);">The HydraFacial results lasted longer than any facial I've had in DC. And it's twenty minutes from my driveway.</p><div class="c" style="color: rgba(250,246,237,0.55);">— Marcus D. · Fredericksburg · Client since 2024</div></div>
+      </div>
+      <div class="notes"><b>Usage:</b> On dark backgrounds, flip to ink fill with gold mark. Always include location &amp; relationship length — it reinforces local trust.</div>
+    </div>
+
+    <!-- Badges -->
+    <div class="comp-card">
+      <div class="comp-meta"><h4>Badges</h4><span class="ver">03</span></div>
+      <div style="display:flex; gap: 12px; flex-wrap: wrap;">
+        <span class="badge gold">Limited · Spring</span>
+        <span class="badge ink">Featured</span>
+        <span class="badge outline">Popular</span>
+        <span class="badge gold">−20%</span>
+        <span class="badge ink">New</span>
+        <span class="badge outline">Board Certified</span>
+      </div>
+      <div class="notes"><b>Usage:</b> Gold badges for commercial intent (promos, price badges). Ink for editorial flags (featured, new). Outline for trust/quiet callouts.</div>
+    </div>
+  </section>
+
+  <!-- 08 IMAGERY -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">08 · Imagery</div>
+      <div>
+        <div class="eyebrow">Photography direction</div>
+        <h2>Editorial, not <em>clinical-stock</em>.</h2>
+        <p class="intro">Every image should feel like it was shot in natural light for a lifestyle magazine — even the procedural ones. Avoid over-retouching, white-box medical photography, and beauty-industry clichés (rose petals, cucumber slices, stock portraits).</p>
+      </div>
+    </div>
+
+    <div class="mood">
+      <div class="img m1" data-tag="Hero — unposed portrait"></div>
+      <div class="img m2" data-tag="Treatment room · warm"></div>
+      <div class="img m3" data-tag="Product still life"></div>
+      <div class="img m4" data-tag="Dark interior"></div>
+      <div class="img m5" data-tag="Hands · detail"></div>
+    </div>
+
+    <h4 class="sub" style="margin-top: 48px;">Image treatment</h4>
+    <div class="grid-4">
+      <div class="principle"><div class="n">—</div><h5>Natural light</h5><p>Shot during golden hour or under large north windows. No ring lights. No clinical overheads.</p></div>
+      <div class="principle"><div class="n">—</div><h5>Warm grade</h5><p>Subtle warm tint in the mids, lifted shadows, never crushed. Skin stays textured.</p></div>
+      <div class="principle"><div class="n">—</div><h5>Unposed</h5><p>Mid-action moments — adjusting hair, laughing, mid-conversation. Eye contact is rare, intentional.</p></div>
+      <div class="principle"><div class="n">—</div><h5>Local cast</h5><p>Real Stafford clients wherever possible. Real interiors. No visible stock-photo markers.</p></div>
+    </div>
+
+    <h4 class="sub" style="margin-top: 32px;">Aspect ratios</h4>
+    <div class="grid-4">
+      <div><div class="ratio r-16x9" data-ratio="16 : 9"></div><p class="t-caption" style="margin-top: 8px;">Hero video, full-bleed</p></div>
+      <div><div class="ratio r-4x5" data-ratio="4 : 5"></div><p class="t-caption" style="margin-top: 8px;">Portrait, team, product</p></div>
+      <div><div class="ratio r-1x1" data-ratio="1 : 1"></div><p class="t-caption" style="margin-top: 8px;">Grid cards, social</p></div>
+      <div><div class="ratio r-3x4" data-ratio="3 : 4"></div><p class="t-caption" style="margin-top: 8px;">Blog hero, features</p></div>
+    </div>
+
+    <div class="do-dont" style="margin-top: 32px;">
+      <div class="do">
+        <span class="mark">✓ Do</span>
+        <ul>
+          <li>Show texture — skin, linen, wood, marble</li>
+          <li>Favor asymmetric compositions with negative space</li>
+          <li>Shoot treatments in action, not static product placements</li>
+          <li>Crop tight on hands, tools, small moments</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <span class="mark">× Don't</span>
+        <ul>
+          <li>Use stock photography of "beautiful women touching their face"</li>
+          <li>Retouch skin to plastic — visible pores = credibility</li>
+          <li>Include rose petals, cucumber slices, orchids, or lit candles</li>
+          <li>Shoot against pure white — use paper or linen backdrops</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 MOTION -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">09 · Motion</div>
+      <div>
+        <div class="eyebrow">Animation principles</div>
+        <h2>Slow and <em>considered</em>.</h2>
+        <p class="intro">Motion should feel like fabric, not spring-loaded plastic. No bounces. No overshoots. Most transitions use 180–320ms with a gentle cubic ease — fast enough to feel responsive, slow enough to feel intentional.</p>
+      </div>
+    </div>
+
+    <div class="motion-grid">
+      <div class="motion-tile">
+        <div class="val">180ms</div>
+        Instant
+        <div class="note">Button hover, input focus, tiny UI swaps.</div>
+      </div>
+      <div class="motion-tile">
+        <div class="val">320ms</div>
+        Default
+        <div class="note">Card lift, menu reveal, tab change.</div>
+      </div>
+      <div class="motion-tile">
+        <div class="val">560ms</div>
+        Thoughtful
+        <div class="note">Hero slideshow fades, section reveals.</div>
+      </div>
+      <div class="motion-tile">
+        <div class="val">880ms</div>
+        Editorial
+        <div class="note">Page load, first-paint sequence, hero type reveal.</div>
+      </div>
+    </div>
+
+    <h4 class="sub" style="margin-top: 32px;">Easing curves</h4>
+    <div class="grid-3">
+      <div class="comp-card" style="margin: 0;"><div class="comp-meta"><h4>Standard</h4><span class="ver">Default</span></div><code style="font-family:var(--mono); font-size:13px;">cubic-bezier(0.4, 0, 0.2, 1)</code><p class="t-body-sm" style="margin-top:12px;">Used for 90% of transitions. Gentle in, soft out.</p></div>
+      <div class="comp-card" style="margin: 0;"><div class="comp-meta"><h4>Entrance</h4><span class="ver">Reveal</span></div><code style="font-family:var(--mono); font-size:13px;">cubic-bezier(0.16, 1, 0.3, 1)</code><p class="t-body-sm" style="margin-top:12px;">For element entrances — slides in then eases gently.</p></div>
+      <div class="comp-card" style="margin: 0;"><div class="comp-meta"><h4>Exit</h4><span class="ver">Dismiss</span></div><code style="font-family:var(--mono); font-size:13px;">cubic-bezier(0.7, 0, 0.84, 0)</code><p class="t-body-sm" style="margin-top:12px;">For dismissals — starts slow, accelerates out.</p></div>
+    </div>
+
+    <h4 class="sub" style="margin-top: 32px;">Signature interactions</h4>
+    <div class="grid-2">
+      <div class="comp-card" style="margin: 0;"><div class="comp-meta"><h4>Page load</h4><span class="ver">Signature</span></div><p class="t-body-sm">Logo monogram scales from 120% to 100% and fades, 880ms. Hero video cross-fades in 560ms behind it. Nav chrome settles last, 320ms after.</p></div>
+      <div class="comp-card" style="margin: 0;"><div class="comp-meta"><h4>Card hover</h4><span class="ver">Signature</span></div><p class="t-body-sm">Service and post cards lift 4px on Y, border darkens from ink-100 to ink-900 over 320ms standard-ease. Image beneath scales to 1.02 with 560ms standard.</p></div>
+    </div>
+  </section>
+
+  <!-- 10 LOGO -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">10 · Brand marks</div>
+      <div>
+        <div class="eyebrow">Logo lockups</div>
+        <h2>A wordmark, <em>first</em>.</h2>
+        <p class="intro">Rejuvalase is primarily set in Cormorant Garamond wordmark — 400 weight, +0.5px tracking. A monogram (R) is reserved for favicon, avatar, and social profile contexts.</p>
+      </div>
+    </div>
+
+    <div class="lockup-grid">
+      <div class="lockup"><span class="lbl">Primary · paper</span><span class="wordmark-big">Rejuvalase</span></div>
+      <div class="lockup dark"><span class="lbl" style="color:rgba(250,246,237,0.5);">On dark</span><span class="wordmark-big" style="color: var(--gold-300);">Rejuvalase</span></div>
+      <div class="lockup gold"><span class="lbl" style="color:rgba(255,255,255,0.6);">On gold</span><span class="wordmark-big" style="color: var(--white);">Rejuvalase</span></div>
+    </div>
+
+    <div class="lockup-grid" style="margin-top: 20px;">
+      <div class="lockup"><span class="lbl">Horizontal + tagline</span><div style="display:flex; flex-direction:column; align-items:center; gap:8px;"><span class="wordmark-small">Rejuvalase</span><span class="t-label" style="color: var(--gold-500);">Medspa · Stafford, VA</span></div></div>
+      <div class="lockup"><span class="lbl">Monogram</span><span class="monogram">R</span></div>
+      <div class="lockup dark"><span class="lbl" style="color:rgba(250,246,237,0.5);">Monogram · dark</span><span class="monogram" style="color: var(--gold-300);">R</span></div>
+    </div>
+
+    <div class="do-dont" style="margin-top: 32px;">
+      <div class="do">
+        <span class="mark">✓ Do</span>
+        <ul>
+          <li>Preserve minimum clear space = 0.5× cap-height on all sides</li>
+          <li>Pair wordmark with eyebrow metadata (city, discipline)</li>
+          <li>Use gold wordmark on ink-900 only</li>
+          <li>Favor wordmark over monogram in every context where type fits</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <span class="mark">× Don't</span>
+        <ul>
+          <li>Re-letter the wordmark in any other font</li>
+          <li>Stretch, shadow, outline, or emboss the wordmark</li>
+          <li>Place wordmark over busy photography without a scrim</li>
+          <li>Use the monogram smaller than 24px</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 VOICE -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">11 · Voice</div>
+      <div>
+        <div class="eyebrow">Copy system</div>
+        <h2>Three <em>registers</em>,<br>in even measure.</h2>
+        <p class="intro">Rejuvalase copy sits at the intersection of three registers — each gets roughly equal weight across the site. Every page should demonstrate all three; every section leans into one.</p>
+      </div>
+    </div>
+
+    <div class="voice-grid">
+      <div class="voice-cell">
+        <h5>Educational</h5>
+        <div class="pct">33% · explainers, blog, FAQ</div>
+        <p>Clear, friendly, never condescending. Treats the reader as intelligent but curious. Explains the "why" before the "what."</p>
+        <div class="ex">"Neurotoxins like Botox relax the small muscles that cause expression lines — they don't fill anything. Fillers are the opposite: they add volume where the face has lost it."</div>
+        <div class="ex">"HydraFacial combines cleansing, exfoliation, extraction, and hydration into one 30-minute treatment. The vacuum tip is the reason you'll see immediate glow."</div>
+      </div>
+      <div class="voice-cell">
+        <h5>Aspirational</h5>
+        <div class="pct">33% · hero, home, specials</div>
+        <p>Editorial, confident, a little poetic. Leans on serif and italicization. Suggests the outcome without promising it.</p>
+        <div class="ex">"Quiet luxury. Loud results."</div>
+        <div class="ex">"Not a new face. A clearer picture of the one you already have."</div>
+        <div class="ex">"The appointment you leave feeling, quietly, more like yourself."</div>
+      </div>
+      <div class="voice-cell">
+        <h5>Medical authority</h5>
+        <div class="pct">33% · services, about, credentials</div>
+        <p>Precise, specific, evidence-forward. Uses clinical terminology correctly. Cites training, certifications, and numbers without being braggy.</p>
+        <div class="ex">"Every injection is performed by a licensed RN or MD with board-certified aesthetic training. We publish our injector CME hours annually."</div>
+        <div class="ex">"Sciton BBL uses broadband light across 420–1400nm to target pigmentation and redness at the dermal layer."</div>
+      </div>
+    </div>
+
+    <h4 class="sub" style="margin-top: 32px;">Voice rules</h4>
+    <div class="do-dont">
+      <div class="do">
+        <span class="mark">✓ Do</span>
+        <ul>
+          <li>Use first-person "we" — we're a practice, not a platform</li>
+          <li>Name the city: "in Stafford" beats "in our area"</li>
+          <li>Use specific numbers (30 min, 1,200+ clients, 2019)</li>
+          <li>Italicize one word for emphasis, not three</li>
+          <li>Trust the serif to carry emotion — avoid exclamation points</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <span class="mark">× Don't</span>
+        <ul>
+          <li>Use "reveal," "unveil," "glow up," "transform" — medspa clichés</li>
+          <li>Promise specific outcomes ("look 10 years younger")</li>
+          <li>Use "amazing," "incredible," "gorgeous" — adjective soup</li>
+          <li>Over-punctuate; the period is elegant, the exclamation is not</li>
+          <li>Talk down to readers about their own faces</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 APPLICATIONS -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="num">12 · In the wild</div>
+      <div>
+        <div class="eyebrow">Application</div>
+        <h2>The system <em>composed</em>.</h2>
+        <p class="intro">A quick demonstration of tokens working together. This is the starting point for the hi-fi home page that follows.</p>
+      </div>
+    </div>
+
+    <div style="background: var(--ink-900); padding: 64px 48px; color: var(--paper);">
+      <div class="t-eyebrow" style="color: var(--gold-300);">Est. Stafford, Virginia</div>
+      <div class="t-display" style="color: var(--paper); margin-top: 22px;">Quiet <em style="color: var(--gold-300);">luxury</em>.<br>Loud results.</div>
+      <div class="t-lede" style="color: rgba(250,246,237,0.75); margin-top: 28px; max-width: 620px;">Medical-grade aesthetics and day spa care, built for the clients who'd rather drive past the big-city clinics.</div>
+      <div style="display:flex; gap:14px; margin-top: 36px;">
+        <button class="btn light">Book Consultation →</button>
+        <button class="btn" style="background: transparent; border-color: var(--paper); color: var(--paper);">Take the Quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="doc-foot">
+    <div>© 2026 Rejuvalase · Stafford VA · Design system v1.0</div>
+    <div>Prepared April 2026</div>
+  </div>
+
+</main>
+</body>
+</html>

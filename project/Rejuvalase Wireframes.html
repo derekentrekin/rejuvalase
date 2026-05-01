@@ -1,0 +1,2027 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Rejuvalase · Wireframes v2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">Rejuvalase<span class="mono">Wireframes · v2 · Gold</span></div>
+
+    <div class="nav-pages" id="pageNav">
+      <div class="nav-group-label">Core</div>
+      <button class="active" data-page="home"><span>Home</span><span class="num">01</span></button>
+      <button data-page="about"><span>About</span><span class="num">02</span></button>
+      <button data-page="team"><span>Team</span><span class="num">03</span></button>
+      <button data-page="contact"><span>Contact</span><span class="num">04</span></button>
+
+      <div class="nav-group-label">Services</div>
+      <button data-page="services"><span>Services Index</span><span class="num">05</span></button>
+      <button data-page="service"><span>Service Detail</span><span class="num">06</span></button>
+      <button data-page="medspa"><span>Medspa Services</span><span class="num">07</span></button>
+      <button data-page="dayspa"><span>Dayspa Services</span><span class="num">08</span></button>
+
+      <div class="nav-group-label">Commerce</div>
+      <button data-page="specials"><span>Specials Index</span><span class="num">09</span></button>
+      <button data-page="special"><span>Special Detail</span><span class="num">10</span></button>
+      <button data-page="products"><span>Products</span><span class="num">11</span></button>
+
+      <div class="nav-group-label">Content</div>
+      <button data-page="blog"><span>Blog Index</span><span class="num">12</span></button>
+      <button data-page="blogpost"><span>Blog Post</span><span class="num">13</span></button>
+      <button data-page="faq"><span>FAQ / KB</span><span class="num">14</span></button>
+      <button data-page="legal"><span>Legal</span><span class="num">15</span></button>
+
+      <div class="nav-group-label">Careers</div>
+      <button data-page="careers"><span>Careers</span><span class="num">16</span></button>
+      <button data-page="career"><span>Career Posting</span><span class="num">17</span></button>
+
+      <div class="nav-group-label">Events</div>
+      <button data-page="events"><span>Events Index</span><span class="num">18</span></button>
+      <button data-page="event"><span>Event Detail</span><span class="num">19</span></button>
+
+      <div class="nav-group-label">Other</div>
+      <button data-page="quiz"><span>Where to Start Quiz</span><span class="num">20</span></button>
+      <button data-page="mkt"><span>Marketing Landing</span><span class="num">21</span></button>
+    </div>
+
+    <div class="side-meta">
+      <b>Project:</b> Rejuvalase Medspa<br>
+      <b>Location:</b> Stafford, VA<br>
+      <b>Accent:</b> #b8933b gold<br>
+      <b>Corners:</b> square (brand rule)<br>
+      <b>Hero:</b> video slideshow<br>
+      <br>
+      Hover "Services" in navbar<br>to open mega menu.
+    </div>
+  </aside>
+
+  <main class="canvas" id="canvas">
+
+  <!-- ================================================================ HOME ================================================================ -->
+  <section class="page-pane active" data-pane="home">
+    <div class="canvas-head"><div><h1>Home</h1><div class="sub">Slideshow hero · Sticky services · Horizontal specials</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <!-- Slideshow hero -->
+      <div style="position:relative; height: 720px; overflow: hidden;">
+        <div class="greybox video with-label" style="height:100%;width:100%;">
+          <span class="video-badge">▶ Slide 1 of 3 · Injectables · Video loop</span>
+          <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:space-between; padding:40px; color:#fff;">
+            <div></div>
+            <div style="max-width:720px;">
+              <div class="eyebrow" style="color:#fff; opacity:0.85;">01 · Injectables</div>
+              <div class="headline-hint" style="font-size:96px; color:#fff; line-height:0.95;">Refined. Refreshed. <em>Real</em>.</div>
+              <p class="body-hint" style="color:rgba(255,255,255,0.85); margin-top:20px; max-width:440px; font-size:16px;">[Slide 1 subheadline — 1 sentence about injectables.]</p>
+              <div class="btn-row" style="margin-top:24px;">
+                <button class="btn accent">Book Now →</button>
+                <button class="btn ghost" style="color:#fff; border-color:#fff;">Find your treatment</button>
+              </div>
+            </div>
+            <div style="display:flex; gap:40px; align-items:center;">
+              <div class="progress-bars" style="flex:1;">
+                <div class="bar active" style="background:rgba(255,255,255,0.3);"></div>
+                <div class="bar" style="background:rgba(255,255,255,0.15);"></div>
+                <div class="bar" style="background:rgba(255,255,255,0.15);"></div>
+              </div>
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:#fff; letter-spacing:0.2em;">01 / 03</div>
+              <div style="display:flex; gap:8px;">
+                <button style="width:40px;height:40px;background:transparent;color:#fff;border:1px solid #fff; cursor:pointer;">◀</button>
+                <button style="width:40px;height:40px;background:transparent;color:#fff;border:1px solid #fff; cursor:pointer;">▶</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="anno" style="top:140px; right:-180px;">Auto-advancing hero<br>w/ progress bars ✦</div>
+      </div>
+
+      <!-- Trust bar -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--line-soft);">
+        <div class="trust-cell"><div class="tag">01</div><div class="trust-h">Board Certified</div></div>
+        <div class="trust-cell"><div class="tag">02</div><div class="trust-h">Medical-grade</div></div>
+        <div class="trust-cell"><div class="tag">03</div><div class="trust-h">1,200+ Clients</div></div>
+        <div class="trust-cell last"><div class="tag">04</div><div class="trust-h">Stafford Local</div></div>
+      </div>
+
+      <div data-logos></div>
+
+      <!-- Sticky-side services -->
+      <div class="sec pad-lg">
+        <div class="section-label"><span>Section 04 · Services Deep-Dive</span><span>Sticky Split</span></div>
+        <div class="grid g-2" style="gap:60px;">
+          <div style="position:sticky; top:24px; align-self:start;"><div class="greybox" data-label="SERVICE IMG · swaps on scroll" style="height:480px;"></div></div>
+          <div class="stack" style="gap:40px;">
+            <div><span class="tag">01 · Injectables</span><h4 class="svc-h">Soften lines. Restore volume.</h4><p class="body-hint">[Longer-form copy — 3 lines on the category.]</p><a class="arrow-link">Explore →</a></div>
+            <div><span class="tag">02 · Laser</span><h4 class="svc-h">Smooth. Resurface. Remove.</h4><p class="body-hint">[Longer-form copy — 3 lines on the category.]</p><a class="arrow-link">Explore →</a></div>
+            <div><span class="tag">03 · Skin</span><h4 class="svc-h">Glow that feels like you.</h4><p class="body-hint">[Longer-form copy — 3 lines on the category.]</p><a class="arrow-link">Explore →</a></div>
+            <div><span class="tag">04 · Body / Wellness</span><h4 class="svc-h">Sculpt. Restore. Energize.</h4><p class="body-hint">[Longer-form copy — 3 lines on the category.]</p><a class="arrow-link">Explore →</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal scroll specials -->
+      <div class="sec" style="background:var(--paper-2); padding-right:0;">
+        <div class="section-label" style="padding-right:40px;"><span>Section 05 · Seasonal Specials</span><span>Horizontal Scroll</span></div>
+        <div class="row spread" style="padding-right:40px; margin-bottom:28px;">
+          <div class="headline-hint large" style="font-size:48px;">Spring edit.</div>
+          <div class="row" style="gap:8px;">
+            <button class="sq-btn">◀</button><button class="sq-btn">▶</button>
+          </div>
+        </div>
+        <div style="display:flex; gap:16px; overflow-x:auto; padding-bottom:20px;">
+          <div class="card" style="min-width:300px; flex-shrink:0;"><div class="greybox" data-label="SPECIAL" style="height:360px;"></div><span class="tag">Injectables · −20%</span><h4>[Special 1]</h4></div>
+          <div class="card" style="min-width:300px; flex-shrink:0;"><div class="greybox" data-label="SPECIAL" style="height:360px;"></div><span class="tag">Laser · −15%</span><h4>[Special 2]</h4></div>
+          <div class="card" style="min-width:300px; flex-shrink:0;"><div class="greybox" data-label="SPECIAL" style="height:360px;"></div><span class="tag">Skin</span><h4>[Special 3]</h4></div>
+          <div class="card" style="min-width:300px; flex-shrink:0;"><div class="greybox" data-label="SPECIAL" style="height:360px;"></div><span class="tag">Body</span><h4>[Special 4]</h4></div>
+          <div class="card" style="min-width:300px; flex-shrink:0;"><div class="greybox" data-label="SPECIAL" style="height:360px;"></div><span class="tag">Wellness</span><h4>[Special 5]</h4></div>
+        </div>
+      </div>
+
+      <!-- About preview -->
+      <div class="sec pad-lg">
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div class="greybox" data-label="FOUNDER / INTERIOR" style="height:440px;"></div>
+          <div>
+            <div class="eyebrow">Meet Rejuvalase</div>
+            <div class="headline-hint large" style="font-size:52px;">Personalized care.<br><em>Natural results.</em></div>
+            <p class="body-hint" style="margin-top:20px;">[3–4 line brand story preview — experience, philosophy, why Stafford chose us.]</p>
+            <button class="btn ghost" style="margin-top:24px;">Our story →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits -->
+      <div class="sec" style="background:var(--ink); color:var(--paper);">
+        <div class="section-label dark"><span>Section 07 · Benefits</span><span>Why Rejuvalase</span></div>
+        <div class="grid g-3" style="gap:48px; margin-top:12px;">
+          <div><div class="num-chip">01</div><h4 class="dark-h">Personalized plans</h4><p class="dark-p">[Short benefit copy, 2 lines.]</p></div>
+          <div><div class="num-chip">02</div><h4 class="dark-h">Medical-grade expertise</h4><p class="dark-p">[Short benefit copy, 2 lines.]</p></div>
+          <div><div class="num-chip">03</div><h4 class="dark-h">Natural-looking results</h4><p class="dark-p">[Short benefit copy, 2 lines.]</p></div>
+        </div>
+      </div>
+
+      <!-- Quiz callout -->
+      <div class="sec pad-lg" style="background:var(--accent); color:#fff;">
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div>
+            <div class="eyebrow" style="color:rgba(255,255,255,0.85);">Not sure where to start?</div>
+            <div class="headline-hint large" style="font-size:64px; color:#fff;">Take the <em>quiz</em>.</div>
+            <p class="body-hint" style="color:rgba(255,255,255,0.9); margin-top:18px;">[2 lines — ~2 minutes, personalized recommendations, no pressure.]</p>
+            <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:20px;">Start the quiz →</button>
+          </div>
+          <div class="quiz-preview">
+            <div class="tag" style="color:rgba(255,255,255,0.85);">01 / 06 · Preview</div>
+            <div class="headline-hint" style="font-size:28px; color:#fff; margin-top:8px;">What's your #1 goal right now?</div>
+            <div class="stack" style="margin-top:18px; gap:8px;">
+              <div class="quiz-opt">○ Smoother, even skin</div>
+              <div class="quiz-opt">○ Softer fine lines</div>
+              <div class="quiz-opt">○ Body contour</div>
+              <div class="quiz-opt">○ Just feel better</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial full bleed -->
+      <div class="sec pad-lg" style="background:var(--ink); color:var(--paper);">
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div class="greybox" data-label="CLIENT PORTRAIT" style="height:480px;"></div>
+          <div>
+            <div class="big-quote">"</div>
+            <div class="headline-hint large" style="font-size:40px; color:var(--paper);">[Long-form client testimonial — 4 lines. Emotional, specific, results-driven.]</div>
+            <div class="cite">— Client · Stafford VA · Since 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog -->
+      <div class="sec">
+        <div class="row spread" style="margin-bottom:24px;">
+          <div class="headline-hint large" style="font-size:44px;">From the journal.</div>
+          <a class="arrow-link">View all →</a>
+        </div>
+        <div class="grid g-3">
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Skincare · 5 min</span><h4>[Post 1 — what to know before your first facial]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Injectables · 7 min</span><h4>[Post 2 — Botox vs Dysport]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Wellness · 4 min</span><h4>[Post 3 — hydration is the #1 rule]</h4></div>
+        </div>
+      </div>
+
+      <!-- Big CTA banner -->
+      <div class="sec pad-lg center" style="background:var(--accent-soft);">
+        <div class="eyebrow">Begin</div>
+        <div class="headline-hint" style="font-size:88px;">Start your<br><em>transformation</em> today.</div>
+        <div class="btn-row" style="justify-content:center; margin-top:28px;">
+          <button class="btn accent">Book consultation →</button>
+        </div>
+      </div>
+
+      <!-- FAQ + Contact compact -->
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div>
+            <div class="section-label"><span>FAQ</span><span>Top 4</span></div>
+            <div class="faq-item"><span class="q">Is it safe?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Does it hurt?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How long do results last?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How do I book?</span><span class="plus">+</span></div>
+          </div>
+          <div>
+            <div class="section-label"><span>Contact</span><span></span></div>
+            <div class="stack" style="font-family:'IBM Plex Mono',monospace; font-size:13px;">
+              <div>📍 [Address], Stafford, VA</div>
+              <div>☎ [Phone]</div>
+              <div>✉ [Email]</div>
+              <div>⏱ Mon–Sat · 9–7</div>
+            </div>
+            <button class="btn ghost" style="margin-top:20px;">Full contact →</button>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ ABOUT ================================================================ -->
+  <section class="page-pane" data-pane="about">
+    <div class="canvas-head"><div><h1>About</h1><div class="sub">Brand story · team · credentials</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg center" style="padding:120px 40px 80px; position:relative;">
+        <div class="eyebrow">Est. Stafford, VA</div>
+        <div class="headline-hint" style="font-size:120px; line-height:0.95;">Meet <em>Rejuvalase</em>.</div>
+        <p class="body-hint" style="max-width:620px; margin:24px auto 0; font-size:18px;">[1 sentence intro — premium, client-centered, warm.]</p>
+      </div>
+
+      <div class="greybox" data-label="PRACTITIONER PORTRAIT · FULL BLEED" style="height:540px; margin:0 40px;"></div>
+
+      <div class="sec pad-lg">
+        <div class="grid" style="grid-template-columns:1fr 2fr; gap:80px;">
+          <div><div class="eyebrow">Our story</div><div class="tag" style="margin-top:40px;">Chapter 01</div></div>
+          <div>
+            <div class="headline-hint large" style="font-size:40px;">[Opening line of brand story — defines the feeling Rejuvalase creates.]</div>
+            <p class="body-hint" style="margin-top:30px; font-size:15px; max-width:620px;">[2–3 paragraphs of brand story — founding, mission, philosophy, why Stafford, what "natural results" means here.]</p>
+            <p class="body-hint" style="font-size:15px; max-width:620px;">[Continued — the human behind the practice, training, what sets the approach apart.]</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg" style="background:var(--paper-2);">
+        <div class="section-label"><span>Medical Expertise</span><span>Credentials</span></div>
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div>
+            <div class="headline-hint large" style="font-size:52px;">Medical-grade, by <em>design</em>.</div>
+            <p class="body-hint" style="margin-top:20px;">[Copy on certifications, advanced training, safety protocols — builds medical authority.]</p>
+            <div class="grid g-2" style="margin-top:28px; gap:12px;">
+              <div class="pill">Board Certified</div><div class="pill">AMA Member</div>
+              <div class="pill">Licensed RN</div><div class="pill">CME 100+ hrs</div>
+            </div>
+          </div>
+          <div class="greybox" data-label="CERTIFICATIONS" style="height:420px;"></div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg">
+        <div class="row spread" style="margin-bottom:28px;">
+          <div><div class="eyebrow">Our team</div><div class="headline-hint large" style="font-size:56px;">Three who <em>lead</em>.</div></div>
+          <a class="arrow-link">Meet full team →</a>
+        </div>
+        <div class="grid g-3">
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:380px;"></div><span class="tag">Medical Director</span><h4>[Name]</h4><p class="body-hint">[1-line specialty.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:380px;"></div><span class="tag">Lead Aesthetician</span><h4>[Name]</h4><p class="body-hint">[1-line specialty.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:380px;"></div><span class="tag">RN Injector</span><h4>[Name]</h4><p class="body-hint">[1-line specialty.]</p></div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg" style="background:var(--ink); color:var(--paper); text-align:center;">
+        <div class="big-quote center-quote">"</div>
+        <div class="headline-hint" style="font-size:52px; color:var(--paper); max-width:900px; margin:20px auto;">[Long testimonial about long-term relationship with Rejuvalase — 3 lines.]</div>
+        <div class="cite">— Client · Since 2021</div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:68px; color:#fff;">Experience the <em>Rejuvalase difference</em>.</div>
+        <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:30px;">Book consultation →</button>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ TEAM ================================================================ -->
+  <section class="page-pane" data-pane="team">
+    <div class="canvas-head"><div><h1>Team</h1><div class="sub">Meet the experts behind the care</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg" style="padding:100px 40px 60px;">
+        <div class="grid g-2" style="gap:80px; align-items:end;">
+          <div><div class="eyebrow">Our team</div><div class="headline-hint" style="font-size:104px; line-height:0.95;">Meet our <em>experts</em>.</div></div>
+          <p class="body-hint" style="font-size:17px; max-width:440px;">[Brief intro focused on expertise, care, and medspa credibility.]</p>
+        </div>
+      </div>
+
+      <!-- Filter by role/dept -->
+      <div class="sec" style="padding-top:0;">
+        <div class="row" style="gap:6px; margin-bottom:24px;">
+          <span class="tag">Filter:</span>
+          <button class="pill accent">All</button><button class="pill">Medical</button><button class="pill">Aesthetics</button><button class="pill">Day Spa</button><button class="pill">Front Desk</button>
+        </div>
+        <div class="grid g-3" style="gap:24px;">
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:340px;"></div><span class="tag">Medical Director · MD, FACP</span><h4>[Name]</h4><p class="body-hint">[2-line bio — experience, specialties, approach.]</p><a class="arrow-link">Read bio →</a></div>
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:340px;"></div><span class="tag">Lead Aesthetician · LE</span><h4>[Name]</h4><p class="body-hint">[2-line bio.]</p><a class="arrow-link">Read bio →</a></div>
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:340px;"></div><span class="tag">RN Injector · BSN</span><h4>[Name]</h4><p class="body-hint">[2-line bio.]</p><a class="arrow-link">Read bio →</a></div>
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:340px;"></div><span class="tag">Laser Specialist</span><h4>[Name]</h4><p class="body-hint">[2-line bio.]</p><a class="arrow-link">Read bio →</a></div>
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:340px;"></div><span class="tag">Massage Therapist · LMT</span><h4>[Name]</h4><p class="body-hint">[2-line bio.]</p><a class="arrow-link">Read bio →</a></div>
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:340px;"></div><span class="tag">Patient Coordinator</span><h4>[Name]</h4><p class="body-hint">[2-line bio.]</p><a class="arrow-link">Read bio →</a></div>
+        </div>
+      </div>
+
+      <!-- Medical Director spotlight -->
+      <div class="sec pad-lg" style="background:var(--paper-2);">
+        <div class="section-label"><span>Medical Leadership</span><span>Spotlight</span></div>
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div class="greybox" data-label="MEDICAL DIRECTOR" style="height:520px;"></div>
+          <div>
+            <span class="tag">Medical Director</span>
+            <div class="headline-hint large" style="font-size:56px; margin-top:10px;">[Dr. Name]</div>
+            <p class="body-hint" style="margin-top:18px;">[3-line spotlight — board cert, advanced training, patient-first philosophy.]</p>
+            <div class="grid g-2" style="margin-top:24px; gap:10px;">
+              <div class="pill">Board Cert. Dermatology</div>
+              <div class="pill">15+ yrs experience</div>
+              <div class="pill">Published author</div>
+              <div class="pill">AMA · ASLMS member</div>
+            </div>
+            <button class="btn ghost" style="margin-top:24px;">Full bio →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials about staff -->
+      <div class="sec">
+        <div class="section-label"><span>Words about our team</span><span></span></div>
+        <div class="grid g-3">
+          <div class="post-card" style="padding:28px; border:1px solid var(--line-soft);"><div style="font-family:'Instrument Serif',serif; font-size:40px; line-height:1;">"</div><p class="quote-body">[Client quote about staff warmth.]</p><div class="cite-lite">— Client A · Stafford</div></div>
+          <div class="post-card" style="padding:28px; border:1px solid var(--line-soft);"><div style="font-family:'Instrument Serif',serif; font-size:40px; line-height:1;">"</div><p class="quote-body">[Client quote about professionalism.]</p><div class="cite-lite">— Client B · Fredericksburg</div></div>
+          <div class="post-card" style="padding:28px; border:1px solid var(--line-soft);"><div style="font-family:'Instrument Serif',serif; font-size:40px; line-height:1;">"</div><p class="quote-body">[Client quote about expertise.]</p><div class="cite-lite">— Client C · Stafford</div></div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:64px; color:#fff;">Book with our team.</div>
+        <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:24px;">Book consultation →</button>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">Who will I see at my appointment?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Can I request a specific provider?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">What's the medical oversight?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ SERVICES INDEX ================================================================ -->
+  <section class="page-pane" data-pane="services">
+    <div class="canvas-head"><div><h1>Services Index</h1><div class="sub">Full service suite · filterable</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg" style="padding:90px 40px 50px;">
+        <div class="eyebrow">All services</div>
+        <div class="headline-hint" style="font-size:96px; line-height:0.95;">Every treatment,<br>in one <em>place</em>.</div>
+        <p class="body-hint" style="max-width:560px; margin-top:24px; font-size:16px;">[Intro copy — personalized care, medical expertise, local trust.]</p>
+      </div>
+
+      <div data-logos></div>
+
+      <!-- Category grid -->
+      <div class="sec">
+        <div class="section-label"><span>Service Categories</span><span>5 × grid</span></div>
+        <div class="grid g-5" style="gap:14px;">
+          <div class="cat-card"><div class="greybox" data-label="IMG" style="height:160px;"></div><span class="pill accent-pill">Medspa</span><h4>Injectables</h4><p>Botox, fillers, tox.</p><a class="arrow-link">→</a></div>
+          <div class="cat-card"><div class="greybox" data-label="IMG" style="height:160px;"></div><span class="pill accent-pill">Medspa</span><h4>Laser</h4><p>Hair removal, resurfacing.</p><a class="arrow-link">→</a></div>
+          <div class="cat-card"><div class="greybox" data-label="IMG" style="height:160px;"></div><span class="pill accent-pill">Medspa</span><h4>Skin Rejuv</h4><p>Facials, peels, HydraFacial.</p><a class="arrow-link">→</a></div>
+          <div class="cat-card"><div class="greybox" data-label="IMG" style="height:160px;"></div><span class="pill accent-pill">Medspa</span><h4>Body Contour</h4><p>CoolSculpting, Emsculpt.</p><a class="arrow-link">→</a></div>
+          <div class="cat-card"><div class="greybox" data-label="IMG" style="height:160px;"></div><span class="pill">Dayspa</span><h4>Wellness</h4><p>IV, hormones, massage.</p><a class="arrow-link">→</a></div>
+        </div>
+      </div>
+
+      <!-- Full treatment list -->
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="row spread" style="margin-bottom:24px;">
+          <div class="headline-hint large" style="font-size:44px;">All treatments.</div>
+          <div class="row" style="gap:6px;">
+            <button class="pill accent">All · 42</button><button class="pill">Injectables</button><button class="pill">Laser</button><button class="pill">Skin</button><button class="pill">Body</button><button class="pill">Wellness</button>
+          </div>
+        </div>
+        <div class="grid g-3" style="gap:14px;">
+          <div class="prod-card"><div class="row spread" style="margin-bottom:10px;"><span class="pill accent-pill">Medspa · Injectables</span><span class="tag">from $450</span></div><h4>Botox</h4><p class="body-hint">[Short summary of treatment.]</p><div class="btn-row" style="margin-top:14px;"><button class="btn ghost small">Learn</button><button class="btn small">Book</button></div></div>
+          <div class="prod-card"><div class="row spread" style="margin-bottom:10px;"><span class="pill accent-pill">Medspa · Injectables</span><span class="tag">from $650</span></div><h4>Dermal Filler</h4><p class="body-hint">[Short summary.]</p><div class="btn-row" style="margin-top:14px;"><button class="btn ghost small">Learn</button><button class="btn small">Book</button></div></div>
+          <div class="prod-card"><div class="row spread" style="margin-bottom:10px;"><span class="pill accent-pill">Medspa · Laser</span><span class="tag">from $200</span></div><h4>Laser Hair Removal</h4><p class="body-hint">[Short summary.]</p><div class="btn-row" style="margin-top:14px;"><button class="btn ghost small">Learn</button><button class="btn small">Book</button></div></div>
+          <div class="prod-card"><div class="row spread" style="margin-bottom:10px;"><span class="pill accent-pill">Medspa · Skin</span><span class="tag">from $180</span></div><h4>HydraFacial</h4><p class="body-hint">[Short summary.]</p><div class="btn-row" style="margin-top:14px;"><button class="btn ghost small">Learn</button><button class="btn small">Book</button></div></div>
+          <div class="prod-card"><div class="row spread" style="margin-bottom:10px;"><span class="pill accent-pill">Medspa · Body</span><span class="tag">from $800</span></div><h4>CoolSculpting</h4><p class="body-hint">[Short summary.]</p><div class="btn-row" style="margin-top:14px;"><button class="btn ghost small">Learn</button><button class="btn small">Book</button></div></div>
+          <div class="prod-card"><div class="row spread" style="margin-bottom:10px;"><span class="pill">Dayspa · Wellness</span><span class="tag">from $150</span></div><h4>IV Therapy</h4><p class="body-hint">[Short summary.]</p><div class="btn-row" style="margin-top:14px;"><button class="btn ghost small">Learn</button><button class="btn small">Book</button></div></div>
+        </div>
+        <div class="center" style="margin-top:32px;"><button class="btn ghost">Load more (36)</button></div>
+      </div>
+
+      <!-- Seasonal specials mini -->
+      <div class="sec">
+        <div class="section-label"><span>Seasonal Specials</span><span>Q2 · 4 picks</span></div>
+        <div class="grid g-4">
+          <div class="post-card"><div class="greybox" data-label="SPECIAL" style="height:180px;"></div><span class="tag">−20%</span><h4>[Special 1]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="SPECIAL" style="height:180px;"></div><span class="tag">Bundle</span><h4>[Special 2]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="SPECIAL" style="height:180px;"></div><span class="tag">−15%</span><h4>[Special 3]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="SPECIAL" style="height:180px;"></div><span class="tag">Limited</span><h4>[Special 4]</h4></div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent-soft);">
+        <div class="headline-hint" style="font-size:72px;">Not sure which <em>one</em>?</div>
+        <div class="btn-row" style="justify-content:center; margin-top:24px;"><button class="btn accent">Take the quiz</button><button class="btn ghost">Book consult →</button></div>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">How do I choose the right treatment?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Are consultations complimentary?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Can I combine services?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ SERVICE DETAIL ================================================================ -->
+  <section class="page-pane" data-pane="service">
+    <div class="canvas-head"><div><h1>Service Detail</h1><div class="sub">e.g. "Botox Cosmetic"</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <!-- Breadcrumb -->
+      <div style="padding:16px 40px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); border-bottom:1px solid var(--line-soft);">Services / Injectables / <span style="color:var(--ink);">Botox Cosmetic</span></div>
+
+      <!-- Service header split -->
+      <div class="sec pad-lg">
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div>
+            <span class="pill accent-pill">Medspa · Injectables</span>
+            <div class="headline-hint" style="font-size:88px; line-height:0.95; margin-top:14px;">Botox <em>Cosmetic</em>.</div>
+            <p class="body-hint" style="margin-top:22px; font-size:17px; max-width:480px;">[Calming, premium tagline that sets expectations — 1 sentence.]</p>
+            <div class="row" style="gap:24px; margin-top:28px;">
+              <div><div class="tag">Time</div><div class="svc-stat">15–30 min</div></div>
+              <div><div class="tag">Downtime</div><div class="svc-stat">None</div></div>
+              <div><div class="tag">From</div><div class="svc-stat">$450</div></div>
+            </div>
+            <div class="btn-row" style="margin-top:30px;">
+              <button class="btn accent">Book Now →</button>
+              <button class="btn ghost">Free consultation</button>
+            </div>
+          </div>
+          <div class="greybox video" style="height:560px;"></div>
+        </div>
+      </div>
+
+      <!-- What it is -->
+      <div class="sec pad-lg" style="background:var(--paper-2);">
+        <div class="grid" style="grid-template-columns:1fr 2fr; gap:60px;">
+          <div><div class="eyebrow">What it is</div><div class="tag" style="margin-top:40px;">Section 01</div></div>
+          <div>
+            <div class="headline-hint large" style="font-size:44px;">[One-line summary of the treatment.]</div>
+            <p class="body-hint" style="margin-top:24px; max-width:620px;">[2–3 paragraphs describing what the service is, how it works, the technology used, and what makes Rejuvalase's approach unique.]</p>
+            <p class="body-hint" style="max-width:620px;">[Continued paragraph.]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits -->
+      <div class="sec">
+        <div class="row spread" style="margin-bottom:28px;">
+          <div class="headline-hint large" style="font-size:48px;">Why clients <em>love it</em>.</div>
+          <span class="tag">04 benefits</span>
+        </div>
+        <div class="grid g-4" style="gap:14px;">
+          <div class="benefit-card"><div class="num-chip accent-chip">01</div><h4>Natural results</h4><p>[2-line copy.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">02</div><h4>Safety first</h4><p>[2-line copy.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">03</div><h4>Fully customized</h4><p>[2-line copy.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">04</div><h4>Minimal downtime</h4><p>[2-line copy.]</p></div>
+        </div>
+      </div>
+
+      <!-- Who it's for -->
+      <div class="sec" style="background:var(--ink); color:var(--paper);">
+        <div class="section-label dark"><span>Who it's for</span><span>Ideal candidates</span></div>
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px; color:var(--paper);">Is this <em>right</em> for you?</div>
+          <div class="stack" style="gap:12px;">
+            <div class="bullet-row">✓ Adults 25+ interested in softening expression lines</div>
+            <div class="bullet-row">✓ Concerned with forehead lines, crow's feet, glabellar creases</div>
+            <div class="bullet-row">✓ Looking for natural, subtle results rather than a "frozen" look</div>
+            <div class="bullet-row">✓ In good overall health, not pregnant or breastfeeding</div>
+            <div class="bullet-row">✓ Comfortable with a 15-minute, low-pain treatment</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related services -->
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="row spread" style="margin-bottom:24px;">
+          <div class="headline-hint large" style="font-size:44px;">You might also like.</div>
+          <a class="arrow-link">All injectables →</a>
+        </div>
+        <div class="grid g-3">
+          <div class="post-card"><div class="greybox" data-label="IMG" style="height:240px;"></div><span class="tag">Injectables</span><h4>Dysport</h4><p class="body-hint">[1-line.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="IMG" style="height:240px;"></div><span class="tag">Injectables</span><h4>Dermal Fillers</h4><p class="body-hint">[1-line.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="IMG" style="height:240px;"></div><span class="tag">Skin</span><h4>PDO Threads</h4><p class="body-hint">[1-line.]</p></div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">Common <em>questions</em>.</div>
+          <div>
+            <div class="faq-item"><span class="q">Is Botox safe?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Does it hurt?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How should I prepare?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How long does it last?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">What's the downtime?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:80px; color:#fff;">Ready when you are.</div>
+        <div class="btn-row" style="justify-content:center; margin-top:28px;"><button class="btn" style="background:#fff; color:var(--accent); border-color:#fff;">Book appointment →</button><button class="btn ghost" style="color:#fff; border-color:#fff;">Free consult</button></div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ MEDSPA SERVICES ================================================================ -->
+  <section class="page-pane" data-pane="medspa">
+    <div class="canvas-head"><div><h1>Medspa Services</h1><div class="sub">High-end overview of medspa suite</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg" style="padding:110px 40px 60px; background:var(--paper-2);">
+        <div class="row spread" style="align-items:end; gap:40px;">
+          <div>
+            <div class="eyebrow">Medspa</div>
+            <div class="headline-hint" style="font-size:112px; line-height:0.95;">Medical<br>meets <em>gentle</em>.</div>
+          </div>
+          <p class="body-hint" style="max-width:380px; font-size:17px;">[Holistic approach — Rejuvalase is Stafford VA's premium medspa destination.]</p>
+        </div>
+      </div>
+
+      <div class="greybox" data-label="LIFESTYLE · TREATMENT ROOM" style="height:480px; margin:40px;"></div>
+
+      <div class="sec">
+        <div class="section-label"><span>Categories</span><span>5</span></div>
+        <div class="grid g-2" style="gap:20px;">
+          <div class="cat-big"><div class="greybox" data-label="IMG" style="height:320px;"></div><div class="cat-body"><span class="tag">01 · Medspa</span><h4>Injectables</h4><p class="body-hint">[Short category description — 2 lines.]</p><a class="arrow-link">Explore →</a></div></div>
+          <div class="cat-big"><div class="greybox" data-label="IMG" style="height:320px;"></div><div class="cat-body"><span class="tag">02 · Medspa</span><h4>Laser Treatments</h4><p class="body-hint">[Short category description — 2 lines.]</p><a class="arrow-link">Explore →</a></div></div>
+          <div class="cat-big"><div class="greybox" data-label="IMG" style="height:320px;"></div><div class="cat-body"><span class="tag">03 · Medspa</span><h4>Skin Rejuvenation</h4><p class="body-hint">[Short category description — 2 lines.]</p><a class="arrow-link">Explore →</a></div></div>
+          <div class="cat-big"><div class="greybox" data-label="IMG" style="height:320px;"></div><div class="cat-body"><span class="tag">04 · Medspa</span><h4>Body Contouring</h4><p class="body-hint">[Short category description — 2 lines.]</p><a class="arrow-link">Explore →</a></div></div>
+        </div>
+        <div class="cat-big" style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr;"><div class="greybox" data-label="IMG" style="height:300px;"></div><div class="cat-body" style="align-self:center;"><span class="tag">05 · Wellness</span><h4>Wellness · IV · Hormones</h4><p class="body-hint">[Short category description — 2 lines.]</p><a class="arrow-link">Explore →</a></div></div>
+      </div>
+
+      <div class="sec" style="background:var(--ink); color:var(--paper);">
+        <div class="section-label dark"><span>Why Rejuvalase</span><span>Benefits</span></div>
+        <div class="grid g-3" style="gap:48px;">
+          <div><div class="num-chip">01</div><h4 class="dark-h">Personalized care</h4><p class="dark-p">[2 lines.]</p></div>
+          <div><div class="num-chip">02</div><h4 class="dark-h">Medical expertise</h4><p class="dark-p">[2 lines.]</p></div>
+          <div><div class="num-chip">03</div><h4 class="dark-h">Natural results</h4><p class="dark-p">[2 lines.]</p></div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:72px; color:#fff;">Find your perfect treatment.</div>
+        <div class="btn-row" style="justify-content:center; margin-top:24px;"><button class="btn" style="background:#fff; color:var(--accent); border-color:#fff;">Book free consultation →</button></div>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">Medspa FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">How do I choose the right treatment?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Are consultations complimentary?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">What sets Rejuvalase apart?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Is Rejuvalase medically supervised?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ DAYSPA SERVICES ================================================================ -->
+  <section class="page-pane" data-pane="dayspa">
+    <div class="canvas-head"><div><h1>Dayspa Services</h1><div class="sub">Relax · Restore · Renew</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg center" style="padding:120px 40px 80px;">
+        <div class="eyebrow">Day Spa · Stafford, VA</div>
+        <div class="headline-hint" style="font-size:108px; line-height:0.95;">Relax. Restore. <em>Renew</em>.</div>
+        <p class="body-hint" style="max-width:580px; margin:24px auto 0; font-size:17px;">[Reassuring headline — luxury day spa services in Stafford, VA.]</p>
+      </div>
+
+      <div class="greybox" data-label="SPA ROOM · CALMING LIFESTYLE" style="height:520px; margin:0 40px;"></div>
+
+      <div class="sec">
+        <div class="section-label"><span>Day Spa Categories</span><span>4</span></div>
+        <div class="grid g-4">
+          <div class="cat-card"><div class="greybox" data-label="IMG" style="height:260px;"></div><span class="tag">Dayspa</span><h4>Facials</h4><p>[Short description.]</p><a class="arrow-link">→</a></div>
+          <div class="cat-card"><div class="greybox" data-label="IMG" style="height:260px;"></div><span class="tag">Dayspa</span><h4>Massage</h4><p>[Short description.]</p><a class="arrow-link">→</a></div>
+          <div class="cat-card"><div class="greybox" data-label="IMG" style="height:260px;"></div><span class="tag">Dayspa</span><h4>Body Treatments</h4><p>[Short description.]</p><a class="arrow-link">→</a></div>
+          <div class="cat-card"><div class="greybox" data-label="IMG" style="height:260px;"></div><span class="tag">Dayspa</span><h4>Spa Packages</h4><p>[Short description.]</p><a class="arrow-link">→</a></div>
+        </div>
+      </div>
+
+      <!-- Signature spotlight -->
+      <div class="sec pad-lg" style="background:var(--paper-2);">
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div>
+            <span class="pill accent-pill">Signature Experience</span>
+            <div class="headline-hint large" style="font-size:56px; margin-top:14px;">The <em>Rejuvalase Ritual</em>.</div>
+            <p class="body-hint" style="margin-top:20px;">[3-line detail — technique, products used, relaxation environment, why this is the signature experience.]</p>
+            <div class="row" style="margin-top:20px; gap:20px;">
+              <div><div class="tag">Duration</div><div class="svc-stat">90 min</div></div>
+              <div><div class="tag">From</div><div class="svc-stat">$225</div></div>
+            </div>
+            <button class="btn accent" style="margin-top:24px;">Book the Ritual →</button>
+          </div>
+          <div class="greybox" data-label="SIGNATURE SERVICE" style="height:500px;"></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="row spread" style="margin-bottom:28px;"><div class="headline-hint large" style="font-size:44px;">Why day spa.</div><span class="tag">03 benefits</span></div>
+        <div class="grid g-3">
+          <div class="benefit-card"><div class="num-chip accent-chip">01</div><h4>Stress relief</h4><p class="body-hint">[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">02</div><h4>Holistic wellness</h4><p class="body-hint">[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">03</div><h4>Glowing skin</h4><p class="body-hint">[2 lines.]</p></div>
+        </div>
+      </div>
+
+      <div class="sec" style="background:var(--ink); color:var(--paper);">
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div class="greybox" data-label="CLIENT PORTRAIT" style="height:420px;"></div>
+          <div>
+            <div class="big-quote">"</div>
+            <div class="headline-hint large" style="font-size:40px; color:var(--paper);">[Day spa testimonial — relaxation, results, staff professionalism. 3 lines.]</div>
+            <div class="cite">— Client · Stafford</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent-soft);">
+        <div class="headline-hint" style="font-size:72px;">Book your spa <em>escape</em>.</div>
+        <button class="btn accent" style="margin-top:24px;">Book today →</button>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">What should I expect during my first visit?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How should I prepare?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">What products do you use?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ SPECIALS INDEX ================================================================ -->
+  <section class="page-pane" data-pane="specials">
+    <div class="canvas-head"><div><h1>Specials Index</h1><div class="sub">All current and seasonal specials</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg" style="padding:100px 40px 50px;">
+        <div class="eyebrow">Spring · Q2 2026</div>
+        <div class="headline-hint" style="font-size:104px; line-height:0.95;">Limited-time <em>specials</em>.</div>
+        <p class="body-hint" style="max-width:540px; margin-top:22px; font-size:16px;">[Intro — personalized care, medical expertise, local trust.]</p>
+      </div>
+
+      <!-- All specials -->
+      <div class="sec" style="padding-top:20px;">
+        <div class="row spread" style="margin-bottom:24px;">
+          <div class="tag">All active specials · 08</div>
+          <div class="row" style="gap:6px;">
+            <button class="pill accent">All</button><button class="pill">In-store</button><button class="pill">Online</button><button class="pill">Bundles</button>
+          </div>
+        </div>
+        <div class="grid g-2" style="gap:20px;">
+          <div class="special-card"><div class="greybox" data-label="SPECIAL" style="height:260px;"></div><div class="special-body"><div class="row spread"><span class="pill accent-pill">−20%</span><span class="tag">Online + In-store</span></div><h4>[Special Name 1]</h4><p class="body-hint">[2-line description — what's included, urgency.]</p><div class="row spread" style="margin-top:14px;"><div><span class="was">$600</span> <span class="now">$480</span></div><button class="btn small">Claim →</button></div></div></div>
+          <div class="special-card"><div class="greybox" data-label="SPECIAL" style="height:260px;"></div><div class="special-body"><div class="row spread"><span class="pill accent-pill">Bundle</span><span class="tag">In-store only</span></div><h4>[Special Name 2]</h4><p class="body-hint">[2-line description.]</p><div class="row spread" style="margin-top:14px;"><div><span class="was">$900</span> <span class="now">$720</span></div><button class="btn small">Claim →</button></div></div></div>
+          <div class="special-card"><div class="greybox" data-label="SPECIAL" style="height:260px;"></div><div class="special-body"><div class="row spread"><span class="pill accent-pill">−15%</span><span class="tag">Online</span></div><h4>[Special Name 3]</h4><p class="body-hint">[2-line description.]</p><div class="row spread" style="margin-top:14px;"><div><span class="was">$350</span> <span class="now">$297</span></div><button class="btn small">Claim →</button></div></div></div>
+          <div class="special-card"><div class="greybox" data-label="SPECIAL" style="height:260px;"></div><div class="special-body"><div class="row spread"><span class="pill accent-pill">Limited</span><span class="tag">In-store only</span></div><h4>[Special Name 4]</h4><p class="body-hint">[2-line description.]</p><div class="row spread" style="margin-top:14px;"><div><span class="now">$450</span></div><button class="btn small">Claim →</button></div></div></div>
+        </div>
+      </div>
+
+      <!-- Featured 4 for the quarter -->
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="section-label"><span>Featured Seasonal</span><span>Q2 · 4 picks</span></div>
+        <div class="grid g-4">
+          <div class="post-card"><div class="greybox" data-label="IMG" style="height:220px;"></div><span class="tag">Injectables</span><h4>[Feature 1]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="IMG" style="height:220px;"></div><span class="tag">Laser</span><h4>[Feature 2]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="IMG" style="height:220px;"></div><span class="tag">Skin</span><h4>[Feature 3]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="IMG" style="height:220px;"></div><span class="tag">Body</span><h4>[Feature 4]</h4></div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:72px; color:#fff;">Your ideal treatment, <em>on sale</em>.</div>
+        <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:24px;">Book consultation →</button>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">Specials FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">Can specials be combined?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How long are offers valid?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Can I purchase online?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ SPECIAL DETAIL ================================================================ -->
+  <section class="page-pane" data-pane="special">
+    <div class="canvas-head"><div><h1>Special Detail</h1><div class="sub">Individual special page · with before/after</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div style="padding:16px 40px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); border-bottom:1px solid var(--line-soft);">Specials / <span style="color:var(--ink);">[Special Name]</span></div>
+
+      <!-- Header -->
+      <div class="sec pad-lg">
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div>
+            <div class="row" style="gap:10px;"><span class="pill accent-pill">−20%</span><span class="pill">Limited · Ends May 31</span></div>
+            <div class="headline-hint" style="font-size:84px; line-height:0.95; margin-top:14px;">Spring <em>Glow-Up</em>.</div>
+            <p class="body-hint" style="margin-top:22px; font-size:17px; max-width:480px;">[Brief tagline setting expectations — 1–2 sentences.]</p>
+            <div class="row" style="margin-top:26px; gap:24px;">
+              <div><span class="was" style="font-size:22px;">$600</span><div class="tag">was</div></div>
+              <div><span class="now" style="font-size:40px;">$480</span><div class="tag">your price</div></div>
+            </div>
+            <div class="btn-row" style="margin-top:26px;"><button class="btn accent">Book this offer →</button><button class="btn ghost">Free consult</button></div>
+          </div>
+          <div class="greybox" data-label="SPECIAL · HERO" style="height:560px;"></div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg" style="background:var(--paper-2);">
+        <div class="grid" style="grid-template-columns:1fr 2fr; gap:60px;">
+          <div><div class="eyebrow">What it is</div></div>
+          <div>
+            <div class="headline-hint large" style="font-size:40px;">[One-line summary — the offer + approach + tech.]</div>
+            <p class="body-hint" style="margin-top:20px; max-width:620px;">[Full description — 2 paragraphs on what's included, how it works, unique qualities.]</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="row spread" style="margin-bottom:24px;"><div class="headline-hint large" style="font-size:44px;">Benefits.</div><span class="tag">04</span></div>
+        <div class="grid g-4" style="gap:14px;">
+          <div class="benefit-card"><div class="num-chip accent-chip">01</div><h4>Natural results</h4><p>[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">02</div><h4>Safety-first</h4><p>[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">03</div><h4>Customized</h4><p>[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">04</div><h4>Comfort</h4><p>[2 lines.]</p></div>
+        </div>
+      </div>
+
+      <!-- Before / After -->
+      <div class="sec" style="background:var(--ink); color:var(--paper);">
+        <div class="row spread" style="margin-bottom:24px;"><div class="headline-hint large" style="font-size:44px; color:var(--paper);">Results.</div><span class="tag" style="color:rgba(245,241,234,0.6);">Drag slider</span></div>
+        <div style="position:relative;">
+          <div class="greybox" data-label="BEFORE / AFTER SLIDER" style="height:480px;"></div>
+          <div style="position:absolute; top:50%; left:50%; width:2px; background:var(--paper); height:480px; transform:translate(-50%,-50%);"></div>
+          <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px;height:44px; background:var(--paper); border:1px solid var(--paper); display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; color:var(--ink);">◀▶</div>
+          <span class="video-badge" style="background:var(--paper); color:var(--ink);">BEFORE</span>
+          <span class="video-badge" style="background:var(--paper); color:var(--ink); left:auto; right:14px;">AFTER · 8 wks</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="section-label"><span>Who it's for</span><span>Ideal candidates</span></div>
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:44px;">Is this <em>for you</em>?</div>
+          <div class="stack" style="gap:12px;">
+            <div class="bullet-row light">✓ [Concern / criteria 1]</div>
+            <div class="bullet-row light">✓ [Concern / criteria 2]</div>
+            <div class="bullet-row light">✓ [Concern / criteria 3]</div>
+            <div class="bullet-row light">✓ [Concern / criteria 4]</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="row spread" style="margin-bottom:24px;"><div class="headline-hint large" style="font-size:44px;">Related services.</div></div>
+        <div class="grid g-3">
+          <div class="post-card"><div class="greybox" data-label="IMG" style="height:220px;"></div><span class="tag">Injectables</span><h4>[Related 1]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="IMG" style="height:220px;"></div><span class="tag">Skin</span><h4>[Related 2]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="IMG" style="height:220px;"></div><span class="tag">Body</span><h4>[Related 3]</h4></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">Can I combine with other specials?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">When can I book?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Refund policy?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:72px; color:#fff;">Claim your <em>Glow-Up</em>.</div>
+        <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:24px;">Book now →</button>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ PRODUCTS ================================================================ -->
+  <section class="page-pane" data-pane="products">
+    <div class="canvas-head"><div><h1>Products</h1><div class="sub">Retail skincare · ecommerce-lite</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg" style="padding:90px 40px 50px;">
+        <div class="eyebrow">Shop</div>
+        <div class="headline-hint" style="font-size:96px; line-height:0.95;">The <em>shelf</em>.</div>
+        <p class="body-hint" style="max-width:540px; margin-top:22px; font-size:16px;">[Intro — the products we stand behind and use in-spa.]</p>
+      </div>
+
+      <div data-logos></div>
+
+      <!-- Featured lines -->
+      <div class="sec">
+        <div class="section-label"><span>Featured Lines</span><span>4</span></div>
+        <div class="grid g-4">
+          <div class="post-card"><div class="greybox" data-label="LINE" style="height:220px;"></div><span class="tag">Medical-grade</span><h4>[Line 1]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="LINE" style="height:220px;"></div><span class="tag">Dermatology</span><h4>[Line 2]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="LINE" style="height:220px;"></div><span class="tag">Clinical</span><h4>[Line 3]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="LINE" style="height:220px;"></div><span class="tag">Wellness</span><h4>[Line 4]</h4></div>
+        </div>
+      </div>
+
+      <!-- Product grid -->
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="row spread" style="margin-bottom:24px;">
+          <div class="headline-hint large" style="font-size:44px;">All products.</div>
+          <div class="row" style="gap:6px;">
+            <button class="pill accent">All · 38</button><button class="pill">Cleansers</button><button class="pill">Serums</button><button class="pill">SPF</button><button class="pill">Body</button><button class="pill">Wellness</button>
+          </div>
+        </div>
+        <div class="grid g-4" style="gap:14px;">
+          <div class="prod-tile"><div class="greybox" data-label="PRODUCT" style="height:220px; background:#fdfaf3;"></div><span class="tag">ALASTIN</span><h4>[Product 1]</h4><p class="body-hint">[1-line description.]</p><div class="row spread" style="margin-top:8px;"><span class="price">$68</span><button class="btn small">Add</button></div></div>
+          <div class="prod-tile"><div class="greybox" data-label="PRODUCT" style="height:220px; background:#fdfaf3;"></div><span class="tag">SkinMedica</span><h4>[Product 2]</h4><p class="body-hint">[1-line description.]</p><div class="row spread" style="margin-top:8px;"><span class="price">$125</span><button class="btn small">Add</button></div></div>
+          <div class="prod-tile"><div class="greybox" data-label="PRODUCT" style="height:220px; background:#fdfaf3;"></div><span class="tag">ZO Skin</span><h4>[Product 3]</h4><p class="body-hint">[1-line description.]</p><div class="row spread" style="margin-top:8px;"><span class="price">$88</span><button class="btn small">Add</button></div></div>
+          <div class="prod-tile"><div class="greybox" data-label="PRODUCT" style="height:220px; background:#fdfaf3;"></div><span class="tag">ALASTIN</span><h4>[Product 4]</h4><p class="body-hint">[1-line description.]</p><div class="row spread" style="margin-top:8px;"><span class="price">$45</span><button class="btn small">Add</button></div></div>
+          <div class="prod-tile"><div class="greybox" data-label="PRODUCT" style="height:220px; background:#fdfaf3;"></div><span class="tag">SkinMedica</span><h4>[Product 5]</h4><p class="body-hint">[1-line description.]</p><div class="row spread" style="margin-top:8px;"><span class="price">$175</span><button class="btn small">Add</button></div></div>
+          <div class="prod-tile"><div class="greybox" data-label="PRODUCT" style="height:220px; background:#fdfaf3;"></div><span class="tag">Wellness</span><h4>[Product 6]</h4><p class="body-hint">[1-line description.]</p><div class="row spread" style="margin-top:8px;"><span class="price">$52</span><button class="btn small">Add</button></div></div>
+          <div class="prod-tile"><div class="greybox" data-label="PRODUCT" style="height:220px; background:#fdfaf3;"></div><span class="tag">ZO Skin</span><h4>[Product 7]</h4><p class="body-hint">[1-line description.]</p><div class="row spread" style="margin-top:8px;"><span class="price">$98</span><button class="btn small">Add</button></div></div>
+          <div class="prod-tile"><div class="greybox" data-label="PRODUCT" style="height:220px; background:#fdfaf3;"></div><span class="tag">ALASTIN</span><h4>[Product 8]</h4><p class="body-hint">[1-line description.]</p><div class="row spread" style="margin-top:8px;"><span class="price">$78</span><button class="btn small">Add</button></div></div>
+        </div>
+        <div class="center" style="margin-top:32px;"><button class="btn ghost">Load more (30)</button></div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:64px; color:#fff;">Not sure what to use?</div>
+        <p class="body-hint" style="color:rgba(255,255,255,0.9); max-width:480px; margin:12px auto 0;">Book a free consult — we'll build your regimen.</p>
+        <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:24px;">Book skin consult →</button>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">Product FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">Do you ship nationwide?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">What's your return policy?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Why medical-grade skincare?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ BLOG INDEX ================================================================ -->
+  <section class="page-pane" data-pane="blog">
+    <div class="canvas-head"><div><h1>Blog Index</h1><div class="sub">Educational · SEO-friendly grid</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg" style="padding:90px 40px 60px;">
+        <div class="grid g-2" style="gap:80px; align-items:end;">
+          <div><div class="eyebrow">The Journal</div><div class="headline-hint" style="font-size:104px; line-height:0.95;">Beauty, <em>better</em><br>informed.</div></div>
+          <p class="body-hint" style="font-size:17px; max-width:440px;">[2 lines — on the role of the journal as a trusted source of medspa education and local beauty authority.]</p>
+        </div>
+      </div>
+
+      <div class="sec" style="padding:0 40px 60px;">
+        <div class="section-label"><span>Featured</span><span>Top Post</span></div>
+        <div class="grid g-2" style="gap:40px; align-items:center;">
+          <div class="greybox" data-label="FEATURED POST IMAGE" style="height:480px;"></div>
+          <div>
+            <div class="row" style="gap:10px; margin-bottom:18px;"><span class="pill accent-pill">Editor's pick</span><span class="tag">Skincare · 6 min read · Apr 2026</span></div>
+            <div class="headline-hint" style="font-size:56px;">[Featured post title — educational, SEO-friendly, warm.]</div>
+            <p class="body-hint" style="margin-top:20px;">[2-line post summary capturing the reader hook.]</p>
+            <div class="row" style="margin-top:28px; gap:12px;"><div style="width:36px;height:36px;border:1px solid var(--line); background:var(--paper-2);"></div><span style="font-family:'IBM Plex Mono',monospace; font-size:11px;">[Author Name] · [Title]</span></div>
+            <a class="arrow-link" style="margin-top:24px;">Read post →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="row spread">
+          <div><div class="headline-hint large" style="font-size:44px;">Monthly, to your inbox.</div><p class="body-hint" style="margin-top:8px;">[1-line newsletter pitch.]</p></div>
+          <div class="row" style="gap:0;">
+            <div style="border:1px solid var(--ink); padding:14px 20px; width:320px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); background:#fdfaf3;">your@email.com</div>
+            <button class="btn" style="margin-left:-1px;">Subscribe</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="row spread" style="margin-bottom:20px;">
+          <div class="row" style="gap:6px;"><button class="pill accent">All</button><button class="pill">Skincare</button><button class="pill">Injectables</button><button class="pill">Wellness</button><button class="pill">Day Spa</button><button class="pill">BTS</button></div>
+          <div class="row" style="gap:8px;"><span class="tag">Sort:</span><span class="pill">Newest ▾</span></div>
+        </div>
+        <div class="grid g-3" style="gap:28px;">
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Skincare · 5 min</span><h4>[Post 1 title]</h4><p class="body-hint" style="font-size:13px;">[2-line teaser.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Injectables · 7 min</span><h4>[Post 2]</h4><p class="body-hint" style="font-size:13px;">[2-line teaser.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Wellness · 4 min</span><h4>[Post 3]</h4><p class="body-hint" style="font-size:13px;">[2-line teaser.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Skincare · 3 min</span><h4>[Post 4]</h4><p class="body-hint" style="font-size:13px;">[2-line teaser.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Day Spa · 6 min</span><h4>[Post 5]</h4><p class="body-hint" style="font-size:13px;">[2-line teaser.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">BTS · 4 min</span><h4>[Post 6]</h4><p class="body-hint" style="font-size:13px;">[2-line teaser.]</p></div>
+        </div>
+        <div class="center" style="margin-top:40px;"><button class="btn ghost">Load more posts</button></div>
+      </div>
+
+      <div class="sec pad-lg" style="background:var(--ink); color:var(--paper);">
+        <div class="grid g-2" style="gap:40px; align-items:center;">
+          <div class="greybox" data-label="REP PHOTO" style="height:240px;"></div>
+          <div>
+            <div class="eyebrow" style="color:var(--accent-soft);">Talk to a human</div>
+            <div class="headline-hint large" style="font-size:44px; color:var(--paper);">[Rep Name], [Position]<br>is ready to chat.</div>
+            <div class="btn-row" style="margin-top:24px;"><button class="btn" style="background:var(--paper); color:var(--ink); border-color:var(--paper);">Book consultation</button><button class="btn ghost" style="color:var(--paper); border-color:var(--paper);">Explore services →</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div><div class="eyebrow">Using the journal</div><div class="headline-hint large" style="font-size:44px;">Quick FAQ.</div></div>
+          <div>
+            <div class="faq-item"><span class="q">How do I find posts on a topic?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Can I subscribe by category?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Can I request an article?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ BLOG POST ================================================================ -->
+  <section class="page-pane" data-pane="blogpost">
+    <div class="canvas-head"><div><h1>Blog Post</h1><div class="sub">Individual article · long-form</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div style="padding:16px 40px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); border-bottom:1px solid var(--line-soft);">Journal / Skincare / <span style="color:var(--ink);">[Post Slug]</span></div>
+
+      <div class="sec pad-lg" style="padding:80px 40px 40px;">
+        <div style="max-width:760px; margin:0 auto;">
+          <span class="pill accent-pill">Skincare · 6 min read</span>
+          <div class="headline-hint" style="font-size:72px; line-height:1; margin-top:16px;">[Post title — educational, SEO-friendly, human.]</div>
+          <p class="body-hint" style="margin-top:20px; font-size:18px;">[Deck / subtitle — sets up the piece in one sentence.]</p>
+          <div class="row" style="margin-top:26px; gap:14px;">
+            <div style="width:40px; height:40px; border:1px solid var(--line); background:var(--paper-2);"></div>
+            <div><div style="font-family:'IBM Plex Mono',monospace; font-size:11px;">[Author Name] · [Title]</div><div class="tag">Apr 12, 2026 · Updated Apr 18</div></div>
+            <div style="margin-left:auto; display:flex; gap:8px;"><span class="pill">Save</span><span class="pill">Share</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="greybox" data-label="POST HERO IMAGE" style="height:540px; margin:0 40px;"></div>
+
+      <div class="sec pad-lg">
+        <div style="display:grid; grid-template-columns:200px 1fr; gap:60px; max-width:1060px; margin:0 auto;">
+          <div style="position:sticky; top:24px; align-self:start;">
+            <div class="tag" style="margin-bottom:14px;">Contents</div>
+            <div class="stack" style="gap:10px; font-family:'IBM Plex Mono',monospace; font-size:11px;">
+              <div style="color:var(--accent);">01 · Introduction</div>
+              <div>02 · What it means</div>
+              <div>03 · The science</div>
+              <div>04 · Our approach</div>
+              <div>05 · Takeaways</div>
+            </div>
+          </div>
+          <div style="max-width:640px;">
+            <p class="body-long">[Opening paragraph — sets up the reader hook.]</p>
+            <h2 class="post-h2">01 · Introduction</h2>
+            <p class="body-long">[Body paragraph — warm, specific.]</p>
+            <p class="body-long">[Body paragraph.]</p>
+            <h2 class="post-h2">02 · What it means</h2>
+            <p class="body-long">[Body paragraph.]</p>
+            <div class="pull-quote">"[Pull quote — a single sentence that stands alone.]"</div>
+            <p class="body-long">[Body paragraph.]</p>
+            <h2 class="post-h2">03 · The science</h2>
+            <p class="body-long">[Body paragraph.]</p>
+            <div class="greybox" data-label="INLINE IMAGE" style="height:320px; margin:24px 0;"></div>
+            <p class="body-long">[Body paragraph.]</p>
+            <div class="callout"><div class="tag">Pro tip</div><p class="body-hint" style="margin-top:6px;">[Practical callout / internal link out to a related service.]</p></div>
+            <h2 class="post-h2">04 · Our approach</h2>
+            <p class="body-long">[Body paragraph.]</p>
+            <h2 class="post-h2">05 · Takeaways</h2>
+            <p class="body-long">[Closing paragraph.]</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg" style="background:var(--accent); color:#fff; text-align:center;">
+        <div class="eyebrow" style="color:rgba(255,255,255,0.85);">Ready?</div>
+        <div class="headline-hint" style="font-size:56px; color:#fff;">Book your free consultation.</div>
+        <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:20px;">Book now →</button>
+      </div>
+
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="row spread">
+          <div><div class="headline-hint large" style="font-size:44px;">Get the next one.</div><p class="body-hint" style="margin-top:8px;">[Newsletter pitch — 1 line.]</p></div>
+          <div class="row" style="gap:0;"><div style="border:1px solid var(--ink); padding:14px 20px; width:320px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); background:#fdfaf3;">your@email.com</div><button class="btn" style="margin-left:-1px;">Subscribe</button></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="section-label"><span>Related posts</span><span></span></div>
+        <div class="grid g-3">
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Skincare · 4 min</span><h4>[Related 1]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Injectables · 6 min</span><h4>[Related 2]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="POST" style="height:220px;"></div><span class="tag">Wellness · 3 min</span><h4>[Related 3]</h4></div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ FAQ / KB ================================================================ -->
+  <section class="page-pane" data-pane="faq">
+    <div class="canvas-head"><div><h1>FAQ / Knowledge Base</h1><div class="sub">Categorized · searchable · filterable</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg center" style="padding:110px 40px 60px;">
+        <div class="eyebrow">Knowledge Base</div>
+        <div class="headline-hint" style="font-size:104px; line-height:0.95;">Your questions, <em>answered</em>.</div>
+        <p class="body-hint" style="max-width:560px; margin:24px auto 0; font-size:17px;">[Trust-building copy — medical credibility, transparency.]</p>
+        <div style="max-width:600px; margin:36px auto 0; border:1px solid var(--ink); padding:16px 22px; display:flex; align-items:center; gap:14px; background:#fdfaf3;">
+          <span style="font-family:'IBM Plex Mono',monospace;">⌕</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--mute); flex:1; text-align:left;">Search questions…</span>
+          <span class="tag">⌘K</span>
+        </div>
+      </div>
+
+      <div class="sec" style="padding-top:20px;">
+        <div class="row" style="gap:6px; margin-bottom:32px; justify-content:center; flex-wrap:wrap;">
+          <button class="pill accent">All · 68</button>
+          <button class="pill">Safety</button>
+          <button class="pill">Comfort</button>
+          <button class="pill">Results</button>
+          <button class="pill">Booking</button>
+          <button class="pill">Payments</button>
+          <button class="pill">General</button>
+        </div>
+
+        <div class="grid g-2" style="gap:40px;">
+          <div>
+            <h3 class="faq-group">Safety</h3>
+            <div class="faq-item"><span class="q">Is the treatment safe?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Who administers injectables?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">What if I have a reaction?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Are you medically supervised?</span><span class="plus">+</span></div>
+          </div>
+          <div>
+            <h3 class="faq-group">Comfort</h3>
+            <div class="faq-item"><span class="q">Does it hurt?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Is numbing available?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How long is each session?</span><span class="plus">+</span></div>
+          </div>
+          <div>
+            <h3 class="faq-group">Results</h3>
+            <div class="faq-item"><span class="q">When will I see results?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How long do results last?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Do I need maintenance?</span><span class="plus">+</span></div>
+          </div>
+          <div>
+            <h3 class="faq-group">Booking</h3>
+            <div class="faq-item"><span class="q">How do I book?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Cancellation policy?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Do I need a consultation first?</span><span class="plus">+</span></div>
+          </div>
+          <div>
+            <h3 class="faq-group">Payments</h3>
+            <div class="faq-item"><span class="q">What payment methods do you accept?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Do you offer financing (CareCredit)?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Gift cards?</span><span class="plus">+</span></div>
+          </div>
+          <div>
+            <h3 class="faq-group">General</h3>
+            <div class="faq-item"><span class="q">Where are you located?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Do you serve Fredericksburg?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Parking?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:64px; color:#fff;">Didn't find your answer?</div>
+        <div class="btn-row" style="justify-content:center; margin-top:24px;"><button class="btn" style="background:#fff; color:var(--accent); border-color:#fff;">Book consultation</button><button class="btn ghost" style="color:#fff; border-color:#fff;">Contact us →</button></div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ LEGAL ================================================================ -->
+  <section class="page-pane" data-pane="legal">
+    <div class="canvas-head"><div><h1>Legal</h1><div class="sub">Privacy · Terms · Medical Disclaimer</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg" style="padding:100px 40px 60px;">
+        <div class="eyebrow">Legal</div>
+        <div class="headline-hint" style="font-size:88px; line-height:0.95;">Transparent, by <em>default</em>.</div>
+        <p class="body-hint" style="max-width:580px; margin-top:22px; font-size:16px;">[Trust statement — privacy, client safety, transparency.]</p>
+      </div>
+
+      <div class="sec" style="padding-top:20px;">
+        <div style="display:grid; grid-template-columns:240px 1fr; gap:60px; max-width:1060px; margin:0 auto;">
+          <div style="position:sticky; top:24px; align-self:start;">
+            <div class="tag" style="margin-bottom:14px;">Documents</div>
+            <div class="stack" style="gap:8px; font-family:'IBM Plex Mono',monospace; font-size:12px;">
+              <div style="color:var(--accent); padding:8px 10px; border-left:2px solid var(--accent);">Privacy Policy</div>
+              <div style="padding:8px 10px; border-left:2px solid transparent;">Terms & Conditions</div>
+              <div style="padding:8px 10px; border-left:2px solid transparent;">Medical Disclaimer</div>
+              <div style="padding:8px 10px; border-left:2px solid transparent;">HIPAA Notice</div>
+              <div style="padding:8px 10px; border-left:2px solid transparent;">Accessibility</div>
+              <div style="padding:8px 10px; border-left:2px solid transparent;">Cookie Policy</div>
+            </div>
+          </div>
+          <div style="max-width:640px;">
+            <div class="headline-hint" style="font-size:48px;">Privacy Policy</div>
+            <div class="tag" style="margin-top:10px;">Last updated · Apr 2026</div>
+            <hr class="hr">
+            <h3 class="legal-h">1 · Information we collect</h3>
+            <p class="body-long">[Legal body paragraph.]</p>
+            <p class="body-long">[Legal body paragraph.]</p>
+            <h3 class="legal-h">2 · How we use it</h3>
+            <p class="body-long">[Legal body paragraph.]</p>
+            <ul class="body-long" style="padding-left:20px;">
+              <li>[bullet]</li><li>[bullet]</li><li>[bullet]</li>
+            </ul>
+            <h3 class="legal-h">3 · Sharing</h3>
+            <p class="body-long">[Legal body paragraph.]</p>
+            <h3 class="legal-h">4 · Your rights</h3>
+            <p class="body-long">[Legal body paragraph.]</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="section-label"><span>Other policies</span><span>Quick links</span></div>
+        <div class="grid g-3" style="gap:14px;">
+          <div class="post-card"><span class="tag">Medical</span><h4>Medical Disclaimer</h4><a class="arrow-link">Read →</a></div>
+          <div class="post-card"><span class="tag">Privacy</span><h4>HIPAA Notice</h4><a class="arrow-link">Read →</a></div>
+          <div class="post-card"><span class="tag">Access</span><h4>Accessibility Statement</h4><a class="arrow-link">Read →</a></div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ CAREERS ================================================================ -->
+  <section class="page-pane" data-pane="careers">
+    <div class="canvas-head"><div><h1>Careers</h1><div class="sub">Join the team · open roles · apply</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg" style="padding:100px 40px 60px;">
+        <div class="grid g-2" style="gap:60px; align-items:end;">
+          <div><div class="eyebrow">We're hiring</div><div class="headline-hint" style="font-size:104px; line-height:0.95;">Build a <em>career</em>, not a job.</div></div>
+          <p class="body-hint" style="font-size:17px; max-width:440px;">[Brand values statement — commitment to excellence, growth, supportive culture.]</p>
+        </div>
+      </div>
+
+      <div class="greybox" data-label="TEAM AT WORK · LIFESTYLE" style="height:460px; margin:0 40px;"></div>
+
+      <div class="sec">
+        <div class="section-label"><span>Why Rejuvalase</span><span>Benefits</span></div>
+        <div class="grid g-4" style="gap:14px;">
+          <div class="benefit-card"><div class="num-chip accent-chip">01</div><h4>Advanced training</h4><p>[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">02</div><h4>Positive environment</h4><p>[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">03</div><h4>Competitive comp</h4><p>[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">04</div><h4>Staff treatments</h4><p>[2 lines.]</p></div>
+        </div>
+      </div>
+
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="row spread" style="margin-bottom:24px;"><div class="headline-hint large" style="font-size:44px;">Meet the team.</div><a class="arrow-link">Full team →</a></div>
+        <div class="grid g-4">
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:260px;"></div><span class="tag">RN Injector</span><h4>[Name]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:260px;"></div><span class="tag">Aesthetician</span><h4>[Name]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:260px;"></div><span class="tag">Coordinator</span><h4>[Name]</h4></div>
+          <div class="post-card"><div class="greybox" data-label="PORTRAIT" style="height:260px;"></div><span class="tag">LMT</span><h4>[Name]</h4></div>
+        </div>
+      </div>
+
+      <!-- Open roles -->
+      <div class="sec">
+        <div class="row spread" style="margin-bottom:24px;"><div class="headline-hint large" style="font-size:48px;">Open positions.</div><span class="tag">04 roles</span></div>
+        <div class="stack" style="gap:10px;">
+          <div class="job-row"><div><span class="tag">Medical</span><h4 class="job-title">RN Injector · Full-time</h4><p class="body-hint">Stafford, VA · On-site · Posted 3d ago</p></div><div class="btn-row"><button class="btn ghost small">Details</button><button class="btn small">Apply →</button></div></div>
+          <div class="job-row"><div><span class="tag">Aesthetics</span><h4 class="job-title">Lead Aesthetician · Full-time</h4><p class="body-hint">Stafford, VA · On-site · Posted 1w ago</p></div><div class="btn-row"><button class="btn ghost small">Details</button><button class="btn small">Apply →</button></div></div>
+          <div class="job-row"><div><span class="tag">Front Desk</span><h4 class="job-title">Patient Coordinator · Part-time</h4><p class="body-hint">Stafford, VA · On-site · Posted 2w ago</p></div><div class="btn-row"><button class="btn ghost small">Details</button><button class="btn small">Apply →</button></div></div>
+          <div class="job-row"><div><span class="tag">Dayspa</span><h4 class="job-title">Massage Therapist · LMT</h4><p class="body-hint">Stafford, VA · On-site · Posted 3w ago</p></div><div class="btn-row"><button class="btn ghost small">Details</button><button class="btn small">Apply →</button></div></div>
+        </div>
+      </div>
+
+      <!-- Application form preview -->
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="grid g-2" style="gap:60px;">
+          <div><div class="eyebrow">General application</div><div class="headline-hint large" style="font-size:48px;">Don't see your role?</div><p class="body-hint" style="margin-top:16px;">[We're always looking for great people. Drop your info and we'll reach out when a fit opens.]</p></div>
+          <div class="form-card">
+            <div class="grid g-2" style="gap:14px;"><div class="input-field"><label>First name *</label><div class="input-box"></div></div><div class="input-field"><label>Last name *</label><div class="input-box"></div></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Email *</label><div class="input-box"></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Position of interest</label><div class="input-box select">— select —<span>▾</span></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Resume upload</label><div class="input-box" style="display:flex;align-items:center;justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute);">+ drop file · or click</div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Statement of interest</label><div class="input-box" style="height:100px;"></div></div>
+            <button class="btn accent" style="margin-top:20px; width:100%;">Submit application →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:64px; color:#fff;">Ready to join our team?</div>
+        <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:24px;">Apply now →</button>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ CAREER POSTING ================================================================ -->
+  <section class="page-pane" data-pane="career">
+    <div class="canvas-head"><div><h1>Career Posting</h1><div class="sub">Single job description</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div style="padding:16px 40px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); border-bottom:1px solid var(--line-soft);">Careers / Medical / <span style="color:var(--ink);">RN Injector</span></div>
+
+      <div class="sec pad-lg">
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div>
+            <div class="row" style="gap:10px;"><span class="pill accent-pill">Medical</span><span class="pill">Full-time</span><span class="pill">Stafford, VA</span></div>
+            <div class="headline-hint" style="font-size:80px; line-height:0.95; margin-top:14px;">RN <em>Injector</em>.</div>
+            <p class="body-hint" style="margin-top:20px; font-size:17px; max-width:480px;">[Short role intro — 1–2 lines emphasizing culture + opportunity.]</p>
+            <div class="btn-row" style="margin-top:26px;"><button class="btn accent">Apply now →</button><button class="btn ghost">Email this role</button></div>
+            <div class="row" style="margin-top:28px; gap:22px;">
+              <div><div class="tag">Pay</div><div class="svc-stat">$$$</div></div>
+              <div><div class="tag">Schedule</div><div class="svc-stat">Tue–Sat</div></div>
+              <div><div class="tag">Start</div><div class="svc-stat">ASAP</div></div>
+            </div>
+          </div>
+          <div class="greybox" data-label="TEAM · CULTURE" style="height:520px;"></div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg" style="background:var(--paper-2);">
+        <div class="grid" style="grid-template-columns:1fr 2fr; gap:60px;">
+          <div><div class="eyebrow">Responsibilities</div></div>
+          <div class="stack" style="gap:10px;">
+            <div class="bullet-row">✓ [Responsibility 1 — concise.]</div>
+            <div class="bullet-row">✓ [Responsibility 2.]</div>
+            <div class="bullet-row">✓ [Responsibility 3.]</div>
+            <div class="bullet-row">✓ [Responsibility 4.]</div>
+            <div class="bullet-row">✓ [Responsibility 5.]</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg">
+        <div class="grid" style="grid-template-columns:1fr 2fr; gap:60px;">
+          <div><div class="eyebrow">Qualifications</div></div>
+          <div class="stack" style="gap:10px;">
+            <div class="bullet-row">→ Current BSN / RN license</div>
+            <div class="bullet-row">→ 2+ years injector experience preferred</div>
+            <div class="bullet-row">→ [Additional requirement]</div>
+            <div class="bullet-row">→ [Additional requirement]</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg" style="background:var(--ink); color:var(--paper);">
+        <div class="section-label dark"><span>Benefits & Perks</span><span></span></div>
+        <div class="grid g-3" style="gap:48px; margin-top:12px;">
+          <div><div class="num-chip">01</div><h4 class="dark-h">Medical · Dental · Vision</h4><p class="dark-p">[Details.]</p></div>
+          <div><div class="num-chip">02</div><h4 class="dark-h">Staff treatments</h4><p class="dark-p">[Details.]</p></div>
+          <div><div class="num-chip">03</div><h4 class="dark-h">Growth & CME</h4><p class="dark-p">[Details.]</p></div>
+        </div>
+      </div>
+
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="grid g-2" style="gap:60px;">
+          <div><div class="eyebrow">Apply</div><div class="headline-hint large" style="font-size:44px;">Let's meet.</div></div>
+          <div class="form-card">
+            <div class="grid g-2" style="gap:14px;"><div class="input-field"><label>Name *</label><div class="input-box"></div></div><div class="input-field"><label>Email *</label><div class="input-box"></div></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Phone</label><div class="input-box"></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Resume *</label><div class="input-box" style="display:flex;align-items:center;justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute);">+ drop file</div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Cover letter</label><div class="input-box" style="height:100px;"></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>LinkedIn (optional)</label><div class="input-box"></div></div>
+            <div class="row" style="margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:11px;"><div style="width:14px;height:14px;border:1px solid var(--ink);"></div>I consent to Rejuvalase processing my application.</div>
+            <button class="btn accent" style="margin-top:18px; width:100%;">Submit application →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">Role FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">What's the application timeline?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How is training structured?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Are there advancement paths?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">What's the team culture?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:60px; color:#fff;">Elevate your career in <em>aesthetics</em>.</div>
+        <div class="btn-row" style="justify-content:center; margin-top:24px;"><button class="btn" style="background:#fff; color:var(--accent); border-color:#fff;">Apply now</button><button class="btn ghost" style="color:#fff; border-color:#fff;">Contact us</button></div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ EVENTS INDEX ================================================================ -->
+  <section class="page-pane" data-pane="events">
+    <div class="canvas-head"><div><h1>Events Index</h1><div class="sub">Upcoming · past · RSVP</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg" style="padding:100px 40px 60px;">
+        <div class="eyebrow">Events</div>
+        <div class="headline-hint" style="font-size:104px; line-height:0.95;">Gather, <em>learn</em>, glow.</div>
+        <p class="body-hint" style="max-width:580px; margin-top:22px; font-size:17px;">[Community, education, special experiences — Rejuvalase events.]</p>
+      </div>
+
+      <!-- Flagship spotlight -->
+      <div class="sec" style="padding-top:0;">
+        <div class="event-spotlight">
+          <div class="greybox" data-label="FLAGSHIP EVENT · OPEN HOUSE" style="height:520px;"></div>
+          <div class="event-body">
+            <span class="pill accent-pill">Next up · Open House</span>
+            <div class="headline-hint large" style="font-size:56px; margin-top:10px;">Spring Open House.</div>
+            <div class="row" style="margin-top:16px; gap:24px; font-family:'IBM Plex Mono',monospace; font-size:12px;">
+              <div><div class="tag">Date</div><div>May 17, 2026</div></div>
+              <div><div class="tag">Time</div><div>6–9pm</div></div>
+              <div><div class="tag">Where</div><div>Rejuvalase · Stafford</div></div>
+            </div>
+            <p class="body-hint" style="margin-top:16px;">[Teaser copy — what attendees will experience, treatments to try, giveaways.]</p>
+            <button class="btn accent" style="margin-top:22px;">RSVP →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="row spread" style="margin-bottom:24px;"><div class="headline-hint large" style="font-size:44px;">Upcoming & past.</div><div class="row" style="gap:6px;"><button class="pill accent">All</button><button class="pill">Upcoming</button><button class="pill">Past</button><button class="pill">Workshops</button><button class="pill">Social</button></div></div>
+        <div class="grid g-3" style="gap:20px;">
+          <div class="event-card"><div class="greybox" data-label="EVENT" style="height:220px;"></div><div class="event-cardbody"><span class="tag">May 17 · 6pm</span><h4>Spring Open House</h4><p class="body-hint">[2-line description.]</p><a class="arrow-link">RSVP →</a></div></div>
+          <div class="event-card"><div class="greybox" data-label="EVENT" style="height:220px;"></div><div class="event-cardbody"><span class="tag">Jun 3 · 6:30pm</span><h4>Skincare 101 Workshop</h4><p class="body-hint">[2-line description.]</p><a class="arrow-link">RSVP →</a></div></div>
+          <div class="event-card"><div class="greybox" data-label="EVENT" style="height:220px;"></div><div class="event-cardbody"><span class="tag">Jul 12 · 7pm</span><h4>Botox & Bubbly</h4><p class="body-hint">[2-line description.]</p><a class="arrow-link">RSVP →</a></div></div>
+          <div class="event-card"><div class="greybox" data-label="EVENT" style="height:220px;"></div><div class="event-cardbody"><span class="tag">Past · Mar 2026</span><h4>Winter Glow</h4><p class="body-hint">[2-line recap.]</p><a class="arrow-link">Recap →</a></div></div>
+          <div class="event-card"><div class="greybox" data-label="EVENT" style="height:220px;"></div><div class="event-cardbody"><span class="tag">Past · Feb 2026</span><h4>Wellness Night</h4><p class="body-hint">[2-line recap.]</p><a class="arrow-link">Recap →</a></div></div>
+          <div class="event-card"><div class="greybox" data-label="EVENT" style="height:220px;"></div><div class="event-cardbody"><span class="tag">Past · Jan 2026</span><h4>Anniversary Party</h4><p class="body-hint">[2-line recap.]</p><a class="arrow-link">Recap →</a></div></div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent-soft);">
+        <div class="headline-hint" style="font-size:68px;">Be the first to <em>know</em>.</div>
+        <p class="body-hint" style="max-width:480px; margin:14px auto 0;">Sign up for event updates — no spam, just invites.</p>
+        <div class="row" style="gap:0; max-width:460px; margin:22px auto 0;">
+          <div style="border:1px solid var(--ink); padding:14px 20px; flex:1; background:#fdfaf3; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute);">your@email.com</div>
+          <button class="btn" style="margin-left:-1px;">Subscribe</button>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">Events FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">Are events open to the public?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Do I need to RSVP?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Where are events held?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Can I bring a friend?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="grid g-2" style="gap:60px;">
+          <div><div class="eyebrow">Questions?</div><div class="headline-hint large" style="font-size:44px;">Event inquiries.</div><p class="body-hint" style="margin-top:12px;">[Contact for collaborations, special requests, accessibility needs.]</p></div>
+          <div class="form-card">
+            <div class="grid g-2" style="gap:14px;"><div class="input-field"><label>Name</label><div class="input-box"></div></div><div class="input-field"><label>Email</label><div class="input-box"></div></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Inquiry type</label><div class="input-box select">— select —<span>▾</span></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Message</label><div class="input-box" style="height:90px;"></div></div>
+            <button class="btn accent" style="margin-top:18px; width:100%;">Send →</button>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ EVENT DETAIL ================================================================ -->
+  <section class="page-pane" data-pane="event">
+    <div class="canvas-head"><div><h1>Event Detail</h1><div class="sub">Individual event page · RSVP</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div style="padding:16px 40px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); border-bottom:1px solid var(--line-soft);">Events / <span style="color:var(--ink);">Spring Open House</span></div>
+
+      <!-- Header with banner -->
+      <div style="position:relative; height:560px;">
+        <div class="greybox video" style="height:100%; width:100%;"></div>
+        <div style="position:absolute; inset:0; padding:40px; display:flex; flex-direction:column; justify-content:flex-end; color:#fff; background:linear-gradient(transparent 40%, rgba(0,0,0,0.6));">
+          <div class="row" style="gap:10px;"><span class="pill accent-pill">Upcoming</span><span class="pill" style="border-color:#fff; color:#fff;">Open to all</span></div>
+          <div class="headline-hint" style="font-size:96px; line-height:0.95; color:#fff; margin-top:14px;">Spring <em>Open House</em>.</div>
+          <div class="row" style="margin-top:20px; gap:30px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#fff; letter-spacing:0.15em;">
+            <div><div style="opacity:0.7;">DATE</div><div style="font-size:16px; margin-top:4px;">MAY 17, 2026</div></div>
+            <div><div style="opacity:0.7;">TIME</div><div style="font-size:16px; margin-top:4px;">6:00 – 9:00 PM</div></div>
+            <div><div style="opacity:0.7;">LOCATION</div><div style="font-size:16px; margin-top:4px;">REJUVALASE · STAFFORD</div></div>
+            <div><div style="opacity:0.7;">SEATS LEFT</div><div style="font-size:16px; margin-top:4px;">24 / 60</div></div>
+          </div>
+          <button class="btn accent" style="margin-top:24px; align-self:flex-start;">Reserve your spot →</button>
+        </div>
+      </div>
+
+      <div class="sec pad-lg">
+        <div class="grid" style="grid-template-columns:1fr 2fr; gap:60px;">
+          <div><div class="eyebrow">About</div><div class="tag" style="margin-top:40px;">Event overview</div></div>
+          <div>
+            <div class="headline-hint large" style="font-size:44px;">[Event hook — 1 line.]</div>
+            <p class="body-long">[2 paragraphs on what to expect, speakers, offerings, who should attend.]</p>
+            <h3 class="post-h2" style="margin-top:30px;">Schedule</h3>
+            <div class="stack" style="gap:0; border-top:1px solid var(--line-soft);">
+              <div class="schedule-row"><span class="tag">6:00</span><span>Welcome & cocktails</span></div>
+              <div class="schedule-row"><span class="tag">6:30</span><span>Facility tour & live demos</span></div>
+              <div class="schedule-row"><span class="tag">7:15</span><span>Skin consultation mini-sessions</span></div>
+              <div class="schedule-row"><span class="tag">8:00</span><span>Giveaways + special offers</span></div>
+              <div class="schedule-row"><span class="tag">8:30</span><span>Mingle & bookings</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="grid g-3">
+          <div class="post-card"><div class="greybox" data-label="HOST" style="height:200px;"></div><span class="tag">Host · Medical Director</span><h4>[Dr. Name]</h4><p class="body-hint">[1-line bio.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="HOST" style="height:200px;"></div><span class="tag">Featured</span><h4>Live HydraFacial demo</h4><p class="body-hint">[1-line.]</p></div>
+          <div class="post-card"><div class="greybox" data-label="HOST" style="height:200px;"></div><span class="tag">Featured</span><h4>Complimentary consults</h4><p class="body-hint">[1-line.]</p></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">Event FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">Do I need to RSVP?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">What should I bring?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Is parking available?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Is the venue accessible?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:68px; color:#fff;">Reserve your <em>spot</em>.</div>
+        <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:22px;">RSVP now →</button>
+      </div>
+
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="grid g-2" style="gap:60px;">
+          <div><div class="eyebrow">More info</div><div class="headline-hint large" style="font-size:40px;">Questions?</div><p class="body-hint" style="margin-top:12px;">[Short note on special requests, accessibility.]</p></div>
+          <div class="form-card">
+            <div class="input-field"><label>Name</label><div class="input-box"></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Email</label><div class="input-box"></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Message</label><div class="input-box" style="height:80px;"></div></div>
+            <button class="btn accent" style="margin-top:16px; width:100%;">Send →</button>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ QUIZ ================================================================ -->
+  <section class="page-pane" data-pane="quiz">
+    <div class="canvas-head"><div><h1>Where to Start Quiz</h1><div class="sub">Guided treatment finder</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg center" style="padding:120px 40px 80px; background:var(--paper-2); position:relative;">
+        <div class="eyebrow">2 min · personalized</div>
+        <div class="headline-hint" style="font-size:112px; line-height:0.95;">Not sure where<br>to <em>start</em>?</div>
+        <p class="body-hint" style="max-width:560px; margin:24px auto 0; font-size:17px;">[Calming intro — take a short quiz to find your ideal treatments.]</p>
+        <button class="btn accent" style="margin-top:28px;">Start the quiz →</button>
+      </div>
+
+      <!-- Steps overview -->
+      <div class="sec">
+        <div class="section-label"><span>What the quiz covers</span><span>6 steps</span></div>
+        <div class="grid g-3" style="gap:20px;">
+          <div class="step-card"><div class="num-chip accent-chip">01</div><h4>Main goals</h4><p>[What do you want most?]</p></div>
+          <div class="step-card"><div class="num-chip accent-chip">02</div><h4>Areas of concern</h4><p>[Where specifically?]</p></div>
+          <div class="step-card"><div class="num-chip accent-chip">03</div><h4>Skin type</h4><p>[Oily, dry, sensitive…]</p></div>
+          <div class="step-card"><div class="num-chip accent-chip">04</div><h4>Previous treatments</h4><p>[History so far.]</p></div>
+          <div class="step-card"><div class="num-chip accent-chip">05</div><h4>Comfort level</h4><p>[Needle-friendly? Timid?]</p></div>
+          <div class="step-card"><div class="num-chip accent-chip">06</div><h4>Timing & budget</h4><p>[When + how much.]</p></div>
+        </div>
+      </div>
+
+      <!-- Live quiz form preview -->
+      <div class="sec" style="background:var(--ink); color:var(--paper);">
+        <div class="section-label dark"><span>Quiz · Preview</span><span>Step 02 / 06</span></div>
+        <div class="grid" style="grid-template-columns:1fr 1.4fr; gap:60px; margin-top:20px;">
+          <div>
+            <div class="eyebrow" style="color:var(--accent-soft);">Step 02 of 06</div>
+            <div class="headline-hint large" style="font-size:48px; color:var(--paper);">Where is your main <em>focus</em> area?</div>
+            <p class="dark-p" style="margin-top:16px;">Select all that apply.</p>
+            <div class="progress-bars" style="margin-top:28px;">
+              <div class="bar" style="background:var(--accent); position:relative;"><div style="position:absolute;inset:0;background:var(--accent);"></div></div>
+              <div class="bar" style="background:var(--accent); position:relative;"><div style="position:absolute;inset:0;background:var(--accent);"></div></div>
+              <div class="bar" style="background:rgba(245,241,234,0.2);"></div>
+              <div class="bar" style="background:rgba(245,241,234,0.2);"></div>
+              <div class="bar" style="background:rgba(245,241,234,0.2);"></div>
+              <div class="bar" style="background:rgba(245,241,234,0.2);"></div>
+            </div>
+          </div>
+          <div class="grid g-2" style="gap:10px;">
+            <div class="quiz-choice">□ Forehead & brows</div>
+            <div class="quiz-choice on">✓ Under eyes</div>
+            <div class="quiz-choice">□ Cheeks & midface</div>
+            <div class="quiz-choice on">✓ Around the mouth</div>
+            <div class="quiz-choice">□ Neck & jawline</div>
+            <div class="quiz-choice">□ Full face</div>
+            <div class="quiz-choice">□ Body</div>
+            <div class="quiz-choice">□ Not sure</div>
+          </div>
+        </div>
+        <div class="row spread" style="margin-top:36px;">
+          <button class="btn ghost" style="color:var(--paper); border-color:var(--paper);">← Back</button>
+          <button class="btn" style="background:var(--paper); color:var(--ink); border-color:var(--paper);">Next step →</button>
+        </div>
+      </div>
+
+      <!-- Contact gate -->
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="grid g-2" style="gap:60px;">
+          <div><div class="eyebrow">Before your results</div><div class="headline-hint large" style="font-size:44px;">Where should we send them?</div><p class="body-hint" style="margin-top:16px;">We'll email your personalized recs — you can also book a free consult from there.</p></div>
+          <div class="form-card">
+            <div class="input-field"><label>Name</label><div class="input-box"></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Email</label><div class="input-box"></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Phone (optional)</label><div class="input-box"></div></div>
+            <div class="row" style="margin-top:12px; font-family:'IBM Plex Mono',monospace; font-size:11px;"><div style="width:14px;height:14px;border:1px solid var(--ink);"></div>Keep me updated on Rejuvalase news & events.</div>
+            <button class="btn accent" style="margin-top:18px; width:100%;">See my results →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample result -->
+      <div class="sec">
+        <div class="section-label"><span>Your recommended treatments</span><span>Sample output</span></div>
+        <div class="grid g-3">
+          <div class="result-card"><span class="pill accent-pill">Top match · 94%</span><h4>HydraFacial + Peel</h4><p class="body-hint">[Why it's recommended — reason ties back to quiz answers.]</p><a class="arrow-link">See service →</a></div>
+          <div class="result-card"><span class="pill">Also consider · 82%</span><h4>Microneedling</h4><p class="body-hint">[Why recommended.]</p><a class="arrow-link">See service →</a></div>
+          <div class="result-card"><span class="pill">Complement · 71%</span><h4>Skincare Regimen</h4><p class="body-hint">[Why recommended.]</p><a class="arrow-link">See products →</a></div>
+        </div>
+      </div>
+
+      <!-- Benefits -->
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="row spread" style="margin-bottom:24px;"><div class="headline-hint large" style="font-size:44px;">Why the quiz?</div></div>
+        <div class="grid g-3" style="gap:20px;">
+          <div class="benefit-card"><div class="num-chip accent-chip">01</div><h4>Personalized</h4><p>[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">02</div><h4>Expert-guided</h4><p>[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">03</div><h4>No pressure</h4><p>[2 lines.]</p></div>
+        </div>
+      </div>
+
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="headline-hint" style="font-size:68px; color:#fff;">See your recommended <em>treatments</em>.</div>
+        <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:22px;">Start the quiz →</button>
+      </div>
+
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">Quiz FAQ.</div>
+          <div>
+            <div class="faq-item"><span class="q">What happens to my answers?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Is my info private?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How are recommendations made?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ MARKETING LANDING ================================================================ -->
+  <section class="page-pane" data-pane="mkt">
+    <div class="canvas-head"><div><h1>Marketing Landing Page</h1><div class="sub">Campaign-specific · conversion-focused</div></div></div>
+    <div class="frame desktop">
+      <!-- Simplified navbar (fewer options on marketing page) -->
+      <div data-nav data-mkt="true"></div>
+
+      <!-- Hero -->
+      <div class="sec pad-lg" style="position:relative; padding:0;">
+        <div style="display:grid; grid-template-columns:1.1fr 1fr; min-height:640px;">
+          <div style="padding:80px 60px; display:flex; flex-direction:column; justify-content:center;">
+            <span class="pill accent-pill">Limited · Ends May 31</span>
+            <div class="headline-hint" style="font-size:92px; line-height:0.95; margin-top:16px;">Your <em>glow-up</em>,<br>on us.</div>
+            <p class="body-hint" style="margin-top:22px; font-size:18px; max-width:440px;">[Subheadline — campaign-specific promise. Reinforces unique value.]</p>
+            <div class="row" style="margin-top:28px; gap:20px;">
+              <div><div class="tag">Save</div><div class="svc-stat">$120</div></div>
+              <div><div class="tag">From</div><div class="svc-stat">$480</div></div>
+              <div><div class="tag">Visits left</div><div class="svc-stat">24</div></div>
+            </div>
+            <div class="btn-row" style="margin-top:30px;"><button class="btn accent">Claim Offer →</button><button class="btn ghost">Book Consultation</button></div>
+          </div>
+          <div class="greybox video" data-label=""></div>
+        </div>
+        <div class="anno r" style="top:40px; right:-180px;">Marketing pages use a<br>stripped nav + single CTA focus</div>
+      </div>
+
+      <!-- Context intro -->
+      <div class="sec" style="background:var(--ink); color:var(--paper); padding:40px;">
+        <div class="row spread" style="flex-wrap:wrap; gap:20px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent-soft);">Limited-time launch · Spring 2026</div>
+          <div class="headline-hint" style="font-size:28px; color:var(--paper); flex:1;">[One-line urgency / context statement.]</div>
+          <div class="tag" style="color:var(--accent-soft);">Ends May 31 · 23 days left</div>
+        </div>
+      </div>
+
+      <!-- 3 key features -->
+      <div class="sec">
+        <div class="grid g-3">
+          <div class="benefit-card"><div class="num-chip accent-chip">01</div><h4>Expert providers</h4><p>[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">02</div><h4>Natural results</h4><p>[2 lines.]</p></div>
+          <div class="benefit-card"><div class="num-chip accent-chip">03</div><h4>Limited pricing</h4><p>[2 lines.]</p></div>
+        </div>
+      </div>
+
+      <!-- Detailed benefits -->
+      <div class="sec pad-lg" style="background:var(--paper-2);">
+        <div class="grid g-2" style="gap:60px; align-items:center;">
+          <div class="greybox" data-label="TREATMENT · LIFESTYLE" style="height:480px;"></div>
+          <div>
+            <div class="eyebrow">Why this offer</div>
+            <div class="headline-hint large" style="font-size:48px;">The <em>credible</em> choice.</div>
+            <p class="body-hint" style="margin-top:20px;">[Explain how the service/treatment solves client pain points — credibility + safety.]</p>
+            <div class="stack" style="gap:10px; margin-top:20px;">
+              <div class="bullet-row">✓ [Pain point 1 solved]</div>
+              <div class="bullet-row">✓ [Pain point 2 solved]</div>
+              <div class="bullet-row">✓ [Pain point 3 solved]</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="sec">
+        <div class="section-label"><span>Clients on this service</span><span>02</span></div>
+        <div class="grid g-2" style="gap:20px;">
+          <div class="post-card" style="padding:28px; border:1px solid var(--line-soft);"><div style="font-family:'Instrument Serif',serif; font-size:40px;">"</div><p class="quote-body">[Relevant testimonial about this treatment.]</p><div class="cite-lite">— Client · Stafford</div></div>
+          <div class="post-card" style="padding:28px; border:1px solid var(--line-soft);"><div style="font-family:'Instrument Serif',serif; font-size:40px;">"</div><p class="quote-body">[Relevant testimonial about this treatment.]</p><div class="cite-lite">— Client · Fredericksburg</div></div>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="row spread" style="margin-bottom:24px;"><div class="headline-hint large" style="font-size:44px;">Transparent pricing.</div><span class="tag">3 tiers</span></div>
+        <div class="grid g-3" style="gap:20px;">
+          <div class="price-card"><div class="tag">Starter</div><div class="price" style="font-size:40px; margin-top:8px;">$299</div><div class="was" style="margin-top:2px;">was $349</div><hr class="hr"><div class="stack" style="gap:8px;"><div class="bullet-row" style="font-size:13px;">✓ [Included]</div><div class="bullet-row" style="font-size:13px;">✓ [Included]</div></div><button class="btn ghost" style="margin-top:16px; width:100%;">Choose</button></div>
+          <div class="price-card featured"><div class="tag" style="color:var(--accent);">Most popular</div><div class="price" style="font-size:48px; margin-top:8px;">$480</div><div class="was" style="margin-top:2px;">was $600</div><hr class="hr"><div class="stack" style="gap:8px;"><div class="bullet-row" style="font-size:13px;">✓ [Included]</div><div class="bullet-row" style="font-size:13px;">✓ [Included]</div><div class="bullet-row" style="font-size:13px;">✓ [Included]</div></div><button class="btn accent" style="margin-top:16px; width:100%;">Choose</button></div>
+          <div class="price-card"><div class="tag">Complete</div><div class="price" style="font-size:40px; margin-top:8px;">$720</div><div class="was" style="margin-top:2px;">was $900</div><hr class="hr"><div class="stack" style="gap:8px;"><div class="bullet-row" style="font-size:13px;">✓ [Included]</div><div class="bullet-row" style="font-size:13px;">✓ [Included]</div><div class="bullet-row" style="font-size:13px;">✓ [Included]</div></div><button class="btn ghost" style="margin-top:16px; width:100%;">Choose</button></div>
+        </div>
+      </div>
+
+      <!-- Repeat CTA -->
+      <div class="sec pad-lg center" style="background:var(--accent); color:#fff;">
+        <div class="eyebrow" style="color:rgba(255,255,255,0.85);">Don't wait</div>
+        <div class="headline-hint" style="font-size:84px; color:#fff;">Start your <em>glow-up</em>.</div>
+        <button class="btn" style="background:#fff; color:var(--accent); border-color:#fff; margin-top:24px;">Reserve your spot →</button>
+      </div>
+
+      <!-- Lead capture form -->
+      <div class="sec">
+        <div class="grid g-2" style="gap:60px;">
+          <div><div class="eyebrow">Lead form</div><div class="headline-hint large" style="font-size:48px;">Or, we can <em>call you</em>.</div><p class="body-hint" style="margin-top:14px;">[Leave your info and we'll reach out within 1 business day.]</p></div>
+          <div class="form-card">
+            <div class="grid g-2" style="gap:14px;"><div class="input-field"><label>Name *</label><div class="input-box"></div></div><div class="input-field"><label>Phone *</label><div class="input-box"></div></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Email *</label><div class="input-box"></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Preferred service / offer</label><div class="input-box select">— Spring Glow-Up —<span>▾</span></div></div>
+            <div class="row" style="margin-top:14px; font-family:'IBM Plex Mono',monospace; font-size:11px;"><div style="width:14px;height:14px;border:1px solid var(--ink);"></div>I consent to be contacted.</div>
+            <button class="btn accent" style="margin-top:18px; width:100%;">Reserve →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Campaign FAQ -->
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="grid g-2" style="gap:60px;">
+          <div class="headline-hint large" style="font-size:48px;">Objections, <em>answered</em>.</div>
+          <div>
+            <div class="faq-item"><span class="q">Who's eligible?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How soon can I start?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Is there a consultation?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Refund policy?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reassuring contact -->
+      <div class="sec">
+        <div class="grid g-2" style="gap:40px; align-items:center;">
+          <div>
+            <div class="eyebrow">We're local</div>
+            <div class="headline-hint large" style="font-size:44px;">Right here in Stafford.</div>
+            <div class="stack" style="margin-top:20px; font-family:'IBM Plex Mono',monospace; font-size:13px;">
+              <div>📍 [Address], Stafford, VA</div>
+              <div>☎ [Phone] · text or call</div>
+              <div>✉ [Email]</div>
+            </div>
+            <div class="btn-row" style="margin-top:22px;"><button class="btn ghost small">Live chat</button><button class="btn ghost small">Request callback</button></div>
+          </div>
+          <div class="greybox" data-label="MAP" style="height:280px;"></div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ CONTACT ================================================================ -->
+  <section class="page-pane" data-pane="contact">
+    <div class="canvas-head"><div><h1>Contact</h1><div class="sub">Form · map · hours</div></div></div>
+    <div class="frame desktop">
+      <div data-nav></div>
+
+      <div class="sec pad-lg" style="padding:100px 40px 60px;">
+        <div class="grid g-2" style="gap:80px; align-items:end;">
+          <div><div class="eyebrow">Say Hi</div><div class="headline-hint" style="font-size:120px; line-height:0.95;">Get in <em>touch</em>.</div></div>
+          <p class="body-hint" style="font-size:17px; max-width:440px;">[2 lines — warm, professional, friendly. For bookings, inquiries, the occasional "just wondering".]</p>
+        </div>
+      </div>
+
+      <div class="sec" style="padding:0 40px 60px;">
+        <div class="grid g-3" style="gap:14px;">
+          <div class="contact-method"><div class="tag">Call</div><div class="headline-hint" style="font-size:32px; margin-top:6px;">[Phone]</div><p class="body-hint">Mon–Sat · 9am–7pm</p></div>
+          <div class="contact-method"><div class="tag">Write</div><div class="headline-hint" style="font-size:32px; margin-top:6px;">[Email]</div><p class="body-hint">Reply within 1 business day.</p></div>
+          <div class="contact-method accent-bg"><div class="tag" style="color:rgba(255,255,255,0.7);">Visit</div><div class="headline-hint" style="font-size:32px; margin-top:6px; color:#fff;">Stafford, VA</div><p class="body-hint" style="color:rgba(255,255,255,0.9);">[Street address]</p></div>
+        </div>
+      </div>
+
+      <div class="sec" style="padding:0 40px 80px;">
+        <div class="grid" style="grid-template-columns:1.1fr 1fr; gap:40px;">
+          <div class="form-card" style="padding:36px;">
+            <div class="section-label"><span>Booking form</span><span>Conversion</span></div>
+            <div class="grid g-2" style="gap:14px; margin-top:20px;"><div class="input-field"><label>First name *</label><div class="input-box"></div></div><div class="input-field"><label>Last name *</label><div class="input-box"></div></div></div>
+            <div class="grid g-2" style="gap:14px; margin-top:14px;"><div class="input-field"><label>Email *</label><div class="input-box"></div></div><div class="input-field"><label>Phone *</label><div class="input-box"></div></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Service interest</label><div class="input-box select">— select —<span>▾</span></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Preferred date/time</label><div class="input-box"></div></div>
+            <div class="input-field" style="margin-top:14px;"><label>Message</label><div class="input-box" style="height:110px;"></div></div>
+            <div class="row" style="margin-top:16px; font-family:'IBM Plex Mono',monospace; font-size:11px;"><div style="width:14px;height:14px;border:1px solid var(--ink);"></div>I agree to the privacy policy & consent to be contacted.</div>
+            <button class="btn accent" style="margin-top:20px; width:100%;">Request appointment →</button>
+          </div>
+          <div>
+            <div class="greybox" data-label="MAP · STAFFORD, VA" style="height:380px;"></div>
+            <div style="border:1px solid var(--line); padding:20px; margin-top:14px;">
+              <div class="tag">Hours</div>
+              <div class="grid g-2" style="gap:4px; margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:12px;">
+                <div>Mon–Fri</div><div>9am – 7pm</div>
+                <div>Saturday</div><div>10am – 5pm</div>
+                <div>Sunday</div><div>Closed</div>
+              </div>
+              <hr class="hr">
+              <div class="tag">Service area</div>
+              <p class="body-hint" style="font-size:12px; margin-top:6px;">Stafford · Fredericksburg · Quantico · Dumfries</p>
+              <hr class="hr">
+              <div class="tag">Parking</div>
+              <p class="body-hint" style="font-size:12px; margin-top:6px;">Complimentary lot parking, step-free entrance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec" style="background:var(--paper-2);">
+        <div class="grid g-2" style="gap:60px;">
+          <div><div class="eyebrow">Before you book</div><div class="headline-hint large" style="font-size:44px;">Quick answers.</div></div>
+          <div>
+            <div class="faq-item"><span class="q">What's your cancellation policy?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">How should I prepare?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Are consultations complimentary?</span><span class="plus">+</span></div>
+            <div class="faq-item"><span class="q">Do you accept insurance?</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-footer></div>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<button class="tweaks-toggle" id="tweaksToggle">✎</button>
+<div class="tweaks" id="tweaksPanel">
+  <h4>Tweaks <button id="tweaksClose">✕</button></h4>
+  <div class="tweak-row"><label>Annotations</label><div class="seg" data-tweak="anno"><button class="on" data-val="on">On</button><button data-val="off">Off</button></div></div>
+  <div class="tweak-row"><label>Device</label><div class="seg" data-tweak="device"><button class="on" data-val="desktop">Desktop</button><button data-val="mobile">Mobile</button></div></div>
+  <div class="tweak-row"><label>Fidelity</label><div class="seg" data-tweak="fi"><button class="on" data-val="low">Low-fi</button><button data-val="mid">Mid-fi</button></div></div>
+  <div class="tweak-row" style="font-size:10px; color:var(--mute); line-height:1.5;">Square corners locked per brand.<br>Hover "Services" for mega menu.<br>Accent #b8933b gold.</div>
+</div>
+
+<script>
+const navbarHTML = `
+<div class="wf-nav">
+  <div class="logo">Rejuvalase</div>
+  <div class="items">
+    <span class="item">About</span>
+    <span class="item has-mega">Services</span>
+    <span class="item">Specials</span>
+    <span class="item">Blog</span>
+    <span class="item">Contact</span>
+  </div>
+  <div class="row" style="gap:10px;">
+    <button class="cta ghost">Take Quiz</button>
+    <button class="cta">Book Now</button>
+  </div>
+  <div class="hamburger">≡</div>
+  <div class="mega">
+    <div class="featured">
+      <div class="greybox" data-label="FEATURED · SEASONAL"></div>
+      <h6>Spring Glow Package</h6>
+      <p class="body-hint" style="font-size:12px;">HydraFacial + peel bundle, Q2 only ↘</p>
+      <a class="arrow-link" style="margin-top:8px;">Claim special →</a>
+    </div>
+    <div class="col"><h5>Medspa</h5><a>Injectables ↘</a><a>• Botox</a><a>• Fillers</a><a>Laser ↘</a><a>• Hair removal</a><a>• Resurfacing</a></div>
+    <div class="col"><h5>Skin & Body</h5><a>Skin Rejuv ↘</a><a>• HydraFacial</a><a>• Peels</a><a>Body ↘</a><a>• CoolSculpting</a><a>• Emsculpt</a></div>
+    <div class="col"><h5>Dayspa & Wellness</h5><a>Facials</a><a>Massage</a><a>Body Treatments</a><a>IV / Wellness</a><hr class="hr" style="border-color:var(--line-soft);"><a style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;">View all services →</a></div>
+  </div>
+</div>`;
+
+const navbarMktHTML = `
+<div class="wf-nav" style="padding:18px 30px;">
+  <div class="logo">Rejuvalase</div>
+  <div class="row" style="gap:28px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase;">
+    <span>☎ [Phone]</span>
+    <span style="color:var(--mute);">|</span>
+    <span>Stafford, VA</span>
+  </div>
+  <button class="cta">Claim Offer</button>
+</div>`;
+
+const footerHTML = `
+<div class="wf-footer">
+  <div class="brand-col">
+    <div class="logo">Rejuvalase</div>
+    <p>[Short brand tagline — a single line.]<br>Stafford, Virginia</p>
+    <div class="newsletter"><input placeholder="your@email.com" /><button>Join</button></div>
+    <div class="socials"><span>ig</span><span>fb</span><span>in</span><span>yt</span></div>
+  </div>
+  <div><h6>Services</h6><a>Injectables</a><a>Laser</a><a>Skin Rejuv</a><a>Body</a><a>Wellness</a><a>Medspa</a><a>Dayspa</a></div>
+  <div><h6>Specials</h6><a>Current specials</a><a>Seasonal</a><a>Bundles</a><a>Memberships</a><a>Gift cards</a></div>
+  <div><h6>Learn</h6><a>Blog</a><a>FAQ</a><a>Events</a><a>Quiz</a><a>Featured posts</a></div>
+  <div><h6>Company</h6><a>About</a><a>Team</a><a>Careers</a><a>Contact</a><a>Legal</a></div>
+  <div class="footer-baseline">
+    <div>© 2026 Rejuvalase · Stafford VA · All rights reserved</div>
+    <div>Made by <a href="https://www.edwinmarie.com" target="_blank">Edwin Marie</a></div>
+  </div>
+</div>`;
+
+const logosHTML = `
+<div class="logo-strip">
+  <div class="logo-track">
+    <div class="logo">ALASTIN</div><div class="logo">SkinMedica</div><div class="logo">Allergan</div><div class="logo">Sciton</div><div class="logo">HydraFacial</div><div class="logo">ZO Skin</div><div class="logo">CoolSculpting</div>
+    <div class="logo">ALASTIN</div><div class="logo">SkinMedica</div><div class="logo">Allergan</div><div class="logo">Sciton</div><div class="logo">HydraFacial</div><div class="logo">ZO Skin</div><div class="logo">CoolSculpting</div>
+  </div>
+</div>`;
+
+document.querySelectorAll('[data-nav]').forEach(el => { el.outerHTML = el.hasAttribute('data-mkt') ? navbarMktHTML : navbarHTML; });
+document.querySelectorAll('[data-footer]').forEach(el => el.outerHTML = footerHTML);
+document.querySelectorAll('[data-logos]').forEach(el => el.outerHTML = logosHTML);
+
+document.querySelectorAll('.wf-nav .item.has-mega').forEach(item => {
+  item.addEventListener('click', () => { item.closest('.wf-nav').classList.toggle('mega-open'); });
+});
+
+const nav = document.getElementById('pageNav');
+nav.addEventListener('click', e => {
+  const btn = e.target.closest('button[data-page]');
+  if (!btn) return;
+  nav.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const pane = btn.dataset.page;
+  document.querySelectorAll('.page-pane').forEach(p => p.classList.toggle('active', p.dataset.pane === pane));
+  localStorage.setItem('rj_page', pane);
+  window.scrollTo(0, 0);
+});
+
+const savedPage = localStorage.getItem('rj_page');
+if (savedPage) { const btn = nav.querySelector(`button[data-page="${savedPage}"]`); if (btn) btn.click(); }
+
+// Clickable cross-page nav from wireframe navbars
+document.addEventListener('click', e => {
+  const item = e.target.closest('.wf-nav .item, .wf-nav .logo');
+  if (!item) return;
+  const text = item.textContent.trim().toLowerCase();
+  const map = { 'about':'about','blog':'blog','contact':'contact','rejuvalase':'home','specials':'specials','take quiz':'quiz' };
+  if (map[text]) {
+    const btn = nav.querySelector(`button[data-page="${map[text]}"]`);
+    if (btn) btn.click();
+  }
+});
+
+const tweaksPanel = document.getElementById('tweaksPanel');
+document.getElementById('tweaksToggle').addEventListener('click', () => tweaksPanel.classList.add('open'));
+document.getElementById('tweaksClose').addEventListener('click', () => tweaksPanel.classList.remove('open'));
+tweaksPanel.querySelectorAll('.seg').forEach(seg => {
+  seg.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-val]');
+    if (!btn) return;
+    seg.querySelectorAll('button').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const key = seg.dataset.tweak; const val = btn.dataset.val;
+    if (key === 'anno') document.body.classList.toggle('no-anno', val === 'off');
+    if (key === 'device') document.body.classList.toggle('mobile', val === 'mobile');
+    if (key === 'fi') document.body.classList.toggle('mid', val === 'mid');
+    localStorage.setItem('rj_tw_' + key, val);
+  });
+});
+['anno','device','fi'].forEach(k => {
+  const v = localStorage.getItem('rj_tw_' + k);
+  if (!v) return;
+  const seg = tweaksPanel.querySelector(`.seg[data-tweak="${k}"]`);
+  if (seg) { const btn = seg.querySelector(`button[data-val="${v}"]`); if (btn) btn.click(); }
+});
+</script>
+</body>
+</html>
