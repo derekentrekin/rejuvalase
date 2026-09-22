@@ -1,0 +1,48 @@
+{
+  "site": "https://www.assureplumbingva.com",
+  "phone": "(540) 645-1351",
+  "notes": "Status values: yes = offered, call = call to confirm, no = not offered. Source: assureplumbingva.com homepage (Sept 2026): septic pump-outs only in Fredericksburg, Spotsylvania & Stafford; 'for septic, we stay close to Fredericksburg, Spotsylvania and Stafford'.",
+  "services": [
+    {"id": "plumbing",          "name": "Plumbing",          "short": "Plumbing",     "url": "/service/plumbing"},
+    {"id": "leak-repairs",      "name": "Leak Repairs",      "short": "Leaks",        "url": "/service/leak-repairs"},
+    {"id": "water-heater",      "name": "Water Heater",      "short": "Water Heater", "url": "/service/water-heater"},
+    {"id": "repiping",          "name": "Repiping",          "short": "Repiping",     "url": "/service/repiping"},
+    {"id": "sump-pumps",        "name": "Sump Pumps",        "short": "Sump Pumps",   "url": "/service/sump-pumps"},
+    {"id": "water-treatment",   "name": "Water Treatment",   "short": "Water Treat.", "url": "/service/water-treatment"},
+    {"id": "well-pumps",        "name": "Well Pumps",        "short": "Well Pumps",   "url": "/service/well-pumps"},
+    {"id": "septic-pumping",    "name": "Septic Pumping",    "short": "Septic Pump",  "url": "/service/septic-pumping"},
+    {"id": "septic-repair",     "name": "Septic Repair",     "short": "Septic Repair","url": "/service/septic-repair"},
+    {"id": "alternative-septic","name": "Alternative Septic","short": "Alt. Septic",  "url": "/service/alternative-septic"},
+    {"id": "other",             "name": "Other Services",    "short": "Other",        "url": "/service/other"}
+  ],
+  "defaults": {
+    "core":  {"well-pumps": "yes", "septic-pumping": "yes", "septic-repair": "yes", "alternative-septic": "yes"},
+    "other": {"well-pumps": "call", "septic-pumping": "no",  "septic-repair": "call", "alternative-septic": "call"}
+  },
+  "areas": [
+    {"name": "Fredericksburg",    "type": "city",   "url": "/cities/fredericksburg",       "tier": "core"},
+    {"name": "Stafford",          "type": "city",   "url": "/cities/stafford",             "tier": "core"},
+    {"name": "Ashland",           "type": "city",   "url": "/cities/ashland",              "tier": "other"},
+    {"name": "Bowling Green",     "type": "city",   "url": "/cities/bowling-green",        "tier": "other"},
+    {"name": "Colonial Beach",    "type": "city",   "url": "/cities/colonial-beach",       "tier": "other"},
+    {"name": "Culpeper",          "type": "city",   "url": "/cities/culpeper",             "tier": "other"},
+    {"name": "Dahlgren",          "type": "city",   "url": "/cities/dahlgren",             "tier": "other"},
+    {"name": "Lake of the Woods", "type": "city",   "url": "/cities/lake-of-the-woods",    "tier": "other"},
+    {"name": "Louisa",            "type": "city",   "url": "/cities/louisa",               "tier": "other"},
+    {"name": "Mechanicsville",    "type": "city",   "url": "/cities/mechanicsville",       "tier": "other"},
+    {"name": "Richmond",          "type": "city",   "url": "/cities/richmond",             "tier": "other"},
+    {"name": "Short Pump",        "type": "city",   "url": "/cities/short-pump",           "tier": "other"},
+    {"name": "Spotsylvania County",  "type": "county", "url": "/counties/spotsylvania-county",  "tier": "core"},
+    {"name": "Stafford County",      "type": "county", "url": "/counties/stafford-county",      "tier": "core"},
+    {"name": "Caroline County",      "type": "county", "url": "/counties/caroline-county",      "tier": "other"},
+    {"name": "Culpeper County",      "type": "county", "url": "/counties/culpeper-county",      "tier": "other"},
+    {"name": "Essex County",         "type": "county", "url": "/counties/essex-county",         "tier": "other"},
+    {"name": "Hanover County",       "type": "county", "url": "/counties/hanover-county",       "tier": "other"},
+    {"name": "King and Queen County","type": "county", "url": "/counties/king-and-queen-county","tier": "other"},
+    {"name": "King George County",   "type": "county", "url": "/counties/king-george-county",   "tier": "other"},
+    {"name": "King William County",  "type": "county", "url": "/counties/king-william-county",  "tier": "other"},
+    {"name": "Richmond County",      "type": "county", "url": "/counties/richmond-county",      "tier": "other"},
+    {"name": "Westmoreland County",  "type": "county", "url": "/counties/westmoreland-county",   "tier": "other"}
+  ],
+  "overrides": {}
+}
