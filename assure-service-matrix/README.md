@@ -4,7 +4,7 @@ An embeddable table for www.assureplumbingva.com showing which services are offe
 
 ## Install (Webflow)
 1. Add an **Embed** element where the matrix should appear (for example on `/locations` or `/services`).
-2. Paste the full contents of `embed.html` (about 13.6K characters, under Webflow's 50K limit).
+2. Paste the full contents of `embed.html` (about 18K characters, under Webflow's 50K limit).
 3. Publish. The widget uses the site's existing **Outfit** font, and all styles are scoped to `#apx-matrix`.
 
 ## Editing
@@ -15,4 +15,6 @@ Edit `data.json`, then run `python3 build.py` to regenerate `embed.html` and `pr
 - `overrides` lets you change a single cell, for example `"Culpeper County": {"septic-repair": "yes"}`.
 - Status values: `yes` (check mark, links to the service page), `call` (tap to call), `no` (dash).
 
-To match brand colors, change the `--apx-*` variables at the top of the CSS in `build.py`.
+Colors use the site palette (grays #242424 to #f8f8f8, primary #b5182d with its 200 to 600 tints) as `--apx-*` variables at the top of the CSS in `build.py`.
+
+On containers narrower than 720px the table becomes expandable area cards that group services into Available, Call to confirm and Not offered. This uses a container query, so it also works in a narrow Webflow column.
