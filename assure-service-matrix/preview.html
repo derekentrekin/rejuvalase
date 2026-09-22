@@ -106,6 +106,19 @@ padding:18px 20px;border-radius:var(--apx-radius);background:var(--apx-ink);colo
 padding:12px 18px;border-radius:10px;min-height:44px}
 #apx-matrix .apx-btn:hover{background:#fff;color:var(--apx-red)}
 #apx-matrix .apx-btn svg{fill:currentColor}
+#apx-matrix input,#apx-matrix .apx-dd-btn,#apx-matrix .apx-seg button,#apx-matrix .apx-chip,#apx-matrix .apx-yes a,#apx-matrix .apx-call a,
+#apx-matrix .apx-card summary,#apx-matrix .apx-btn,#apx-matrix .apx-dd-list li{transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s}
+#apx-matrix input:focus{border-color:var(--apx-red)}
+@media (hover:hover){
+#apx-matrix input:hover,#apx-matrix .apx-dd-btn:hover{border-color:var(--apx-red-600);background:var(--apx-red-200)}
+#apx-matrix input:focus:hover{background:var(--apx-bg)}
+#apx-matrix .apx-seg button:hover{color:var(--apx-red)}
+#apx-matrix .apx-seg button[aria-pressed="false"]:hover{background:var(--apx-red-300)}
+#apx-matrix .apx-card summary:hover{background:var(--apx-red-200)}
+#apx-matrix .apx-card summary:hover .apx-chev{stroke:var(--apx-red)}
+#apx-matrix .apx-card summary:hover .apx-cname{color:var(--apx-red)}
+#apx-matrix .apx-chip.y:hover{background:var(--apx-red);color:#fff}
+#apx-matrix .apx-chip.c:hover{background:var(--apx-ink);color:#fff}}
 @container (max-width:720px){
 #apx-matrix .apx-wrap,#apx-matrix .apx-legend{display:none}
 #apx-matrix .apx-mobile{display:block}
