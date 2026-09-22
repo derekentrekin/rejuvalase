@@ -6,7 +6,9 @@ Outputs:
   preview.html - standalone page for previewing the embed locally
 
 The table is rendered by the inline script from a compact data blob so the
-snippet stays under Webflow's 50,000-character Embed limit.
+snippet stays under Webflow's 50,000-character Embed limit. Keep exactly one
+<script> in the snippet, as its last tag: Webflow drops everything after the
+first script in an Embed.
 """
 import html
 import json
@@ -163,7 +165,7 @@ padding:12px 18px;border-radius:10px;min-height:44px}
 
 JS = r"""
 (function(){var r=document.getElementById('apx-matrix');if(!r)return;
-var D=JSON.parse(r.querySelector('.apx-data').textContent),S=D.s,ids=S.map(function(s){return s[0]});
+var D=__DATA__,S=D.s,ids=S.map(function(s){return s[0]});
 function e(x){return String(x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var ck='<svg class="apx-ck" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>',
 ph='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 2.5l1.6 3-1.3 1.2a8.5 8.5 0 0 0 3.8 3.8l1.2-1.3 3 1.6-.6 2.4c-.1.5-.6.8-1.1.8A10.8 10.8 0 0 1 2 4.2c0-.5.3-1 .8-1.1z"/></svg>',
@@ -264,9 +266,8 @@ SNIPPET = f"""<!-- Assure Plumbing & Septic: service-by-area matrix (generated b
     <p>Don&rsquo;t see your area?<small>We serve the I-95 corridor from Stafford to Richmond. Call and ask.</small></p>
     <a class="apx-btn" href="{TEL}">{PHONE_ICON}{PHONE}</a>
   </div>
-<script type="application/json" class="apx-data">{compact()}</script>
 </section>
-<script>{JS.strip()}</script>
+<script>{JS.strip().replace("__DATA__", compact())}</script>
 """
 
 PREVIEW = f"""<!doctype html>
