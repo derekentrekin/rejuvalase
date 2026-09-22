@@ -42,12 +42,13 @@ def compact():
     return json.dumps({
         "site": SITE, "tel": TEL,
         "s": [[s["id"], s["name"], s["short"], s["url"]] for s in services],
-        "a": [[a["name"], a["type"][0], a["url"], 1 if a["tier"] == "core" else 0,
+        "a": [[a["name"], a["type"], a["url"], 1 if a["tier"] == "core" else 0,
                "".join(code[status(a, s)] for s in services)] for a in areas],
     }, separators=(",", ":")).replace("</", "<\\/")
 
 
-options = "".join(f'<option value="{s["id"]}">{esc(s["name"])}</option>' for s in services)
+options = "".join(f'<li role="option" id="apx-o-{s["id"]}" data-v="{s["id"]}" aria-selected="false">{esc(s["name"])}</li>'
+                  for s in services)
 
 CSS = """
 #apx-matrix{--apx-black:#000;--apx-ink:#242424;--apx-muted:#4c4c4c;--apx-gray:#919191;--apx-line:#d3d3d3;--apx-soft:#f3f3f3;
@@ -63,11 +64,21 @@ max-width:1200px;margin:0 auto;box-sizing:border-box;line-height:1.4}
 #apx-matrix h2{font-size:clamp(26px,4vw,38px);font-weight:600;line-height:1.15;margin:0 0 8px;color:var(--apx-black)}
 #apx-matrix .apx-sub{font-size:16px;color:var(--apx-muted);margin:0;max-width:60ch}
 #apx-matrix .apx-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px}
-#apx-matrix input,#apx-matrix select{font:inherit;font-size:16px;color:var(--apx-ink);background:var(--apx-bg);border:1px solid var(--apx-line);
+#apx-matrix input,#apx-matrix .apx-dd-btn{font:inherit;font-size:16px;color:var(--apx-ink);background:var(--apx-bg);border:1px solid var(--apx-line);
 border-radius:10px;padding:10px 12px;min-height:44px}
 #apx-matrix input{flex:1 1 220px;min-width:0}
-#apx-matrix select{flex:0 1 220px}
-#apx-matrix input:focus,#apx-matrix select:focus,#apx-matrix button:focus-visible,#apx-matrix a:focus-visible,#apx-matrix summary:focus-visible{outline:2px solid var(--apx-red);outline-offset:2px}
+#apx-matrix .apx-dd{position:relative;flex:0 1 240px}
+#apx-matrix .apx-dd-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;cursor:pointer;padding-right:10px}
+#apx-matrix .apx-dd-btn[aria-expanded="true"]{border-color:var(--apx-red)}
+#apx-matrix .apx-dd-arrow{width:18px;height:18px;fill:none;stroke:var(--apx-ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .15s}
+#apx-matrix .apx-dd-btn[aria-expanded="true"] .apx-dd-arrow{transform:rotate(180deg)}
+#apx-matrix .apx-dd-list{position:absolute;z-index:20;top:calc(100% + 4px);left:0;right:0;margin:0;padding:4px;list-style:none;
+background:var(--apx-bg);border:1px solid var(--apx-line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.12);max-height:320px;overflow:auto}
+#apx-matrix .apx-dd-list:focus{outline:none}
+#apx-matrix .apx-dd-list li{padding:10px 12px;border-radius:7px;cursor:pointer;font-size:15px;color:var(--apx-ink)}
+#apx-matrix .apx-dd-list li[aria-selected="true"]{font-weight:600;color:var(--apx-red)}
+#apx-matrix .apx-dd-list li:hover,#apx-matrix .apx-dd-list li.apx-act{background:var(--apx-red);color:#fff}
+#apx-matrix input:focus,#apx-matrix button:focus-visible,#apx-matrix a:focus-visible,#apx-matrix summary:focus-visible{outline:2px solid var(--apx-red);outline-offset:2px}
 #apx-matrix .apx-seg{display:inline-flex;border:1px solid var(--apx-line);border-radius:10px;padding:3px;background:var(--apx-soft)}
 #apx-matrix .apx-seg button{font:inherit;font-size:14px;font-weight:500;border:0;background:transparent;color:var(--apx-muted);
 padding:8px 14px;border-radius:7px;cursor:pointer;min-height:36px}
@@ -144,7 +155,7 @@ padding:12px 18px;border-radius:10px;min-height:44px}
 #apx-matrix .apx-wrap,#apx-matrix .apx-legend{display:none}
 #apx-matrix .apx-mobile{display:block}
 #apx-matrix .apx-controls{gap:8px}
-#apx-matrix input,#apx-matrix select,#apx-matrix .apx-seg{flex:1 1 100%}
+#apx-matrix input,#apx-matrix .apx-dd,#apx-matrix .apx-seg{flex:1 1 100%}
 #apx-matrix .apx-seg button{flex:1}
 #apx-matrix .apx-cta{padding:18px}
 #apx-matrix .apx-btn{flex:1 1 100%}}
@@ -159,11 +170,11 @@ ph='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 2.5l1.6 3-1.3 1.2a
 chev='<svg class="apx-chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg>',
 LB={y:'Available',c:'Call to confirm',n:'Not offered'},h='<tr><th scope="col">Area</th>',b='',c='';
 S.forEach(function(s){h+='<th scope="col" data-s="'+s[0]+'"><a href="'+D.site+s[3]+'" title="'+e(s[1])+'">'+e(s[2])+'</a></th>'});
-[['c','Cities &amp; towns','city'],['o','Counties','county']].forEach(function(g){
-b+='<tr class="apx-group" data-type="'+g[2]+'"><th scope="rowgroup" colspan="'+(S.length+1)+'">'+g[1]+'</th></tr>';
-c+='<h3 class="apx-cgroup" data-type="'+g[2]+'">'+g[1]+'</h3>';
+[['city','Cities &amp; towns'],['county','Counties']].forEach(function(g){
+b+='<tr class="apx-group" data-type="'+g[0]+'"><th scope="rowgroup" colspan="'+(S.length+1)+'">'+g[1]+'</th></tr>';
+c+='<h3 class="apx-cgroup" data-type="'+g[0]+'">'+g[1]+'</h3>';
 D.a.forEach(function(a){if(a[1]!==g[0])return;
-var at=' data-type="'+g[2]+'" data-name="'+e(a[0].toLowerCase())+'" data-st="'+a[4]+'"',bd=a[3]?'<span class="apx-badge">Home base</span>':'',
+var at=' data-type="'+g[0]+'" data-name="'+e(a[0].toLowerCase())+'" data-st="'+a[4]+'"',bd=a[3]?'<span class="apx-badge">Home base</span>':'',
 L={y:'',c:'',n:''},cnt={y:0,c:0,n:0};
 b+='<tr class="apx-row"'+at+'><th scope="row"><a href="'+D.site+a[2]+'">'+e(a[0])+'</a>'+bd+'</th>';
 S.forEach(function(s,i){var st=a[4][i],l=e(s[1]+' in '+a[0]),d=' data-s="'+s[0]+'"';cnt[st]++;
@@ -179,9 +190,9 @@ c+='<details class="apx-card"'+at+'><summary><span class="apx-cname">'+e(a[0])+b
 ['y','c','n'].forEach(function(k){if(L[k])c+='<h4>'+LB[k]+'</h4><ul class="apx-chips">'+L[k]+'</ul>'});
 c+='<a class="apx-clink" href="'+D.site+a[2]+'">View '+e(a[0])+' page &rarr;</a></div></details>'})});
 r.querySelector('thead').innerHTML=h+'</tr>';r.querySelector('tbody').innerHTML=b;r.querySelector('.apx-cards').innerHTML=c;
-var q=r.querySelector('.apx-q'),sel=r.querySelector('.apx-svc'),seg=r.querySelectorAll('.apx-seg button'),
+var q=r.querySelector('.apx-q'),svc='',seg=r.querySelectorAll('.apx-seg button'),
 items=r.querySelectorAll('.apx-row,.apx-card'),groups=r.querySelectorAll('.apx-group,.apx-cgroup'),empty=r.querySelectorAll('.apx-empty'),type='all';
-function run(){var t=q.value.trim().toLowerCase(),s=sel.value,si=ids.indexOf(s),n=0,seen={},last=null;
+function run(){var t=q.value.trim().toLowerCase(),s=svc,si=ids.indexOf(s),n=0,seen={},last=null;
 items.forEach(function(it){var st=it.dataset.st,ok=(type==='all'||it.dataset.type===type)&&(!t||it.dataset.name.indexOf(t)>-1)&&
 (si<0||st.charAt(si)!=='n');it.hidden=!ok;if(ok){seen[it.dataset.type]=1;if(it.tagName==='DETAILS'){n++;last=it}}
 var p=it.querySelector('.apx-sel');if(p){p.hidden=si<0;if(si>-1){p.className='apx-sel '+st.charAt(si);p.textContent=S[si][1]+': '+LB[st.charAt(si)]}}});
@@ -190,7 +201,23 @@ r.querySelectorAll('[data-hl]').forEach(function(x){x.removeAttribute('data-hl')
 if(s)r.querySelectorAll('[data-s="'+s+'"]').forEach(function(x){x.setAttribute('data-hl','')});
 if(t&&n===1)last.open=true;
 empty.forEach(function(x){x.style.display=n?'none':'block'})}
-q.addEventListener('input',run);sel.addEventListener('change',run);
+q.addEventListener('input',run);
+var dd=r.querySelector('.apx-dd'),btn=dd.querySelector('.apx-dd-btn'),ls=dd.querySelector('.apx-dd-list'),
+op=[].slice.call(ls.querySelectorAll('li')),ai=0;
+function act(i){ai=Math.max(0,Math.min(op.length-1,i));op.forEach(function(o,j){o.classList.toggle('apx-act',j===ai)});
+ls.setAttribute('aria-activedescendant',op[ai].id);op[ai].scrollIntoView({block:'nearest'})}
+function open(){ls.hidden=false;btn.setAttribute('aria-expanded','true');act(op.findIndex(function(o){return o.dataset.v===svc}));ls.focus()}
+function close(f){ls.hidden=true;btn.setAttribute('aria-expanded','false');op.forEach(function(o){o.classList.remove('apx-act')});if(f)btn.focus()}
+function pick(i){var o=op[i];svc=o.dataset.v;op.forEach(function(x){x.setAttribute('aria-selected',String(x===o))});
+dd.querySelector('.apx-dd-val').textContent=o.textContent;close(true);run()}
+btn.addEventListener('click',function(){ls.hidden?open():close(true)});
+btn.addEventListener('keydown',function(ev){if(ev.key==='ArrowDown'||ev.key==='ArrowUp'){ev.preventDefault();open()}});
+ls.addEventListener('keydown',function(ev){var k=ev.key;
+if(k==='ArrowDown'){ev.preventDefault();act(ai+1)}else if(k==='ArrowUp'){ev.preventDefault();act(ai-1)}
+else if(k==='Home'){ev.preventDefault();act(0)}else if(k==='End'){ev.preventDefault();act(op.length-1)}
+else if(k==='Enter'||k===' '){ev.preventDefault();pick(ai)}else if(k==='Escape'){ev.preventDefault();close(true)}else if(k==='Tab'){close(false)}});
+op.forEach(function(o,i){o.addEventListener('mousemove',function(){if(ai!==i)act(i)});o.addEventListener('click',function(){pick(i)})});
+document.addEventListener('click',function(ev){if(!ls.hidden&&!dd.contains(ev.target))close(false)});
 seg.forEach(function(x){x.addEventListener('click',function(){type=x.dataset.type;
 seg.forEach(function(y){y.setAttribute('aria-pressed',String(y===x))});run()})});})();
 """
@@ -210,7 +237,10 @@ SNIPPET = f"""<!-- Assure Plumbing & Septic: service-by-area matrix (generated b
       <button type="button" data-type="city" aria-pressed="false">Cities</button>
       <button type="button" data-type="county" aria-pressed="false">Counties</button>
     </div>
-    <select class="apx-svc" aria-label="Filter by service"><option value="">All services</option>{options}</select>
+    <div class="apx-dd">
+      <button type="button" class="apx-dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Filter by service"><span class="apx-dd-val">All services</span><svg class="apx-dd-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 8l5 5 5-5"/></svg></button>
+      <ul class="apx-dd-list" role="listbox" tabindex="-1" aria-label="Filter by service" hidden><li role="option" id="apx-o-all" data-v="" aria-selected="true">All services</li>{options}</ul>
+    </div>
   </div>
   <ul class="apx-legend">
     <li><span class="apx-key y">&#10003;</span>Available</li>

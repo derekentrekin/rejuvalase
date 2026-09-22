@@ -4,7 +4,7 @@ An embeddable table for www.assureplumbingva.com showing which services are offe
 
 ## Install (Webflow)
 1. Add an **Embed** element where the matrix should appear (for example on `/locations` or `/services`).
-2. Paste the full contents of `embed.html` (about 18K characters, under Webflow's 50K limit).
+2. Paste the full contents of `embed.html` (about 22K characters, under Webflow's 50K limit).
 3. Publish. The widget uses the site's existing **Outfit** font, and all styles are scoped to `#apx-matrix`.
 
 ## Editing
